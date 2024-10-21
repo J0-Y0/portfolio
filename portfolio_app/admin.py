@@ -1,3 +1,88 @@
 from django.contrib import admin
+from .models import (
+    About,
+    Address,
+    SocialLink,
+    Education,
+    Project,
+    Skill,
+    Experience,
+    Blog,
+    Tag,
+)
 
-# Register your models here.
+
+# --- Inlines ---
+class SocialLinkInline(admin.TabularInline):
+    model = SocialLink
+    extra = 1  # Allows one empty form for new entries
+
+
+class SkillInline(admin.TabularInline):
+    model = Project.skills_used.through  # Many-to-many inline between Project and Skill
+    extra = 1
+
+
+class TagInline(admin.TabularInline):
+    model = Project.tags.through  # Many-to-many inline between Project and Tag
+    extra = 1
+
+
+# --- ModelAdmin Classes ---
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    list_display = ["__str__"]
+
+
+@admin.register(Address)
+class AddressAdmin(admin.ModelAdmin):
+    list_display = ["city", "region", "country"]
+
+
+@admin.register(SocialLink)
+class SocialLinkAdmin(admin.ModelAdmin):
+    list_display = ["social_media_name", "username_url"]
+    search_fields = ["social_media_name"]
+
+
+@admin.register(Education)
+class EducationAdmin(admin.ModelAdmin):
+    list_display = ["institution", "degree", "start_date", "end_date"]
+    search_fields = ["institution", "degree"]
+    list_filter = ["start_date", "end_date"]
+
+
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ["title"]
+    search_fields = ["title"]
+    inlines = [SkillInline, TagInline]
+    filter_horizontal = ["skills_used", "tags"]  # Makes M2M fields easier to manage
+
+
+@admin.register(Skill)
+class SkillAdmin(admin.ModelAdmin):
+    list_display = ["name"]
+    search_fields = ["name"]
+    inlines = [TagInline]  # Displaying M2M relation with tags in the admin
+
+
+@admin.register(Experience)
+class ExperienceAdmin(admin.ModelAdmin):
+    list_display = ["job_title", "company", "start_date", "end_date"]
+    search_fields = ["job_title", "company"]
+    list_filter = ["start_date", "end_date"]
+
+
+@admin.register(Blog)
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ["title", "published_date", "publisher"]
+    search_fields = ["title", "publisher"]
+    list_filter = ["published_date"]
+    filter_horizontal = ["tags"]  # Manage M2M tags conveniently
+
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ["name"]
+    search_fields = ["name"]

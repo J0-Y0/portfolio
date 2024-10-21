@@ -9,10 +9,10 @@ class About(models.Model):
 
 
 class Address(models.Model):
-    street = models.CharField(max_length=255)
     city = models.CharField(max_length=100)
-    state = models.CharField(max_length=100)
-    zip_code = models.CharField(max_length=20)
+    region = models.CharField(
+        max_length=100, blank=True, null=True
+    )  # optional if you dont want to specify region
     country = models.CharField(max_length=100)
 
     def __str__(self):
@@ -21,11 +21,10 @@ class Address(models.Model):
 
 class SocialLink(models.Model):
     social_media_name = models.CharField(max_length=50)
-    link = models.URLField()
+    username_url = models.URLField()
     social_logo = models.ImageField(
         upload_to="social_logos/"
     )  # Ensure you have Pillow installed
-    account = models.CharField(max_length=100)
 
     def __str__(self):
         return self.social_media_name
@@ -45,10 +44,8 @@ class Education(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
-    problem_statement = models.TextField()
-    tags = models.CharField(
-        max_length=100
-    )  # Could also use a ManyToManyField for multiple tags
+    problem_statement = models.TextField(null=True, blank=True)  # optional
+    tags = models.ManyToManyField("tag", related_name="projects")
     skills_used = models.ManyToManyField("Skill", related_name="projects")
     explored = models.TextField()
 
@@ -58,7 +55,7 @@ class Project(models.Model):
 
 class Skill(models.Model):
     name = models.CharField(max_length=100)
-    tag = models.CharField(max_length=50)
+    tags = models.ManyToManyField("tag", related_name="skills")
     description = models.TextField()  # "What I have done with it"
 
     def __str__(self):
@@ -78,9 +75,14 @@ class Experience(models.Model):
 
 class Blog(models.Model):
     title = models.CharField(max_length=200)
-    content = models.TextField()
+    description = models.TextField()
     published_date = models.DateField()
-    tags = models.CharField(max_length=100)  # Optional
+    publisher = models.CharField(max_length=100)  # Optional
+    tags = models.ManyToManyField("tag", related_name="blogs")
 
     def __str__(self):
         return self.title
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=100)
