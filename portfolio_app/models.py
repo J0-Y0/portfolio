@@ -45,7 +45,7 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     problem_statement = models.TextField(null=True, blank=True)  # optional
-    tags = models.ManyToManyField("tag", related_name="projects")
+    tags = models.ManyToManyField("Tag", related_name="projects")
     skills_used = models.ManyToManyField("Skill", related_name="projects")
     explored = models.TextField()
 
@@ -55,7 +55,7 @@ class Project(models.Model):
 
 class Skill(models.Model):
     name = models.CharField(max_length=100)
-    tags = models.ManyToManyField("tag", related_name="skills")
+    tags = models.ManyToManyField("Tag", related_name="skills")
     description = models.TextField()  # "What I have done with it"
 
     def __str__(self):
@@ -78,7 +78,7 @@ class Blog(models.Model):
     description = models.TextField()
     published_date = models.DateField()
     publisher = models.CharField(max_length=100)  # Optional
-    tags = models.ManyToManyField("tag", related_name="blogs")
+    tags = models.ManyToManyField("Tag", related_name="blogs")
 
     def __str__(self):
         return self.title
@@ -86,3 +86,7 @@ class Blog(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

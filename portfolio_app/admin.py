@@ -18,13 +18,14 @@ class SocialLinkInline(admin.TabularInline):
     extra = 1  # Allows one empty form for new entries
 
 
-class SkillInline(admin.TabularInline):
-    model = Project.skills_used.through  # Many-to-many inline between Project and Skill
+# Define many-to-many through inline (if needed)
+class ProjectSkillsInline(admin.TabularInline):
+    model = Project.skills_used.through  # Use the intermediary table
     extra = 1
 
 
-class TagInline(admin.TabularInline):
-    model = Project.tags.through  # Many-to-many inline between Project and Tag
+class ProjectTagsInline(admin.TabularInline):
+    model = Project.tags.through  # Use the intermediary table
     extra = 1
 
 
@@ -56,15 +57,15 @@ class EducationAdmin(admin.ModelAdmin):
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ["title"]
     search_fields = ["title"]
-    inlines = [SkillInline, TagInline]
-    filter_horizontal = ["skills_used", "tags"]  # Makes M2M fields easier to manage
+    inlines = [ProjectSkillsInline, ProjectTagsInline]
+    filter_horizontal = ["skills_used", "tags"]  # Manage M2M relationships
 
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
     list_display = ["name"]
     search_fields = ["name"]
-    inlines = [TagInline]  # Displaying M2M relation with tags in the admin
+    filter_horizontal = ["tags"]  # Manage M2M relationship with tags
 
 
 @admin.register(Experience)
@@ -79,7 +80,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_display = ["title", "published_date", "publisher"]
     search_fields = ["title", "publisher"]
     list_filter = ["published_date"]
-    filter_horizontal = ["tags"]  # Manage M2M tags conveniently
+    filter_horizontal = ["tags"]
 
 
 @admin.register(Tag)
