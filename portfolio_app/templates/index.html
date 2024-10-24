@@ -2,6 +2,13 @@
 
 {% block content %}
   {% include 'navbar.html' %}
-  {% include 'about.html' %}
+
+  <div class="container-sm container-fluid mycard">
+    <div class="row mt-5 pt-5 px-md-5 mx-lg-5">
+      {% include 'education.html' %}
+    </div>
+  </div>
+
+  {% comment %} {% include 'about.html' %} {% endcomment %}
   {% include 'footer.html' %}
 {% endblock %}
