@@ -2,8 +2,13 @@
 
 <div class="offcanvas offcanvas-end side-menu" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
-    <button type="button" class="btn-close bg-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">
+      <button class="me-5 btn btn-sm btn-outline-warning" type="button">
+        <i class="fa-regular fa-circle-down"></i>
+        Resume
+      </button>
+    </h5>
+    <button type="button" class="btn-close bg-warning" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">...</div>
   {% comment %} {% include 'footer.html' %} {% endcomment %}
@@ -35,11 +40,10 @@
         </li>
       </ul>
       <button class="me-5 btn btn-sm btn-outline-warning" type="button">
-        <img data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" src="{% static 'img/download.png' %}" alt="Logo" width="30" height="30" class="rounded rounded-5 p-1 d-inline-block" />
-
+        <i class="fa-regular fa-circle-down"></i>
         Resume
       </button>
-      <img data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" src="{% static 'img/menu.png' %}" alt="Logo" width="45" height="45" class="rounded rounded-5 p-1 d-inline-block btn-sm bg-warning" />
+      <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="btn btn-md btn-outline-warning rounded rounded-pill"><i class="fa-solid fa-bars"></i></button>
     </div>
   </div>
 </nav>

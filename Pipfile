@@ -7,6 +7,8 @@ name = "pypi"
 django = "*"
 pillow = "*"
 python-dotenv = "*"
+fontawesomefree = "*"
+fontawesome-free = "*"
 
 [dev-packages]
 
