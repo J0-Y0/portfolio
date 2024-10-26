@@ -10,35 +10,33 @@
     </h5>
     <button type="button" class="btn-close bg-warning" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body">...</div>
-  {% comment %} {% include 'footer.html' %} {% endcomment %}
+  <div class="offcanvas-body">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="text-warning nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Education</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Exprience</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">Projects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+    </ul>
+  </div>
 </div>
 
-<nav class="navbar py-sm-3 py-3 navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+<nav class="navbar">
   <div class="container-fluid">
-    <img src="{% static 'img/logo_2.png' %}" alt="Logo" width="45" height="45" class="p-1 d-inline-block align-text-top" />
+    <img src="{% static 'img/logo_2.png' %}" alt="Logo" width="55" height="55" class="p-1 navbar-brand" />
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="text-warning nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Education</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Exprience</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
+    <div>
       <button class="me-5 btn btn-sm btn-outline-warning" type="button">
         <i class="fa-regular fa-circle-down"></i>
         Resume
