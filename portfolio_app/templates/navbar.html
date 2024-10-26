@@ -1,13 +1,24 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+{% load static %}
+
+<div class="offcanvas offcanvas-end side-menu" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+    <button type="button" class="btn-close bg-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">...</div>
+  {% comment %} {% include 'footer.html' %} {% endcomment %}
+</div>
+
+<nav class="navbar py-sm-3 py-3 navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><i><u>=joseph=</u></i></a>
+    <img src="{% static 'img/logo_2.png' %}" alt="Logo" width="45" height="45" class="p-1 d-inline-block align-text-top" />
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="text-warning nav-link" href="#">About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Education</a>
@@ -23,7 +34,12 @@
           <a class="nav-link" href="#">Contact</a>
         </li>
       </ul>
-      <button class="btn btn-sm btn-outline-secondary" type="button">Get my resume</button>
+      <button class="me-5 btn btn-sm btn-outline-warning" type="button">
+        <img data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" src="{% static 'img/download.png' %}" alt="Logo" width="30" height="30" class="rounded rounded-5 p-1 d-inline-block" />
+
+        Resume
+      </button>
+      <img data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" src="{% static 'img/menu.png' %}" alt="Logo" width="45" height="45" class="rounded rounded-5 p-1 d-inline-block btn-sm bg-warning" />
     </div>
   </div>
 </nav>
