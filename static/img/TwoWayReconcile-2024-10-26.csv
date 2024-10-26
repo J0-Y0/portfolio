@@ -1,0 +1,7 @@
+id,cbs_file,teller_x_file,status,date,cash_movement,remark
+150,10,,not_found,2024-06-02,__,TellerX transaction for FT24153TXWH3;2 not found
+145,5,5,pending,2024-06-02,__,"Date mismatch,TelerX:2024-06-01,CBS:2024-06-02"
+143,3,3,matched,2024-06-01,__,_
+140,10,,not_found,2024-06-02,__,TellerX transaction for FT24153TXWH3;2 not found
+135,5,5,pending,2024-06-02,__,"Date mismatch,TelerX:2024-06-01,CBS:2024-06-02"
+133,3,3,matched,2024-06-01,__,_
