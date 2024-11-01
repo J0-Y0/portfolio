@@ -1,6 +1,6 @@
 {% load static %}
 
-<div class="offcanvas offcanvas-end side-menu" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+{% comment %} <div class="offcanvas offcanvas-end side-menu" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasRightLabel">
       <button class="me-5 btn btn-sm btn-outline-warning" type="button">
@@ -30,18 +30,46 @@
       </li>
     </ul>
   </div>
-</div>
+</div> {% endcomment %}
 
-<nav class="navbar">
+<nav class="navbar navbar-expand-lg nanbar">
+  <img src="{% static 'img/logo_2.png' %}" alt="Logo" width="35" height="35" class="p-1 navbar-brand" />
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+  <div class="container-fluid d-flex flex-row">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="text-warning nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Exprience</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+      <button class="btn btn-sm btn-outline-warning" type="button">
+        <i class="fa-regular fa-circle-down"></i>
+        Resume
+      </button>
+    </div>
+  </div>
+</nav>
+
+{% comment %} <nav class="navbar">
   <div class="container-fluid">
     <img src="{% static 'img/logo_2.png' %}" alt="Logo" width="55" height="55" class="p-1 navbar-brand" />
 
     <div>
-      <button class="me-5 btn btn-sm btn-outline-warning" type="button">
-        <i class="fa-regular fa-circle-down"></i>
-        Resume
-      </button>
       <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="btn btn-md btn-outline-warning rounded rounded-pill"><i class="fa-solid fa-bars"></i></button>
     </div>
   </div>
-</nav>
+</nav> {% endcomment %}
