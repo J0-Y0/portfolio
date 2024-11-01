@@ -20,5 +20,23 @@
     {% endblock %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.experience-card[data-duration]')
+        let totalDuration = 0
+      
+        // Calculate total duration
+        cards.forEach((card) => {
+          totalDuration += parseInt(card.getAttribute('data-duration'), 10)
+        })
+      
+        // Set each card’s width relative to the total duration
+        cards.forEach((card) => {
+          const duration = parseInt(card.getAttribute('data-duration'), 10)
+          const widthPercentage = (duration / totalDuration) * 100
+          card.style.width = `${widthPercentage}%`
+        })
+      })
+    </script>
   </body>
 </html>

@@ -1,25 +1,28 @@
-{% comment %} <div class="col-md-2">
-  <div class="education-timeline">
-    <p class="education-title">Education</p>
-    <p>2018</p>
-    <div class="vertical-divider"></div>
-    <p>2022</p>
-  </div>
-</div> {% endcomment %}
-
-<div class="col-md-10">
-  <p class="degree-title">B.Sc. in Electrical and Computer Engineering</p>
-  <p class="institution-name">Addis Ababa Science and Technology University</p>
-
-  <p class="program-details">
-    My studies included comprehensive training in advanced topics:<ul>
-      <li>Programming (C++, Java, Python)</li>
+{% load static %}
+<div class="row">
+  <div class="col-md-7">
+    <div class="header">
+      <h1>Education</h1>
+      <h2>Electrical & <span class="text-warning">Computer Engineering</span></h2>
+    </div>
+    <p class="degree-title text-muted">
+      B.Sc., Electrical & Computer Engineering <br />
+      Addis Ababa Science and Technology University <br />
+      Addis Ababa, Ethiopia <br /> 2018 - 2022
+    </p>
+    <p class="mb-0">Key areas of study:</p>
+    <ul>
+      <li>Programming (Assembly, C++, Java, Python)</li>
       <li>Database Management</li>
-      <li>Distributed and Parallel Computing, Socket Programming</li>
-      <li>Cybersecurity and Computer Networking</li>
-      <li>Microcontroller and Interfacing (Embedded Systems, Raspberry Pi)</li>
+      <li>Distributed & Parallel Computing</li>
+      <li>Cybersecurity & Networking</li>
+      <li>Operating Systems</li>
+      <li>Embedded Systems (Microcontrollers, Raspberry Pi)</li>
     </ul>
-  </p>
-
-  <button type="button" class="btn btn-sm btn-outline-warning rounded-5 my-1">W</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary rounded-5 my-1">Final Year Project</button>
+    <a target="_blank" href="http://www.aastu.edu.et/" class="btn btn-sm btn-outline-secondary rounded-5 my-1">Visit School</a>
+  </div>
+  <div class="col-md-5">
+    <img class="side-img" src="{% static 'img/workspace2.png' %}" alt="Workspace Image" />
+  </div>
 </div>
