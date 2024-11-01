@@ -1,0 +1,152 @@
+// body {
+//     background-color: #002642;
+//     color: rgb(129, 161, 189);
+//     height: 100vh;
+//     font-family: 'Roboto', sans-serif; // Stylish font
+
+//     .navbar {
+//         background-color: inherit !important;
+//     }
+
+//     .about,.education{
+//         display: flex;
+//         flex-direction: row; // Adjusted for better layout
+//         align-items: center; // Center alignment
+//         width: 80vw;
+//         margin: 2% 5%;
+//         padding: 2%;
+//         border-radius: 20px; // Rounded corners for the container
+//         transition: transform 0.3s ease; // Smooth transition
+
+//         &:hover {
+//             border-radius: 50px;
+//             background: #002642;
+//             box-shadow: 20px 20px 60px rgba(0, 32, 56, 0.6), 
+//                         -20px -20px 60px rgba(0, 44, 76, 0.6);
+//             transform: translateY(-5px); // Lift effect on hover
+//         }
+
+//         &-content {
+//             padding: 2% 5% 2% 2%;
+//             text-align: start; // Center text within content
+//             width: 60%;
+//         }
+
+//         &-title {
+//             color: rgb(255, 170, 0);
+//             font-size: 3rem; // Increased font size for title
+//             margin-bottom: 10px; // Spacing below title
+//             transition: transform 0.5s ease; // Transition for title
+
+//             &:hover {
+//                 transform: scale(1.1) rotate(-3deg); // Creative hover effect
+//             }
+//         }
+
+//         &-title-sub {
+//             color: rgb(255, 170, 0);
+//             font-size: 1.5rem; // Increased sub-title size
+//         }
+
+//         &-img {
+//             width: 100%; // Make image responsive
+//             max-width: 600px; // Maximum width for larger screens
+//             height: auto; // Maintain aspect ratio
+//             border-radius: 20%;
+//             border: 2px solid rgb(255, 170, 0); // Changed to a more modern border color
+//             background-color: rgba(52, 102, 211, 0.1); // Slightly more transparent
+//             margin-bottom: 15px; // Spacing below the image
+//             transition: transform 0.3s ease; // Smooth scaling on hover
+
+//             &:hover {
+//                 transform: scale(1.05); // Scale effect on hover
+//             }
+//         }
+        
+//     }
+
+
+// .mycard{
+//         align-items: center; // Center alignment
+//         //  width: 80vw;
+//        // margin: 2% 5%;
+//         padding-bottom: 2%;
+//         border-radius: 20px; // Rounded corners for the container
+//         transition: transform 0.3s ease; // Smooth transition
+//          &:hover {
+//             border-radius: 50px;
+//             background: #002642;
+//             box-shadow: 20px 20px 60px rgba(32, 55, 73, 0.6), 
+//                         -20px -20px 60px rgba(0, 44, 76, 0.6);
+//             transform: translateY(-5px); // Lift effect on hover
+//         }
+//         &-title-1{
+//             color: rgb(255, 170, 0);
+//             font-size: 2rem; // Increased font size for title
+//             margin-bottom: 10px; // Spacing below title
+//         }
+//         &-title-2{
+//             padding-top: 1.5%;
+//             color: rgba(238, 167, 24, 0.74);
+//             font-size: 1.8rem; // Increased sub-title size
+//         }
+//         &-title-3{
+//             padding-top: 1.5%;
+//             // color: rgba(238, 167, 24, 0.74);
+//             // font-size: 1.8rem; // Increased sub-title size
+//         }
+//         &-content {
+//                     padding: 2% 5% 2% 2%;
+//                     text-align: start; // Center text within content
+//                     // width: 60%;
+//         }
+//         &-time-gap{
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: end;
+//         align-items: end;
+//         .vertical-hr {
+//             height: 100px; /* Height of the vertical line */
+//             border-left:rgba(255, 174, 0, 0.747) solid 2px;
+//             margin:0 8% 8% 5%;
+           
+//         } 
+
+//     }
+    
+// }
+
+
+
+// .side-menu{   
+//     background-color: #002642;
+//       color: rgb(129, 161, 189);
+
+
+
+// a {
+//     position: relative;
+//     display: inline-block;
+// }
+
+// a::before {
+//     content: "";
+//     position: absolute;
+//     bottom: -2px;
+//     left: 0;
+//     width: 0%;
+//     height: 2px;
+//     background-color: red;
+//     transition: width 0.3s ease-in-out;
+// }
+
+
+// a:hover::before {
+//     width: 100%; /* Expands underline from left to right on hover */
+// }
+
+
+// }
+    
+// }
+   

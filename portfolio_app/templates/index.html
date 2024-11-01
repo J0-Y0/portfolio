@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  {% include 'navbar.html' %}
+  <div class="container" data-bs-theme="dark">
+    {% include 'navbar.html' %}
 
-  <div class="container-sm container-fluid mycard">
     <div class="row mt-5 pt-5 px-md-5 mx-lg-5">
-      {% comment %} {% include 'about.html' %} {% endcomment %}
-      {% include 'education.html' %}
+      {% include 'about.html' %}
+      {% comment %} {% include 'education.html' %} {% endcomment %}
       {% comment %} {% include 'about.html' %} {% endcomment %}
       {% comment %} {% include 'about.html' %} {% endcomment %}
     </div>
