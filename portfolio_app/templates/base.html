@@ -18,47 +18,7 @@
     {% block content %}
 
     {% endblock %}
-    {% comment %} <script>
-        window.addEventListener('scroll', () => {
-          console.log('Checking if scroll reached bottom...======')
-        
-          if (!isScrolling) {
-            isScrolling = true
-            setTimeout(() => {
-              checkScrollBottom()
-              isScrolling = false
-            }, 100)
-          }
-        })
-        // List of Django page URLs
-        const pages = ["{% url 'about' %}", "{% url 'education' %}", "{% url 'experience' %}"]
-        let currentPageIndex = 0
-        let isScrolling = false
-        
-        // Function to check if the user has reached the bottom
-        function checkScrollBottom() {
-          // Debug log to verify the function is triggered
-          console.log('Checking if scroll reached bottom...')
-        
-          if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 20) {
-            console.log('Bottom reached! Navigating to next page.')
-            goToNextPage()
-          }
-      }
-      
-      // Function to navigate to the next page
-      function goToNextPage() {
-        currentPageIndex += 1
-        if (currentPageIndex < pages.length) {
-          console.log('Navigating to:', pages[currentPageIndex]) // Debug log
-          window.location.href = pages[currentPageIndex]
-        } else {
-          console.log('You have reached the last page.') // Handle last page case
-        }
-      }
-      
-      // Throttle the scroll event for smoother checks
-    </script> {% endcomment %}
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
