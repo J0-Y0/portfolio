@@ -236,4 +236,7 @@ p{
   object-fit: cover; /* Ensures the image covers the container */
   object-position: center; /* Center the image within the container */
 }
+input,textarea{
+    background-color: $bg-200 !important;
+}
 }

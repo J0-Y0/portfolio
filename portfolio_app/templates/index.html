@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
+  <div class="w-25"></div>
   <div class="container align-items-center" style="height: 100vh;" data-bs-theme="dark">
     {% include 'navbar.html' %}
 
-    <div class="row mt-5">
+    <div class="row mt-5" style="padding-left:  2rem;
+    padding-right:  2rem;">
       {% include page %}
     </div>
   </div>
+  {% include 'components/social_account.html' %}
+
   {% include 'footer.html' %}
 {% endblock %}

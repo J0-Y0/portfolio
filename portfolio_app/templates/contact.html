@@ -1,0 +1,26 @@
+{% load static %}
+<div class="row my-5 gx-5 d-flex justify-content-center">
+  <h2 class="text-center mb-3">Get in Touch</h2>
+  <p class="text-muted text-center mb-4">Have a question or want to work together with me? Drop a message below! I will reach you soon.</p>
+
+  <div class="col-6">
+    <form>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+      </div>
+
+      <div class="mb-4">
+        <label for="message" class="form-label fw-semibold">Your Message</label>
+        <textarea class="form-control" id="message" rows="4" placeholder="Write your message here..." required></textarea>
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-warning rounded-pill submit-btn">Send Message</button>
+      </div>
+    </form>
+  </div>
+  <div class="d-sm-none d-md-block col-4 overflow-hidden" style="margin-top: -100px;">
+    <img class="rounded rounded-5 full-width-image" src="{% static 'img/path4.png' %}" alt="" />
+  </div>
+</div>

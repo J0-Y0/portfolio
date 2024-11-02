@@ -1,350 +1,108 @@
-<div class="tooltip-container">
-  <span class="text">
-    <svg viewBox="0 0 16 16" class="bi bi-send-fill" height="22" width="22" xmlns="http://www.w3.org/2000/svg">
-      <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z"></path>
-    </svg>
-  </span>
-  <span class="tooltip1">
-    <svg viewBox="0 0 16 16" class="bi bi-linked-in" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" d="M1.5 0a1.5 1.5 0 0 0 0 3h13a1.5 1.5 0 0 0 0-3h-13zM0 3.5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1v-10zM4 5h8v1H4V5zm0 2h8v1H4V7zm0 2h8v1H4v-1zm-2 1h1v1H2v-1zm1 0h1v1H3v-1z"></path>
-    </svg>
-  </span>
-  <span class="tooltip2">
-    <svg viewBox="0 0 16 16" class="bi bi-github" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" d="M8 0a8 8 0 0 0-2.53 15.588c.4.074.55-.173.55-.384v-1.42c-2.15.465-2.62-1.035-2.62-1.035-.354-.9-.866-1.142-.866-1.142-.707-.48.054-.47.054-.47.78.054 1.24.8 1.24.8.693 1.188 1.82.845 2.26.645.07-.5.272-.845.493-1.04-1.72-.196-3.52-.86-3.52-3.82a2.99 2.99 0 0 1 .785-2.073c-.079-.195-.34-.97.073-2.023 0 0 .65-.208 2.13.785a7.396 7.396 0 0 1 1.93-.26 7.38 7.38 0 0 1 1.93.26c1.48-.993 2.13-.785 2.13-.785.414 1.053.153 1.828.075 2.023A2.99 2.99 0 0 1 12 7.318c0 2.963-1.8 3.622-3.52 3.818.281.242.54.725.54 1.46v2.165c0 .215.15.464.56.384A8 8 0 0 0 8 0"></path>
-    </svg>
-  </span>
-  <span class="tooltip3">
-    <svg viewBox="0 0 16 16" class="bi bi-whatsapp" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
-      <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
-    </svg>
-  </span>
-
-  <span class="tooltip9"></span>
-  <style>
-    /* From Uiverse.io by ElgyoshiMa91846 */
-    /* This is an example, feel free to delete this code */
-    .tooltip-container {
-      background: rgb(3, 169, 244);
-      background: linear-gradient(138deg, rgba(3, 169, 244, 1) 15%, rgba(63, 180, 233, 1) 65%);
-      position: relative;
-      cursor: pointer;
-      font-size: 17px;
-      padding: 0.7em 0.7em;
-      border-radius: 50px;
-      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-    }
-    .tooltip-container:hover {
-      background: #fff;
-      transition: all 0.6s;
-    }
-    .tooltip-container .text {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      fill: #fff;
-      transition: all 0.2s;
-    }
-    .tooltip-container:hover .text {
-      fill: rgb(3, 169, 244);
-      transition: all 0.6s;
-    }
-    
-    /* Inicio do tooltip twitter */
-    .tooltip1 {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      visibility: hidden;
-      background: #fff;
-      fill: #03a9f4;
-      padding: 10px;
-      border-radius: 50px;
-      transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
-      z-index: 1;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    
-    .tooltip-container:hover .tooltip1 {
-      top: 150%;
-      opacity: 1;
-      visibility: visible;
-      background: #fff;
-      border-radius: 50px;
-      transform: translate(-50%, -5px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .tooltip-container:hover .tooltip1:hover {
-      background: #03a9f4;
-      fill: #fff;
-    }
-    /* Fim do tooltip twitter */
-    
-    /* Inicio do tooltip facebook */
-    .tooltip2 {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      visibility: hidden;
-      background: #fff;
-      fill: #0462df;
-      padding: 10px;
-      border-radius: 50px;
-      transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
-      z-index: 1;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    
-    .tooltip-container:hover .tooltip2 {
-      top: -120%;
-      opacity: 1;
-      visibility: visible;
-      background: #fff;
-      transform: translate(-50%, -5px);
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .tooltip-container:hover .tooltip2:hover {
-      background: #0462df;
-      fill: #fff;
-    }
-    /* Fim do tooltip facebook */
-    
-    /* Inicio do tooltip whatsApp */
-    .tooltip3 {
-      position: absolute;
-      top: 100%;
-      left: 60%;
-      transform: translateX(80%);
-      opacity: 0;
-      visibility: hidden;
-      background: #fff;
-      fill: #1db954;
-      padding: 10px;
-      border-radius: 50px;
-      transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
-      z-index: 1;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    
-    .tooltip-container:hover .tooltip3 {
-      top: 10%;
-      opacity: 1;
-      visibility: visible;
-      background: #fff;
-      transform: translate(85%, -5px);
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .tooltip-container:hover .tooltip3:hover {
-      background: #1db954;
-      fill: #fff;
-    }
-    /* Fim do tooltip whatsApp */
-    
-    /* Inicio do tooltip Discord */
-    .tooltip4 {
-      position: absolute;
-      top: 100%;
-      left: -190%;
-      transform: translateX(70%);
-      opacity: 0;
-      visibility: hidden;
-      background: #fff;
-      fill: #8c9eff;
-      padding: 10px;
-      border-radius: 50px;
-      transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
-      z-index: 1;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    
-    .tooltip-container:hover .tooltip4 {
-      top: 10%;
-      opacity: 1;
-      visibility: visible;
-      background: #fff;
-      transform: translate(70%, -5px);
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .tooltip-container:hover .tooltip4:hover {
-      background: #8c9eff;
-      fill: #fff;
-    }
-    /* Fim do tooltip Discord */
-    
-    /* Inicio do tooltip pinterest */
-    .tooltip5 {
-      position: absolute;
-      top: 100%;
-      left: -145%;
-      transform: translateX(70%);
-      opacity: 0;
-      visibility: hidden;
-      background: #fff;
-      fill: #bd081c;
-      padding: 10px;
-      border-radius: 50px;
-      transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
-      z-index: 1;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    
-    .tooltip-container:hover .tooltip5 {
-      top: -78%;
-      opacity: 1;
-      visibility: visible;
-      background: #fff;
-      transform: translate(70%, -5px);
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .tooltip-container:hover .tooltip5:hover {
-      background: #bd081c;
-      fill: #fff;
-    }
-    /* Fim do tooltip pinterest */
-    
-    /* Inicio do tooltip dribbble */
-    .tooltip6 {
-      position: absolute;
-      top: 100%;
-      left: 35%;
-      transform: translateX(70%);
-      opacity: 0;
-      visibility: hidden;
-      background: #fff;
-      fill: #ea4c89;
-      padding: 10px;
-      border-radius: 50px;
-      transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
-      z-index: 1;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    
-    .tooltip-container:hover .tooltip6 {
-      top: -79%;
-      opacity: 1;
-      visibility: visible;
-      background: #fff;
-      transform: translate(70%, -5px);
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .tooltip-container:hover .tooltip6:hover {
-      background: #ea4c89;
-      fill: #fff;
-    }
-    /* Fim do tooltip dribbble */
-    
-    /* Inicio do tooltip github */
-    .tooltip7 {
-      position: absolute;
-      top: 100%;
-      left: 39%;
-      transform: translateX(70%);
-      opacity: 0;
-      visibility: hidden;
-      background: #fff;
-      fill: #000;
-      padding: 10px;
-      border-radius: 50px;
-      transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
-      z-index: 1;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    
-    .tooltip-container:hover .tooltip7 {
-      top: 104%;
-      opacity: 1;
-      visibility: visible;
-      background: #fff;
-      transform: translate(70%, -5px);
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .tooltip-container:hover .tooltip7:hover {
-      background: #000;
-      fill: #fff;
-    }
-    /* Fim do tooltip github */
-    
-    /* Inicio do tooltip reddit */
-    .tooltip8 {
-      position: absolute;
-      top: 100%;
-      left: -150%;
-      transform: translateX(70%);
-      opacity: 0;
-      visibility: hidden;
-      background: #fff;
-      fill: #ff4500;
-      padding: 10px;
-      border-radius: 50px;
-      transition: opacity 0.3s, visibility 0.3s, top 0.3s, background 0.3s;
-      z-index: 1;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    
-    .tooltip-container:hover .tooltip8 {
-      top: 101%;
-      opacity: 1;
-      visibility: visible;
-      background: #fff;
-      transform: translate(70%, -5px);
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .tooltip-container:hover .tooltip8:hover {
-      background: #ff4500;
-      fill: #fff;
-    }
-    /* Fim do tooltip reddit */
-    
-    /* Inicio do tooltip fixo */
-    .tooltip9 {
-      position: absolute;
-      top: 0;
-      left: -115%;
-      opacity: 0;
-      visibility: hidden;
-      width: 150px;
-      height: 150px;
-      z-index: -1;
-    }
-    
-    .tooltip-container:hover .tooltip9 {
-      top: -110%;
-      opacity: 1;
-      visibility: visible;
-      border-radius: 50%;
-      z-index: -1;
-    }
-    /* Fim do tooltip fixo */
-    /* Por meio desse ultimo tooltip todos os outros podem
-    ficar fixos quando houver no principal, para vê-lo dê um
-    background black acima*/
-  </style>
+<div class="contact-social-container">
+  <button class="contact-me-btn">Contact Me</button>
+  <div class="social-icons">
+    <a href="https://linkedin.com" target="_blank" class="social-icon linkedin">
+      <svg fill="#000000" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512" xml:space="preserve">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+          <g>
+            <path d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M272.8,560.7 c-20.8,20.8-44.9,37.1-71.8,48.4c-27.8,11.8-57.4,17.7-88,17.7c-30.5,0-60.1-6-88-17.7c-26.9-11.4-51.1-27.7-71.8-48.4 c-20.8-20.8-37.1-44.9-48.4-71.8C-107,461.1-113,431.5-113,401s6-60.1,17.7-88c11.4-26.9,27.7-51.1,48.4-71.8 c20.9-20.8,45-37.1,71.9-48.5C52.9,181,82.5,175,113,175s60.1,6,88,17.7c26.9,11.4,51.1,27.7,71.8,48.4 c20.8,20.8,37.1,44.9,48.4,71.8c11.8,27.8,17.7,57.4,17.7,88c0,30.5-6,60.1-17.7,88C309.8,515.8,293.5,540,272.8,560.7z"></path> <rect x="-8.5" y="348.4" width="49.9" height="159.7"></rect> <path d="M15.4,273c-18.4,0-30.5,11.9-30.5,27.7c0,15.5,11.7,27.7,29.8,27.7h0.4c18.8,0,30.5-12.3,30.4-27.7 C45.1,284.9,33.8,273,15.4,273z"></path> <path d="M177.7,346.9c-28.6,0-46.5,15.6-49.8,26.6v-25.1H71.8c0.7,13.3,0,159.7,0,159.7h56.1v-86.3c0-4.9-0.2-9.7,1.2-13.1 c3.8-9.6,12.1-19.6,27-19.6c19.5,0,28.3,14.8,28.3,36.4v82.6H241v-88.8C241,369.9,213.2,346.9,177.7,346.9z"></path>
+          </g>
+        </g>
+      </svg>
+    </a>
+    <a href="https://github.com" target="_blank" class="social-icon github">
+      <svg viewBox="0 0 48 48" id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+          <defs>
+            <style>
+              .cls-1 {
+                fill: none;
+                stroke: #000000;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                fill-rule: evenodd;
+              }
+            </style>
+          </defs>
+          <path class="cls-1" d="M24,2.5a21.5,21.5,0,0,0-6.8,41.9c1.08.2,1.47-.46,1.47-1s0-1.86,0-3.65c-6,1.3-7.24-2.88-7.24-2.88A5.7,5.7,0,0,0,9,33.68c-1.95-1.33.15-1.31.15-1.31a4.52,4.52,0,0,1,3.29,2.22c1.92,3.29,5,2.34,6.26,1.79a4.61,4.61,0,0,1,1.37-2.88c-4.78-.54-9.8-2.38-9.8-10.62a8.29,8.29,0,0,1,2.22-5.77,7.68,7.68,0,0,1,.21-5.69s1.8-.58,5.91,2.2a20.46,20.46,0,0,1,10.76,0c4.11-2.78,5.91-2.2,5.91-2.2a7.74,7.74,0,0,1,.21,5.69,8.28,8.28,0,0,1,2.21,5.77c0,8.26-5,10.07-9.81,10.61a5.12,5.12,0,0,1,1.46,4c0,2.87,0,5.19,0,5.9s.39,1.24,1.48,1A21.5,21.5,0,0,0,24,2.5"></path>
+        </g>
+      </svg>
+    </a>
+    <a href="https://gitlab.com" target="_blank" class="social-icon gitlab"><i class="bi bi-gitlab"></i></a>
+    <a href="https://medium.com" target="_blank" class="social-icon medium"><i class="bi bi-medium"></i></a>
+  </div>
 </div>
+<style>
+  .contact-social-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .contact-me-btn {
+    background-color: #ffc107;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-me-btn:hover {
+    background-color: #e0a800;
+  }
+  
+  .social-icons {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -120%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1;
+  }
+  
+  .contact-social-container:hover .social-icons {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #6c757d;
+    color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  .social-icon.linkedin {
+    background-color: #0e76a8;
+  } /* LinkedIn color */
+  .social-icon.github {
+    background-color: #333;
+  } /* GitHub color */
+  .social-icon.gitlab {
+    background-color: #fc6d26;
+  } /* GitLab color */
+  .social-icon.medium {
+    background-color: #00ab6c;
+  } /* Medium color */
+</style>
