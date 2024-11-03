@@ -1,9 +1,11 @@
 {% load static %}
 <div class="row my-5 gx-5 d-flex justify-content-center">
-  <h2 class="text-center mb-3">Get in Touch</h2>
-  <p class="text-muted text-center mb-4">Have a question or want to work together with me? Drop a message below! I will reach you soon.</p>
+  <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+    <h2 class="text-center mb-3">Get in Touch</h2>
+    <p class="text-muted text-center mb-4">Have a question or want to work together with me? Drop a message below! I will reach you soon.</p>
+  </div>
 
-  <div class="col-6">
+  <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1000" class="col-6">
     <form onsubmit="showModal(event)">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Email address</label>
@@ -21,7 +23,7 @@
     </form>
   </div>
 
-  <div class="d-sm-none d-md-block col-4 overflow-hidden" style="margin-top: -100px;">
+  <div data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1000" class="d-sm-none d-md-block col-4 overflow-hidden" style="margin-top: -100px;">
     <img class="rounded rounded-5 full-width-image" src="{% static 'img/path4.png' %}" alt="" />
   </div>
 </div>
@@ -31,7 +33,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Thank you!</h1>
+        <h1 class="modal-title fs-5 text-warning" id="exampleModalLabel">Thank you!</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">Your message has been sent. I will get back to you soon.</div>
