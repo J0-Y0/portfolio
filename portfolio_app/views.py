@@ -9,6 +9,7 @@ def dynamic_page(request, page_name=""):
         "experience": "experience.html",
         "about": "about.html",
         "projects": "projects.html",
+        "contact": "contact.html",
     }
 
     # Get the template for the requested page or default to 'home.html'

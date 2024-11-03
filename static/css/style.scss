@@ -235,5 +235,59 @@ p{
   height: 100%;
   object-fit: cover; /* Ensures the image covers the container */
   object-position: center; /* Center the image within the container */
+  
+}
+
+
+
+.scrollable-div {
+      height:60vh; /* Set a fixed height for independent scrolling */
+      overflow-y: auto; /* Enable vertical scrolling */
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+      border-radius: 0;
+      padding: 10px; /* Optional padding for spacing */
+    a{
+        background-color: $bg-100;
+    }
+    a:hover{
+        background:$bg-200
+    } 
+    .list-group-item.active , .nav-link.active ,.nav-item.active{
+        background:$accent-100 ;
+        border: 0;
+        
+    }
+    
+  
+    
+     .list-group-item.active , .nav-link.active, .nav-item.active{
+        background:$accent-100 ;
+        border: 0;
+        
+    }
+    }
+   .modal-content{
+    background-color: $bg-200;
+   }
+input,textarea{
+    background-color: $bg-200 !important;
+}
+
+/* Chrome, Safari, Edge */
+.scrollable-div::-webkit-scrollbar {
+  width: 8px; /* Adjust width of scrollbar */
+}
+
+.scrollable-div::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track */
+}
+
+.scrollable-div::-webkit-scrollbar-thumb {
+  background-color:$bg-200; /* Semi-transparent thumb */
+  border-radius: 4px; /* Rounded edges */
+}
+
+.scrollable-div::-webkit-scrollbar-thumb:hover {
+  background-color:$bg-200; /* Darker thumb on hover */
 }
 }
