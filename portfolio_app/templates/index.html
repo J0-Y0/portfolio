@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="w-25"></div>
-  <div class="container align-items-center" style="height: 100vh;" data-bs-theme="dark">
+  <div class="container-md align-items-center" style="height: 90vh;" data-bs-theme="dark">
     {% include 'navbar.html' %}
 
     <div class="row mt-5" style="padding-left:  2rem;
@@ -10,7 +9,9 @@
       {% include page %}
     </div>
   </div>
-  {% include 'components/social_account.html' %}
+  {% comment %} <div style="margin-top: -100px;">
+    {% include 'components/social_account.html' %}
+  </div> {% endcomment %}
 
   {% include 'footer.html' %}
 {% endblock %}

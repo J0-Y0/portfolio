@@ -4,10 +4,10 @@
   <p class="text-muted text-center mb-4">Have a question or want to work together with me? Drop a message below! I will reach you soon.</p>
 
   <div class="col-6">
-    <form>
+    <form onsubmit="showModal(event)">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required />
       </div>
 
       <div class="mb-4">
@@ -20,7 +20,35 @@
       </div>
     </form>
   </div>
+
   <div class="d-sm-none d-md-block col-4 overflow-hidden" style="margin-top: -100px;">
     <img class="rounded rounded-5 full-width-image" src="{% static 'img/path4.png' %}" alt="" />
   </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Thank you!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">Your message has been sent. I will get back to you soon.</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Function to prevent form submission and show modal
+  function showModal(event) {
+    event.preventDefault() // Prevent default form submission
+  
+    // Show the modal
+    const modal = new bootstrap.Modal(document.getElementById('exampleModal'))
+    modal.show()
+  }
+</script>
