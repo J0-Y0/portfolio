@@ -1,77 +1,11 @@
 // Import theme
 @import 'theme';
 
-// Theme Colors
-$primary-100: #0D6E6E;
-$primary-200: #4A9D9C;
-$primary-300: #AFFFFF;
-$accent-100: #ECAE0E;
-$accent-200: #FFCF54;
-$accent-300: #ecad0e46;
-$text-100: #FFFFFF;
-$text-200: #E0E0E0;
-$bg-100: #0D1F2D;
-$bg-200: #1D2E3D;
-$bg-300: #354656;
 
 $transition-speed: 0.3s;
 $border-radius: 8px;
 $box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 
-// Site Header
-.site-header {
-  background: linear-gradient(135deg, $primary-200 0%, $primary-100 100%);
-  color: $text-100;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  
-  a {
-    color: $text-200;
-    transition: color $transition-speed ease, transform $transition-speed ease;
-    font-weight: bold;
-
-    &:hover {
-      color: $text-100;
-      text-decoration: none;
-      transform: scale(1.05);
-    }
-  }
-}
-
-// Hero Section with Background
-.hero {
-  background-color: $bg-100;
-  color: $text-100;
-  padding: 80px 20px;
-  text-align: center;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
-
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-
-  p {
-    font-size: 1.25rem;
-    color: $text-200;
-  }
-
-  .btn-primary {
-    background-color: $accent-100;
-    color: $bg-100;
-    padding: 12px 24px;
-    border-radius: $border-radius;
-    font-size: 1.125rem;
-    transition: background-color $transition-speed ease;
-
-    &:hover {
-      background-color: $accent-200;
-    }
-  }
-}
 
 // Product Device (Custom devices)
 .product-device,
@@ -147,43 +81,18 @@ $box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     flex: 1;
   }
 }
+.project{
+  .landing{
+    
+        background-color: $bg-200;
 
-.project_card{
-     background-color: $bg-200;
-      // padding: 0;
-
-      // flex: 0 0 auto;
-      //   // background-color: $bg-200;
-      //   color: $text-100;
-      //   border-radius: 15px;
-      //   // padding: 1.5rem;
-      //   // box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      //   transition: transform 0.4s ease, box-shadow 0.4s ease;
-      //   position: relative;
-      //   overflow: hidden;
-      //   backface-visibility: hidden;
-
-        // // Animated Bottom Border Accent
-        // &:before {
-        //     content: '';
-        //     position: absolute;
-        //     bottom: 0;
-        //     left: 0;
-        //     width: 0; // Initial width
-        //     height: 4px;
-        //     background-color: $accent-100;
-        //     transition: width 0.4s ease; // Smooth width expansion
-        //     // border-radius: 15%;
-
-        // }
-
-        // // Hover Effect
-        // &:hover {
-        //     transform: translateY(-10px) scale(1.02) rotate3d(1, 1, 0, 5deg);
-        //     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-
-        //     &:before {
-        //         width: 100%; // Expands to full width on hover
-        //     }
-        // }
+  }
+  .card{
+    background-color: $bg-200;
+    border: 10px $bg-100 solid;
+    margin: 5px 0;
+    border-radius: 0%;
+    padding:0 ;
+    
+  }
 }
