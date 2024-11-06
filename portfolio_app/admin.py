@@ -59,6 +59,7 @@ class ProjectAdmin(admin.ModelAdmin):
     search_fields = ["title"]
     inlines = [ProjectSkillsInline, ProjectTagsInline]
     filter_horizontal = ["skills_used", "tags"]  # Manage M2M relationships
+    prepopulated_fields = {"slug": ("title",)}
 
 
 @admin.register(Skill)

@@ -43,6 +43,7 @@ class Education(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True, null=False)
     description = models.TextField()
     problem_statement = models.TextField(null=True, blank=True)  # optional
     tags = models.ManyToManyField("Tag", related_name="projects")
