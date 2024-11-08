@@ -1,144 +1,3 @@
-<!--                    
-
-
-  {% load static %}
-  <link href="{% static 'css/education.css' %}" rel="stylesheet" />
-  <div id="carouselExample" class="carousel slide mt-3">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img style="height: 40vh;" src="{% static 'img/workspace.jpeg' %}" class="d-block w-100" alt="..." />
-      </div>
-      <div class="carousel-item bg-body-secondary h-100" style="min-height: 5%;">
-        ={% comment %} <img src="{% static 'img/workspace.jpeg' %}" class="d-block w-100" alt="..." /> {% endcomment %}
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'img/workspace.jpeg' %}" class="d-block w-100" alt="..." />
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-  <div class="row mt-5">
-    <div class="col-md-7 education">
-      <div class="header">
-        {% comment %}<h1>Education</h1>
-        <h2>Electrical & <span class="text-warning">Computer Engineering</span></h2> {% endcomment %}
-        <h1>Fsadsadddaucation</h1>
-        <h2>Edsaldectrical & <span class="text-warning">fsdrfser fdsfa</span></h2>
-      </div>
-      <p class="degree-title text-muted">
-        B.Sc., Electrical & Computer Engineering <br />
-        Addis Ababa Science and Technology University <br />
-        Addis Ababa, Ethiopia <br /> 2018 - 2022
-      </p>
-      <p class="mb-0">Key areas of study:</p>
-      <ul>
-        <li>Programming (Assembly, C++, Java, Python)</li>
-        <li>Database Management</li>
-        <li>Distributed & Parallel Computing</li>
-        <li>Cybersecurity & Networking</li>
-        <li>Operating Systems</li>
-        <li>Embedded Systems (Microcontrollers, Raspberry Pi)</li>
-      </ul>
-      <button type="button" class="btn btn-sm btn-outline-secondary rounded-5 my-1">Final Year Project</button>
-      <a target="_blank" href="http://www.aastu.edu.et/" class="btn btn-sm btn-outline-secondary rounded-5 my-1">Visit School</a>
-    </div>
-  
-    <div class="col-md-5 certificate">
-      <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
-        <h2 class="text-center mb-3">Get in Touch</h2>
-        <p class="text-muted text-center mb-4">Have a question or want to work together with me? Drop a message below! I will reach you soon.</p>
-      </div>
-  
-      <div>
-        <h4 class="fst-italic">Certefications</h4>
-        <ul class="list-unstyled">
-          <li>
-            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-              <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <rect width="100%" height="100%" fill="#777" />
-              </svg>
-              <div class="col-lg-8">
-                <h6 class="mb-0">Certefication title</h6>
-                <small class="text-body-secondary">issued by: blala univercity</small> <br />
-                <small class="text-body-secondary">isuued on January 15, 2024</small>
-              </div>
-            </a>
-          </li> <li>
-            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-              <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <rect width="100%" height="100%" fill="#777" />
-              </svg>
-              <div class="col-lg-8">
-                <h6 class="mb-0">Certefication title</h6>
-                <small class="text-body-secondary">January 15, 2024</small>
-              </div>
-            </a>
-          </li> <li>
-            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-              <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <rect width="100%" height="100%" fill="#777" />
-              </svg>
-              <div class="col-lg-8">
-                <h6 class="mb-0">Certefication title</h6>
-                <small class="text-body-secondary">January 15, 2024</small>
-              </div>
-            </a>
-          </li> <li>
-            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-              <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <rect width="100%" height="100%" fill="#777" />
-              </svg>
-              <div class="col-lg-8">
-                <h6 class="mb-0">Certefication title</h6>
-                <small class="text-body-secondary">January 15, 2024</small>
-              </div>
-            </a>
-          </li> <li>
-            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-              <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <rect width="100%" height="100%" fill="#777" />
-              </svg>
-              <div class="col-lg-8">
-                <h6 class="mb-0">Certefication title</h6>
-                <small class="text-body-secondary">January 15, 2024</small>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-              <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <rect width="100%" height="100%" fill="#777" />
-              </svg>
-              <div class="col-lg-8">
-                <h6 class="mb-0">This is another blog post title</h6>
-                <small class="text-body-secondary">January 14, 2024</small>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-              <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <rect width="100%" height="100%" fill="#777" />
-              </svg>
-              <div class="col-lg-8">
-                <h6 class="mb-0">Longer blog post title: This one has multiple lines!</h6>
-                <small class="text-body-secondary">January 13, 2024</small>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  
-                    -->
 {% load static %}
 <link href="{% static 'css/education.css' %}" rel="stylesheet" />
 <div id="carouselExample" class="carousel slide mt-3">
@@ -170,38 +29,18 @@
   </button>
 </div>
 
-<div class="row mt-5">
-  <div class="col-md-7 education">
+<div class="row mt-5 d-flex justify-content-between">
+  <div class="col-md-6 education">
     <div class="header">
-      <h1 class="display-4 text-primary">Education</h1>
-      <h2 class="fw-bold text-dark">Electrical & <span class="text-accent">Computer Engineering</span></h2>
+      <h2 class="display-6 text-primary">Education</h2>
+      <h2 class="fw-bold text-muted">Electrical & <span class="fw-bolder">Computer Engineering</span></h2>
     </div>
     <p class="degree-title text-muted">
       B.Sc., Electrical & Computer Engineering <br />
       Addis Ababa Science and Technology University <br />
       Addis Ababa, Ethiopia <br /> 2018 - 2022
     </p>
-    <p class="mb-3">Key areas of study:</p>
-    <ul class="list-unstyled">
-      <li>
-        <i class="bi bi-check-circle"></i> Programming (Assembly, C++, Java, Python)
-      </li>
-      <li>
-        <i class="bi bi-check-circle"></i> Database Management
-      </li>
-      <li>
-        <i class="bi bi-check-circle"></i> Distributed & Parallel Computing
-      </li>
-      <li>
-        <i class="bi bi-check-circle"></i> Cybersecurity & Networking
-      </li>
-      <li>
-        <i class="bi bi-check-circle"></i> Operating Systems
-      </li>
-      <li>
-        <i class="bi bi-check-circle"></i> Embedded Systems (Microcontrollers, Raspberry Pi)
-      </li>
-    </ul>
+
     <div class="btn-group">
       <button type="button" class="btn btn-sm btn-outline-accent rounded-5 my-1">Final Year Project</button>
       <a target="_blank" href="http://www.aastu.edu.et/" class="btn btn-sm btn-outline-accent rounded-5 my-1">Visit School</a>
@@ -210,7 +49,7 @@
 
   <div class="col-md-5 certificate">
     <div class="header">
-      <h1 class="display-4 text-primary">Certifications</h1>
+      <h2 class="display-6 text-primary">Certifications</h2>
       {% comment %} <h2 class="fw-bold text-dark">Electrical & <span class="text-accent">Computer Engineering</span></h2> {% endcomment %}
     </div>
 
