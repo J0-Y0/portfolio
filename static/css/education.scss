@@ -8,8 +8,10 @@
 // Education Section
 .education {
   padding: 30px;
-  border-radius: 15px;
+  // border-radius: 15px;
   background-color: $bg-200;
+
+  
 }
 
 
@@ -45,7 +47,7 @@ ul li i {
 .certificate {
   padding: 30px;
   background-color: $bg-200;
-  border-radius: 15px;
+  // border-radius: 15px;
 //   .header{
 //   background-color: $bg-200;
 //   min-width: 100%;
@@ -94,20 +96,24 @@ ul li a:hover {
 // Media Queries for Responsive Design
 @media (min-width: 786px) {
   .education, .certificate {
-    height: 80vh !important;
+    height:fit-content !important;
+    max-height:  80vh;
+    
+    align-items: center;
     overflow-y: auto;
   }
 }
 
-@media (max-width: 767px) {
-  .carousel-inner img {
-    height: 30vh;
-  }
+// @media (max-width: 767px) {
+//   .carousel-inner img {
+//     height: 30vh;
+//     background: #6e2020;
+//   }
 
-  .education, .certificate {
-    padding: 15px;
-  }
-}
+//   .education, .certificate {
+//     padding: 15px;
+//   }
+// }
 
 
 
