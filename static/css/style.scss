@@ -8,10 +8,6 @@ body{
 .navbar {
     background-color: $bg-200 !important;
 
-
-
-
-
     
      a {
         color: inherit;
@@ -98,12 +94,12 @@ body{
 }
 
 
-p{
-    // font-size: clamp(1rem, 2vw + 1rem, 2rem); /* Font size scales with viewport */
-    line-height: 1.5;
-    text-align: justify;
-    width: 100%;
-}
+// p{
+//     // font-size: clamp(1rem, 2vw + 1rem, 2rem); /* Font size scales with viewport */
+//     line-height: 1.5;
+//     text-align: justify;
+//     width: 100%;
+// }
 .side-img{
      width: 100%; /* Full width of the container */
     height: 100%;

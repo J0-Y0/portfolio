@@ -1,0 +1,35 @@
+@import 'theme';
+.about-content {
+  color: $text-100;
+  text-align: left;
+  max-width: 600px;
+  margin-bottom: 2rem;
+
+  .greeting {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: $primary-100;
+  }
+
+  .highlight {
+    color: $accent-100;
+  }
+
+  .intro {
+    font-size: 1.25rem;
+    color: $text-200;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: $text-200;
+    margin-bottom: 1.5rem;
+  }
+
+  
+}
+
