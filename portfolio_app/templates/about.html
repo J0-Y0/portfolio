@@ -1,6 +1,6 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/about.css' %}" />
-<div class="row align-items-center mt-md-5">
+<div class="row align-items-center justify-content-between mt-5">
   <div class="col-12 col-md-7 about-content" data-aos="fade-up">
     <h1 class="greeting">Hi, I'm <span class="highlight">Yosef Emyayu</span></h1>
     <p class="intro">Full Stack Engineer | Python | Django | React | Web Security</p>
@@ -9,6 +9,6 @@
     {% include 'components/button_contact.html' %}
   </div>
   <div class="col-md-5" data-aos="fade-down">
-    <img src="{% static 'bg.png' %}" alt="Yosef's photo" class="about-img" />
+    <img src="{% static 'bg.png' %}" alt="Yosef's photo" class="about-img side-img" />
   </div>
 </div>

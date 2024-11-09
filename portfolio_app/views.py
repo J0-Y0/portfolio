@@ -8,7 +8,7 @@ def dynamic_page(request, page_name=""):
         "education": "education.html",
         "experience": "experience.html",
         "about": "about.html",
-        "projects": "projects_detail.html",
+        "projects": "projects.html",
         "contact": "contact.html",
     }
 
