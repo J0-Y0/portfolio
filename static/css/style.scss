@@ -63,10 +63,7 @@ body{
         left: 50%;
         width: 100%; // Start with full width of the logo
         height: 100%; // Start with full height of the logo
-        border: 3px solid transparent; // Initial border
-        border-radius: 50%; // Circular border
-        transform: translate(-50%, -50%); // Center the border
-        transition: border-color 0.5s ease; // Smooth transition for color
+      
         z-index: -1; // Place it behind the logo
     }
 
