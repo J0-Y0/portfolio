@@ -1,15 +1,5 @@
 from django.contrib import admin
-from .models import (
-    About,
-    Address,
-    SocialLink,
-    Education,
-    Project,
-    Skill,
-    Experience,
-    Blog,
-    Tag,
-)
+from .models import *
 
 
 # --- Inlines ---
@@ -30,9 +20,9 @@ class ProjectTagsInline(admin.TabularInline):
 
 
 # --- ModelAdmin Classes ---
-@admin.register(About)
-class AboutAdmin(admin.ModelAdmin):
-    list_display = ["__str__"]
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ["first_name", "last_name", "intro"]
 
 
 @admin.register(Address)
@@ -88,3 +78,9 @@ class BlogAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     list_display = ["name"]
     search_fields = ["name"]
+
+
+@admin.register(Certifications)
+class CertificationsAdmin(admin.ModelAdmin):
+    list_display = ["title", "issued_on", "certificate_link"]
+    search_fields = ["title"]
