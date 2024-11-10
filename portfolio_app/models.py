@@ -39,10 +39,19 @@ class Education(models.Model):
     degree = models.CharField(max_length=100)
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
+    website = models.URLField(max_length=300)
+    address = models.CharField(max_length=255)
     details = models.TextField()
 
     def __str__(self):
         return f"{self.degree} from {self.institution}"
+
+
+class Certifications(models.Model):
+    title = models.CharField(max_length=200, null=False)
+    issued_by = models.CharField(max_length=255, null=False)
+    issued_on = models.DateField()
+    certificate_link = models.URLField()
 
 
 class Project(models.Model):
