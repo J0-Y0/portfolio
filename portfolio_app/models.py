@@ -1,8 +1,12 @@
 from django.db import models
 
 
-class About(models.Model):
-    content = models.TextField()
+class Profile(models.Model):
+    first_name = models.CharField(max_length=100, null=False)
+    last_name = models.CharField(max_length=100, null=False)
+
+    intro = models.CharField(max_length=255)  # heading to your profile
+    about = models.TextField()
 
     def __str__(self):
         return "About Me"

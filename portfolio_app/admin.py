@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import (
-    About,
+    Profile,
     Address,
     SocialLink,
     Education,
@@ -30,9 +30,9 @@ class ProjectTagsInline(admin.TabularInline):
 
 
 # --- ModelAdmin Classes ---
-@admin.register(About)
-class AboutAdmin(admin.ModelAdmin):
-    list_display = ["__str__"]
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ["first_name", "last_name", "intro"]
 
 
 @admin.register(Address)

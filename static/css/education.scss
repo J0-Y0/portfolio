@@ -1,15 +1,27 @@
 // Color Variables
 @import 'theme';
-.carousel-inner img {
+.carousel-inner {
+  border-radius: 28px;
+background: #0D1F2D;
+box-shadow:  -20px 20px 60px #0b1a26,
+             20px -20px 60px #0f2434;
+ img {
   object-fit: cover;
   height: 40vh;
 }
+}
+
+
 
 // Education Section
 .education {
   padding: 30px;
   // border-radius: 15px;
-  background-color: $bg-200;
+  // background-color: $bg-200;
+  border-radius: 28px;
+background: #0D1F2D;
+box-shadow:  -20px -20px 60px #0b1a26,
+             20px 20px 60px #0f2434;
 
   
 }
@@ -46,13 +58,10 @@ ul li i {
 // Certificate Section
 .certificate {
   padding: 30px;
-  background-color: $bg-200;
-  // border-radius: 15px;
-//   .header{
-//   background-color: $bg-200;
-//   min-width: 100%;
-//   padding: -200px;
-//   }
+ border-radius: 28px;
+background: #0D1F2D;
+box-shadow:  -20px -20px 60px #0b1a26,
+             20px 20px 60px #0f2434;
 }
 
 .certificate-icon {
@@ -96,8 +105,8 @@ ul li a:hover {
 // Media Queries for Responsive Design
 @media (min-width: 786px) {
   .education, .certificate {
-    height:fit-content !important;
-    max-height:  80vh;
+    // height:fit-content !important;
+    height:  60vh;
     
     align-items: center;
     overflow-y: auto;
