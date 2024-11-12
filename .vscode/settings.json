@@ -1,0 +1,14 @@
+{
+    "liveSassCompile.settings.forceBaseDirectory": "",
+    "liveSassCompile.settings.autoprefix": [],
+    "liveSassCompile.settings.includeItems": [],
+    "liveSassCompile.settings.useNewCompiler": false,
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "compressed",
+            "extensionName": ".css",
+            "savePath": "/static/style/css",
+            "savePathReplacementPairs": null
+        }
+    ]
+}
