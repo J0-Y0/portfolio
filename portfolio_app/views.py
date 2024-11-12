@@ -4,12 +4,12 @@ from django.shortcuts import render
 def dynamic_page(request, page_name=""):
     # Mapping page names to template files
     pages = {
-        "": "landing.html",
-        "education": "education.html",
-        "experience": "experience.html",
-        "about": "about.html",
-        "projects": "projects.html",
-        "contact": "contact.html",
+        "": "pages/landing.html",
+        "education": "pages/education.html",
+        "experience": "pages/experience.html",
+        "about": "pages/about.html",
+        "projects": "pages/projects.html",
+        "contact": "pages/contact.html",
     }
 
     # Get the template for the requested page or default to 'home.html'

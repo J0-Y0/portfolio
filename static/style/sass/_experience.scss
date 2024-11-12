@@ -1,0 +1,42 @@
+
+.experience{
+  .card{
+    background-color: $bg-200;
+    padding: 0;
+
+    flex: 0 0 auto;
+        // background-color: $bg-200;
+        color: $text-100;
+        border-radius: 15px;
+        // padding: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        position: relative;
+        overflow: hidden;
+        backface-visibility: hidden;
+
+        // Animated Bottom Border Accent
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0; // Initial width
+            height: 4px;
+            background-color: $accent-100;
+            transition: width 0.4s ease; // Smooth width expansion
+            // border-radius: 15%;
+
+        }
+
+        // Hover Effect
+        &:hover {
+            transform: translateY(-10px) scale(1.02) rotate3d(1, 1, 0, 5deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+            &:before {
+                width: 100%; // Expands to full width on hover
+            }
+        }
+}  
+}
