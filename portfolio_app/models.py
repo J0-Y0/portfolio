@@ -1,4 +1,20 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+
+
+def validate_image_file(value):
+    allowed_extensions = [".svg", ".png", ".jpg", ".jpeg"]
+    allowed_mime_types = ["image/svg+xml", "image/png", "image/jpeg"]
+
+    # Check file extension
+    if not any(value.name.endswith(ext) for ext in allowed_extensions):
+        raise ValidationError(
+            f"Unsupported file format. Allowed types: {', '.join(allowed_extensions)}"
+        )
+
+    # Check MIME type
+    if value.file.content_type not in allowed_mime_types:
+        raise ValidationError("Invalid image type.")
 
 
 class Profile(models.Model):
@@ -26,8 +42,9 @@ class Address(models.Model):
 class SocialLink(models.Model):
     social_media_name = models.CharField(max_length=50)
     username_url = models.URLField()
-    social_logo = models.ImageField(
-        upload_to="social_logos/"
+    social_logo = models.FileField(
+        upload_to="social_logos/",
+        validators=[validate_image_file],
     )  # Ensure you have Pillow installed
 
     def __str__(self):
@@ -70,14 +87,14 @@ class Project(models.Model):
 class Skill(models.Model):
     name = models.CharField(max_length=100)
     tags = models.ManyToManyField("Tag", related_name="skills")
-    logo = models.ImageField(
-        upload_to="skill_logos/"
-        null=True
-        blank=True
+    logo = models.FileField(
+        upload_to="skill_logos/",
+        validators=[validate_image_file],
+        null=True,
+        blank=True,
     )  # Ensure you have Pillow installed
 
-    description = models.TextField( null=True
-        blank=True)  # "What I have done with it"
+    description = models.TextField(null=True, blank=True)  # "What I have done with it"
 
     def __str__(self):
         return self.name
