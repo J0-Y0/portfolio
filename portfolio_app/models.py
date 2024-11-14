@@ -70,6 +70,10 @@ class Project(models.Model):
 class Skill(models.Model):
     name = models.CharField(max_length=100)
     tags = models.ManyToManyField("Tag", related_name="skills")
+    logo = models.ImageField(
+        upload_to="skill_logos/"
+    )  # Ensure you have Pillow installed
+
     description = models.TextField()  # "What I have done with it"
 
     def __str__(self):
