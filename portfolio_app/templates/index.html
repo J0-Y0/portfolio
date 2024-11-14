@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="p-0 m-0 px-md-5 align-items-center scrollspy-example" data-bs-theme="dark" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
+  <div class="p-0 m-0 px-md-5 align-items-center" data-bs-theme="dark">
     {% include 'components/navbar.html' %}
 
-    <div class="container">
+    <div class="container" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
       {% comment %} {% include page %} {% endcomment %}
 
       {% include 'pages/landing.html' %}
       {% include 'pages/about.html' %}
       {% include 'pages/education.html' %}
       {% include 'pages/experience.html' %}
+      {% include 'pages/projects.html' %}
+
+      {% include 'pages/contact.html' %}
     </div>
   </div>
   {% comment %} <div style="margin-top: -100px;">
