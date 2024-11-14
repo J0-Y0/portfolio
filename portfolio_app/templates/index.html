@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="p-0 m-0 px-md-5 py-md-4 align-items-center" data-bs-theme="dark">
+  <div class="p-0 m-0 px-md-5 align-items-center scrollspy-example" data-bs-theme="dark" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
     {% include 'components/navbar.html' %}
 
     <div class="container">
-      {% include page %}
+      {% comment %} {% include page %} {% endcomment %}
+
+      {% include 'pages/landing.html' %}
+      {% include 'pages/about.html' %}
+      {% include 'pages/education.html' %}
+      {% include 'pages/experience.html' %}
     </div>
   </div>
   {% comment %} <div style="margin-top: -100px;">
