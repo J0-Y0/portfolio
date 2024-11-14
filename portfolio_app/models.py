@@ -72,9 +72,12 @@ class Skill(models.Model):
     tags = models.ManyToManyField("Tag", related_name="skills")
     logo = models.ImageField(
         upload_to="skill_logos/"
+        null=True
+        blank=True
     )  # Ensure you have Pillow installed
 
-    description = models.TextField()  # "What I have done with it"
+    description = models.TextField( null=True
+        blank=True)  # "What I have done with it"
 
     def __str__(self):
         return self.name
