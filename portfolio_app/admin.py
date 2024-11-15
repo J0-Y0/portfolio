@@ -10,6 +10,11 @@ class SocialLinkInline(admin.TabularInline):
     extra = 1  # Allows one empty form for new entries
 
 
+class JobTaskInline(admin.TabularInline):
+    model = JobTask
+    extra = 1  # Allows one empty form for new entries
+
+
 # Define many-to-many through inline (if needed)
 class ProjectSkillsInline(admin.TabularInline):
     model = Project.skills_used.through  # Use the intermediary table
@@ -93,6 +98,7 @@ class ExperienceAdmin(admin.ModelAdmin):
     list_display = ["position", "company", "start_date", "end_date"]
     search_fields = ["position", "company"]
     list_filter = ["start_date", "end_date"]
+    inlines = [JobTaskInline]
 
 
 @admin.register(Blog)

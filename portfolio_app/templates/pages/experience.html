@@ -61,12 +61,13 @@
                   {% else %}
                     Present
                   {% endif %}
-                  {{ experience.end_date|date:'M Y' }}
                 </strong>
               </p>
               <p class="mb-3">Key Contributions:</p>
               <ul>
-                <p>{{ experience.description }}</p>
+                {% for task in experience.tasks.all %}
+                  <li>{{ task }}</li>
+                {% endfor %}
               </ul>
             </div>
           {% endfor %}
