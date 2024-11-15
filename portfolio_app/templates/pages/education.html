@@ -13,18 +13,24 @@
       <div class="header">
         <h2 class="text-warning">Education</h2>
       </div>
-      <h2 class="fw-bold text-muted">Electrical & <span class="text-">Computer Engineering</span></h2>
 
-      <p class="degree-title text-muted">
-        B.Sc., Electrical & Computer Engineering <br />
-        Addis Ababa Science and Technology University <br />
-        Addis Ababa, Ethiopia <br /> 2018 - 2022
-      </p>
+      {% for edication in educations %}
+        <h2 class="fw-bold text-muted">Electrical & Computer Engineering</h2>
 
-      <div class="btn-group">
-        <button type="button" class="btn btn-sm btn-outline-accent rounded-5 my-1">Final Year Project</button>
-        <a target="_blank" href="http://www.aastu.edu.et/" class="btn btn-sm btn-outline-accent rounded-5 my-1">Visit School</a>
-      </div>
+        <p class="degree-title text-muted">
+          {{ edication.degree }} <br />
+          {{ edication.institution }} <br />
+          {{ edication.address }}<br />
+          {{ edication.start_date|date:'M Y' }} - {{ edication.end_date|date:'M Y' }}
+
+          {% comment %}2018 - 2022{% endcomment %}
+        </p>
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-accent rounded-5 my-1 me-3">Final Year Project</button>
+          <a target="_blank" href="{{ edication.website }}" class="btn btn-sm btn-outline-accent rounded-5 my-1">Visit School</a>
+        </div>
+      {% endfor %}
     </div>
 
     <div class="col-md-5 p-5 certificate" data-aos="zoom-out-left">
@@ -34,76 +40,20 @@
       </div>
 
       <ul class="list-unstyled">
-        <li>
-          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-            <div class="certificate-icon bg-accent">
-              <i class="bi bi-certificate text-white"></i>
-            </div>
-            <div class="col-lg-8">
-              <h6 class="mb-0">Certification Title</h6>
-              <small class="text-body-secondary">Issued by: Blala University</small> <br />
-              <small class="text-body-secondary">Issued on: January 15, 2024</small>
-            </div>
-          </a>
-        </li> <li>
-          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-            <div class="certificate-icon bg-accent">
-              <i class="bi bi-certificate text-white"></i>
-            </div>
-            <div class="col-lg-8">
-              <h6 class="mb-0">Certification Title</h6>
-              <small class="text-body-secondary">Issued by: Blala University</small> <br />
-              <small class="text-body-secondary">Issued on: January 15, 2024</small>
-            </div>
-          </a>
-        </li> <li>
-          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-            <div class="certificate-icon bg-accent">
-              <i class="bi bi-certificate text-white"></i>
-            </div>
-            <div class="col-lg-8">
-              <h6 class="mb-0">Certification Title</h6>
-              <small class="text-body-secondary">Issued by: Blala University</small> <br />
-              <small class="text-body-secondary">Issued on: January 15, 2024</small>
-            </div>
-          </a>
-        </li> <li>
-          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-            <div class="certificate-icon bg-accent">
-              <i class="bi bi-certificate text-white"></i>
-            </div>
-            <div class="col-lg-8">
-              <h6 class="mb-0">Certification Title</h6>
-              <small class="text-body-secondary">Issued by: Blala University</small> <br />
-              <small class="text-body-secondary">Issued on: January 15, 2024</small>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-            <div class="certificate-icon bg-accent">
-              <i class="bi bi-certificate text-white"></i>
-            </div>
-            <div class="col-lg-8">
-              <h6 class="mb-0">Certification Title</h6>
-              <small class="text-body-secondary">Issued by: Blala University</small> <br />
-              <small class="text-body-secondary">Issued on: January 15, 2024</small>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
-            <div class="certificate-icon bg-accent">
-              <i class="bi bi-certificate text-white"></i>
-            </div>
-            <div class="col-lg-8">
-              <h6 class="mb-0">Certification Title</h6>
-              <small class="text-body-secondary">Issued by: Blala University</small> <br />
-              <small class="text-body-secondary">Issued on: January 15, 2024</small>
-            </div>
-          </a>
-        </li>
-        <!-- Repeat similar certification items as needed -->
+        {% for certificate in certifications %}
+          <li>
+            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="{{ certificate.certificate_link }}" target="_blank">
+              <div class="certificate-icon bg-accent">
+                <i class="bi bi-certificate text-white"></i>
+              </div>
+              <div class="col-lg-8">
+                <h6 class="mb-0">{{ certificate.title }}</h6>
+                <small class="text-body-secondary">Issued by: {{ certificate.issued_by }}</small> <br />
+                <small class="text-body-secondary">Issued on: {{ certificate.issued_on }}</small>
+              </div>
+            </a>
+          </li>
+        {% endfor %}
       </ul>
     </div>
   </div>
