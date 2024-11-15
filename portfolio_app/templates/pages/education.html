@@ -13,14 +13,19 @@
       <div class="header">
         <h2 class="text-warning">Education</h2>
       </div>
-      <h2 class="fw-bold text-muted">Electrical & <span class="text-">Computer Engineering</span></h2>
 
-      <p class="degree-title text-muted">
-        B.Sc., Electrical & Computer Engineering <br />
-        Addis Ababa Science and Technology University <br />
-        Addis Ababa, Ethiopia <br /> 2018 - 2022
-      </p>
+      {% for edication in educations %}
+        <h2 class="fw-bold text-muted">Electrical & Computer Engineering</h2>
 
+        <p class="degree-title text-muted">
+          {{ edication.degree }} <br />
+          {{ edication.institution }} <br />
+          {{ edication.address }}<br />
+          {{ edication.start_date|date:'M Y' }} - {{ edication.end_date|date:'M Y' }}
+
+          {% comment %}2018 - 2022{% endcomment %}
+        </p>
+      {% endfor %}
       <div class="btn-group">
         <button type="button" class="btn btn-sm btn-outline-accent rounded-5 my-1">Final Year Project</button>
         <a target="_blank" href="http://www.aastu.edu.et/" class="btn btn-sm btn-outline-accent rounded-5 my-1">Visit School</a>
