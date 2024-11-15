@@ -10,5 +10,6 @@
             "savePath": "/static/style/css",
             "savePathReplacementPairs": null
         }
-    ]
+    ],
+    "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }

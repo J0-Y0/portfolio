@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+import os
 
 
 def validate_image_file(value):
@@ -7,21 +8,22 @@ def validate_image_file(value):
     allowed_mime_types = ["image/svg+xml", "image/png", "image/jpeg"]
 
     # Check file extension
-    if not any(value.name.endswith(ext) for ext in allowed_extensions):
+    ext = os.path.splitext(value.name)[1]  # Extracts the file extension
+    if ext.lower() not in allowed_extensions:
         raise ValidationError(
             f"Unsupported file format. Allowed types: {', '.join(allowed_extensions)}"
         )
 
-    # Check MIME type
-    if value.file.content_type not in allowed_mime_types:
+    # Check MIME type if content_type is available
+    if hasattr(value, "content_type") and value.content_type not in allowed_mime_types:
         raise ValidationError("Invalid image type.")
 
 
 class Profile(models.Model):
     first_name = models.CharField(max_length=100, null=False)
     last_name = models.CharField(max_length=100, null=False)
-
-    intro = models.CharField(max_length=255)  # heading to your profile
+    heading = models.CharField(max_length=255)  # heading to your landing page
+    sub_heading = models.CharField(max_length=255)  # heading to your profile
     about = models.TextField()
 
     def __str__(self):
@@ -41,7 +43,7 @@ class Address(models.Model):
 
 class SocialLink(models.Model):
     social_media_name = models.CharField(max_length=50)
-    username_url = models.URLField()
+    username_url = models.URLField(unique=True)
     social_logo = models.FileField(
         upload_to="social_logos/",
         validators=[validate_image_file],
@@ -85,7 +87,7 @@ class Project(models.Model):
 
 
 class Skill(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     tags = models.ManyToManyField("Tag", related_name="skills")
     logo = models.FileField(
         upload_to="skill_logos/",
