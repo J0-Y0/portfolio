@@ -23,6 +23,7 @@ ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS")]
 # Application definitions
 
 INSTALLED_APPS = [
+    "unfold",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -123,3 +124,97 @@ MEDIA_ROOT = (
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+
+
+UNFOLD = {
+    "SIDEBAR": {
+        "show_search": False,  # Disable search in applications and model names
+        "show_all_applications": False,  # Disable dropdown for all apps/models
+        "navigation": [
+            {
+                "title": _("Authentication and Authorization"),
+                "separator": True,  # Adds a top border
+                "collapsible": True,  # Makes the group collapsible
+                "items": [
+                    {
+                        "title": _("Groups"),
+                        "icon": "group",
+                        "link": reverse_lazy("admin:auth_group_changelist"),
+                    },
+                    {
+                        "title": _("Users"),
+                        "icon": "people",
+                        "link": reverse_lazy("admin:auth_user_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Portfolio Models"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Address"),
+                        "icon": "location_on",
+                        "link": reverse_lazy("admin:portfolio_app_address_changelist"),
+                    },
+                    {
+                        "title": _("Blogs"),
+                        "icon": "article",
+                        "link": reverse_lazy("admin:portfolio_app_blog_changelist"),
+                    },
+                    {
+                        "title": _("Certifications"),
+                        "icon": "school",
+                        "link": reverse_lazy(
+                            "admin:portfolio_app_certifications_changelist"
+                        ),
+                    },
+                    {
+                        "title": _("Educations"),
+                        "icon": "menu_book",
+                        "link": reverse_lazy(
+                            "admin:portfolio_app_education_changelist"
+                        ),
+                    },
+                    {
+                        "title": _("Experiences"),
+                        "icon": "work",
+                        "link": reverse_lazy(
+                            "admin:portfolio_app_experience_changelist"
+                        ),
+                    },
+                    {
+                        "title": _("Profiles"),
+                        "icon": "account_circle",
+                        "link": reverse_lazy("admin:portfolio_app_profile_changelist"),
+                    },
+                    {
+                        "title": _("Projects"),
+                        "icon": "build",
+                        "link": reverse_lazy("admin:portfolio_app_project_changelist"),
+                    },
+                    {
+                        "title": _("Skills"),
+                        "icon": "psychology",
+                        "link": reverse_lazy("admin:portfolio_app_skill_changelist"),
+                    },
+                    {
+                        "title": _("Social Links"),
+                        "icon": "share",
+                        "link": reverse_lazy(
+                            "admin:portfolio_app_sociallink_changelist"
+                        ),
+                    },
+                    {
+                        "title": _("Tags"),
+                        "icon": "tag",
+                        "link": reverse_lazy("admin:portfolio_app_tag_changelist"),
+                    },
+                ],
+            },
+        ],
+    }
+}
