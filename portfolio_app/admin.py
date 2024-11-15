@@ -90,8 +90,8 @@ class SkillAdmin(admin.ModelAdmin):
 
 @admin.register(Experience)
 class ExperienceAdmin(admin.ModelAdmin):
-    list_display = ["job_title", "company", "start_date", "end_date"]
-    search_fields = ["job_title", "company"]
+    list_display = ["position", "company", "start_date", "end_date"]
+    search_fields = ["position", "company"]
     list_filter = ["start_date", "end_date"]
 
 
