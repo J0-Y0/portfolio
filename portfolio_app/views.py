@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import *
 
 
 def dynamic_page(request, page_name=""):
@@ -15,4 +16,11 @@ def dynamic_page(request, page_name=""):
     # Get the template for the requested page or default to 'home.html'
     template_to_include = pages.get(page_name)
 
-    return render(request, "index.html", {"page": template_to_include})
+    context = {
+        "profile": Profile.objects.first(),
+        "skills": Skill.objects.all(),
+        "social_links": SocialLink.objects.order_by("-id"),
+        "page": template_to_include,
+    }
+
+    return render(request, "index.html", context=context)

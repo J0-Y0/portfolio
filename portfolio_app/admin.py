@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.utils.html import format_html
+
 from .models import *
 
 
@@ -22,7 +24,7 @@ class ProjectTagsInline(admin.TabularInline):
 # --- ModelAdmin Classes ---
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ["first_name", "last_name", "intro"]
+    list_display = ["first_name", "last_name", "heading", "sub_heading"]
 
 
 @admin.register(Address)
@@ -32,8 +34,21 @@ class AddressAdmin(admin.ModelAdmin):
 
 @admin.register(SocialLink)
 class SocialLinkAdmin(admin.ModelAdmin):
-    list_display = ["social_media_name", "username_url"]
+
+    list_display = ["social_media_name", "logo_svg"]
     search_fields = ["social_media_name"]
+
+    def logo_svg(self, obj):
+        if obj.logo:  # assuming `logo` is the field storing the SVG file
+            return format_html(
+                '<a href ="{}" target="_blank" style = " display:flex; align-items:center; height:fit-content;"> <img src="{}" width="30" height="30" /> <h4>{}</h4> </a> ',
+                obj.your_address,
+                obj.logo.url,
+                obj.social_media_name,
+            )
+        return "-"
+
+    logo_svg.short_description = "Logo"  # optional column header
 
 
 @admin.register(Education)
@@ -54,9 +69,23 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
-    list_display = ["name"]
+    list_display = [
+        "name",
+        "logo_svg",
+    ]
     search_fields = ["name"]
     filter_horizontal = ["tags"]  # Manage M2M relationship with tags
+
+    def logo_svg(self, obj):
+        if obj.logo:  # assuming `logo` is the field storing the SVG file
+            return format_html(
+                '<div style = " display:flex; align-items:center; height:fit-content;"> <img src="{}" width="30" height="30" /> <h4>{}</h4> </div> ',
+                obj.logo.url,
+                obj.name,
+            )
+        return "-"
+
+    logo_svg.short_description = "Logo"  # optional column header
 
 
 @admin.register(Experience)

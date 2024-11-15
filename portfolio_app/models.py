@@ -1,11 +1,29 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+import os
+
+
+def validate_image_file(value):
+    allowed_extensions = [".svg", ".png", ".jpg", ".jpeg"]
+    allowed_mime_types = ["image/svg+xml", "image/png", "image/jpeg"]
+
+    # Check file extension
+    ext = os.path.splitext(value.name)[1]  # Extracts the file extension
+    if ext.lower() not in allowed_extensions:
+        raise ValidationError(
+            f"Unsupported file format. Allowed types: {', '.join(allowed_extensions)}"
+        )
+
+    # Check MIME type if content_type is available
+    if hasattr(value, "content_type") and value.content_type not in allowed_mime_types:
+        raise ValidationError("Invalid image type.")
 
 
 class Profile(models.Model):
     first_name = models.CharField(max_length=100, null=False)
     last_name = models.CharField(max_length=100, null=False)
-
-    intro = models.CharField(max_length=255)  # heading to your profile
+    heading = models.CharField(max_length=255)  # heading to your landing page
+    sub_heading = models.CharField(max_length=255)  # heading to your profile
     about = models.TextField()
 
     def __str__(self):
@@ -25,9 +43,10 @@ class Address(models.Model):
 
 class SocialLink(models.Model):
     social_media_name = models.CharField(max_length=50)
-    username_url = models.URLField()
-    social_logo = models.ImageField(
-        upload_to="social_logos/"
+    your_address = models.CharField(unique=True, max_length=255)
+    logo = models.FileField(
+        upload_to="social_logos/",
+        validators=[validate_image_file],
     )  # Ensure you have Pillow installed
 
     def __str__(self):
@@ -68,13 +87,16 @@ class Project(models.Model):
 
 
 class Skill(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     tags = models.ManyToManyField("Tag", related_name="skills")
-    logo = models.ImageField(
-        upload_to="skill_logos/"
+    logo = models.FileField(
+        upload_to="skill_logos/",
+        validators=[validate_image_file],
+        null=True,
+        blank=True,
     )  # Ensure you have Pillow installed
 
-    description = models.TextField()  # "What I have done with it"
+    description = models.TextField(null=True, blank=True)  # "What I have done with it"
 
     def __str__(self):
         return self.name

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+
+<svg
+   aria-label="Gmail"
+   role="img"
+   viewBox="0 0 488.27801 385.40992"
+   width="762.93439"
+   height="602.203"
+   fill="#000000"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs5" />
+  <g
+     id="SVGRepo_iconCarrier"
+     transform="translate(10.399856,1057.1746)">
+    <ellipse
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#f2f2f2;fill-opacity:1;fill-rule:evenodd;stroke-width:0.561537;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       id="path6"
+       cx="233.73915"
+       cy="-864.46948"
+       rx="244.13901"
+       ry="192.70496" />
+    <g
+       id="g5"
+       transform="matrix(0.93227513,0,0,0.93889093,4.9839105,-47.134602)">
+      <path
+         d="m 136.69055,-732.14963 v -142 l -81.999997,-63 v 175 q 0,30 30,30"
+         fill="#4285f4"
+         id="path1" />
+      <path
+         d="m 132.69055,-875.14963 102,77 102,-77 v -98 l -102,77 -102,-77"
+         fill="#ea4335"
+         id="path2" />
+      <path
+         d="m 332.69055,-732.14963 v -142 l 82,-63 v 175 q 0,30 -30,30"
+         fill="#34a853"
+         id="path3" />
+      <path
+         d="m 54.690553,-935.14963 81.999997,63 v -98 l -30,-23 c -26.999997,-20.99997 -51.999997,0 -51.999997,26"
+         fill="#c5221f"
+         id="path4" />
+      <path
+         d="m 414.69055,-935.14963 -82,63 v -98 l 30,-23 c 27,-20.99997 52,0 52,26"
+         fill="#fbbc04"
+         id="path5" />
+    </g>
+  </g>
+</svg>
