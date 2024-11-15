@@ -22,6 +22,7 @@ def dynamic_page(request, page_name=""):
         "social_links": SocialLink.objects.order_by("-id"),
         "educations": Education.objects.all(),
         "certifications": Certifications.objects.all(),
+        "experiences": Experience.objects.order_by("-start_date"),
         "page": template_to_include,
     }
 
