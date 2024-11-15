@@ -43,8 +43,8 @@ class Address(models.Model):
 
 class SocialLink(models.Model):
     social_media_name = models.CharField(max_length=50)
-    username_url = models.URLField(unique=True)
-    social_logo = models.FileField(
+    your_address = models.CharField(unique=True, max_length=255)
+    logo = models.FileField(
         upload_to="social_logos/",
         validators=[validate_image_file],
     )  # Ensure you have Pillow installed

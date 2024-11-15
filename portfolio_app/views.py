@@ -19,6 +19,7 @@ def dynamic_page(request, page_name=""):
     context = {
         "profile": Profile.objects.first(),
         "skills": Skill.objects.all(),
+        "social_links": SocialLink.objects.order_by("-id"),
         "page": template_to_include,
     }
 
