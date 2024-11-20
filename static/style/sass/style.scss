@@ -5,8 +5,21 @@
 @import "_project";
 @import "_experience";
 @import "about";
+img,svg {
+    transition: transform 1s; /* Smoothly transitions the transform property */
+    overflow: hidden;
+}
+.card{
+    overflow: hidden;
+}
+
+img:hover ,svg:hover {
+    transform: scale(1.1) !important; /* Scales the image on hover */
+}
 
 *{
+        // font-size:1rem !important;
+
         &::-webkit-scrollbar {
             width: 8px; /* Adjust width of scrollbar */
         }
@@ -36,6 +49,10 @@
 
 body{
     background-color:$bg-100 ;
+     background-image: 
+        radial-gradient(at 47% 33%,$bg-100 0, transparent 59%), 
+        radial-gradient(at 82% 65%,$bg-100, transparent 55%);
+
     color: $text-100;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     overflow-x: hidden;
@@ -186,7 +203,7 @@ body{
             color: inherit;
 
     }
-
+    display: none;
 
 
 }

@@ -1,5 +1,9 @@
    .navbar {
-            background-color: $bg-200 !important;
+       .nav-link{
+        font-size:small;
+       }
+            background-color: $bg-100 !important;
+        
             .offcanvas{
                 background-color:  $bg-100;
             }
