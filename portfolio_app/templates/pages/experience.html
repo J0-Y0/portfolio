@@ -1,78 +1,151 @@
-<div class="page" id="experience">
-  <div class="page-title" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
-    <a href="#experience"><h3 class="text-start">Work Experience</h3></a>
-    <hr class="text-warning" />
-  </div>
-  <div class="row experience">
-    <!-- for large screen -->
-    <div class="col-md-4 d-none d-md-block" data-aos="zoom-in-down" data-aos-duration="2000">
-      {% comment %} <div class="col-md-4 d-none d-md-block scroll-container">
-        {% endcomment %}
-        <div id="list-example" class="list-group scrollable-div">
-          <div class="header my-4">
-            <h2 class="header-title-sub"><span class="text-warning">Experience</span></h2>
+{% block page %}
+  <main id="experience-page" class="page p-2 flex pt-10 sm:pt-28 gap-2 text-quinary">
+    <div class="basis-1/3 flex flex-col">
+      <p class="font-bold font-serif text-2xl mb-3 text-text_light">Experience</p>
+      <div class="rounded-3xl p-4 flex-col">
+        <div class="flex gap-2">
+          <div>
+            <span>🟡</span>
+            <p class="ms-2 -my-3 h-16 w-0 border text-secondary"></p>
           </div>
-          {% for experience in experiences %}
-            <a class="list-group-item list-group-item-action" href="#id-{{ experience.id }}">{{ experience.position }}</a>
-          {% endfor %}
+          <a href="#" data-target="experience_1" class="icon-link text-nowrap hover:text-secondary flex flex-col">
+            <span class="text-xl">2,5,2024 - 2,5,2024</span>
+            <span class="text-sm">Full-Stack Developer</span>
+          </a>
         </div>
-      </div>
-
-      <!-- for small screen -->
-
-      <nav id="experience-navbar" class="mb-3 d-block d-md-none">
-        {% comment %} <a class="navbar-brand" href="#">Experience</a> {% endcomment %}
-        <ul class="nav nav-pills d-flex justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="#list-item-1">First</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#list-item-2">Second</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#list-item-3">Third</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#list-item-4">Fourth</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li>
-                <a class="dropdown-item" href="#list-item-5">Fifth</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="col-md-8" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-        <div data-bs-spy="scroll" data-bs-target="#list-example " data-bs-smooth-scroll="true" class="scrollable-div" tabindex="0">
-          {% for experience in experiences %}
-            <div class="card m-5 p-5 mx-lg-5" id="id-{{ experience.id }}">
-              <h3><span class="text-warning">{{ experience.position }}</span></h3>
-              <p class="text-muted">
-                {{ experience.company }}<br /> <strong>
-                  {{ experience.start_date|date:'M Y' }} -{% if experience.end_date %}
-                    {{ experience.end_date|date:'M Y' }}
-                  {% else %}
-                    Present
-                  {% endif %}
-                </strong>
-              </p>
-              <p class="mb-3">Key Contributions:</p>
-              <ul>
-                {% for task in experience.tasks.all %}
-                  <li>{{ task }}</li>
-                {% endfor %}
-              </ul>
-            </div>
-          {% endfor %}
+        <div class="flex gap-2">
+          <div>
+            <span>🟡</span>
+            <p class="ms-2 -my-3 h-16 w-0 border text-secondary"></p>
+          </div>
+          <a href="#" data-target="experience_2" class="icon-link text-nowrap hover:text-secondary flex flex-col">
+            <span class="text-xl">2,5,2024 - 2,9,2024</span>
+            <span class="text-sm">Banking Senior IT Officer</span>
+          </a>
+        </div>
+        <div class="flex gap-2">
+          <div>
+            <span>🟡</span>
+            <p class="ms-2 -my-3 h-16 w-0 border text-secondary"></p>
+          </div>
+          <a href="#" data-target="experience_3" class="icon-link text-nowrap hover:text-secondary flex flex-col">
+            <span class="text-xl">2,5,2024 - 2,5,2024</span>
+            <span class="text-sm">IT Officer-Trainee</span>
+          </a>
+        </div>
+        <div class="flex gap-2">
+          <div>
+            <span>🟡</span>
+            <p class="ms-2 -my-3 h-16 w-0 border text-secondary"></p>
+          </div>
+          <a href="#" data-target="experience_4" class="icon-link text-nowrap hover:text-secondary flex flex-col">
+            <span class="text-xl">2,5,2024 - 2,5,2024</span>
+            <span class="text-sm">Network Engineer | Internship</span>
+          </a>
         </div>
       </div>
     </div>
-  </div>
-</div>
+    <div class="basis-2/3 flex flex-col">
+      <p class="font-bold font-serif text-2xl mb-3"></p>
+      <ul class="h-96 overflow-y-auto px-5">
+        <li id="experience_1" class="experience flex border rounded-lg m-10 p-2 gap-2 transition ease-in-out duration-500 transform hover:scale-105">
+          <a class="flex flex-col w-full hover:border-b-secondary" href="#">
+            <span class="font-bold my-2 title">Full-Stack Developer</span>
+            <span>Bank of Abyssinia Apr 2024 - Present</span>
+            <div>
+              <span class="font-bold my-2 title">Key Contributions:</span>
+              <span class="ps-2">- Work as React and Django developer.</span>
+              <span class="ps-2">- Develop and test internal tools.</span>
+              <span class="ps-2">- Develop document API.</span>
+              <span class="ps-2">- Deploy and host on our development server.</span>
+            </div>
+          </a>
+        </li>
+        <li id="experience_2" class="experience flex border rounded-lg m-10 p-2 gap-2 transition ease-in-out duration-500 transform hover:scale-105">
+          <a class="flex flex-col w-full" href="#">
+            <span class="font-bold my-2 title">Full-Stack Developer</span>
+            <span>Bank of Abyssinia Apr 2024 - Present</span>
+            <div>
+              <span class="font-bold my-2 title">Key Contributions:</span>
+              <span class="ps-2">- Work as React and Django developer.</span>
+              <span class="ps-2">- Develop and test internal tools.</span>
+              <span class="ps-2">- Develop document API.</span>
+              <span class="ps-2">- Deploy and host on our development server.</span>
+            </div>
+          </a>
+        </li>
+        <li id="experience_3" class="experience flex gap-2 p-2 m-10 border rounded-lg transition ease-in-out duration-500 transform hover:scale-105">
+          <a class="flex flex-col w-full" href="#">
+            <span class="font-bold my-2 title">Full-Stack Developer</span>
+
+            <span>Bank of Abyssinia Apr 2024 - Present</span>
+            <div>
+              <span class="font-bold my-2 title">Key Contributions:</span>
+              <span class="ps-2">- Work as React and Django developer.</span>
+              <span class="ps-2">- Develop and test internal tools.</span>
+              <span class="ps-2">- Develop document API.</span>
+              <span class="ps-2">- Deploy and host on our development server.</span>
+            </div>
+          </a>
+        </li>
+        <li id="experience_4" class="experience flex border rounded-lg m-10 p-2 gap-2 transition ease-in-out duration-500 transform hover:scale-105">
+          <a class="flex flex-col w-full" href="#">
+            <span class="font-bold my-2 title">Full-Stack Developer</span>
+            <span>Bank of Abyssinia Apr 2024 - Present</span>
+            <div>
+              <span class="font-bold my-2 title">Key Contributions:</span>
+              <span class="ps-2">- Work as React and Django developer.</span>
+              <span class="ps-2">- Develop and test internal tools.</span>
+              <span class="ps-2">- Develop document API.</span>
+              <span class="ps-2">- Deploy and host on our development server.</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </main>
+  <style>
+    /* Styling for the selected navigation link */
+    .selected-link {
+      color: #ffc107;
+      font-weight: bold;
+    }
+  </style>
+  <!-- experience script -->
+  <script>
+    // Select all anchor tags with the class "icon-link"
+    const links = document.querySelectorAll('.icon-link')
+    
+    links.forEach((link) => {
+      link.addEventListener('click', function (event) {
+        event.preventDefault() // Prevent default anchor behavior
+    
+        // Remove the selected class from all links
+        links.forEach((link) => link.classList.remove('selected-link'))
+    
+        // Add the selected class to the clicked link
+        this.classList.add('selected-link')
+    
+        // Get the target element id from data attribute
+        const targetId = this.getAttribute('data-target')
+    
+        // Remove existing styles from all  items
+        const experienceItems = document.querySelectorAll('.experience')
+        experienceItems.forEach((item) => {
+          item.classList.remove('scale-110', 'border-text_light')
+        })
+        titles = document.querySelectorAll('.title')
+        titles.forEach((title) => title.classList.remove('text-text_light'))
+    
+        // Add styles to the clicked item
+        const targetElement = document.getElementById(targetId)
+        if (targetElement) {
+          targetElement.classList.add('scale-110', 'border-text_light')
+          titles = targetElement.querySelectorAll('.title')
+          titles.forEach((title) => title.classList.add('text-text_light'))
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+      })
+    })
+  </script>
+{% endblock %}

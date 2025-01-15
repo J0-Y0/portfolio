@@ -1,63 +1,26 @@
-{% load static %}
-<div class="page container" id="contact">
-  {% comment %} <div class="row">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi officiis voluptas quisquam iste accusantium. Vel odit quas ullam iusto mollitia distinctio neque, obcaecati quidem consequuntur soluta voluptas error sit reiciendis.</div> {% endcomment %}
+<!-- contact us -->
+{% block page %}
+  <main id="contact-page" class="page pt-10 sm:pt-28 ps-10">
+    <p class="font-bold col-span-10 font-serif text-2xl mb-3 text-warning">Get in Touch</p>
+    <p class="text-xl">Have a question or want to work together with me? Drop a message below! I will reach you soon.</p>
+    <div class="py-2 mt-5 flex gap-10 text-quinary">
+      <div class="basis-1/1 sm:basis-1/2 flex flex-col flex-grow">
+        <form class="flex flex-col">
+          <label for="email">Leave me your email</label>
+          <input class="mb-3 mt-1 p-2 focus:outline-none focus:border-b-secondary focus:border-b-2 bg-input_dark" id="email" type="email" placeholder="someone@domin.com" />
+          <label for="message">Your message</label>
+          <textarea rows="5" class="mb-3 mt-1 p-2 bg-input_dark focus:outline-none focus:border-b-secondary focus:border-b-2" id="message"></textarea>
+          <button type="submit" class="my-3 p-2 font-extrabold transition ease-in-out duration-700 border text-secondary px-2 hover:bg-secondary hover:text-bg_dark">Send</button>
+        </form>
+      </div>
 
-  <div class="page-title" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
-    <a href="#contact"><h3 class="text-start">Contact</h3></a>
-    <hr class="text-warning" />
-  </div>
-  <div class="row d-flex justify-content-center">
-    <div class="col-12" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
-      <h2 class="text-center mb-3">Get in Touch</h2>
-      <p class="text-muted text-center mb-4">Have a question or want to work together with me? Drop a message below! I will reach you soon.</p>
-    </div>
+      <div class="hidden sm:block sm:basis-1/2 justify-end">
+        <p class="font-bold basis-0 font-serif text-2xl mb-3"></p>
 
-    <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="500" class="col-md-6">
-      <form onsubmit="showModal(event)">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required />
-        </div>
-
-        <div class="mb-4">
-          <label for="message" class="form-label fw-semibold">Your Message</label>
-          <textarea class="form-control" id="message" rows="4" placeholder="Write your message here..." required></textarea>
-        </div>
-
-        <div class="d-grid">
-          <button type="submit" class="btn btn-warning rounded-pill submit-btn">Send Message</button>
-        </div>
-      </form>
-    </div>
-
-    <div data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="500" class="d-none d-md-block col-6 overflow-hidden" style="margin-top: -100px;">
-      <img class="rounded rounded-5 full-width-image" src="{% static 'img/path4.png' %}" alt="" />
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5 text-warning" id="exampleModalLabel">Thank you!</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">Your message has been sent. I will get back to you soon.</div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
+        <img class="rounded-3xl border p-1 ease-in-out duration-700 transform hover:scale-90 h-40 sm:h-72" src="../static/img/path4.png" alt="Profile Picture" />
       </div>
     </div>
-    <script>
-      // Function to prevent form submission and show modal
-      function showModal(event) {
-        event.preventDefault() // Prevent default form submission
-      
-        // Show the modal
-        const modal = new bootstrap.Modal(document.getElementById('exampleModal'))
-        modal.show()
-      }
-    </script>
-  </div>
-</div>
+    <button id="open-modal" class="my-3 p-2 font-extrabold transition ease-in-out duration-700 border text-secondary px-2 hover:bg-secondary hover:text-bg_dark">Send</button>
+    {% include 'components/modal.html' %}
+  </main>
+{% endblock %}

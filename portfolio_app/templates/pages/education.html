@@ -1,60 +1,99 @@
-{% load static %}
-<div class="page" id="education">
-  {% comment %} <h3 class="text-start">Education <span class="text-muted">And</span> Certification</h3> {% endcomment %}
+<!-- education and certificate -->
+{% block page %}
+  <main id="education-page" class="page p-2 min-h-full flex pt-10 sm:pt-32 align-middle gap-3">
+    <div class="basis-2/3 sm:p-15 px-3">
+      <p class="font-bold font-serif text-2xl mb-3">Education</p>
 
-  <div class="page-title" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
-    <a href="#education"><h3 class="text-start">Education <span class="text-muted">And</span> Certification</h3></a>
-
-    <hr class="text-warning" />
-  </div>
-
-  <div class="row mt-5 d-flex justify-content-between">
-    <div class="col-md-6 p-5 education mb-5" data-aos="zoom-out-right">
-      <div class="header">
-        <h2 class="text-warning">Education</h2>
-      </div>
-
-      {% for edication in educations %}
-        <h2 class="fw-bold text-muted">Electrical & Computer Engineering</h2>
-
-        <p class="degree-title text-muted">
-          {{ edication.degree }} <br />
-          {{ edication.institution }} <br />
-          {{ edication.address }}<br />
-          {{ edication.start_date|date:'M Y' }} - {{ edication.end_date|date:'M Y' }}
-
-          {% comment %}2018 - 2022{% endcomment %}
-        </p>
-
-        <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-outline-accent rounded-5 my-1 me-3">Final Year Project</button>
-          <a target="_blank" href="{{ edication.website }}" class="btn btn-sm btn-outline-accent rounded-5 my-1">Visit School</a>
+      <div class="flex gap-4">
+        <div>
+          <span>🟡</span>
+          <p class="ms-2 -my-3 h-32 w-0 border text-secondary"></p>
         </div>
-      {% endfor %}
-    </div>
-
-    <div class="col-md-5 p-5 certificate" data-aos="zoom-out-left">
-      <div class="header">
-        <h2 class="text-warning">Certifications</h2>
-        {% comment %} <h2 class="fw-bold text-dark">Electrical & <span class="text-accent">Computer Engineering</span></h2> {% endcomment %}
+        <div class="transition ease-in-out duration-500 transform hover:scale-105">
+          <p class="text-lg md:text-2xl">
+            B.Sc., Electrical &
+            <span class="text-secondary">Computer Engineering</span>
+          </p>
+          <p class="text-lg text-balance text-quinary">Addis Ababa Science and Technology University</p>
+          <p class="text-lg mb-5 text-quinary">
+            Addis Ababa, Ethiopia <br />
+            Sep 2018 - Jun 2022
+          </p>
+        </div>
       </div>
+      <div class="flex gap-4">
+        <div>
+          <span>🟡</span>
+          <p class="ms-2 -my-3 h-28 w-0 border text-secondary"></p>
+        </div>
+        <div class="transition ease-in-out duration-500 transform hover:scale-105">
+          <p class="text-lg md:text-2xl">
+            Data
+            <span class="text-secondary">Science</span>
+          </p>
+          <p class="text-lg text-balance text-quinary">ALX:African leadership Academy</p>
+          <p class="text-lg text-quinary">
+            Addis Ababa, Ethiopia <br />
+            jun 2025 - Present
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="basis-1/3 flex flex-col">
+      <p class="font-bold font-serif text-2xl mb-3">Certifications</p>
 
-      <ul class="list-unstyled">
-        {% for certificate in certifications %}
-          <li>
-            <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="{{ certificate.certificate_link }}" target="_blank">
-              <div class="certificate-icon bg-accent">
-                <i class="bi bi-certificate text-white"></i>
-              </div>
-              <div class="col-lg-8">
-                <h6 class="mb-0">{{ certificate.title }}</h6>
-                <small class="text-body-secondary">Issued by: {{ certificate.issued_by }}</small> <br />
-                <small class="text-body-secondary">Issued on: {{ certificate.issued_on }}</small>
-              </div>
-            </a>
-          </li>
-        {% endfor %}
+      <ul class="h-96 overflow-y-auto px-3 text-quinary">
+        <li class="flex p-2 gap-2 transition ease-in-out duration-500 transform hover:scale-105 hover:text-warning">
+          <p class="text-4xl font-extrabold p-4 rounded-lg border">AI</p>
+          <a class="flex flex-col" href="#">
+            <span class="font-bold my-2">AI Career Essential</span>
+            <span>Issued by:ALX</span>
+            <span>Issued on: aug 28, 2024</span>
+          </a>
+        </li>
+        <li class="flex p-2 gap-2 border-b-secondary transition ease-in-out duration-500 transform hover:scale-105 hover:text-warning">
+          <p class="text-4xl font-extrabold p-4 rounded-lg border">AI</p>
+          <a class="flex flex-col" href="#">
+            <span class="font-bold my-2">AI Career Essential</span>
+            <span>Issued by:ALX</span>
+            <span>Issued on: aug 28, 2024</span>
+          </a>
+        </li>
+        <li class="flex p-2 gap-2 transition ease-in-out duration-500 transform hover:scale-105 hover:text-warning">
+          <p class="text-4xl font-extrabold p-4 rounded-lg border">AI</p>
+          <a class="flex flex-col" href="#">
+            <span class="font-bold my-2">AI Career Essential</span>
+            <span>Issued by:ALX</span>
+            <span>Issued on: aug 28, 2024</span>
+          </a>
+        </li>
+        <li class="flex p-2 gap-2 transition ease-in-out duration-500 transform hover:scale-105 hover:text-warning">
+          <p class="text-4xl font-extrabold p-4 rounded-lg border">AI</p>
+          <a class="flex flex-col" href="#">
+            <span class="font-bold my-2">AI Career Essential</span>
+            <span>Issued by:ALX</span>
+            <span>Issued on: aug 28, 2024</span>
+          </a>
+        </li>
+        <li class="flex p-2 gap-2 transition ease-in-out duration-500 transform hover:scale-105 hover:text-warning">
+          <p class="text-4xl font-extrabold p-4 rounded-lg border">AI</p>
+          <a class="flex flex-col" href="#">
+            <span class="font-bold my-2">AI Career Essential</span>
+            <span>Issued by:ALX</span>
+            <span>Issued on: aug 28, 2024</span>
+          </a>
+        </li>
+        <li class="flex p-2 gap-2 transition ease-in-out duration-500 transform hover:scale-105 hover:text-warning">
+          <p class="text-4xl font-extrabold p-4 rounded-lg border">AI</p>
+          <a class="flex flex-col" href="#">
+            <span class="font-bold my-2">AI Career Essential</span>
+            <span>Issued by:ALX</span>
+            <span>Issued on: aug 28, 2024</span>
+          </a>
+        </li>
+        <li></li>
+        <li></li>
       </ul>
     </div>
-  </div>
-</div>
+  </main>
+{% endblock %}

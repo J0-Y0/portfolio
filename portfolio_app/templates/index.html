@@ -1,20 +1,38 @@
 {% extends 'base.html' %}
 
-{% block content %}
-  <div class="p-0 m-0 px-md-5 align-items-center" data-bs-theme="dark">
-    {% include 'components/navbar.html' %}
+ {% block content %}
 
-    <div class="container" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
-      {% comment %} {% include 'pages/landing.html' %}
-      {% include 'pages/about.html' %}
-      {% include 'pages/education.html' %}
-      {% include 'pages/experience.html' %}
-      {% include 'pages/projects.html' %} {% endcomment %}
-      {% include page %}
-    </div>
-  </div>
 
-  <footer class="mt-auto">
-    {% include 'components/footer.html' %}
-  </footer>
+    <div class=" flex flex-row justify-between">
+        <!--side menu-->
+        {% include "components/sidebar.html" %}
+        
+        <div class="basis-8/12 ">
+            <!--nav bar -->
+            {% include "components/navbar.html" %}
+
+         
+            {% block page %}
+                
+                
+
+
+            {% endblock page %}
+                    {% include "pages/about.html" %}
+                    {% include "pages/experience.html" %}
+                    
+                    {% include "pages/education.html" %}
+                    {% include "pages/portfolio.html" %}
+                    {% include "pages/contact.html" %}
+
+
+
+
+        </div>
+
+
+
+
+
+
 {% endblock %}
