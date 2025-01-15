@@ -5,12 +5,12 @@
     {% include 'components/navbar.html' %}
 
     <div class="container" data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
-      {% include 'pages/landing.html' %}
+      {% comment %} {% include 'pages/landing.html' %}
       {% include 'pages/about.html' %}
       {% include 'pages/education.html' %}
       {% include 'pages/experience.html' %}
-      {% include 'pages/projects.html' %}
-      {% include 'pages/contact.html' %}
+      {% include 'pages/projects.html' %} {% endcomment %}
+      {% include page %}
     </div>
   </div>
 

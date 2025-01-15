@@ -1,6 +1,6 @@
 {% load static %}
 
-<nav id="navbar" class="my-md-4 p-2 px-md-4 navbar bg-light navbar-expand-lg sticky-top">
+<nav id="navbar" class="p-2 px-md-4 navbar bg-light navbar-expand-lg sticky-top">
   <a href="/" class="logo"><img src="{% static 'img/logo_2.png' %}" alt="Logo" width="35" height="35" class="p-1 navbar-brand" /></a>
 
   <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -9,23 +9,24 @@
       <h5 class="offcanvas-title fw-bold fst-italic" id="offcanvasLabelm"><u>=Yosef.E=</u></h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
-      <ul class="navbar-nav flex-grow-1 justify-content-end">
+    <div class="offcanvas-body justify-content-end">
+      <ul class="navbar-nav">
+        <hr />
         <li class="nav-item position-relative">
-          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="about">About</a>
           {% comment %} {% include 'components/pin.html' %} {% endcomment %}
         </li>
         <li class="nav-item position-relative">
-          <a class="nav-link" href="#education">Education</a>
+          <a class="nav-link" href="education">Education</a>
         </li>
         <li class="nav-item position-relative">
-          <a class="nav-link" href="#experience">Experience</a>
+          <a class="nav-link" href="experience">Experience</a>
         </li>
         <li class="nav-item position-relative">
-          <a class="nav-link" href="#project">Projects</a>
+          <a class="nav-link" href="projects">Projects</a>
         </li>
         <li class="nav-item position-relative">
-          <a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-link" href="contact">Contact</a>
         </li>
       </ul>
       <button class="btn btn-sm btn-outline-warning" type="button">
