@@ -140,3 +140,10 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Inbox(models.Model):
+    sender_email = models.CharField(max_length=100)
+    message = models.TextField(max_length=500)
+    delivered_time = models.DateTimeField(auto_now_add=True)
+    seen = models.BooleanField(default=False)

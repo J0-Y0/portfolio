@@ -6,7 +6,8 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path("home/", views.dynamic_page, name="dynamic_pages"),
+    path("", views.dynamic_page, name="dynamic_pages"),
+    path("message/", views.message, name="message"),
     # path("<str:page_name>", views.dynamic_page, name="dynamic_page"),
 ]
 if settings.DEBUG:
