@@ -1,0 +1,9 @@
+body,
+#nav-sidebar {
+  background: #0d1f2d !important;
+}
+#nav-sidebar li a:hover {
+  background: #ff9d00 !important;
+  /* color: #264c5a !important; */
+  color: white !important;
+}
