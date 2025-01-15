@@ -1,15 +1,19 @@
 <!-- contact us -->
 {% block page %}
-  <main id="contact-page" class="page pt-10 sm:pt-28 ps-10">
+  <main id="contact-page" class="page pt-10 sm:pt-28 ps-10" 
+   onsubmit="openModal({
+                    title: 'Thank you',
+                    content: 'Your message has been sent. I will get back to you soon.',
+                    onConfirm: () => console.log('Confirmed!')
+                  })">
     <p class="font-bold col-span-10 font-serif text-2xl mb-3 text-warning">Get in Touch</p>
     <p class="text-xl">Have a question or want to work together with me? Drop a message below! I will reach you soon.</p>
     <div class="py-2 mt-5 flex gap-10 text-quinary">
       <div class="basis-1/1 sm:basis-1/2 flex flex-col flex-grow">
         <form class="flex flex-col">
           <label for="email">Leave me your email</label>
-          <input class="mb-3 mt-1 p-2 focus:outline-none focus:border-b-secondary focus:border-b-2 bg-input_dark" id="email" type="email" placeholder="someone@domin.com" />
-          <label for="message">Your message</label>
-          <textarea rows="5" class="mb-3 mt-1 p-2 bg-input_dark focus:outline-none focus:border-b-secondary focus:border-b-2" id="message"></textarea>
+          <input class="mb-3 mt-1 p-2 border-none bg-input_dark focus:ring-1 focus:ring-info focus:ring-offset-0" id="email" type="email" placeholder="youremail@domain.com" required /> <label for="message">Your message</label>
+          <textarea rows="5" class="mb-3 mt-1 p-2 bg-input_dark focus:ring-1 border-none focus:ring-info focus:ring-offset-0" id="message"></textarea>
           <button type="submit" class="my-3 p-2 font-extrabold transition ease-in-out duration-700 border text-secondary px-2 hover:bg-secondary hover:text-bg_dark">Send</button>
         </form>
       </div>
@@ -20,7 +24,13 @@
         <img class="rounded-3xl border p-1 ease-in-out duration-700 transform hover:scale-90 h-40 sm:h-72" src="../static/img/path4.png" alt="Profile Picture" />
       </div>
     </div>
-    <button id="open-modal" class="my-3 p-2 font-extrabold transition ease-in-out duration-700 border text-secondary px-2 hover:bg-secondary hover:text-bg_dark">Send</button>
     {% include 'components/modal.html' %}
   </main>
+
+  <style>
+    input,
+    textarea {
+      outline: none; /* Remove default outline */
+    }
+  </style>
 {% endblock %}

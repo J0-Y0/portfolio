@@ -18,7 +18,9 @@
       <a id="contact" href="#contact">Contacts</a>
     </li>
     <li class="transition ease-in-out duration-700 ms-2 border text-secondary px-2 hover:bg-secondary hover:text-bg_dark">
-      <a id="resume" href="#resume">Resume</a>
+      <i class="fa-regular fa-circle-down"></i>
+
+      <button id="resume" href="#resume">Resume</button>
     </li>
   </ul>
 </nav>
@@ -29,29 +31,55 @@
     font-weight: bold;
   }
 </style>
-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('nav a')
     const pages = document.querySelectorAll('.page')
   
-    links.forEach((link) => {
-      link.addEventListener('click', (event) => {
-        event.preventDefault()
+    // Function to activate the corresponding section and style
+    const activateSection = (hash) => {
+      const cleanHash = hash.replace('?', '') // Remove '?' if present
   
-        // Highlight active link
-        links.forEach((l) => l.classList.remove('selected-link'))
-        link.classList.add('selected-link')
-  
-        // Show corresponding page
-        pages.forEach((page) => page.classList.add('hidden'))
-        const targetPage = document.getElementById(`${link.id}-page`)
-        if (targetPage) {
-          targetPage.classList.remove('hidden')
+      // Highlight the active link
+      links.forEach((link) => {
+        if (link.getAttribute('href') === cleanHash) {
+          link.classList.add('selected-link')
         } else {
-          console.warn(`No section found for ID: ${link.id}`)
+          link.classList.remove('selected-link')
         }
       })
+  
+      // Show the corresponding page
+      pages.forEach((page) => page.classList.add('hidden'))
+      const targetPage = document.getElementById(`${cleanHash.replace('#', '')}-page`)
+      if (targetPage) {
+        targetPage.classList.remove('hidden')
+      } else {
+        console.warn(`No section found for hash: ${cleanHash}`)
+      }
+    }
+  
+    // Handle link clicks
+    links.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault() // Prevent default behavior
+  
+        const href = link.getAttribute('href')
+        if (href) {
+          history.pushState(null, '', `?${href}`) // Update the URL
+          activateSection(href) // Activate the corresponding section
+        }
+      })
+    })
+  
+    // Check the URL hash on page load
+    const initialHash = window.location.hash || '#about'
+    activateSection(initialHash)
+  
+    // Handle back/forward navigation
+    window.addEventListener('popstate', () => {
+      const currentHash = window.location.hash || '#about'
+      activateSection(currentHash)
     })
   })
 </script>
