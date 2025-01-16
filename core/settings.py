@@ -165,6 +165,11 @@ UNFOLD = {
                 "collapsible": False,
                 "items": [
                     {
+                        "title": _("Profiles"),
+                        "icon": "account_circle",
+                        "link": reverse_lazy("admin:portfolio_app_profile_changelist"),
+                    },
+                    {
                         "title": _("Address"),
                         "icon": "location_on",
                         "link": reverse_lazy("admin:portfolio_app_address_changelist"),
@@ -194,11 +199,6 @@ UNFOLD = {
                         "link": reverse_lazy(
                             "admin:portfolio_app_experience_changelist"
                         ),
-                    },
-                    {
-                        "title": _("Profiles"),
-                        "icon": "account_circle",
-                        "link": reverse_lazy("admin:portfolio_app_profile_changelist"),
                     },
                     {
                         "title": _("Projects"),

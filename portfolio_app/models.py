@@ -25,6 +25,12 @@ class Profile(models.Model):
     heading = models.CharField(max_length=255)  # heading to your landing page
     sub_heading = models.CharField(max_length=255)  # heading to your profile
     about = models.TextField()
+    profile_picture = models.FileField(
+        upload_to="profile_pic/", validators=[validate_image_file], null=True
+    )  # Ensure you have Pillow installed
+    profile_picture_mini = models.FileField(
+        upload_to="profile_pic/", validators=[validate_image_file], null=True
+    )  # Ensure you have Pillow installed
 
     def __str__(self):
         return "About Me"
