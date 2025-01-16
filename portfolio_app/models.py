@@ -112,6 +112,9 @@ class Experience(models.Model):
     def __str__(self):
         return f"{self.position} at {self.company}"
 
+    def formatted_end_date(self):
+        return self.end_date if self.end_date else "Present"
+
 
 class JobTask(models.Model):
     experience = models.ForeignKey(

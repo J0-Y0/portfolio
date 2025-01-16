@@ -10,7 +10,7 @@
               <p class="ms-2 -my-3 h-16 w-0 border text-secondary"></p>
             </div>
             <a href="#" data-target="experience_{{ forloop.counter }}" class="icon-link text-nowrap hover:text-secondary flex flex-col">
-              <span class="text-xl">{{ experience.start_date|date:'M, Y' }}- {{ experience.end_date }}</span>
+              <span class="text-xl">{{ experience.start_date|date:'M, Y' }}- {{ experience.formatted_end_date }}</span>
               <span class="text-sm">{{ experience.position }}</span>
             </a>
           </div>
@@ -66,7 +66,7 @@
           <li id="experience_{{ forloop.counter }}" class="experience flex border rounded-lg m-10 p-2 gap-2 transition ease-in-out duration-500 transform hover:scale-105">
             <a class="flex flex-col w-full hover:border-b-secondary" href="#">
               <span class="font-bold my-2 title">{{ experience.position }}</span>
-              <span>{{ experience.start_date }} - {{ experience.end_date }}</span>
+              <span>{{ experience.start_date }} - {{ experience.formatted_end_date }}</span>
               <div>
                 <span class="font-bold my-2 title">Key Contributions:</span>
                 <span class="ps-2">- Work as React and Django developer.</span>
