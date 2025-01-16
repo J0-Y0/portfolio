@@ -35,6 +35,28 @@ class ProjectTagsInline(TabularInline):
 @admin.register(Profile)
 class ProfileAdmin(ModelAdmin):
     list_display = ["first_name", "last_name", "heading", "sub_heading"]
+    fieldsets = (
+        (
+            "Fill out your details",
+            {
+                "fields": [
+                    (
+                        "first_name",
+                        "last_name",
+                    ),
+                    (
+                        "heading",
+                        "sub_heading",
+                    ),
+                    (
+                        "profile_picture",
+                        "profile_picture_mini",
+                    ),
+                    "about",
+                ]
+            },
+        ),
+    )
 
 
 @admin.register(Address)
