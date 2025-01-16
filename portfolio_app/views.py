@@ -1,4 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.http import JsonResponse
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
+from .models import Inbox
 from .models import *
 
 
@@ -27,13 +31,6 @@ def dynamic_page(request, page_name=""):
     }
 
     return render(request, "index.html", context=context)
-
-
-from .models import Inbox
-from django.http import JsonResponse
-from django.core.exceptions import ValidationError
-from django.core.validators import validate_email
-from .models import Inbox
 
 
 def message(request):
