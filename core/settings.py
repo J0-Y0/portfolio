@@ -160,9 +160,21 @@ UNFOLD = {
                 ],
             },
             {
-                "title": _("Portfolio Models"),
+                "title": _("Visitor's Message"),
                 "separator": True,
                 "collapsible": False,
+                "items": [
+                    {
+                        "title": _("Inbox"),
+                        "icon": "message",
+                        "link": reverse_lazy("admin:portfolio_app_inbox_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Profile"),
+                "separator": True,
+                "collapsible": True,
                 "items": [
                     {
                         "title": _("Profiles"),
@@ -175,17 +187,19 @@ UNFOLD = {
                         "link": reverse_lazy("admin:portfolio_app_address_changelist"),
                     },
                     {
-                        "title": _("Blogs"),
-                        "icon": "article",
-                        "link": reverse_lazy("admin:portfolio_app_blog_changelist"),
-                    },
-                    {
-                        "title": _("Certifications"),
-                        "icon": "school",
+                        "title": _("Social Links"),
+                        "icon": "share",
                         "link": reverse_lazy(
-                            "admin:portfolio_app_certifications_changelist"
+                            "admin:portfolio_app_sociallink_changelist"
                         ),
                     },
+                ],
+            },
+            {
+                "title": _("Portfolio Models"),
+                "separator": True,
+                "collapsible": False,
+                "items": [
                     {
                         "title": _("Educations"),
                         "icon": "menu_book",
@@ -201,6 +215,13 @@ UNFOLD = {
                         ),
                     },
                     {
+                        "title": _("Certifications"),
+                        "icon": "school",
+                        "link": reverse_lazy(
+                            "admin:portfolio_app_certifications_changelist"
+                        ),
+                    },
+                    {
                         "title": _("Projects"),
                         "icon": "build",
                         "link": reverse_lazy("admin:portfolio_app_project_changelist"),
@@ -211,11 +232,9 @@ UNFOLD = {
                         "link": reverse_lazy("admin:portfolio_app_skill_changelist"),
                     },
                     {
-                        "title": _("Social Links"),
-                        "icon": "share",
-                        "link": reverse_lazy(
-                            "admin:portfolio_app_sociallink_changelist"
-                        ),
+                        "title": _("Blogs"),
+                        "icon": "article",
+                        "link": reverse_lazy("admin:portfolio_app_blog_changelist"),
                     },
                     {
                         "title": _("Tags"),
