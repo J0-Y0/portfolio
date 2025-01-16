@@ -1,38 +1,85 @@
-{% load static %}
+<nav class="border align-middle p-2 border-primary rounded-md rounded-s-full flex flex-row justify-between">
+  <img class="h-6" src="../static/img/logo_2.png" alt="Logo" />
 
-<nav id="navbar" class="p-2 px-md-4 navbar bg-light navbar-expand-lg sticky-top">
-  <a href="/" class="logo"><img src="{% static 'img/logo_2.png' %}" alt="Logo" width="35" height="35" class="p-1 navbar-brand" /></a>
+  <ul class="flex">
+    <li class="mx-2 hover:text-warning hover:border-danger">
+      <a id="about" href="#about" aria-current="page">About</a>
+    </li>
+    <li class="mx-2 hover:text-warning hover:border-danger">
+      <a id="experience" href="#experience">Experience</a>
+    </li>
+    <li class="mx-2 hover:text-warning hover:border-danger">
+      <a id="education" href="#education">Education</a>
+    </li>
+    <li class="mx-2 hover:text-warning hover:border-danger">
+      <a id="portfolio" href="#portfolio">Portfolio</a>
+    </li>
+    <li class="mx-2 hover:text-warning hover:border-danger">
+      <a id="contact" href="#contact">Contacts</a>
+    </li>
+    <li class="transition ease-in-out duration-700 ms-2 border text-secondary px-2 hover:bg-secondary hover:text-bg_dark">
+      <i class="fa-regular fa-circle-down"></i>
 
-  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title fw-bold fst-italic" id="offcanvasLabelm"><u>=Yosef.E=</u></h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body justify-content-end">
-      <ul class="navbar-nav">
-        <hr />
-        <li class="nav-item position-relative">
-          <a class="nav-link" href="about">About</a>
-          {% comment %} {% include 'components/pin.html' %} {% endcomment %}
-        </li>
-        <li class="nav-item position-relative">
-          <a class="nav-link" href="education">Education</a>
-        </li>
-        <li class="nav-item position-relative">
-          <a class="nav-link" href="experience">Experience</a>
-        </li>
-        <li class="nav-item position-relative">
-          <a class="nav-link" href="projects">Projects</a>
-        </li>
-        <li class="nav-item position-relative">
-          <a class="nav-link" href="contact">Contact</a>
-        </li>
-      </ul>
-      <button class="btn btn-sm btn-outline-warning" type="button">
-        <i class="fa-regular fa-circle-down"></i>
-        Resume
-      </button>
-    </div>
-  </div>
+      <button id="resume" href="#resume">Resume</button>
+    </li>
+  </ul>
 </nav>
+
+<style>
+  .selected-link {
+    color: #ffc107;
+    font-weight: bold;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('nav a')
+    const pages = document.querySelectorAll('.page')
+  
+    // Function to activate the corresponding section and style
+    const activateSection = (hash) => {
+      const cleanHash = hash.replace('?', '') // Remove '?' if present
+  
+      // Highlight the active link
+      links.forEach((link) => {
+        if (link.getAttribute('href') === cleanHash) {
+          link.classList.add('selected-link')
+        } else {
+          link.classList.remove('selected-link')
+        }
+      })
+  
+      // Show the corresponding page
+      pages.forEach((page) => page.classList.add('hidden'))
+      const targetPage = document.getElementById(`${cleanHash.replace('#', '')}-page`)
+      if (targetPage) {
+        targetPage.classList.remove('hidden')
+      } else {
+        console.warn(`No section found for hash: ${cleanHash}`)
+      }
+    }
+  
+    // Handle link clicks
+    links.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault() // Prevent default behavior
+  
+        const href = link.getAttribute('href')
+        if (href) {
+          history.pushState(null, '', `?${href}`) // Update the URL
+          activateSection(href) // Activate the corresponding section
+        }
+      })
+    })
+  
+    // Check the URL hash on page load
+    const initialHash = window.location.hash || '#about'
+    activateSection(initialHash)
+  
+    // Handle back/forward navigation
+    window.addEventListener('popstate', () => {
+      const currentHash = window.location.hash || '#about'
+      activateSection(currentHash)
+    })
+  })
+</script>

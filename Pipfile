@@ -9,8 +9,10 @@ pillow = "*"
 python-dotenv = "*"
 fontawesomefree = "*"
 fontawesome-free = "*"
+django-browser-reload = "*"
+django-tailwind = {extras = ["reload"], version = "*"}
 
 [dev-packages]
 
 [requires]
-python_version = "3.12"
+python_version = "*"

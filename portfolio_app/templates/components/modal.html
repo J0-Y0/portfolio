@@ -1,0 +1,61 @@
+<div class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="generic-modal">
+  <!-- Background overlay -->
+  <div class="fixed inset-0 bg-transparent_bg transition-opacity"></div>
+
+  <!-- Modal container -->
+  <div class="fixed inset-0 z-10 overflow-y-auto">
+    <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+      <div class="relative transform overflow-hidden rounded-lg text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+        <!-- Modal body -->
+        <div class="modal-body bg-input_dark px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+            <div class="border p-2 rounded-full border-primary">
+              <img class="h-12" src="../static/img/logo_2.png" alt="Logo" />
+            </div>
+            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+              <h3 class="leading-6 modal-title font-extrabold text-2xl">Modal Title</h3>
+              <div class="mt-2">
+                <p class="text-xl text-quinary modal-content">This is a sample modal content. You can customize this message as needed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="bg-input_dark px-4 py-3 sm:flex sm:flex-row-reverse">
+          <button type="button" class="confirm-modal transition ease-in-out duration-700 ms-2 border text-li px-4 py-1 hover:bg-text_light hover:text-bg_dark">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('generic-modal')
+    const closeModalButtons = modal.querySelectorAll('.close-modal')
+    const modalTitle = modal.querySelector('.modal-title')
+    const modalContent = modal.querySelector('.modal-content')
+    const confirmButton = modal.querySelector('.confirm-modal')
+  
+    window.openModal = ({ title = '', content = '', onConfirm = null }) => {
+      modalTitle.textContent = title
+      modalContent.textContent = content
+  
+      confirmButton.onclick = () => {
+        if (typeof onConfirm === 'function') {
+          onConfirm()
+        }
+        closeModal()
+      }
+  
+      modal.classList.remove('hidden')
+    }
+  
+    const closeModal = () => {
+      modal.classList.add('hidden')
+    }
+  
+    closeModalButtons.forEach((btn) => btn.addEventListener('click', closeModal))
+  })
+</script>

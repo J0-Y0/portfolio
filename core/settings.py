@@ -32,6 +32,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "fontawesomefree",
     "portfolio_app",
+    "tailwind",
+    "theme",
+    # "django_browser_reload",
 ]
 
 MIDDLEWARE = [
@@ -42,6 +45,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
@@ -126,17 +130,22 @@ MEDIA_ROOT = (
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
+from django.templatetags.static import static
 
 
 UNFOLD = {
+    "SITE_ICON": {
+        "light": lambda request: static("img/logo_2.png"),
+        "dark": lambda request: static("img/logo_2.png"),
+    },
     "SIDEBAR": {
-        "show_search": False,  # Disable search in applications and model names
-        "show_all_applications": False,  # Disable dropdown for all apps/models
+        "show_search": True,
+        "show_all_applications": True,
         "navigation": [
             {
-                "title": _("Authentication and Authorization"),
-                "separator": True,  # Adds a top border
-                "collapsible": True,  # Makes the group collapsible
+                "title": _("Authentication"),
+                "separator": True,
+                "collapsible": True,
                 "items": [
                     {
                         "title": _("Groups"),
@@ -151,27 +160,46 @@ UNFOLD = {
                 ],
             },
             {
-                "title": _("Portfolio Models"),
+                "title": _("Visitor's Message"),
+                "separator": True,
+                "collapsible": False,
+                "items": [
+                    {
+                        "title": _("Inbox"),
+                        "icon": "message",
+                        "link": reverse_lazy("admin:portfolio_app_inbox_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Profile"),
                 "separator": True,
                 "collapsible": True,
                 "items": [
+                    {
+                        "title": _("Profiles"),
+                        "icon": "account_circle",
+                        "link": reverse_lazy("admin:portfolio_app_profile_changelist"),
+                    },
                     {
                         "title": _("Address"),
                         "icon": "location_on",
                         "link": reverse_lazy("admin:portfolio_app_address_changelist"),
                     },
                     {
-                        "title": _("Blogs"),
-                        "icon": "article",
-                        "link": reverse_lazy("admin:portfolio_app_blog_changelist"),
-                    },
-                    {
-                        "title": _("Certifications"),
-                        "icon": "school",
+                        "title": _("Social Links"),
+                        "icon": "share",
                         "link": reverse_lazy(
-                            "admin:portfolio_app_certifications_changelist"
+                            "admin:portfolio_app_sociallink_changelist"
                         ),
                     },
+                ],
+            },
+            {
+                "title": _("Portfolio Models"),
+                "separator": True,
+                "collapsible": False,
+                "items": [
                     {
                         "title": _("Educations"),
                         "icon": "menu_book",
@@ -187,9 +215,11 @@ UNFOLD = {
                         ),
                     },
                     {
-                        "title": _("Profiles"),
-                        "icon": "account_circle",
-                        "link": reverse_lazy("admin:portfolio_app_profile_changelist"),
+                        "title": _("Certifications"),
+                        "icon": "school",
+                        "link": reverse_lazy(
+                            "admin:portfolio_app_certifications_changelist"
+                        ),
                     },
                     {
                         "title": _("Projects"),
@@ -202,11 +232,9 @@ UNFOLD = {
                         "link": reverse_lazy("admin:portfolio_app_skill_changelist"),
                     },
                     {
-                        "title": _("Social Links"),
-                        "icon": "share",
-                        "link": reverse_lazy(
-                            "admin:portfolio_app_sociallink_changelist"
-                        ),
+                        "title": _("Blogs"),
+                        "icon": "article",
+                        "link": reverse_lazy("admin:portfolio_app_blog_changelist"),
                     },
                     {
                         "title": _("Tags"),
@@ -216,5 +244,79 @@ UNFOLD = {
                 ],
             },
         ],
-    }
+    },
+    "COLORS": {
+        "base": {
+            "50": "249 250 251",
+            "100": "243 244 246",
+            "200": "229 231 235",
+            "300": "209 213 219",
+            "400": "156 163 175",
+            "500": "107 114 128",
+            "600": "75 85 99",
+            "700": "55 65 81",
+            "800": "31 41 55",
+            "900": "17 24 39",
+            "950": "3 7 18",
+        },
+        "primary": {
+            "50": "#FFFBEA",
+            "100": "#FFF3C4",
+            "200": "#FCE588",
+            "300": "#FADB5F",
+            "400": "#F7C948",
+            "500": "#FFC107",  # Yellow theme
+            "600": "#E1A200",
+            "700": "#C58C00",
+            "800": "#A87900",
+            "900": "#855D00",
+            "950": "#634300",
+        },
+        "secondary": {
+            "50": "#F4F4F4",
+            "100": "#E6E6E6",
+            "200": "#CFCFCF",
+            "300": "#B8B8B8",
+            "400": "#A1A1A1",
+            "500": "#8A8A8A",
+            "600": "#737373",
+            "700": "#5C5C5C",
+            "800": "#454545",
+            "900": "#2E2E2E",
+        },
+        "tertiary": {
+            "50": "#F5F8FA",
+            "100": "#E1E8ED",
+            "200": "#CFD9E3",
+            "300": "#B3C6D8",
+            "400": "#94AFCA",
+            "500": "#7395B0",
+            "600": "#537090",
+            "700": "#3D5470",
+            "800": "#263750",
+            "900": "#101A30",
+        },
+        "font": {
+            "subtle-light": "var(--color-base-500)",
+            "subtle-dark": "var(--color-base-400)",
+            "default-light": "var(--color-base-600)",
+            "default-dark": "var(--color-base-300)",
+            "important-light": "var(--color-base-900)",
+            "important-dark": "var(--color-base-100)",
+        },
+        # "sidebar-selected": "#FFC107",  # Yellow for the selected link
+    },
+    "STYLES": [
+        # lambda request: static("css/style.css"),
+        lambda request: static("css/admin.css"),
+    ],
+    "THEME": "dark",
 }
+
+
+# tailwind settings
+TAILWIND_APP_NAME = "theme"
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"

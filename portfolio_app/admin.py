@@ -35,6 +35,28 @@ class ProjectTagsInline(TabularInline):
 @admin.register(Profile)
 class ProfileAdmin(ModelAdmin):
     list_display = ["first_name", "last_name", "heading", "sub_heading"]
+    fieldsets = (
+        (
+            "Fill out your details",
+            {
+                "fields": [
+                    (
+                        "first_name",
+                        "last_name",
+                    ),
+                    (
+                        "heading",
+                        "sub_heading",
+                    ),
+                    (
+                        "profile_picture",
+                        "profile_picture_mini",
+                    ),
+                    "about",
+                ]
+            },
+        ),
+    )
 
 
 @admin.register(Address)
@@ -126,6 +148,23 @@ class TagAdmin(ModelAdmin):
 class CertificationsAdmin(ModelAdmin):
     list_display = ["title", "issued_on", "certificate_link"]
     search_fields = ["title"]
+
+
+@admin.register(Inbox)
+class InboxAdmin(ModelAdmin):
+    list_display = ["sender_email", "short_message", "delivered_time", "seen"]
+    search_fields = ["sender_email", "message"]
+    list_filter = ["delivered_time"]
+    list_editable = ["seen"]
+    readonly_fields = ["message", "sender_email"]
+
+    # Custom method to truncate the message to 40 characters
+    def short_message(self, obj):
+        return obj.message[:40] + "..." if len(obj.message) > 40 else obj.message
+
+    short_message.short_description = (
+        "Message"  # Label for the column in the admin panel
+    )
 
 
 admin.site.unregister(User)

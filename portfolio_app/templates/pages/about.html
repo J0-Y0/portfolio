@@ -1,16 +1,16 @@
-{% load static %}
-
-<div id="about" class="page">
-  <div class="row align-items-center justify-content-between mt-5">
-    <div class="col-12 col-md-7 about-content" data-aos="fade-up">
-      <h1 class="greeting">Hi, I'm <span class="highlight">{{ profile.first_name }} {{ profile.last_name }}</span></h1>
-      <p class="intro">{{ profile.sub_heading }}</p>
-      <p>{{ profile.about }}</p>
-      {% comment %} <button type="button" class="btn btn-warning rounded-pill">Let’s Talk</button> {% endcomment %}
-      {% include 'components/button_contact.html' %}
+<!-- about page -->
+{% block page %}
+  <main id="about-page" class="page p-2 min-h-full flex pt-10 sm:pt-40 align-middle gap-3">
+    <div class="basis-1/4 flex ps-5">
+      <img class="rounded-3xl border p-1 transition ease-in-out duration-700 transform hover:scale-150 h-56 sm:h-96" src="{{ profile.profile_picture.url }}" alt="Profile Picture" />
     </div>
-    <div class="col-md-5 about-img" data-aos="fade-down">
-      <img src="{% static 'bg.png' %}" alt="Yosef's photo" class="side-img" />
+    <div class="basis-3/4 py-10 sm:p-15 px-3">
+      <p class="font-extrabold text-xl sm:text-2x py-2 md:text-3xl">
+        Hi, I'm <span class="text-secondary">{{ profile.first_name }} {{ profile.first_name }}</span>
+      </p>
+      <p class="text-lg sm:text-xl text-balance pb-10">{{ profile.sub_heading }}</p>
+      <p class="text-quinary text-lg">{{ profile.about }}</p>
+      <button class="transition ease-in-out duration-700 my-6 p-2 px-4 font-extrabold border text-secondary hover:bg-secondary hover:text-bg_dark">Let's talk</button>
     </div>
-  </div>
-</div>
+  </main>
+{% endblock %}

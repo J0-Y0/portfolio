@@ -25,6 +25,14 @@ class Profile(models.Model):
     heading = models.CharField(max_length=255)  # heading to your landing page
     sub_heading = models.CharField(max_length=255)  # heading to your profile
     about = models.TextField()
+    # for about page
+    profile_picture = models.FileField(
+        upload_to="profile_pic/", validators=[validate_image_file], null=True
+    )  # Ensure you have Pillow installed
+    # for side bar
+    profile_picture_mini = models.FileField(
+        upload_to="profile_pic/", validators=[validate_image_file], null=True
+    )  # Ensure you have Pillow installed
 
     def __str__(self):
         return "About Me"
@@ -58,9 +66,9 @@ class Education(models.Model):
     degree = models.CharField(max_length=100)
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
-    website = models.URLField(max_length=300)
+    website = models.URLField(max_length=300, blank=True)
     address = models.CharField(max_length=255)
-    details = models.TextField()
+    details = models.TextField(blank=True)
 
     def __str__(self):
         return f"{self.degree} from {self.institution}"
@@ -112,6 +120,9 @@ class Experience(models.Model):
     def __str__(self):
         return f"{self.position} at {self.company}"
 
+    def formatted_end_date(self):
+        return self.end_date if self.end_date else "Present"
+
 
 class JobTask(models.Model):
     experience = models.ForeignKey(
@@ -140,3 +151,10 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Inbox(models.Model):
+    sender_email = models.CharField(max_length=100)
+    message = models.TextField(max_length=500)
+    delivered_time = models.DateTimeField(auto_now_add=True)
+    seen = models.BooleanField(default=False)
