@@ -3,6 +3,7 @@ from django.utils.html import format_html
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.admin import GroupAdmin as BaseGroupAdmin
 from django.contrib.auth.models import User, Group
+from django.utils.html import format_html
 
 from unfold.admin import ModelAdmin, TabularInline
 
@@ -18,6 +19,15 @@ class SocialLinkInline(TabularInline):
 class ProjectImageInline(TabularInline):
     model = ProjectImage
     extra = 1  # Allows one empty form for new entries
+    # readonly_fields = ["thumbnail"]
+
+    # def thumbnail(self, instance):
+    #     if instance.img.name != "":
+    #         return format_html(
+    #             instance.img.name.
+    #             # f'<a target = "_black" href = "{instance.img}" ><img src = "{instance.image.url}" alt =" __ product image" class   = "thumbnail"/> </a>'
+    #         )
+    #     return "..."
 
 
 class JobTaskInline(TabularInline):
@@ -86,7 +96,9 @@ class EducationAdmin(ModelAdmin):
 
 @admin.register(Project)
 class ProjectAdmin(ModelAdmin):
-    list_display = ["title"]
+    list_display = [
+        "title",
+    ]
     search_fields = ["title"]
     filter_horizontal = ["skills_used", "tags"]
     prepopulated_fields = {"slug": ("title",)}

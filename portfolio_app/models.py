@@ -96,7 +96,7 @@ class Project(models.Model):
 class ProjectImage(models.Model):
     project = models.ForeignKey(Project, on_delete=models.PROTECT, null=True)
 
-    img = models.FileField(
+    image_list = models.ImageField(
         upload_to="ProjectImage/",
         validators=[validate_image_file],
         null=True,
