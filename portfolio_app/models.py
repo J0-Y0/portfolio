@@ -84,14 +84,24 @@ class Certifications(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, null=False)
-    description = models.TextField()
     problem_statement = models.TextField(null=True, blank=True)  # optional
+    description = models.TextField()
     tags = models.ManyToManyField("Tag", related_name="projects")
     skills_used = models.ManyToManyField("Skill", related_name="projects")
-    explored = models.TextField()
 
     def __str__(self):
         return self.title
+
+
+class ProjectImage(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.PROTECT, null=True)
+
+    image_list = models.ImageField(
+        upload_to="ProjectImage/",
+        validators=[validate_image_file],
+        null=True,
+        blank=True,
+    )
 
 
 class Skill(models.Model):
