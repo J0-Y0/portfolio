@@ -3,6 +3,7 @@ from django.utils.html import format_html
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.admin import GroupAdmin as BaseGroupAdmin
 from django.contrib.auth.models import User, Group
+from django.utils.html import format_html
 
 from unfold.admin import ModelAdmin, TabularInline
 
@@ -15,20 +16,23 @@ class SocialLinkInline(TabularInline):
     extra = 1  # Allows one empty form for new entries
 
 
+class ProjectImageInline(TabularInline):
+    model = ProjectImage
+    extra = 1  # Allows one empty form for new entries
+    # readonly_fields = ["thumbnail"]
+
+    # def thumbnail(self, instance):
+    #     if instance.img.name != "":
+    #         return format_html(
+    #             instance.img.name.
+    #             # f'<a target = "_black" href = "{instance.img}" ><img src = "{instance.image.url}" alt =" __ product image" class   = "thumbnail"/> </a>'
+    #         )
+    #     return "..."
+
+
 class JobTaskInline(TabularInline):
     model = JobTask
     extra = 1  # Allows one empty form for new entries
-
-
-# Define many-to-many through inline (if needed)
-class ProjectSkillsInline(TabularInline):
-    model = Project.skills_used.through  # Use the intermediary table
-    extra = 1
-
-
-class ProjectTagsInline(TabularInline):
-    model = Project.tags.through  # Use the intermediary table
-    extra = 1
 
 
 # --- ModelAdmin Classes ---
@@ -92,11 +96,38 @@ class EducationAdmin(ModelAdmin):
 
 @admin.register(Project)
 class ProjectAdmin(ModelAdmin):
-    list_display = ["title"]
+    list_display = [
+        "title",
+    ]
     search_fields = ["title"]
-    inlines = [ProjectSkillsInline, ProjectTagsInline]
-    filter_horizontal = ["skills_used", "tags"]  # Manage M2M relationships
+    filter_horizontal = ["skills_used", "tags"]
     prepopulated_fields = {"slug": ("title",)}
+    inlines = [
+        ProjectImageInline,
+    ]
+    fieldsets = [
+        (
+            "Basic description",
+            {
+                "classes": ["tab"],
+                "fields": (
+                    (
+                        "title",
+                        "slug",
+                    ),
+                    "problem_statement",
+                    "description",
+                ),
+            },
+        ),
+        (
+            "Skill and Tag",
+            {
+                "classes": ["tab"],
+                "fields": ("tags", "skills_used"),
+            },
+        ),
+    ]
 
 
 @admin.register(Skill)

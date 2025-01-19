@@ -2,15 +2,15 @@
 {% block page %}
   <main id="about-page" class="page p-2 min-h-full flex pt-10 sm:pt-40 align-middle gap-3">
     <div class="basis-1/4 flex ps-5">
-      <img class="rounded-3xl border p-1 transition ease-in-out duration-700 transform hover:scale-150 h-56 sm:h-96" src="{{ profile.profile_picture.url }}" alt="Profile Picture" />
+      <img class="rounded-3xl border p-1 transition ease-in-out duration-700 transform hover:scale-150 h-56 sm:h-96" src="../static/img/mypic_office.jpg" alt="Profile Picture" />
     </div>
     <div class="basis-3/4 py-10 sm:p-15 px-3">
       <p class="font-extrabold text-xl sm:text-2x py-2 md:text-3xl">
-        Hi, I'm <span class="text-secondary">{{ profile.first_name }} {{ profile.first_name }}</span>
+        Hi, I'm <span class="text-secondary">Yosef Emyayu</span>
       </p>
-      <p class="text-lg sm:text-xl text-balance pb-10">{{ profile.sub_heading }}</p>
-      <p class="text-quinary text-lg">{{ profile.about }}</p>
-      <button class="transition ease-in-out duration-700 my-6 p-2 px-4 font-extrabold border text-secondary hover:bg-secondary hover:text-bg_dark">Let's talk</button>
+      <p class="text-lg sm:text-xl text-balance pb-10">Full Stack Engineer | Python | Django | React | Web Security</p>
+      <p class="text-quinary text-lg">Let's connect and build something great together! I'm passionate about creating innovative, secure web solutions and always open to new challenges.</p>
+      <button class="transition ease-in-out duration-700 my-6 p-2 px-4 font-extrabold border text-secondary hover:bg-secondary hover:text-bg_dark animate-bounce">Let's talk</button>
     </div>
   </main>
 {% endblock %}
