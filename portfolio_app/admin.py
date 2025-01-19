@@ -15,20 +15,14 @@ class SocialLinkInline(TabularInline):
     extra = 1  # Allows one empty form for new entries
 
 
-class JobTaskInline(TabularInline):
-    model = JobTask
+class ProjectImageInline(TabularInline):
+    model = ProjectImage
     extra = 1  # Allows one empty form for new entries
 
 
-# Define many-to-many through inline (if needed)
-class ProjectSkillsInline(TabularInline):
-    model = Project.skills_used.through  # Use the intermediary table
-    extra = 1
-
-
-class ProjectTagsInline(TabularInline):
-    model = Project.tags.through  # Use the intermediary table
-    extra = 1
+class JobTaskInline(TabularInline):
+    model = JobTask
+    extra = 1  # Allows one empty form for new entries
 
 
 # --- ModelAdmin Classes ---
@@ -94,9 +88,34 @@ class EducationAdmin(ModelAdmin):
 class ProjectAdmin(ModelAdmin):
     list_display = ["title"]
     search_fields = ["title"]
-    inlines = [ProjectSkillsInline, ProjectTagsInline]
-    filter_horizontal = ["skills_used", "tags"]  # Manage M2M relationships
+    filter_horizontal = ["skills_used", "tags"]
     prepopulated_fields = {"slug": ("title",)}
+    inlines = [
+        ProjectImageInline,
+    ]
+    fieldsets = [
+        (
+            "Basic description",
+            {
+                "classes": ["tab"],
+                "fields": (
+                    (
+                        "title",
+                        "slug",
+                    ),
+                    "problem_statement",
+                    "description",
+                ),
+            },
+        ),
+        (
+            "Skill and Tag",
+            {
+                "classes": ["tab"],
+                "fields": ("tags", "skills_used"),
+            },
+        ),
+    ]
 
 
 @admin.register(Skill)

@@ -2,10 +2,14 @@
 {% block page %}
   <main id="education-page" class="page p-2 min-h-full flex pt-10 sm:pt-32 align-middle gap-3">
     <div class="basis-2/3 sm:p-15 px-3">
-      <p class="font-bold font-serif text-2xl mb-3">Education</p>
+      <p data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="800" class="font-bold font-serif text-2xl mb-3">Education</p>
+      <div class="animate__animated animate__fadeIn">This element will fade in on page load!</div>
+      <div class="animate-bounce">I am bouncing!</div>
+      <div class="opacity-0 hover:opacity-100 transition-opacity duration-500 ease-in-out">I will fade in when you hover!</div>
+      <div class="transform translate-x-full hover:translate-x-0 transition-transform duration-500 ease-in-out">Slide in from the left!</div>
 
       {% for education in educations %}
-        <div class="flex gap-4">
+        <div class="flex gap-4" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="800">
           <div>
             <span>🟡</span>
             <p class="ms-2 -my-3 h-32 w-0 border text-secondary"></p>
@@ -22,16 +26,16 @@
               {{ education.start_date|date:'M Y' }}-
               {{ education.end_date }}
             </p>
-          </div>a
+          </div>
         </div>
       {% endfor %}
     </div>
     <div class="basis-1/3 flex flex-col">
-      <p class="font-bold font-serif text-2xl mb-3">Certifications</p>
+      <p data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500" data-aos-duration="800" class="font-bold font-serif text-2xl mb-3">Certifications</p>
 
       <ul class="h-96 overflow-y-auto px-3 text-quinary">
         {% for certificate in certifications %}
-          <li class="flex p-2 gap-2 transition ease-in-out duration-500 transform hover:scale-105 hover:text-warning">
+          <li data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="800" class="flex p-2 gap-2 transition ease-in-out duration-500 transform hover:scale-105 hover:text-warning">
             <p class="text-4xl font-extrabold p-4 rounded-lg border">{{ certificate.title|slice:'1' }}</p>
             <a class="flex flex-col" href="{{ certificate.certificate_link }}" target="_blank">
               <span class="font-bold my-2">{{ certificate.title }}</span>
