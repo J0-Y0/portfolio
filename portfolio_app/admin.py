@@ -105,6 +105,7 @@ class ProjectAdmin(ModelAdmin):
     inlines = [
         ProjectImageInline,
     ]
+
     fieldsets = [
         (
             "Basic description",
@@ -115,8 +116,18 @@ class ProjectAdmin(ModelAdmin):
                         "title",
                         "slug",
                     ),
-                    "problem_statement",
-                    "description",
+                    "short_description",
+                ),
+            },
+        ),
+        (
+            "Detail",
+            {
+                "classes": ["tab"],
+                "fields": (
+                    "problem_of_statement",
+                    "solution_detail",
+                    "video_link",
                 ),
             },
         ),
@@ -124,7 +135,10 @@ class ProjectAdmin(ModelAdmin):
             "Skill and Tag",
             {
                 "classes": ["tab"],
-                "fields": ("tags", "skills_used"),
+                "fields": (
+                    "tags",
+                    "skills_used",
+                ),
             },
         ),
     ]

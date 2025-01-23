@@ -46,7 +46,7 @@ class Address(models.Model):
     country = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.street}, {self.city}"
+        return f"{self.city},{self.region},{self.country}"
 
 
 class SocialLink(models.Model):
@@ -84,8 +84,10 @@ class Certifications(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, null=False)
-    problem_statement = models.TextField(null=True, blank=True)  # optional
-    description = models.TextField()
+    short_description = models.TextField(max_length=400)
+    problem_of_statement = models.TextField(null=True, blank=True)  # optional
+    solution_detail = models.TextField(null=True, blank=True)  # optional
+    video_link = models.URLField(null=True, blank=True)
     tags = models.ManyToManyField("Tag", related_name="projects")
     skills_used = models.ManyToManyField("Skill", related_name="projects")
 
