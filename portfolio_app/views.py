@@ -47,7 +47,7 @@ def projects(request):
 
 def project_detail(request, slug):
     context = get_common_context()
-    context.update({"project_slug": slug})  # Add slug-specific context if needed
+    # context.update({"project_slug": slug})  # Add slug-specific context if needed
     return render(request, "pages/project_detail.html", context)
 
 
@@ -83,6 +83,7 @@ def project_detail(request, slug):
 
 
 def contact(request):
+
     context = {
         "error": "",
         "success": "",
@@ -120,7 +121,6 @@ def flowbit(request):
 
 
 def project_detail(request, slug):
-    return render(
-        request,
-        "pages/project_detail.html",
-    )
+    context = get_common_context()
+
+    return render(request, "pages/project_detail.html", context)
