@@ -15,12 +15,12 @@
             {% block page %}
 
             {% endblock page %}
-                    {% include "pages/about.html" %}
+                    {% comment %} {% include "pages/about.html" %}
                     {% include "pages/experience.html" %}
                     
                     {% include "pages/education.html" %}
                     {% include "pages/portfolio.html" %}
-                    {% include "pages/contact.html" %}
+                    {% include "pages/contact.html" %} {% endcomment %}
 
         </div>
 

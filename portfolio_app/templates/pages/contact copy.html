@@ -13,6 +13,9 @@
           {% if error %}
             <p class="mb-3 text-red-500">{{ error }}</p>
           {% endif %}
+          {% if success %}
+            <p class="mb-3 text-green-500">{{ success }}</p>
+          {% endif %}
 
           <label for="email">Leave me your email</label>
           <input class="mb-3 mt-1 p-2 border-none bg-input_dark focus:ring-1 focus:ring-info focus:ring-offset-0" id="email" name="email" type="email" placeholder="youremail@domain.com" value="{{ form_data.email|default:'' }}" required />
@@ -40,15 +43,6 @@
   </style>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-       {% if success %}
-        openModal({
-              title: 'Thank you',
-              content: 'Your message has been sent. I will get back to you soon.',
-              onConfirm: () => console.log('Confirmed!'),
-            });
-      {% endif %} 
-    })
     // Function to open the modal
     function openModal({ title, content, onConfirm }) {
       const modal = document.getElementById('modal') // Make sure modal HTML has an ID of 'modal'

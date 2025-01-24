@@ -3,23 +3,22 @@
 
   <ul class="flex">
     <li class="mx-2 hover:text-warning hover:border-danger">
-      <a id="about" href="#about" aria-current="page">About</a>
+      <a id="about" href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}selected-link{% endif %}">About</a>
     </li>
     <li class="mx-2 hover:text-warning hover:border-danger">
-      <a id="experience" href="#experience">Experience</a>
+      <a id="experience" href="{% url 'experience' %}" class="{% if request.resolver_match.url_name == 'experience' %}selected-link{% endif %}">Experience</a>
     </li>
     <li class="mx-2 hover:text-warning hover:border-danger">
-      <a id="education" href="#education">Education</a>
+      <a id="education" href="{% url 'education' %}" class="{% if request.resolver_match.url_name == 'education' %}selected-link{% endif %}">Education</a>
     </li>
     <li class="mx-2 hover:text-warning hover:border-danger">
-      <a id="portfolio" href="#portfolio">Portfolio</a>
+      <a id="portfolio" href="{% url 'projects' %}" class="{% if request.resolver_match.url_name == 'projects' %}selected-link{% endif %}">Portfolio</a>
     </li>
     <li class="mx-2 hover:text-warning hover:border-danger">
-      <a id="contact" href="#contact">Contacts</a>
+      <a id="contact" href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}selected-link{% endif %}">Contacts</a>
     </li>
     <li class="transition ease-in-out duration-700 ms-2 border text-secondary px-2 hover:bg-secondary hover:text-bg_dark">
       <i class="fa-regular fa-circle-down"></i>
-
       <button id="resume" href="#resume">Resume</button>
     </li>
   </ul>
@@ -31,57 +30,3 @@
     font-weight: bold;
   }
 </style>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('nav a')
-    const pages = document.querySelectorAll('.page')
-  
-    // Function to activate the corresponding section and style
-    const activateSection = (hash) => {
-      const cleanHash = hash.replace('?', '') // Remove '?' if present
-  
-      // Highlight the active link
-      links.forEach((link) => {
-        if (link.getAttribute('href') === cleanHash) {
-          link.classList.add('selected-link')
-        } else {
-          link.classList.remove('selected-link')
-        }
-      })
-  
-      // Show the corresponding page
-      pages.forEach((page) => page.classList.add('hidden'))
-      const targetPage = document.getElementById(`${cleanHash.replace('#', '')}-page`)
-      if (targetPage) {
-        targetPage.classList.remove('hidden')
-      } else {
-        console.warn(`No section found for hash: ${cleanHash}`)
-      }
-    }
-  
-    // Handle link clicks
-    links.forEach((link) => {
-      link.addEventListener('click', (event) => {
-        event.preventDefault() // Prevent default behavior
-  
-        const href = link.getAttribute('href')
-        if (href) {
-          history.pushState(null, '', `?${href}`) // Update the URL
-          activateSection(href) // Activate the corresponding section
-        }
-      })
-    })
-  
-    // Check the URL hash on page load
-    const initialHash = window.location.hash || '#about'
-    console.log(window.location)
-    activateSection(initialHash)
-  
-    // Handle back/forward navigation
-    window.addEventListener('popstate', () => {
-      const currentHash = window.location.hash || '#about'
-  
-      activateSection(currentHash)
-    })
-  })
-</script>
