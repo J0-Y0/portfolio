@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{% static 'theme\static\css\dist\styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'theme/static/css/dist/styles.css' %}" />
 
     <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css" />
@@ -27,5 +27,11 @@
     <script>
       AOS.init()
     </script>
+    <script src="node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script src="static_src/node_modules/flowbite/dist/flowbite.js"></script>
+    <script src="{% static '/static_src/node_modules/flowbite/dist/flowbite.js' %}"></script>
+    <script src="{% static 'flowbite/dist/flowbite.min.js' %}"></script>
+
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/flowbite@3.0.0/dist/flowbite.min.js"></script> {% endcomment %}
   </body>
 </html>

@@ -62,3 +62,10 @@ def message(request):
             )
 
     return JsonResponse({"error": "Invalid request method."}, status=405)
+
+
+def flowbit(request):
+    return render(
+        request,
+        "flowbit.html",
+    )

@@ -117,6 +117,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    BASE_DIR / "theme/static_src/node_modules",
 ]
 # Add these lines to your settings.py
 MEDIA_URL = "/media/"
@@ -319,4 +320,4 @@ TAILWIND_APP_NAME = "theme"
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
-NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+NPM_BIN_PATH = r"C:\Program Files (x86)\nodejs\npm.cmd"

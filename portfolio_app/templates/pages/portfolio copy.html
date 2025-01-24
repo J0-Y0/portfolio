@@ -7,59 +7,15 @@
 
     <!-- Project Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-primary scrollbar-track-quinary">
-      <div class="group relative rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-[15rem]" data-carousel="slide">
-        <!-- content -->
-
-        <div class="group relative h-56 overflow-hidden rounded-lg md:h-96">
-          <!-- Item 1 -->
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="../static/img/p.PNG" alt="..." />
-          </div>
-
-          <!-- Item 1 -->
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="../static/img/p.PNG" alt="..." />
-          </div>
-
-          <!-- Item 1 -->
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="../static/img/p.PNG" alt="..." />
-          </div>
-        </div>
-
-        <!-- Slider indicators -->
-        <div class="absolute z-30 flex -translate-x-1/2 bottom-0 left-1/2 space-x-3 rtl:space-x-reverse">
-          <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-          <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-          <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-          <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-          <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-        </div>
-        <!-- Slider controls -->
-        <button type="button" class="absolute top-0 start-0 z-50 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-2 dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg class="w-3 h-3 dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-            </svg>
-            <span class="sr-only">Previous</span>
-          </span>
-        </button>
-        <button type="button" class="absolute top-0 end-0 z-50 flex items-center justify-center h-full px-2 cursor-pointer group focus:outline-none" data-carousel-next>
-          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-2 dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-            </svg>
-            <span class="sr-only">Next</span>
-          </span>
-        </button>
-        <!-- project description trigger on hover -->
-        <div class="z-30 absolute inset-0 bg-gradient-to-t from-bg_dark to-transparent_bg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        <div class="z-30 absolute bottom-4 left-4 right-4 text-text_light opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <!-- Project Card -->
+      <div class="group relative rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-[15rem]">
+        <img class="w-full h-40 sm:h-60 object-cover" src="../static/img/p.PNG" alt="Profile Picture" />
+        <div class="absolute inset-0 bg-gradient-to-t from-bg_dark to-transparent_bg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div class="absolute bottom-4 left-4 right-4 text-text_light opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <p class="text-lg font-semibold text-warning">BOA POS-X</p>
           <p class="text-sm">A monitoring tool for Incognito POS terminal, internally deployed for Bank Of Abyssinia (BOA).</p>
         </div>
       </div>
-
       <!-- Project Card -->
       <div class="group relative rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-[15rem]">
         <img class="w-full h-40 sm:h-60 object-cover" src="../static/img/p.PNG" alt="Profile Picture" />

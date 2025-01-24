@@ -8,6 +8,7 @@ from django.conf import settings
 urlpatterns = [
     path("", views.dynamic_page, name="dynamic_pages"),
     path("message/", views.message, name="message"),
+    path("flowbit/", views.flowbit),
     # path("<str:page_name>", views.dynamic_page, name="dynamic_page"),
 ]
 if settings.DEBUG:
