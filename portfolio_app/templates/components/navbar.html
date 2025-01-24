@@ -74,11 +74,13 @@
   
     // Check the URL hash on page load
     const initialHash = window.location.hash || '#about'
+    console.log(window.location)
     activateSection(initialHash)
   
     // Handle back/forward navigation
     window.addEventListener('popstate', () => {
       const currentHash = window.location.hash || '#about'
+  
       activateSection(currentHash)
     })
   })

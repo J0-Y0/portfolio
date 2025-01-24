@@ -69,3 +69,10 @@ def flowbit(request):
         request,
         "flowbit.html",
     )
+
+
+def project_detail(request, slug):
+    return render(
+        request,
+        "pages/project_detail.html",
+    )

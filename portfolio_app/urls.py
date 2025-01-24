@@ -9,6 +9,7 @@ urlpatterns = [
     path("", views.dynamic_page, name="dynamic_pages"),
     path("message/", views.message, name="message"),
     path("flowbit/", views.flowbit),
+    path("project/<str:slug>", views.project_detail, name="project_detail"),
     # path("<str:page_name>", views.dynamic_page, name="dynamic_page"),
 ]
 if settings.DEBUG:
