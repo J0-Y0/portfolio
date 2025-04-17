@@ -17,9 +17,6 @@
   </head>
 
   <body class="bg-bg_dark text-text_light font-serif h-full overflow-hidden">
-    <div id="loading" class="fixed inset-0 bg-bg_dark z-50 flex items-center justify-center transition-opacity duration-500">
-      <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-secondary"></div>
-    </div>
     {% block content %}
 
     {% endblock %}
@@ -28,22 +25,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-      //AOS.init()
-      AOS.init({
-        duration: 800,
-        easing: 'ease-out-quart',
-        once: false,
-        offset: 100
-      })
-      // Hide loading indicator
-      window.addEventListener('load', function () {
-        setTimeout(function () {
-          document.getElementById('loading').style.opacity = '0'
-          setTimeout(function () {
-            document.getElementById('loading').style.display = 'none'
-          }, 5)
-        }, 5)
-      })
+      AOS.init()
     </script>
     <script src="node_modules/flowbite/dist/flowbite.min.js"></script>
     <script src="static_src/node_modules/flowbite/dist/flowbite.js"></script>

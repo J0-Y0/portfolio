@@ -17,10 +17,11 @@
     <li class="mx-2 hover:text-warning hover:border-danger">
       <a id="contact" href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}selected-link{% endif %}">Contacts</a>
     </li>
-    <li class="transition ease-in-out duration-700 ms-2 border text-secondary px-2 hover:bg-secondary hover:text-bg_dark">
-      <i class="fa-regular fa-circle-down"></i>
-      <button id="resume" href="#resume">Resume</button>
-    </li>
+
+    <a class="ml-4 px-4 py-1 bg-gradient-to-r from-primary to-secondary text-bg_dark font-medium rounded-full hover:shadow-lg transition-all duration-300 flex items-center">
+      <span>Resume</span>
+      <i class="fas fa-download ml-2"></i>
+    </a>
   </ul>
 </nav>
 
