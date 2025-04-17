@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main id="landing-page" class="page p-4 pt-10 sm:pt-24 flex flex-col lg:flex-row justify-between gap-8 text-quinary bg-gradient-to-r from-background to-sky-950 transition duration-1000">
+    <!-- Left section: Intro Text -->
+    <section class="basis-1/2 flex flex-col justify-center px-4 animate__animated animate__fadeInLeft">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-text_light leading-tight mb-4">Hi, I'm Yosef Emyayu</h1>
+      <p class="text-xl text-secondary mb-6 font-serif">Full Stack Engineer — Python | Django | React | Web Security</p>
+      <p class="text-base text-quinary mb-8 leading-relaxed">I create secure, high-performance web applications. Let’s connect and build something great together!</p>
+      <div class="flex gap-4">
+        {% comment %} <a href="{% url 'portfolio' %}" class="bg-secondary text-white px-6 py-2 rounded-xl shadow-md hover:bg-yellow-500 transition-all duration-300">See My Work</a> {% endcomment %}
+        <a href="{% url 'contact' %}" class="border border-secondary text-secondary px-6 py-2 rounded-xl hover:bg-secondary hover:text-white transition-all duration-300">Contact Me</a>
+      </div>
+    </section>
+
+    <!-- Right section: Animated Illustration -->
+    <section class="basis-1/2 flex justify-center items-center px-4 animate__animated animate__fadeInRight">
+      {% comment %} <img src="{% static 'images/hero-illustration.svg' %}" alt="Developer Illustration" class="w-full max-w-md drop-shadow-xl hover:scale-105 transition-transform duration-500" /> {% endcomment %}
+    </section>
+  </main>
+
+  <!-- Optional Scroll Indicator or Wave Animation -->
+  <div class="relative mt-[-40px]">
+    <svg preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" style="fill: #147294; width: 100%; height: 60px; transform: rotate(180deg) scaleX(-1);">
+      <path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28..." opacity=".25" />
+      <path d="M0 0v15.81c13 21.11 27.64..." opacity=".5" />
+      <path d="M0 0v5.63C149.93 59..." />
+    </svg>
+  </div>
+{% endblock %}

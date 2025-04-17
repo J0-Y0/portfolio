@@ -1,36 +1,38 @@
 {% extends 'index.html' %}
 
 {% block page %}
-  <main id="experience-page" class="page p-2 flex pt-10 sm:pt-28 gap-2 text-quinary">
-    <div class="basis-1/3 flex flex-col">
-      <p class="font-bold font-serif text-2xl mb-3 text-text_light">Experience</p>
-      <div class="rounded-3xl p-4 flex-col">
+  <main id="experience-page" class="page p-2 flex flex-col sm:flex-row pt-10 sm:pt-28 gap-6 text-quinary">
+    <!-- Timeline / Left Column -->
+    <div class="basis-1/3 flex flex-col" data-aos="fade-right" data-aos-duration="1500">
+      <p class="font-bold font-serif text-3xl mb-5 text-text_light" data-aos="fade-down" data-aos-delay="200">Experience</p>
+      <div class="rounded-3xl p-4 flex-col" data-aos="fade-up" data-aos-delay="400">
         {% for experience in experiences %}
-          <div class="flex gap-2">
-            <div>
-              <span>🟡</span>
-              <p class="ms-2 -my-3 h-16 w-0 border text-secondary"></p>
+          <div class="flex items-center gap-3 group hover:scale-105 transition-transform duration-500" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'1' }}00">
+            <div class="relative flex flex-col items-center">
+              <span class="text-lg animate-ping text-secondary">🟡</span>
+              <p class="h-16 w-0 border border-secondary my-1"></p>
             </div>
-            <a href="#" data-target="experience_{{ forloop.counter }}" class="icon-link text-nowrap hover:text-secondary flex flex-col">
-              <span class="text-xl">{{ experience.start_date|date:'M, Y' }}- {{ experience.formatted_end_date }}</span>
+            <a href="#" data-target="experience_{{ forloop.counter }}" class="icon-link text-nowrap group-hover:text-secondary flex flex-col transition-colors duration-300">
+              <span class="text-lg font-semibold">{{ experience.start_date|date:'M, Y' }} - {{ experience.formatted_end_date }}</span>
               <span class="text-sm">{{ experience.position }}</span>
             </a>
           </div>
         {% endfor %}
       </div>
     </div>
-    <div class="basis-2/3 flex flex-col">
-      <p class="font-bold font-serif text-2xl mb-3"></p>
-      <ul class="h-96 overflow-y-auto px-5">
+
+    <!-- Experience Details / Right Column -->
+    <div class="basis-2/3 flex flex-col" data-aos="fade-left" data-aos-duration="1500">
+      <ul class="h-96 overflow-y-auto px-3 sm:px-5">
         {% for experience in experiences %}
-          <li id="experience_{{ forloop.counter }}" class="experience flex border rounded-lg m-10 p-2 gap-2 transition ease-in-out duration-500 transform hover:scale-105">
-            <a class="flex flex-col w-full hover:border-b-secondary" href="#">
-              <span class="font-bold my-2 title">{{ experience.position }}</span>
-              <span>{{ experience.start_date }} - {{ experience.formatted_end_date }}</span>
-              <div>
-                <span class="font-bold my-2 title">Key Contributions:</span>
-                <span class="ps-2">- Work as React and Django developer.</span>
-                <span class="ps-2">{{ experience.description }}</span>
+          <li id="experience_{{ forloop.counter }}" class="experience border rounded-xl m-2 sm:m-5 p-4 gap-2 shadow-md bg-white/5 hover:bg-white/10 backdrop-blur-md transition-all duration-500 transform hover:scale-105" data-aos="zoom-in-up" data-aos-delay="{{ forloop.counter|add:'2' }}00">
+            <a class="flex flex-col w-full hover:border-b-2 border-secondary" href="#">
+              <span class="font-bold text-xl title my-2">{{ experience.position }}</span>
+              <span class="text-sm text-secondary">{{ experience.start_date }} - {{ experience.formatted_end_date }}</span>
+              <div class="mt-2 text-base leading-relaxed">
+                <span class="font-bold block mb-1">Key Contributions:</span>
+                <span class="block ps-2">– Work as React and Django developer.</span>
+                <span class="block ps-2">{{ experience.description }}</span>
               </div>
             </a>
           </li>
@@ -38,40 +40,31 @@
       </ul>
     </div>
   </main>
+
+  <!-- Styles -->
   <style>
-    /* Styling for the selected navigation link */
     .selected-link {
       color: #ffc107;
       font-weight: bold;
     }
   </style>
-  <!-- experience script -->
+
+  <!-- Experience Script -->
   <script>
-    // Select all anchor tags with the class "icon-link"
     const links = document.querySelectorAll('.icon-link')
-    
     links.forEach((link) => {
       link.addEventListener('click', function (event) {
-        event.preventDefault() // Prevent default anchor behavior
-    
-        // Remove the selected class from all links
+        event.preventDefault()
         links.forEach((link) => link.classList.remove('selected-link'))
-    
-        // Add the selected class to the clicked link
         this.classList.add('selected-link')
     
-        // Get the target element id from data attribute
         const targetId = this.getAttribute('data-target')
-    
-        // Remove existing styles from all  items
         const experienceItems = document.querySelectorAll('.experience')
-        experienceItems.forEach((item) => {
-          item.classList.remove('scale-110', 'border-text_light')
-        })
+        experienceItems.forEach((item) => item.classList.remove('scale-110', 'border-text_light'))
+    
         titles = document.querySelectorAll('.title')
         titles.forEach((title) => title.classList.remove('text-text_light'))
     
-        // Add styles to the clicked item
         const targetElement = document.getElementById(targetId)
         if (targetElement) {
           targetElement.classList.add('scale-110', 'border-text_light')
