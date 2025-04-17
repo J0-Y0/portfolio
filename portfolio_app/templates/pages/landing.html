@@ -1,30 +1,301 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <main id="landing-page" class="page p-4 pt-10 sm:pt-24 flex flex-col lg:flex-row justify-between gap-8 text-quinary bg-gradient-to-r from-background to-sky-950 transition duration-1000">
-    <!-- Left section: Intro Text -->
-    <section class="basis-1/2 flex flex-col justify-center px-4 animate__animated animate__fadeInLeft">
-      <h1 class="text-4xl md:text-6xl font-extrabold text-text_light leading-tight mb-4">Hi, I'm Yosef Emyayu</h1>
-      <p class="text-xl text-secondary mb-6 font-serif">Full Stack Engineer — Python | Django | React | Web Security</p>
-      <p class="text-base text-quinary mb-8 leading-relaxed">I create secure, high-performance web applications. Let’s connect and build something great together!</p>
-      <div class="flex gap-4">
-        {% comment %} <a href="{% url 'portfolio' %}" class="bg-secondary text-white px-6 py-2 rounded-xl shadow-md hover:bg-yellow-500 transition-all duration-300">See My Work</a> {% endcomment %}
-        <a href="{% url 'contact' %}" class="border border-secondary text-secondary px-6 py-2 rounded-xl hover:bg-secondary hover:text-white transition-all duration-300">Contact Me</a>
+  <div id="landing" class="page min-h-screen pt-20 sm:pt-32 px-6 sm:px-10 text-center bg-gradient-to-br from-gray-900 to-indigo-900 text-quinary relative overflow-hidden">
+    <!-- Floating Background Elements -->
+    <div class="absolute inset-0 overflow-hidden z-0 pointer-events-none">
+      {% for i in xxxxxxxxxx %}
+        <div class="floating-particle absolute w-2 h-2 bg-secondary rounded-full opacity-20" style="top: {{ forloop.counter|add:5 }}%; left: {{ forloop.counter|add:10 }}%; 
+                animation-delay: {{ forloop.counter }}s;"></div>
+      {% endfor %}
+    </div>
+
+    <!-- Hero Section -->
+    <div class="relative z-10 mb-16">
+      <h1 data-aos="fade-up" data-aos-duration="1500" class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight text-text_light drop-shadow-lg">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-warning to-secondary">{{ profile.first_name }}</span>
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-warning">{{ profile.last_name }}</span>
+      </h1>
+
+      <h2 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="300" class="text-lg sm:text-2xl md:text-3xl font-semibold text-quinary mt-4 max-w-3xl mx-auto">{{ profile.heading }}</h2>
+    </div>
+
+    <!-- Floating/Draggable Skills Section -->
+    <div id="skills-container" class="relative min-h-[80vh] w-full my-16 overflow-hidden">
+      {% for skill in skills %}
+        <div class="floating-skill absolute cursor-grab active:cursor-grabbing z-20" data-skill-id="{{ forloop.counter }}" data-aos="zoom-in" data-aos-delay="{{ forloop.counter }}00">
+          <div class="relative group transform transition duration-500 hover:scale-125">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center p-3 rounded-xl shadow-lg bg-white/5 backdrop-blur-lg border-2 border-secondary/30 group-hover:border-warning transition-all">
+              <img src="{{ skill.logo.url }}" alt="{{ skill.name }}" class="w-12 h-12 object-contain" />
+            </div>
+            <span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-sm text-quinary opacity-0 group-hover:opacity-100 transition-opacity duration-300">{{ skill.name }}</span>
+          </div>
+        </div>
+      {% endfor %}
+
+      <!-- Creative CTA Button -->
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-30" data-aos="fade-up" data-aos-delay="1000">
+        <a href="#about" class="cta-button px-8 py-4 bg-gradient-to-r from-warning to-secondary rounded-full text-gray-900 font-bold hover:shadow-2xl hover:shadow-warning/40 transition-all duration-500 flex items-center">
+          <span>Explore My Journey</span>
+          <div class="ml-3 arrow-container">
+            <i class="fas fa-arrow-right text-xl transform transition-transform duration-500"></i>
+            <i class="fas fa-arrow-right text-xl absolute left-0 opacity-0 transform -translate-x-4 transition-all duration-500"></i>
+          </div>
+        </a>
       </div>
-    </section>
+    </div>
 
-    <!-- Right section: Animated Illustration -->
-    <section class="basis-1/2 flex justify-center items-center px-4 animate__animated animate__fadeInRight">
-      {% comment %} <img src="{% static 'images/hero-illustration.svg' %}" alt="Developer Illustration" class="w-full max-w-md drop-shadow-xl hover:scale-105 transition-transform duration-500" /> {% endcomment %}
-    </section>
-  </main>
+    <!-- Picasso Quote Section -->
+    <div class="relative z-10 max-w-4xl mx-auto my-16 px-6" data-aos="fade-up" data-aos-delay="500">
+      <div class="bg-white/5 backdrop-blur-lg border border-secondary/20 rounded-2xl p-8 sm:p-10 shadow-xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-500">
+        <div class="relative z-10 text-center">
+          <i class="fas fa-quote-left text-4xl text-warning opacity-30 mb-4"></i>
+          <blockquote class="text-xl sm:text-2xl md:text-3xl font-medium italic text-text_light leading-relaxed mb-6">"Learn the rules like a pro, so you can break them like an artist."</blockquote>
+          <div class="text-lg text-quinary mb-8">— Pablo Picasso</div>
+          <div class="border-t border-secondary/20 pt-6">
+            <h3 class="text-2xl font-bold text-text_light mb-2">Yosef Emyayu</h3>
+            <p class="text-quinary mb-4">Web Developer</p>
+            <a href="https://github.com/J0-Y0/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-warning hover:text-secondary transition-colors duration-300">
+              <i class="fab fa-github text-2xl mr-2"></i>
+              <span>github.com/J0-Y0/</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- Optional Scroll Indicator or Wave Animation -->
-  <div class="relative mt-[-40px]">
-    <svg preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" style="fill: #147294; width: 100%; height: 60px; transform: rotate(180deg) scaleX(-1);">
-      <path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28..." opacity=".25" />
-      <path d="M0 0v15.81c13 21.11 27.64..." opacity=".5" />
-      <path d="M0 0v5.63C149.93 59..." />
-    </svg>
+    <!-- About Section (anchor target) -->
+    <div id="about" class="py-20"></div>
+
+    <style>
+      /* Particle animation */
+      .floating-particle {
+        animation: float-particle 15s linear infinite;
+      }
+      
+      @keyframes float-particle {
+        0% {
+          transform: translateY(0) translateX(0);
+          opacity: 0.1;
+        }
+        50% {
+          transform: translateY(-100px) translateX(50px);
+          opacity: 0.3;
+        }
+        100% {
+          transform: translateY(0) translateX(100px);
+          opacity: 0.1;
+        }
+      }
+      
+      /* CTA button animation */
+      .cta-button:hover .arrow-container i:first-child {
+        transform: translateX(8px);
+      }
+      .cta-button:hover .arrow-container i:last-child {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      
+      /* Physics-based movement */
+      .floating-skill {
+        transition: transform 0.1s linear;
+        will-change: transform;
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Initialize AOS animations
+        AOS.init({
+          duration: 800,
+          easing: 'ease-out-quart',
+          once: false,
+          offset: 100
+        })
+      
+        // Physics parameters
+        const physics = {
+          friction: 0.98,
+          bounce: 0.8,
+          pushForce: 0.2
+        }
+      
+        // Skill objects storage
+        const skills = {}
+        const skillElements = document.querySelectorAll('.floating-skill')
+        const container = document.getElementById('skills-container')
+        const containerRect = container.getBoundingClientRect()
+      
+        // Initialize each skill with random position and velocity
+        skillElements.forEach((skill, index) => {
+          const id = skill.dataset.skillId
+          const size = skill.getBoundingClientRect()
+      
+          skills[id] = {
+            element: skill,
+            x: Math.random() * (containerRect.width - size.width),
+            y: Math.random() * (containerRect.height - size.height),
+            vx: (Math.random() - 0.5) * 2,
+            vy: (Math.random() - 0.5) * 2,
+            width: size.width,
+            height: size.height,
+            isDragging: false,
+            isPushing: false
+          }
+      
+          // Set initial position
+          skill.style.left = `${skills[id].x}px`
+          skill.style.top = `${skills[id].y}px`
+        })
+      
+        // Mouse/touch interaction variables
+        let mouseX = 0
+        let mouseY = 0
+        let mouseRadius = 150 // Area of influence
+        let isInteracting = false
+      
+        // Track mouse position
+        container.addEventListener('mousemove', (e) => {
+          const rect = container.getBoundingClientRect()
+          mouseX = e.clientX - rect.left
+          mouseY = e.clientY - rect.top
+          isInteracting = true
+        })
+      
+        container.addEventListener('mouseleave', () => {
+          isInteracting = false
+        })
+      
+        // Touch support
+        container.addEventListener(
+          'touchmove',
+          (e) => {
+            e.preventDefault()
+            const touch = e.touches[0]
+            const rect = container.getBoundingClientRect()
+            mouseX = touch.clientX - rect.left
+            mouseY = touch.clientY - rect.top
+            isInteracting = true
+          },
+          { passive: false }
+        )
+      
+        container.addEventListener('touchend', () => {
+          isInteracting = false
+        })
+      
+        // Drag functionality
+        skillElements.forEach((skill) => {
+          let isDragging = false
+          let offsetX, offsetY
+      
+          skill.addEventListener('mousedown', (e) => {
+            isDragging = true
+            const id = skill.dataset.skillId
+            skills[id].isDragging = true
+      
+            const rect = skill.getBoundingClientRect()
+            offsetX = e.clientX - rect.left
+            offsetY = e.clientY - rect.top
+            skill.style.cursor = 'grabbing'
+          })
+      
+          document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return
+      
+            const id = document.querySelector('.floating-skill:hover')?.dataset.skillId
+            if (!id) return
+      
+            const skill = skills[id]
+            skill.x = e.clientX - containerRect.left - offsetX
+            skill.y = e.clientY - containerRect.top - offsetY
+      
+            // Apply position
+            skill.element.style.left = `${skill.x}px`
+            skill.element.style.top = `${skill.y}px`
+          })
+      
+          document.addEventListener('mouseup', () => {
+            if (isDragging) {
+              const id = document.querySelector('.floating-skill:hover')?.dataset.skillId
+              if (id) {
+                skills[id].isDragging = false
+                // Give it a random push when released
+                skills[id].vx = (Math.random() - 0.5) * 5
+                skills[id].vy = (Math.random() - 0.5) * 5
+              }
+              isDragging = false
+              document.querySelectorAll('.floating-skill').forEach((s) => {
+                s.style.cursor = 'grab'
+              })
+            }
+          })
+        })
+      
+        // Animation loop
+        function animate() {
+          const containerWidth = containerRect.width
+          const containerHeight = containerRect.height
+      
+          Object.values(skills).forEach((skill) => {
+            if (skill.isDragging) return
+      
+            // Apply velocity
+            skill.x += skill.vx
+            skill.y += skill.vy
+      
+            // Mouse push effect
+            if (isInteracting) {
+              const dx = mouseX - (skill.x + skill.width / 2)
+              const dy = mouseY - (skill.y + skill.height / 2)
+              const distance = Math.sqrt(dx * dx + dy * dy)
+      
+              if (distance < mouseRadius && distance > 0) {
+                const force = ((mouseRadius - distance) / mouseRadius) * physics.pushForce
+                skill.vx -= (dx / distance) * force
+                skill.vy -= (dy / distance) * force
+              }
+            }
+      
+            // Boundary collision - X axis
+            if (skill.x < 0) {
+              skill.x = 0
+              skill.vx = -skill.vx * physics.bounce
+            } else if (skill.x + skill.width > containerWidth) {
+              skill.x = containerWidth - skill.width
+              skill.vx = -skill.vx * physics.bounce
+            }
+      
+            // Boundary collision - Y axis
+            if (skill.y < 0) {
+              skill.y = 0
+              skill.vy = -skill.vy * physics.bounce
+            } else if (skill.y + skill.height > containerHeight) {
+              skill.y = containerHeight - skill.height
+              skill.vy = -skill.vy * physics.bounce
+            }
+      
+            // Apply friction
+            skill.vx *= physics.friction
+            skill.vy *= physics.friction
+      
+            // Update position
+            skill.element.style.left = `${skill.x}px`
+            skill.element.style.top = `${skill.y}px`
+          })
+      
+          requestAnimationFrame(animate)
+        }
+      
+        // Start animation
+        animate()
+      
+        // Handle window resize
+        window.addEventListener('resize', () => {
+          containerRect = container.getBoundingClientRect()
+        })
+      })
+    </script>
   </div>
 {% endblock %}
