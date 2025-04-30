@@ -2,10 +2,10 @@
   <p class="font-bold text-3xl md:text-4xl mb-8 text-center text-white" data-aos="fade-down" data-aos-duration="800">
     Education <span class="text-secondary">And Certificate</span>
   </p>
-  <div class="flex flex-row border border-gray-700 rounded-3xl px-1 pt-4">
+  <div class="flex flex-col md:flex-row border border-gray-700 rounded-3xl p-5 md:px-1 sm:pt-4">
     <!-- Education Section -->
     <div class="basis-2/3 sm:px-10">
-      <p class="font-bold font-serif text-3xl mb-6 text-text_light" data-aos="fade-right" data-aos-duration="1000">Education</p>
+      <p class="font-bold font-serif text-3xl mb-6 text-center md:text-start text-text_light" data-aos="fade-right" data-aos-duration="1000">Education</p>
 
       {% for education in educations %}
         <div class="flex gap-4 mb-6 items-start group" data-aos="zoom-in-up" data-aos-duration="900" data-aos-delay="{{ forloop.counter|add:'1' }}00">
@@ -32,8 +32,8 @@
     </div>
 
     <!-- Certifications Section -->
-    <div class="basis-1/3 px-3 me-5">
-      <p class="font-bold font-serif text-3xl mb-6 text-text_light" data-aos="fade-left" data-aos-duration="1000">Certifications</p>
+    <div class="basis-1/3 px-3">
+      <p class="font-bold font-serif text-3xl text-center md:text-start mb-6 text-text_light" data-aos="fade-left" data-aos-duration="1000">Certifications</p>
 
       <ul class="space-y-5 h-96 overflow-y-auto pr-1">
         {% for certificate in certifications %}

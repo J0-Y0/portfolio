@@ -1,32 +1,30 @@
-<main id="contact" class="page pt-10 sm:pt-28 px-6 sm:px-10">
-    {% include 'components/modal.html' %}
+<main id="contact" class="page pt-10 sm:pt-28 ">
+      {% include 'components/modal.html' %}
 
-  <div data-aos="fade-down" data-aos-duration="1000" class="mb-12">
-    <p class="font-bold text-3xl md:text-4xl text-center text-white" data-aos="fade-down" data-aos-duration="800">
-      Get in <span class="text-secondary">Touch</span>
-    </p>
-    <p class="text-xl text-quinary text-center">Have a question or want to collaborate? Drop a message below, and I’ll get back to you soon.</p>
-  </div>
+      <div data-aos="fade-down" data-aos-duration="1000" class="mb-12">
+        <p class="font-bold text-3xl md:text-4xl text-center text-white" data-aos="fade-down" data-aos-duration="800">
+          Get in <span class="text-secondary">Touch</span>
+        </p>
+        <p class="text-lg font-thin text-center">Have a question or want to collaborate? Drop a message below, and I’ll get back to you soon.</p>
+      </div>
 
-  <div class="py-6 mt-5 flex flex-col sm:flex-row gap-10 border border-gray-700 rounded-3xl ps-5">
+  <div class="py-6 mt-5 flex flex-col-reverse sm:flex-row gap-10 border border-gray-700 rounded-3xl px-5">
     <!-- Contact Form -->
-    {% comment %} <div id="form" class="sm:basis-1/2 w-full" data-aos="fade-right" data-aos-duration="1200"> {% endcomment %}
-    <div id="form" class="sm:basis-1/2 w-full" >
-      <form hx-post="{% url 'contact' %}" hx-trigger="submit" hx-target="#form-content" 
-      {% comment %} hx-on:success = "openModal()" {% endcomment %}
-     
-      class="flex flex-col gap-4" id="contact-form" method="post">
-        {% csrf_token %}
-         <div id="form-content">
-           {% include 'partials/contact-form-content.html' %}
-         </div>
-      </form>
-    </div>
+    <div id="form" class="sm:basis-1/2 w-full" data-aos="fade-right" data-aos-duration="1200">
+      {% comment %} <div id="form" class="sm:basis-1/2 w-full" > {% endcomment %}
+          <form hx-post="{% url 'contact' %}" hx-trigger="submit" hx-target="#form-content" 
+        
+           id="contact-form" method="post">
+            {% csrf_token %}
+            <div id="form-content" class="flex flex-col gap-4">
+              {% include 'partials/contact-form-content.html' %}
+            </div>
+          </form>
+      </div>
 
     <!-- Image Section -->
-    {% comment %} <div class="sm:basis-1/2 flex justify-center items-center" data-aos="fade-left" data-aos-duration="1200"> {% endcomment %}
-    <div class="sm:basis-1/2 flex justify-center items-center" >
-      <img src="../static/img/contact.png" alt="Profile Illustration" class="rounded-3xl border p-1 h-40 sm:h-72 hover:scale-105 transition-transform duration-700 ease-in-out" />
+    <div class="sm:basis-1/2 flex justify-center items-center" data-aos="fade-left" data-aos-duration="1200">
+      <img src="../static/img/contact.png" alt="Profile Illustration" class="rounded-3xl md:border border-gray-700  p-1 h-40 sm:h-72 hover:scale-105 transition-transform duration-700 ease-in-out" />
     </div>
   </div>
 
