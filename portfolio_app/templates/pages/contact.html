@@ -6,7 +6,7 @@
     <p class="text-xl text-quinary text-center">Have a question or want to collaborate? Drop a message below, and I’ll get back to you soon.</p>
   </div>
 
-  <div class="py-6 mt-5 flex flex-col sm:flex-row gap-10">
+  <div class="py-6 mt-5 flex flex-col sm:flex-row gap-10 border border-gray-700 rounded-3xl ps-5">
     <!-- Contact Form -->
     <div class="sm:basis-1/2 w-full" data-aos="fade-right" data-aos-duration="1200">
       <form class="flex flex-col gap-4" id="contact-form" method="post">
@@ -22,7 +22,6 @@
         <label for="message" class="font-semibold">Your message</label>
         <textarea id="message" name="message" rows="5" required class="w-full rounded-xl p-4 bg-gray-800/50 text-white border border-gray-700 focus:ring-2 focus:ring-info focus:outline-none transition-all duration-300 hover:border-secondary focus:border-secondary">{{ form_data.message|default:'' }}</textarea>
 
-        <button type="submit" class="mt-3 self-start px-6 py-2 text-secondary border border-secondary font-bold rounded-xl hover:bg-secondary hover:text-bg_dark transition-all duration-500">Send</button>
         <button type="submit" class="mt-4 relative overflow-hidden group px-8 py-3 font-bold rounded-full border-2 border-secondary text-secondary hover:text-gray-900 transition-all duration-500 max-w-fit">
           <span class="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
           <span class="relative flex items-center gap-2">
@@ -36,7 +35,7 @@
 
     <!-- Image Section -->
     <div class="sm:basis-1/2 flex justify-center items-center" data-aos="fade-left" data-aos-duration="1200">
-      <img src="../static/img/path4.png" alt="Profile Illustration" class="rounded-3xl border p-1 h-40 sm:h-72 hover:scale-105 transition-transform duration-700 ease-in-out" />
+      <img src="../static/img/contact.png" alt="Profile Illustration" class="rounded-3xl border p-1 h-40 sm:h-72 hover:scale-105 transition-transform duration-700 ease-in-out" />
     </div>
   </div>
 
