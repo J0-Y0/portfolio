@@ -1,78 +1,191 @@
-{% extends 'index.html' %}
+<main id="experience" class="page  py-20 px-4 sm:px-12">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-bold text-3xl md:text-4xl mb-12 text-center text-white" 
+       data-aos="fade-down" data-aos-duration="800">
+      Professional <span class="text-secondary">Experience</span>
+    </p>
 
-{% block page %}
-  <main id="experience-page" class="page p-2 flex flex-col sm:flex-row pt-10 sm:pt-28 gap-6 text-quinary">
-    <!-- Timeline / Left Column -->
-    <div class="basis-1/3 flex flex-col" data-aos="fade-right" data-aos-duration="1500">
-      <p class="font-bold font-serif text-3xl mb-5 text-text_light" data-aos="fade-down" data-aos-delay="200">Experience</p>
-      <div class="rounded-3xl p-4 flex-col" data-aos="fade-up" data-aos-delay="400">
-        {% for experience in experiences %}
-          <div class="flex items-center gap-3 group hover:scale-105 transition-transform duration-500" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'1' }}00">
-            <div class="relative flex flex-col items-center">
-              <span class="text-lg animate-ping text-secondary">🟡</span>
-              <p class="h-16 w-0 border border-secondary my-1"></p>
-            </div>
-            <a href="#" data-target="experience_{{ forloop.counter }}" class="icon-link text-nowrap group-hover:text-secondary flex flex-col transition-colors duration-300">
-              <span class="text-lg font-semibold">{{ experience.start_date|date:'M, Y' }} - {{ experience.formatted_end_date }}</span>
-              <span class="text-sm">{{ experience.position }}</span>
-            </a>
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Timeline / Left Column -->
+      <div class="lg:basis-1/3" data-aos="fade-right" data-aos-duration="1000">
+        <div class="sticky top-28">
+          <div class="space-y-4">
+            {% for experience in experiences %}
+              <div class="relative group" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'1' }}00">
+                <div class="absolute -left-8 top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-secondary 
+                            group-hover:animate-ping transition-all duration-300"></div>
+                <a href="#experience_{{ forloop.counter }}" 
+                   class="experience-link text-gray-300 hover:text-white transition-all duration-500 
+                          flex flex-col p-4 rounded-xl group-hover:bg-gradient-to-r from-gray-900/50 to-gray-800/30
+                          border-l-2 border-transparent group-hover:border-secondary relative overflow-hidden">
+                  <span class="text-lg font-semibold z-10">{{ experience.position }}</span>
+                  <span class="text-sm text-gray-400 group-hover:text-gray-300 z-10">{{ experience.start_date|date:'M, Y' }} - {{ experience.formatted_end_date }}</span>
+                  <div class="absolute inset-0 bg-gradient-to-r from-secondary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </a>
+              </div>
+            {% endfor %}
           </div>
-        {% endfor %}
+        </div>
+      </div>
+
+      <!-- Experience Details / Right Column -->
+      <div class="lg:basis-2/3" data-aos="fade-left" data-aos-duration="1000">
+        <div class="space-y-6 h-[600px] overflow-y-auto pr-4 custom-scrollbar" id="experience-container">
+          {% for experience in experiences %}
+            <div id="experience_{{ forloop.counter }}" 
+                 class="experience-detail bg-gray-900/50 border border-gray-800 rounded-xl p-8 
+                        shadow-lg backdrop-blur-sm transition-all duration-500 hover:border-secondary
+                        transform hover:scale-[1.01] relative overflow-hidden">
+              <div class="absolute top-0 left-0 w-1 h-full bg-secondary opacity-0 transition-opacity duration-300"></div>
+              <div class="flex flex-col relative z-10">
+                <span class="font-bold text-2xl text-white mb-1">{{ experience.position }}</span>
+                <span class="text-sm text-secondary mb-4">{{ experience.start_date }} - {{ experience.formatted_end_date }}</span>
+                
+                <div class="text-gray-300 space-y-4">
+                  <div class="flex items-start gap-3">
+                    <svg class="w-5 h-5 mt-1 text-secondary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="hover:text-white transition-colors duration-300">Worked as React and Django developer</span>
+                  </div>
+                  
+                  <div class="flex items-start gap-3">
+                    <svg class="w-5 h-5 mt-1 text-secondary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="hover:text-white transition-colors duration-300">{{ experience.description }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
       </div>
     </div>
+  </div>
+</main>
 
-    <!-- Experience Details / Right Column -->
-    <div class="basis-2/3 flex flex-col" data-aos="fade-left" data-aos-duration="1500">
-      <ul class="h-96 overflow-y-auto px-3 sm:px-5">
-        {% for experience in experiences %}
-          <li id="experience_{{ forloop.counter }}" class="experience border rounded-xl m-2 sm:m-5 p-4 gap-2 shadow-md bg-white/5 hover:bg-white/10 backdrop-blur-md transition-all duration-500 transform hover:scale-105" data-aos="zoom-in-up" data-aos-delay="{{ forloop.counter|add:'2' }}00">
-            <a class="flex flex-col w-full hover:border-b-2 border-secondary" href="#">
-              <span class="font-bold text-xl title my-2">{{ experience.position }}</span>
-              <span class="text-sm text-secondary">{{ experience.start_date }} - {{ experience.formatted_end_date }}</span>
-              <div class="mt-2 text-base leading-relaxed">
-                <span class="font-bold block mb-1">Key Contributions:</span>
-                <span class="block ps-2">– Work as React and Django developer.</span>
-                <span class="block ps-2">{{ experience.description }}</span>
-              </div>
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </main>
+<style>
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #66d6ff, #0ea5e9);
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #0ea5e9, #66d6ff);
+  }
+  
+  .experience-link.active {
+    color: white;
+    background: linear-gradient(to right, rgba(30, 58, 138, 0.5), rgba(30, 41, 59, 0.3));
+    border-left-color: #66d6ff;
+    transform: translateX(8px);
+  }
+  
+  .experience-link.active span:first-child {
+    color: #66d6ff;
+  }
+  
+  .experience-detail.active {
+    border-color: #66d6ff;
+    background-color: rgba(30, 41, 59, 0.7);
+    box-shadow: 0 10px 25px -5px rgba(102, 214, 255, 0.2);
+  }
+  
+  .experience-detail.active .absolute {
+    opacity: 1;
+  }
+  
+  @keyframes pulse-glow {
+    0% { box-shadow: 0 0 0 0 rgba(102, 214, 255, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(102, 214, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(102, 214, 255, 0); }
+  }
+  
+  .experience-link.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(102, 214, 255, 0.1), transparent);
+    animation: shine 1.5s infinite;
+  }
+  
+  @keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+</style>
 
-  <!-- Styles -->
-  <style>
-    .selected-link {
-      color: #ffc107;
-      font-weight: bold;
-    }
-  </style>
-
-  <!-- Experience Script -->
-  <script>
-    const links = document.querySelectorAll('.icon-link')
-    links.forEach((link) => {
-      link.addEventListener('click', function (event) {
-        event.preventDefault()
-        links.forEach((link) => link.classList.remove('selected-link'))
-        this.classList.add('selected-link')
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const experienceLinks = document.querySelectorAll('.experience-link');
+    const experienceDetails = document.querySelectorAll('.experience-detail');
+    const experienceContainer = document.getElementById('experience-container');
     
-        const targetId = this.getAttribute('data-target')
-        const experienceItems = document.querySelectorAll('.experience')
-        experienceItems.forEach((item) => item.classList.remove('scale-110', 'border-text_light'))
+    // Function to activate experience
+    const activateExperience = (index,isInitialLoad=false) => {
+      // Remove active class from all links and details
+      experienceLinks.forEach(link => link.classList.remove('active'));
+      experienceDetails.forEach(detail => detail.classList.remove('active'));
+      
+      // Add active class to clicked link and corresponding detail
+      experienceLinks[index].classList.add('active');
+      experienceDetails[index].classList.add('active');
+      
+      // Smooth scroll to the experience detail
+      !isInitialLoad && experienceDetails[index].scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center',
+        inline: 'nearest'
+      });
+    };
     
-        titles = document.querySelectorAll('.title')
-        titles.forEach((title) => title.classList.remove('text-text_light'))
+    // Click event for experience links
+    experienceLinks.forEach((link, index) => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        activateExperience(index);
+      });
+    });
     
-        const targetElement = document.getElementById(targetId)
-        if (targetElement) {
-          targetElement.classList.add('scale-110', 'border-text_light')
-          titles = targetElement.querySelectorAll('.title')
-          titles.forEach((title) => title.classList.add('text-text_light'))
-          targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    // Intersection Observer to highlight current experience while scrolling
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          const index = Array.from(experienceDetails).findIndex(detail => detail.id === id);
+          if (index >= 0) {
+            experienceLinks.forEach(link => link.classList.remove('active'));
+            experienceLinks[index].classList.add('active');
+          }
         }
-      })
-    })
-  </script>
-{% endblock %}
+      });
+    }, {
+      root: experienceContainer,
+      threshold: 0.5,
+      rootMargin: '0px 0px -50% 0px'
+    });
+    
+    experienceDetails.forEach(detail => {
+      observer.observe(detail);
+    });
+    
+    console.log("experienceLinks.length=",experienceLinks.length)
+    // Activate first experience by default
+    if (experienceLinks.length > 0) {
+      activateExperience(0,isInitialLoad=true);
+    }
+  });
+</script>

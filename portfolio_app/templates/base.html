@@ -2,54 +2,204 @@
 {% load static tailwind_tags %}
 
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html lang="en" class="h-full">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{% static 'theme/static/css/dist/styles.css' %}" />
+    <meta name="description" content="Yosef Emyayu - Senior Web Developer Portfolio" />
 
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://unpkg.com" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}" />
     <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css" />
+
+    <!-- Favicon -->
     <link rel="shortcut icon" href="{% static 'img/logo_2.png' %}" type="image/x-icon" />
-    <title>Joseph</title>
+
+    <title>Yosef Emyayu | Senior Web Developer</title>
     {% tailwind_css %}
+
+    <!-- Preload AOS CSS -->
+    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    </noscript>
+
+    <style>
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: rgba(15, 23, 42, 0.5);
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: rgba(102, 214, 255, 0.5);
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(102, 214, 255, 0.8);
+      }
+      
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Loading animation */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+      
+      /* Gradient text animation */
+      @keyframes gradient-shift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      
+      .gradient-animate {
+        background-size: 200% 200%;
+        animation: gradient-shift 6s ease infinite;
+      }
+      
+      /* Experience section specific overrides */
+      #experience .icon-link {
+        pointer-events: auto !important;
+      }
+      #experience .experience {
+        scroll-margin-top: 100px;
+      }
+    </style>
   </head>
 
-  <body class="bg-bg_dark text-text_light font-serif h-full overflow-hidden">
-    <div id="loading" class="fixed inset-0 bg-bg_dark z-50 flex items-center justify-center transition-opacity duration-500">
-      <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-secondary"></div>
+  <body class="bg-gray-900 text-gray-100 font-sans min-h-screen flex flex-col overflow-x-hidden">
+    <!-- Loading Screen -->
+    <div id="loading" class="fixed inset-0 bg-gray-900 z-50 flex flex-col items-center justify-center transition-opacity duration-500">
+      <div class="relative animate-float">
+        <div class="absolute inset-0 rounded-full bg-secondary/20 animate-ping"></div>
+        <div class="relative flex items-center justify-center">
+          <img src="{% static 'img/logo_2.png' %}" alt="Loading" class="h-16 w-16 animate-spin-slow" />
+        </div>
+      </div>
+      <p class="mt-6 text-secondary font-medium tracking-wider text-center">
+        <span class="gradient-text bg-gradient-to-r from-primary via-secondary to-warning bg-clip-text text-transparent gradient-animate">Loading Portfolio</span>
+      </p>
     </div>
-    {% block content %}
 
-    {% endblock %}
+    <!-- Main Content -->
+    <div class="flex flex-col lg:flex-row flex-1">
+      {% block content %}
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+      {% endblock %}
+    </div>
+
+    <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <!-- Main Scripts -->
     <script>
-      //AOS.init()
-      AOS.init({
-        duration: 800,
-        easing: 'ease-out-quart',
-        once: false,
-        offset: 100
-      })
-      // Hide loading indicator
-      window.addEventListener('load', function () {
+      // Initialize AOS animations
+      document.addEventListener('DOMContentLoaded', function () {
+        AOS.init({
+          duration: 800,
+          easing: 'ease-out-quart',
+          once: false,
+          offset: 100,
+          disable: window.innerWidth < 768
+        })
+      
+        // Hide loading indicator
         setTimeout(function () {
-          document.getElementById('loading').style.opacity = '0'
+          const loading = document.getElementById('loading')
+          loading.style.opacity = '0'
           setTimeout(function () {
-            document.getElementById('loading').style.display = 'none'
-          }, 5)
-        }, 5)
+            loading.style.display = 'none'
+          }, 500)
+        }, 1000)
+      
+        // Modified smooth scrolling to exclude experience timeline links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          // Skip experience timeline links
+          if (anchor.closest('#experience .icon-link')) return
+      
+          anchor.addEventListener('click', function (e) {
+            // Skip if target is in experience section
+            const targetId = this.getAttribute('href')
+            if (targetId.startsWith('#experience_')) return
+      
+            e.preventDefault()
+      
+            const targetElement = document.querySelector(targetId)
+      
+            if (targetElement) {
+              const headerHeight = document.querySelector('nav').offsetHeight
+              const targetPosition = targetElement.offsetTop - headerHeight
+      
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              })
+            }
+          })
+        })
+      
+        // Highlight active section in navigation (excluding experience sub-sections)
+        function highlightActiveSection() {
+          const mainSections = document.querySelectorAll('section[id], main[id]')
+          const scrollPosition = window.scrollY + 100
+      
+          mainSections.forEach((section) => {
+            const sectionTop = section.offsetTop
+            const sectionHeight = section.offsetHeight
+      
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+              const id = section.getAttribute('id')
+      
+              // Update nav links
+              document.querySelectorAll('nav a:not(#experience .icon-link)').forEach((link) => {
+                link.classList.remove('active')
+                if (link.getAttribute('href') === `#${id}`) {
+                  link.classList.add('active')
+                }
+              })
+            }
+          })
+        }
+      
+        // Run on initial load and scroll
+        highlightActiveSection()
+        window.addEventListener('scroll', highlightActiveSection)
+      
+        // Reload AOS when window is resized
+        window.addEventListener('resize', function () {
+          AOS.refresh()
+        })
       })
     </script>
-    <script src="node_modules/flowbite/dist/flowbite.min.js"></script>
-    <script src="static_src/node_modules/flowbite/dist/flowbite.js"></script>
-    <script src="{% static '/static_src/node_modules/flowbite/dist/flowbite.js' %}"></script>
-    <script src="{% static 'flowbite/dist/flowbite.min.js' %}"></script>
-
-    {% comment %} <script src="https://cdn.jsdelivr.net/npm/flowbite@3.0.0/dist/flowbite.min.js"></script> {% endcomment %}
   </body>
 </html>

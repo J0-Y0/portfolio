@@ -1,33 +1,222 @@
-<nav class="border align-middle p-2 border-primary rounded-md rounded-s-full flex flex-row justify-between">
-  <img class="h-6" src="../static/img/logo_2.png" alt="Logo" />
+{% load static %}
+<nav class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-md border-b border-gray-800/50 p-4 flex flex-col sm:flex-row justify-between items-center gap-4 transition-all duration-300 hover:border-secondary/50">
+  <!-- Logo/Brand -->
+  <a href="#" class="flex items-center gap-3 group" data-aos="fade-right">
+    <div class="relative">
+      <div class="absolute inset-0 rounded-full bg-secondary/20 group-hover:opacity-100 opacity-0 transition-opacity duration-500"></div>
+      <img class="relative h-8 group-hover:rotate-[15deg] transition-transform duration-500" src="{% static 'img/logo_2.png' %}" alt="Logo" />
+    </div>
+    <span class="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Yosef Emyayu</span>
+  </a>
 
-  <ul class="flex">
-    <li class="mx-2 hover:text-warning hover:border-danger">
-      <a id="about" href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}selected-link{% endif %}">About</a>
+  <!-- Navigation Links -->
+  <ul class="flex flex-wrap justify-center gap-1 sm:gap-3" data-aos="fade-down">
+    <li>
+      <a href="#about" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group">
+        <span class="relative z-10">About</span>
+        <span class="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+        <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
+      </a>
     </li>
-    <li class="mx-2 hover:text-warning hover:border-danger">
-      <a id="experience" href="{% url 'experience' %}" class="{% if request.resolver_match.url_name == 'experience' %}selected-link{% endif %}">Experience</a>
+    <li>
+      <a href="#experience" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group">
+        <span class="relative z-10">Experience</span>
+        <span class="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+        <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
+      </a>
     </li>
-    <li class="mx-2 hover:text-warning hover:border-danger">
-      <a id="education" href="{% url 'education' %}" class="{% if request.resolver_match.url_name == 'education' %}selected-link{% endif %}">Education</a>
+    <li>
+      <a href="#education" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group">
+        <span class="relative z-10">Education</span>
+        <span class="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+        <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
+      </a>
     </li>
-    <li class="mx-2 hover:text-warning hover:border-danger">
-      <a id="portfolio" href="{% url 'projects' %}" class="{% if request.resolver_match.url_name == 'projects' %}selected-link{% endif %}">Portfolio</a>
+    <li>
+      <a href="#portfolio" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group">
+        <span class="relative z-10">Portfolio</span>
+        <span class="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+        <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
+      </a>
     </li>
-    <li class="mx-2 hover:text-warning hover:border-danger">
-      <a id="contact" href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}selected-link{% endif %}">Contacts</a>
+    <li>
+      <a href="#contact" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group">
+        <span class="relative z-10">Contact</span>
+        <span class="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+        <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
+      </a>
     </li>
-
-    <a class="ml-4 px-4 py-1 bg-gradient-to-r from-primary to-secondary text-bg_dark font-medium rounded-full hover:shadow-lg transition-all duration-300 flex items-center">
-      <span>Resume</span>
-      <i class="fas fa-download ml-2"></i>
-    </a>
   </ul>
+
+  <!-- Resume Button -->
+  <div class="hidden sm:block" data-aos="fade-left">
+    <a href="#" class="resume-btn group relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-primary to-secondary text-gray-900 font-bold rounded-full hover:shadow-lg transition-all duration-500 flex items-center">
+      <span class="relative z-10 flex items-center">
+        <span>Resume</span>
+        <svg class="w-4 h-4 ml-2 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      </span>
+      <span class="absolute inset-0 bg-white/20 group-hover:bg-white/0 transition-all duration-500"></span>
+      <span class="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-white/30 transition-all duration-500"></span>
+    </a>
+  </div>
+
+  <!-- Mobile Menu Button (Hidden on desktop) -->
+  <div class="sm:hidden">
+    <button id="mobile-menu-button" class="p-2 rounded-md text-gray-300 hover:text-white focus:outline-none transition-all duration-300">
+      <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
 </nav>
 
+<!-- Mobile Menu (Hidden by default) -->
+<div id="mobile-menu" class="fixed inset-0 bg-gray-900/95 backdrop-blur-sm z-40 flex flex-col items-center justify-center space-y-6 hidden">
+  <button id="close-mobile-menu" class="absolute top-6 right-6 p-2 text-gray-400 hover:text-white transition-colors duration-300">
+    <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <nav class="flex flex-col items-center space-y-4 text-xl w-full px-4">
+    <a href="#about" class="mobile-nav-link w-full max-w-xs text-center px-4 py-3 rounded-lg bg-gray-800/50 hover:bg-gray-800 transition-all duration-300">About</a>
+    <a href="#experience" class="mobile-nav-link w-full max-w-xs text-center px-4 py-3 rounded-lg bg-gray-800/50 hover:bg-gray-800 transition-all duration-300">Experience</a>
+    <a href="#education" class="mobile-nav-link w-full max-w-xs text-center px-4 py-3 rounded-lg bg-gray-800/50 hover:bg-gray-800 transition-all duration-300">Education</a>
+    <a href="#portfolio" class="mobile-nav-link w-full max-w-xs text-center px-4 py-3 rounded-lg bg-gray-800/50 hover:bg-gray-800 transition-all duration-300">Portfolio</a>
+    <a href="#contact" class="mobile-nav-link w-full max-w-xs text-center px-4 py-3 rounded-lg bg-gray-800/50 hover:bg-gray-800 transition-all duration-300">Contact</a>
+
+    <a href="#" class="mt-6 w-full max-w-xs text-center px-6 py-3 bg-gradient-to-r from-primary to-secondary text-gray-900 font-bold rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center">
+      <span>Download CV</span>
+      <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+      </svg>
+    </a>
+  </nav>
+</div>
+
 <style>
-  .selected-link {
+  /* Navigation link styles */
+  .nav-link {
+    position: relative;
+    color: #e2e8f0;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover {
     color: #ffc107;
-    font-weight: bold;
+  }
+  
+  .nav-link.active {
+    color: #ffc107;
+    font-weight: 600;
+  }
+  
+  .nav-link.active::after {
+    width: 75%;
+  }
+  
+  /* Resume button hover effect */
+  .resume-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(102, 214, 255, 0.3);
+  }
+  
+  /* Mobile menu styles */
+  .mobile-nav-link {
+    color: #e2e8f0;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-nav-link:hover {
+    color: #ffc107;
+    transform: translateX(5px);
+  }
+  
+  /* Animation for mobile menu */
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  #mobile-menu a {
+    animation: slideIn 0.3s ease forwards;
+  }
+  
+  #mobile-menu a:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  #mobile-menu a:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  #mobile-menu a:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  #mobile-menu a:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  #mobile-menu a:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  #mobile-menu a:nth-child(6) {
+    animation-delay: 0.6s;
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Mobile menu toggle - only handles mobile menu functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMobileMenu = document.getElementById('close-mobile-menu');
+  
+    if (mobileMenuButton && mobileMenu && closeMobileMenu) {
+      mobileMenuButton.addEventListener('click', function () {
+        mobileMenu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      });
+    
+      closeMobileMenu.addEventListener('click', function () {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      });
+    
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+        link.addEventListener('click', function () {
+          mobileMenu.classList.add('hidden');
+          document.body.style.overflow = 'auto';
+        });
+      });
+    }
+
+    // Handle navbar link active states
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id], main[id]');
+
+    function setActiveLink() {
+      let index = sections.length;
+      
+      while (--index && window.scrollY + 100 < sections[index].offsetTop) {}
+      
+      navLinks.forEach((link) => link.classList.remove('active'));
+      if (navLinks[index]) {
+        navLinks[index].classList.add('active');
+      }
+    }
+
+    // Set active link on scroll
+    window.addEventListener('scroll', setActiveLink);
+    
+    // Set active link on page load
+    setActiveLink();
+  });
+</script>
