@@ -170,3 +170,6 @@ class Inbox(models.Model):
     message = models.TextField(max_length=500)
     delivered_time = models.DateTimeField(auto_now_add=True)
     seen = models.BooleanField(default=False)
+
+    class Meta:
+        unique_together = ("sender_email", "message")

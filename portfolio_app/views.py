@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.core.exceptions import ValidationError
+from django.db import IntegrityError
 from django.core.validators import validate_email
 from .models import Inbox
 from .models import *
@@ -47,6 +48,7 @@ def contact(request):
     if request.method == "POST":
         email = request.POST.get("email")
         message = request.POST.get("message")
+        success_trigger = ""
 
         # Preserve input data in case of errors
         context["form_data"] = {"email": email, "message": message}
@@ -57,11 +59,20 @@ def contact(request):
             try:
                 validate_email(email)
                 Inbox.objects.create(sender_email=email, message=message)
-                context["success"] = True
+                success_trigger = "success"
                 context["form_data"] = {}
             except ValidationError:
                 context["error"] = "Invalid email format."
+            except IntegrityError as e:
+                if "UNIQUE constraint" in str(e):
+                    context["error"] = (
+                        "It looks like you've already sent a message. Thank you!"
+                    )
+                else:
+                    context["error"] = f"Database error: {e}"
             except Exception:
                 context["error"] = "An error occurred while saving the message."
 
-    return render(request, "pages/contact.html", context)
+    response = render(request, "partials/contact-form-content.html", context)
+    response["HX-trigger"] = success_trigger
+    return response
