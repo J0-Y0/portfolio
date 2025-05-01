@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div id="landing" class="fixed inset-0 h-screen w-full pt-1 sm:pt-32 px-6 sm:px-10 text-center bg-gradient-to-br from-bg_dark to-[#0a0636b8] text-quinary overflow-hidden">
+  <div id="landing" class="fixed inset-0 h-screen w-full pt-1 sm:pt-32 px-6 sm:px-10 text-center bg-gradient-to-br from-bg_dark to-[#0a0636b8] text-quinary">
     <!-- Animated Background Elements -->
     <div class="absolute inset-0 overflow-hidden z-0 pointer-events-none">
       {% for i in xxxxxxxxxx %}
@@ -15,17 +15,25 @@
     </div>
 
     <!-- Hero Section -->
-    <div id="hero-text" class="relative z-10 mb-16">
-      <h1 data-aos="fade-up" data-aos-duration="1500" class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-tight text-text_light">
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-warning to-secondary animate-gradient-x">{{ profile.first_name }}</span>
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-warning animate-gradient-x-reverse">{{ profile.last_name }}</span>
-      </h1>
+    <div class="flex gap-2 text-5xl sm:text-6xl md:text-8xl mt-52 sm:mt-1 font-extrabold justify-center">
+      <p data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="2000">{{ profile.first_name }}</p>
+      <p data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="2000">{{ profile.last_name }}</p>
+    </div>
 
-      <h2 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="300" class="text-xl sm:text-2xl md:text-3xl font-semibold text-quinary mt-4 max-w-3xl mx-auto animate-pulse-slow"><span class="border-s-8 border-red-600 ps-4">{{ profile.heading }}</span></h2>
+    <div id="hero-text" class="relative z-10 mb-16">
+      {% comment %} <div data-aos="zoom-out-down" data-aos-offset="200" data-aos-duration="1000" data-aos="fade-up" data-aos-duration="1500" class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl flex font-extrabold tracking-tight leading-tight text-text_light">
+        <p data-aos="zoom-out-down" data-aos-offset="200" data-aos-duration="1000" class="bg-clip-text text-transparent bg-gradient-to-r from-warning to-secondary animate-gradient-x">{{ profile.first_name }}</p>
+        <p class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-warning animate-gradient-x-reverse">{{ profile.last_name }}</p>
+      </div> {% endcomment %}
+
+      <h2 data-aos="zoom-out-down" data-aos-duration="2000" data-aos-delay="500" class="text-xl sm:text-2xl md:text-3xl font-semibold text-quinary mt-8 max-w-3xl mx-auto animate-pulse-slow"><span>{{ profile.heading }}</span></h2>
+      <p data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000" class="text-lg sm:text-xl md:text-2xl text-quinary mt-4 max-w-3xl mx-auto animate-pulse-slow">
+        <span class="font-thin">Based on AA, Ethiopia</span>
+      </p>
     </div>
 
     <!-- Interactive Skills Section -->
-    <div id="skills-container" class="absolute inset-0 h-full w-full my-16 overflow-hidden">
+    <div id="skills-container" class="absolute inset-0 w-full my-2 mt-80 overflow-hidden">
       {% for skill in skills %}
         <div class="floating-skill absolute cursor-grab active:cursor-grabbing z-20 transition-opacity duration-300" data-skill-id="{{ forloop.counter }}" data-aos="zoom-in" data-aos-delay="{{ forloop.counter }}00">
           <div class="relative group transform transition-all duration-500 hover:scale-125">
@@ -36,16 +44,25 @@
           </div>
         </div>
       {% endfor %}
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20">
+        <div class="animate-bounce flex flex-col items-center">
+          <span class="text-sm mb-2">Scroll to continue</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-quinary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
+      </div>
     </div>
 
     <!-- Quote Section -->
-    <div id="quote-section" class="absolute bottom-10 left-0 right-0 z-10 max-w-4xl mx-auto px-6" data-aos="fade-up" data-aos-delay="500">
+    {% comment %} <div id="quote-section" class="absolute bottom-10 left-0 right-0 z-10 max-w-4xl mx-auto px-6" data-aos="fade-up" data-aos-delay="500">
       <div class="relative group">
         <!-- Glow effect -->
         <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-blue-400/10 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-700"></div>
 
         <!-- Main card -->
-        <div class="relative bg-white/5 backdrop-blur-lg border border-blue-500/20 rounded-2xl p-6 sm:p-8 shadow-xl overflow-hidden transform transition-all duration-500 group-hover:scale-[1.02]">
+        <div class="relative bg-white/5 backdrop-blur-lg border border-blue-500/20 rounded-2xl p-6 sm:p-8 shadow-xl transform transition-all duration-500 group-hover:scale-[1.02]">
           <!-- Animated decorative elements -->
           <div class="absolute -top-10 -left-10 w-32 h-32 bg-warning/10 rounded-full filter blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-1000 animate-pulse"></div>
           <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary/10 rounded-full filter blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-1000 delay-200 animate-pulse"></div>
@@ -82,7 +99,8 @@
         </span>
         <span class="absolute inset-0 bg-gradient-to-r from-danger to-warning opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
       </a>
-    </div>
+    </div> {% endcomment %}
+
     <style>
       /* Layout */
       #landing {
@@ -215,6 +233,17 @@
       .cta-button:hover {
         transform: translateY(-2px);
         box-shadow: 0 10px 20px -5px rgba(255, 193, 7, 0.4);
+      }
+      #cover-transition {
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform 0.6s ease-in-out;
+      }
+      
+      #cover-transition.active {
+        opacity: 0.3;
+        pointer-events: auto;
+        transform: scaleY(1);
       }
     </style>
 
@@ -433,6 +462,24 @@
         // Handle window resize
         window.addEventListener('resize', () => {
           containerRect = container.getBoundingClientRect()
+        })
+      })
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        let triggered = false
+      
+        window.addEventListener('wheel', (event) => {
+          if (event.deltaY > 0 && !triggered) {
+            triggered = true
+      
+            const cover = document.getElementById('cover-transition')
+            cover.classList.add('active')
+      
+            setTimeout(() => {
+              window.location.href = '/index'
+            }, 700) // Match CSS transition duration
+          }
         })
       })
     </script>
