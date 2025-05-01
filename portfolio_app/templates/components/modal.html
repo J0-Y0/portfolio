@@ -1,4 +1,4 @@
-<div class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="generic-modal">
+<div class="relative hidden z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="generic-modal">
   <!-- Background overlay -->
   <div class="fixed inset-0 bg-transparent_bg transition-opacity"></div>
 
@@ -8,10 +8,11 @@
       <div class="relative transform overflow-hidden rounded-lg text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
         <!-- Modal body -->
         <div class="modal-body bg-input_dark px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-          <div class="sm:flex sm:items-start">
-            <div class="border p-2 rounded-full border-primary">
+          <div class="flex flex-col sm:flex-row items-center">
+            <div class="border p-3 rounded-full border-primary max-w-16">
               <img class="h-12" src="../static/img/logo_2.png" alt="Logo" />
             </div>
+
             <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
               <h3 class="leading-6 modal-title font-extrabold text-2xl">Modal Title</h3>
               <div class="mt-2">
@@ -22,8 +23,8 @@
         </div>
 
         <!-- Modal footer -->
-        <div class="bg-input_dark px-4 py-3 sm:flex sm:flex-row-reverse">
-          <button type="button" class="confirm-modal transition ease-in-out duration-700 ms-2 border text-li px-4 py-1 hover:bg-text_light hover:text-bg_dark">Close</button>
+        <div class="bg-input_dark py-5 flex justify-end px-2">
+          <button type="button" class="p-1 rounded-xl confirm-modal transition ease-in-out duration-700 ms-2 border text-li px-4 py-1 hover:bg-text_light hover:text-bg_dark">Close</button>
         </div>
       </div>
     </div>
