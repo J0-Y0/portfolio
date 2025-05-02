@@ -35,7 +35,7 @@ def project_detail(request, slug):
 
     project = Project.objects.filter(slug=slug).first()
 
-    context = {**get_common_context(), **project}
+    context = {**get_common_context()}
     #
     # context.update({"project_slug": slug})  # Add slug-specific context if needed
     return render(request, "pages/project_detail.html", context)
