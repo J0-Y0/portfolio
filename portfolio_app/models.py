@@ -82,7 +82,7 @@ class Certifications(models.Model):
 
 
 class Project(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=150)
     slug = models.SlugField(unique=True, null=False)
     short_description = models.TextField(max_length=400)
     problem_of_statement = models.TextField(null=True, blank=True)  # optional
@@ -96,7 +96,9 @@ class Project(models.Model):
 
 
 class ProjectImage(models.Model):
-    project = models.ForeignKey(Project, on_delete=models.PROTECT, null=True)
+    project = models.ForeignKey(
+        Project, on_delete=models.PROTECT, null=True, related_name="images"
+    )
 
     image_list = models.ImageField(
         upload_to="ProjectImage/",

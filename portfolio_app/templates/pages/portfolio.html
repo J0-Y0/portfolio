@@ -1,70 +1,213 @@
-<main id="portfolio" class="page my-10pt-10 sm:pt-10 ps-3 pe-10">
-  <!-- Section Title -->
-  <div class="flex flex-col mb-12">
-    <p class="font-bold text-center text-3xl md:text-4xl" data-aos="fade-down" data-aos-duration="800">
-      Explore <span class="text-secondary">My Work</span>
-    </p>
-    <p class="text-lg font-thin text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">A Collection of Projects Built with Passion and Precision</p>
-  </div>
-
-  <!-- Project Cards -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-primary scrollbar-track-quinary">
-    <!-- Project Card -->
-    <div class="group relative rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-[15rem]" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-      <img class="w-full h-40 sm:h-60 object-cover" src="../static/img/p.PNG" alt="Profile Picture" />
-      <div class="absolute inset-0 bg-gradient-to-t from-bg_dark to-transparent_bg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      <div class="absolute bottom-4 left-4 right-4 text-text_light opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div class="flex justify-between text-lg font-semibold text-warning">
-          BOA POS-X<div class="flex max-h-fit">
-            <span class="bg-warning/20 text-warning text-xs px-2 py-1 align-middle rounded-full">React</span>
-            <span class="bg-primary/20 text-primary text-xs px-2 py-1 align-baseline rounded-full">Django</span>
-          </div>
-        </div>
-        <p class="text-sm">A monitoring tool for Incognito POS terminal, internally deployed for Bank Of Abyssinia (BOA).</p>
-      </div>
+<main id="portfolio" class="min-h-screen w-full flex items-center pt-20 md:pt-24 px-4 sm:px-8 lg:px-12">
+  <div class="border border-gray-700 rounded-3xl w-full py-8 px-4 sm:px-6 md:px-8">
+    <!-- Section Header -->
+    <div class="mb-10 text-center sm:text-left" data-aos="fade-down">
+      <h2 class="font-extrabold font-sans text-4xl md:text-5xl mb-2 bg-gradient-to-r from-white to-secondary bg-clip-text text-transparent">Portfolio Showcase</h2>
+      <p class="text-lg md:text-xl text-gray-300">A curated collection of my professional work, crafted with innovation and attention to detail</p>
     </div>
 
-    <!-- Additional Project Cards (same structure) -->
-    <div class="group relative rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-[15rem]" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-      <img class="w-full h-40 sm:h-60 object-cover" src="../static/img/p.PNG" alt="Profile Picture" />
-      <div class="absolute inset-0 bg-gradient-to-t from-bg_dark to-transparent_bg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      <div class="absolute bottom-4 left-4 right-4 text-text_light opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div class="flex justify-between text-lg font-semibold text-warning">
-          BOA POS-X<div class="flex max-h-fit">
-            <span class="bg-warning/20 text-warning text-xs px-2 py-1 align-middle rounded-full">React</span>
-            <span class="bg-primary/20 text-primary text-xs px-2 py-1 align-baseline rounded-full">Django</span>
-          </div>
-        </div>
-        <p class="text-sm">A monitoring tool for Incognito POS terminal, internally deployed for Bank Of Abyssinia (BOA).</p>
-      </div>
+    <!-- Filter Controls -->
+    <div class="mb-8 flex flex-wrap gap-3 justify-center sm:justify-start" data-aos="fade-up" data-aos-delay="200">
+      <button class="filter-btn active px-4 py-2 rounded-full bg-secondary text-white text-sm font-medium transition-all hover:bg-secondary-dark shadow-md" data-filter="all">
+        All Projects
+      </button>
+      <button class="filter-btn px-4 py-2 rounded-full bg-gray-700 text-gray-300 text-sm font-medium transition-all hover:bg-gray-600 shadow-md" data-filter="web">
+        Web Development
+      </button>
+      <button class="filter-btn px-4 py-2 rounded-full bg-gray-700 text-gray-300 text-sm font-medium transition-all hover:bg-gray-600 shadow-md" data-filter="mobile">
+        Mobile Apps
+      </button>
+      <button class="filter-btn px-4 py-2 rounded-full bg-gray-700 text-gray-300 text-sm font-medium transition-all hover:bg-gray-600 shadow-md" data-filter="design">
+        UI/UX Design
+      </button>
     </div>
 
-    <div class="group relative rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-[15rem]" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-      <img class="w-full h-40 sm:h-60 object-cover" src="../static/img/p.PNG" alt="Profile Picture" />
-      <div class="absolute inset-0 bg-gradient-to-t from-bg_dark to-transparent_bg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      <div class="absolute bottom-4 left-4 right-4 text-text_light opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div class="flex justify-between text-lg font-semibold text-warning">
-          BOA POS-X<div class="flex max-h-fit">
-            <span class="bg-warning/20 text-warning text-xs px-2 py-1 align-middle rounded-full">React</span>
-            <span class="bg-primary/20 text-primary text-xs px-2 py-1 align-baseline rounded-full">Django</span>
+    <!-- Project Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      {% for project in projects %}
+      <div class="project-card group relative rounded-xl overflow-hidden h-80 border border-gray-700 hover:border-secondary transition-all duration-300" 
+           data-category="{{ project.category }}"
+           data-aos="zoom-in-up" 
+           data-aos-delay="{% widthratio forloop.counter 1 100 %}">
+        
+        <!-- Image Carousel -->
+        <div class="carousel-container relative h-full w-full">
+          {% for img in project.images.all %}
+          <div class="carousel-item absolute inset-0 w-full h-full transition-opacity duration-500 {% if forloop.first %}opacity-100{% else %}opacity-0{% endif %}">
+            {% if img.image_list %}
+            <img src="{{ img.image_list.url }}" 
+                 alt="{{ project.title }} screenshot {{ forloop.counter }}" 
+                 class="w-full h-full object-cover" 
+                 loading="lazy">
+            {% endif %}
+          </div>
+          {% empty %}
+          <div class="absolute inset-0 w-full h-full bg-gray-800 flex items-center justify-center">
+            <p class="text-gray-400">No images available</p>
+          </div>
+          {% endfor %}
+          
+          <!-- Navigation Arrows - Only show if images exist -->
+          {% if project.images.all %}
+          <button class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+          {% endif %}
+          
+          <!-- Indicators - Only show if images exist -->
+          {% if project.images.all %}
+          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-2">
+            {% for img in project.images.all %}
+            <div class="indicator w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-colors cursor-pointer {% if forloop.first %}bg-white/80{% endif %}"></div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        
+        <!-- Project Info Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+          <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+            <h3 class="text-xl font-bold text-white mb-1">{{ project.title }}</h3>
+            <p class="text-sm text-gray-300 mb-3 line-clamp-2">{{ project.short_description }}</p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              {% for tag in project.tags.all %}
+              <span class="px-2 py-1 bg-secondary/20 text-secondary text-xs rounded-md">{{ tag.name }}</span>
+              {% endfor %}
+            </div>
+            <a href="{% url 'project_detail' project.slug %}" 
+               class="inline-flex items-center text-sm font-medium text-warning hover:text-warning-light transition-colors">
+              View Project
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
           </div>
         </div>
-        <p class="text-sm">A monitoring tool for Incognito POS terminal, internally deployed for Bank Of Abyssinia (BOA).</p>
       </div>
+      {% endfor %}
     </div>
 
-    <div class="group relative rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-[15rem]" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-      <img class="w-full h-40 sm:h-60 object-cover" src="../static/img/p.PNG" alt="Profile Picture" />
-      <div class="absolute inset-0 bg-gradient-to-t from-bg_dark to-transparent_bg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      <div class="absolute bottom-4 left-4 right-4 text-text_light opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div class="flex justify-between text-lg font-semibold text-warning">
-          BOA POS-X<div class="flex max-h-fit">
-            <span class="bg-warning/20 text-warning text-xs px-2 py-1 align-middle rounded-full">React</span>
-            <span class="bg-primary/20 text-primary text-xs px-2 py-1 align-baseline rounded-full">Django</span>
-          </div>
-        </div>
-        <p class="text-sm">A monitoring tool for Incognito POS terminal, internally deployed for Bank Of Abyssinia (BOA).</p>
-      </div>
+    <!-- Call to Action -->
+    <div class="text-center py-6" data-aos="fade-up" data-aos-delay="300">
+      <p class="text-lg text-gray-300 mb-4">Like what you see? Let's build something amazing together.</p>
+      <a href="#contact" 
+         class="relative overflow-hidden group px-8 py-3 font-bold rounded-full border-2 border-secondary text-secondary hover:text-gray-900 transition-all duration-500 inline-flex items-center">
+        <span class="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+        <span class="relative flex items-center gap-2">
+          Get In Touch
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+          </svg>
+        </span>
+      </a>
     </div>
   </div>
 </main>
+
+<!-- JavaScript for interactivity -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS animations (if not already initialized in base.html)
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-out-quart',
+        once: false,
+        offset: 100
+      });
+    }
+
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active button
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active', 'bg-secondary', 'text-white', 'hover:bg-secondary-dark');
+          btn.classList.add('bg-gray-700', 'text-gray-300', 'hover:bg-gray-600');
+        });
+        button.classList.add('active', 'bg-secondary', 'text-white', 'hover:bg-secondary-dark');
+        button.classList.remove('bg-gray-700', 'text-gray-300', 'hover:bg-gray-600');
+        
+        // Filter projects
+        const filterValue = button.dataset.filter;
+        projectCards.forEach(card => {
+          if (filterValue === 'all' || card.dataset.category === filterValue) {
+            card.style.display = 'block';
+            if (typeof AOS !== 'undefined') {
+              AOS.refresh(); // Refresh animations after filtering
+            }
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    // Carousel functionality for each project
+    document.querySelectorAll('.project-card').forEach(card => {
+      const items = card.querySelectorAll('.carousel-item');
+      const indicators = card.querySelectorAll('.indicator');
+      const prevBtn = card.querySelector('.carousel-prev');
+      const nextBtn = card.querySelector('.carousel-next');
+      
+      // Only initialize if there are items
+      if (items.length > 0) {
+        let currentIndex = 0;
+        
+        function showSlide(index) {
+          items.forEach((item, i) => {
+            item.style.opacity = i === index ? '1' : '0';
+          });
+          if (indicators.length > 0) {
+            indicators.forEach((indicator, i) => {
+              indicator.classList.toggle('bg-white/80', i === index);
+              indicator.classList.toggle('bg-white/50', i !== index);
+            });
+          }
+          currentIndex = index;
+        }
+        
+        // Navigation - only if buttons exist
+        if (nextBtn) {
+          nextBtn.addEventListener('click', () => {
+            showSlide((currentIndex + 1) % items.length);
+          });
+        }
+        
+        if (prevBtn) {
+          prevBtn.addEventListener('click', () => {
+            showSlide((currentIndex - 1 + items.length) % items.length);
+          });
+        }
+        
+        // Indicator clicks
+        indicators.forEach((indicator, index) => {
+          indicator.addEventListener('click', () => showSlide(index));
+        });
+        
+        // Auto-rotate (optional)
+        let rotateInterval = setInterval(() => {
+          if (card.matches(':hover')) return; // Pause on hover
+          showSlide((currentIndex + 1) % items.length);
+        }, 5000);
+        
+        card.addEventListener('mouseenter', () => clearInterval(rotateInterval));
+        card.addEventListener('mouseleave', () => {
+          rotateInterval = setInterval(() => {
+            showSlide((currentIndex + 1) % items.length);
+          }, 5000);
+        });
+      }
+    });
+  });
+</script>

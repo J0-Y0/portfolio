@@ -22,12 +22,15 @@ def get_common_context():
 
 
 def landing(request):
+
     context = get_common_context()
     return render(request, "pages/landing.html", context)
 
 
 def index(request):
-    context = get_common_context()
+    projects = Project.objects.all()
+
+    context = {**get_common_context(), "projects": projects}
     return render(request, "index.html", context)
 
 
@@ -35,7 +38,7 @@ def project_detail(request, slug):
 
     project = Project.objects.filter(slug=slug).first()
 
-    context = {**get_common_context()}
+    context = {**get_common_context(), "project": project}
     #
     # context.update({"project_slug": slug})  # Add slug-specific context if needed
     return render(request, "pages/project_detail.html", context)
