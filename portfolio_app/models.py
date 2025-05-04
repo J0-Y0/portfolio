@@ -88,7 +88,7 @@ class Project(models.Model):
     problem_of_statement = models.TextField(null=True, blank=True)  # optional
     solution_detail = models.TextField(null=True, blank=True)  # optional
     video_link = models.URLField(null=True, blank=True)
-    tags = models.ManyToManyField("Tag", related_name="projects", null=True, blank=True)
+    tags = models.ManyToManyField("Tag", related_name="projects", blank=True)
     skills_used = models.ManyToManyField("Skill", related_name="projects")
 
     def __str__(self):
@@ -110,7 +110,7 @@ class ProjectImage(models.Model):
 
 class Skill(models.Model):
     name = models.CharField(max_length=100, unique=True)
-    tags = models.ManyToManyField("Tag", related_name="skills", null=True, blank=True)
+    tags = models.ManyToManyField("Tag", related_name="skills", blank=True)
     logo = models.FileField(
         upload_to="skill_logos/",
         validators=[validate_image_file],

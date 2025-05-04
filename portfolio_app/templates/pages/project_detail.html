@@ -12,10 +12,11 @@
     <!-- Main Content Area -->
     <main class="w-full lg:w-5/6 xl:w-4/5 2xl:w-3/4 px-4 sm:px-6 md:px-8 lg:px-10">
       <div class="pb-16 md:pb-20 lg:pb-24">
-        {% include 'components/navbar.html' %}
-        <div id="project-detail" class="py-12 px-4 sm:px-8 lg:px-16">
+        {% include 'components/navbar.html' with base_url='/index' %}
+
+        <div id="project-detail" class="py-12 px-2 sm:px-4 lg:px-8">
           <!-- Project Header -->
-          <div class="max-w-4xl mx-auto mb-12" data-aos="fade-up">
+          <div class="mx-auto mb-12 bg-primary" data-aos="fade-up">
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-warning mb-4">{{ project.title }}</h1>
             <p class="text-lg text-gray-300 mb-6">{{ project.short_description }}</p>
             <div class="flex flex-wrap gap-3">
@@ -30,7 +31,7 @@
 
           <!-- Project Gallery -->
           {% if project.images.all or project.video_link %}
-            <div id="animation-carousel" class="relative w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl mb-12" data-carousel="static" data-aos="fade-up" data-aos-delay="100">
+            <div id="animation-carousel" class="relative w-full mx-auto rounded-2xl overflow-hidden shadow-2xl mb-12" data-carousel="static" data-aos="fade-up" data-aos-delay="100">
               <!-- Carousel wrapper -->
               <div class="relative h-64 sm:h-80 md:h-96 lg:h-[32rem]">
                 <!-- Video item if exists -->
@@ -45,6 +46,9 @@
 
                 <!-- Image items -->
                 {% for image in project.images.all %}
+                  {% if image.image_list %}
+                    <img src="{{ image.image_list.url }}" alt="{{ project.title }} screenshot {{ forloop.counter }}" class="w-full h-full object-cover" loading="lazy" />
+                  {% endif %}
                   {% if image %}
                     <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0" data-carousel-item>
                       <img src="{{ image.image_list.url }}" class="w-full h-full object-cover" alt="Project screenshot {{ forloop.counter }}" />
@@ -77,7 +81,37 @@
                       
                       
                       
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
                       true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -103,7 +137,37 @@
                       
                       
                       
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
                       false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -145,7 +209,7 @@
           {% endif %}
 
           <!-- Project Details -->
-          <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
+          <div class="mx-auto grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
             <div class="md:col-span-2">
               <h2 class="text-2xl font-bold text-warning mb-4">Project Overview</h2>
               <div class="prose prose-invert max-w-none">
