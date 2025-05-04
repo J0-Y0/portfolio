@@ -27,7 +27,7 @@ def landing(request):
     return render(request, "pages/landing.html", context)
 
 
-def index(request):
+def home(request):
     projects = Project.objects.all()
 
     context = {**get_common_context(), "projects": projects}

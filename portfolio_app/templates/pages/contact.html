@@ -1,10 +1,13 @@
+{% load static %}
 <main id="contact" class="page pt-10 sm:pt-28 ">
       {% include 'components/modal.html' %}
 
       <div data-aos="fade-down" data-aos-duration="1000" class="mb-12">
-        <p class="font-bold text-3xl md:text-4xl text-center text-white" data-aos="fade-down" data-aos-duration="800">
-          Get in <span class="text-secondary">Touch</span>
-        </p>
+
+          <p class="font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-white to-secondary bg-clip-text text-transparent" 
+       data-aos="fade-down" data-aos-duration="800">
+      Get in <span class="text-secondary">Touch</span>
+    </p>
         <p class="text-lg font-thin text-center">Have a question or want to collaborate? Drop a message below, and I’ll get back to you soon.</p>
       </div>
 
@@ -24,8 +27,9 @@
 
     <!-- Image Section -->
     <div class="sm:basis-1/2 flex justify-center items-center" data-aos="fade-left" data-aos-duration="1200">
-      <img src="../static/img/contact.png" alt="Profile Illustration" class="rounded-3xl md:border border-gray-700  p-1 h-40 sm:h-72 hover:scale-105 transition-transform duration-700 ease-in-out" />
+      <img src="{%static 'img/Get in touch.svg'%}" alt="Profile Illustration" class="rounded-3xl md:border border-gray-700  p-1 h-40 sm:h-72 hover:scale-105 transition-transform duration-700 ease-in-out" />
     </div>
+    
   </div>
 
 </main>

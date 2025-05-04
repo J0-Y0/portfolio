@@ -1,15 +1,18 @@
+{% load static %}
 <aside class=" fixed top-0 left-0 h-[110vh] w-full max-w-[16rem] border-r border-gray-800 bg-gray-900/50 backdrop-blur-sm p-4 overflow-y-auto custom-scrollbar z-40">
   <!-- Profile Section -->
   <div class="relative border border-gray-800 rounded-xl flex flex-col items-center px-6 pt-8 pb-4 mb-6 group">
     <!-- Profile Icon -->
     <div class="absolute -right-2 -top-2 p-2 rounded-full bg-gray-900 border border-secondary shadow-lg group-hover:rotate-[15deg] transition-transform duration-500">
-      <img class="h-8" src="../static/img/logo_2.png" alt="Logo">
+      <img class="h-8" 
+      src = "{% static 'img/logo_2.png' %}"
+     >
     </div>
     
     <!-- Profile Image -->
     <div class="relative mb-4 group-hover:scale-105 transition-transform duration-500">
       <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-lg opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-500"></div>
-      <img class="relative h-24 sm:h-28 rounded-lg border-2 border-gray-700" src="../static/img/my_pic.png" alt="Profile Picture">
+      <img class="relative h-24 sm:h-28 rounded-lg border-2 border-gray-700" src="{% static 'img/my_pic.png' %}" alt="Profile Picture">
     </div>
     
     <!-- Name and Title -->
