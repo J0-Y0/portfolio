@@ -97,7 +97,7 @@ class Project(models.Model):
 
 class ProjectImage(models.Model):
     project = models.ForeignKey(
-        Project, on_delete=models.PROTECT, null=True, related_name="images"
+        Project, on_delete=models.CASCADE, null=True, related_name="images"
     )
 
     image_list = models.ImageField(
