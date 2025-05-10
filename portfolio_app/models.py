@@ -87,9 +87,27 @@ class Project(models.Model):
     short_description = models.TextField(max_length=400)
     problem_of_statement = models.TextField(null=True, blank=True)  # optional
     solution_detail = models.TextField(null=True, blank=True)  # optional
+    feature = models.TextField(
+        null=True,
+        blank=True,
+        help_text="For better readability Put each feature in a new line ",
+    )  # optional
     video_link = models.URLField(null=True, blank=True)
     tags = models.ManyToManyField("Tag", related_name="projects", blank=True)
     skills_used = models.ManyToManyField("Skill", related_name="projects")
+
+    def save(self, *args, **kwargs):
+        if self.feature:
+            self.feature = self.feature.replace("<li>", "")
+            self.feature = self.feature.replace("</li>", "")
+            feature_list = self.feature.split("\n")
+
+            formatted_feature = ""
+            for feature in feature_list:
+                formatted_feature += "<li>" + feature + "</li>"
+
+        self.feature = formatted_feature
+        return super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title

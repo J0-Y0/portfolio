@@ -127,6 +127,7 @@ class ProjectAdmin(ModelAdmin):
                 "fields": (
                     "problem_of_statement",
                     "solution_detail",
+                    "feature",
                     "video_link",
                 ),
             },

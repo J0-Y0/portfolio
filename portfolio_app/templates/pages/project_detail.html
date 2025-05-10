@@ -54,7 +54,51 @@
                   
                   
                   
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                   opacity-100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -76,7 +120,51 @@
                   
                   
                   
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                   opacity-0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -126,6 +214,12 @@
       <!-- Project Details -->
       <div class="pt-20 pb-5 md:ms-12 grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
         <div class="md:col-span-2 space-y-8">
+          <div>
+            <h2 class="text-2xl font-bold text-warning mb-4">Project Overview</h2>
+            <div class="prose prose-invert max-w-none">
+              <p class="mb-4">{{ project.short_description }}</p>
+            </div>
+          </div>
           {% if project.problem_of_statement %}
             <div>
               <h2 class="text-2xl font-bold text-warning mb-4">Problem Statement</h2>
@@ -145,17 +239,9 @@
           {% endif %}
 
           <div>
-            <h2 class="text-2xl font-bold text-warning mb-4">Project Overview</h2>
             <div class="prose prose-invert max-w-none">
-              <p class="mb-4">The {{ project.title }} was developed to address specific challenges in the banking sector, providing real-time insights and monitoring capabilities.</p>
               <h3 class="text-xl font-semibold text-warning mt-6 mb-3">Key Features</h3>
-              <ul class="list-disc pl-5 space-y-2">
-                <li>Real-time monitoring and analytics</li>
-                <li>Comprehensive reporting system</li>
-                <li>Automated alert mechanisms</li>
-                <li>Secure role-based access control</li>
-                <li>Scalable architecture</li>
-              </ul>
+              <ul class="list-disc pl-5 space-y-2">{{ project.feature|safe|escape }}</ul>
             </div>
           </div>
         </div>
