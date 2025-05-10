@@ -1,36 +1,173 @@
 {% load static %}
-<main id="contact" class="page pt-10 sm:pt-28">
+<main id="contact" class="page pt-10 sm:pt-28 relative overflow-hidden">
+  <!-- Decorative background elements -->
+  <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-blue-900/20 blur-3xl -z-10"></div>
+  <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-secondary/10 blur-3xl -z-10"></div>
+  
   {% include 'components/modal.html' %}
 
-  <div data-aos="fade-down" data-aos-duration="1000" class="mb-12">
-    <p class="font-bold text-4xl md:text-5xl text-center bg-gradient-to-r from-white to-secondary bg-clip-text text-transparent" data-aos="fade-down" data-aos-duration="800">
-      Get in <span class="text-secondary">Touch</span>
-    </p>
-    <p class="text-lg font-thin text-center">Have a question or want to collaborate? Drop a message below, and I’ll get back to you soon.</p>
-  </div>
-
-  <div class="py-6 mt-5 flex flex-col-reverse sm:flex-row gap-10 border border-gray-700 rounded-3xl px-5">
-    <!-- Contact Form -->
-    <div id="form" class="sm:basis-1/2 w-full" data-aos="fade-right" data-aos-duration="1200">
-      <form hx-post="{% url 'contact' %}" hx-trigger="submit" hx-target="#form-content" id="contact-form" method="post">
-        {% csrf_token %}
-        <div id="form-content" class="flex flex-col gap-4">
-          {% include 'partials/contact-form-content.html' %}
-        </div>
-      </form>
+  <div class="container mx-auto px-4 sm:px-8">
+    <!-- Section Header -->
+    <div class="mb-16 text-center" data-aos="fade-down" data-aos-duration="1000">
+      <p class="font-bold text-4xl md:text-6xl bg-gradient-to-r from-white via-blue-300 to-secondary bg-clip-text text-transparent">
+        Let's <span class="text-transparent bg-gradient-to-r from-secondary to-blue-400 bg-clip-text">Connect</span>
+      </p>
+      <p class="text-lg md:text-xl text-gray-400 mt-4 max-w-2xl mx-auto">
+        Have a project in mind or want to discuss opportunities? Send me a message and I'll respond faster than you can say "Hello World!"
+      </p>
     </div>
 
-    <!-- Image Section -->
-    <div class="sm:basis-1/2 flex justify-center items-center" data-aos="fade-left" data-aos-duration="1200">
-      <img src="{% static 'img/Get in touch.svg' %}" alt="Profile Illustration" class="rounded-3xl md:border border-gray-700 p-1 h-40 sm:h-72 hover:scale-105 transition-transform duration-700 ease-in-out" />
+    <!-- Main Content Container -->
+    <div class="bg-gradient-to-br from-gray-900/80 to-gray-950/90 backdrop-blur-sm rounded-3xl p-8 border border-gray-800 shadow-2xl overflow-hidden">
+      <div class="flex  lg:flex-row gap-10 flex-col-reverse">
+        <!-- Contact Form -->
+        <div id="form" class="lg:basis-1/2 w-full" data-aos="fade-right" data-aos-duration="1200">
+          <form hx-post="{% url 'contact' %}" hx-trigger="submit" hx-target="#form-content" id="contact-form" method="post" class="space-y-6">
+            {% csrf_token %}
+            <div id="form-content" class="flex flex-col gap-6">
+              {% include 'partials/contact-form-content.html' %}
+            </div>
+          </form>
+          
+          <!-- Alternative Contact Methods -->
+          <div class="mt-10 pt-8 border-t border-gray-800">
+            <h3 class="text-xl font-semibold text-gray-300 mb-4">Or reach me directly</h3>
+            <div class="flex flex-wrap gap-4">
+              <a href="mailto:your@email.com" class="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span class="text-gray-300">yosef.emyayu1@email.com</span>
+              </a>
+              <a href="tel:+1234567890" class="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span class="text-gray-300">+251 969139694</span>
+              </a>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex gap-4 mt-6">
+              <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-secondary/20 flex items-center justify-center border border-gray-700 hover:border-secondary transition-all duration-300">
+                <svg class="w-5 h-5 text-gray-400 hover:text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                </svg>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-secondary/20 flex items-center justify-center border border-gray-700 hover:border-secondary transition-all duration-300">
+                <svg class="w-5 h-5 text-gray-400 hover:text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                </svg>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-secondary/20 flex items-center justify-center border border-gray-700 hover:border-secondary transition-all duration-300">
+                <svg class="w-5 h-5 text-gray-400 hover:text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clip-rule="evenodd"></path>
+                </svg>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-secondary/20 flex items-center justify-center border border-gray-700 hover:border-secondary transition-all duration-300">
+                <svg class="w-5 h-5 text-gray-400 hover:text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Section -->
+        <div class="lg:basis-1/2 flex flex-col justify-center items-center relative" data-aos="fade-left" data-aos-duration="1200">
+          <div class="relative w-full max-w-md">
+            <img src="{% static 'img/Get in touch.svg' %}" alt="Contact Illustration" 
+                 class="rounded-2xl border border-gray-700 p-1 w-full hover:scale-105 transition-transform duration-700 ease-in-out" />
+            
+            <!-- Floating elements around the image -->
+            <div class="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-secondary/10 blur-xl -z-10 animate-float-slow"></div>
+            <div class="absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-warning/10 blur-xl -z-10 animate-float"></div>
+            
+            <!-- Contact Info Card -->
+            <div class="absolute -bottom-8 left-0 right-0 mx-auto bg-gray-900/90 backdrop-blur-sm border border-gray-700 rounded-xl p-4 shadow-lg max-w-xs transform hover:scale-105 transition-transform duration-300">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">Preferred contact method</p>
+                  <p class="font-medium text-white">Email</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Availability Status -->
+          <div class="mt-10 flex items-center gap-2 bg-gray-900/50 border border-gray-700 rounded-full px-4 py-2">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            </span>
+            <span class="text-sm text-gray-300">Currently available for new opportunities</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>
 
 <style>
-  input,
-  textarea {
+  /* Form input styling */
+  input, textarea {
     outline: none;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(71, 85, 105, 0.5);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  input:focus, textarea:focus {
+    border-color: #66d6ff;
+    box-shadow: 0 0 0 3px rgba(102, 214, 255, 0.2);
+  }
+  
+  input::placeholder, textarea::placeholder {
+    color: rgba(156, 163, 175, 0.7);
+  }
+  
+  /* Button styling */
+  button[type="submit"] {
+    background: linear-gradient(to right, #0ea5e9, #66d6ff);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px -3px rgba(102, 214, 255, 0.4);
+  }
+  
+  button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -3px rgba(102, 214, 255, 0.5);
+  }
+  
+  /* Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
   }
 </style>
 <script>
@@ -55,4 +192,32 @@
   
     modal.style.display = 'block'
   }
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Form submission handling
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        // Add loading state
+        const submitButton = this.querySelector('button[type="submit"]');
+        if (submitButton) {
+          submitButton.innerHTML = `
+            <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Sending...
+          `;
+          submitButton.disabled = true;
+        }
+      });
+    }
+    
+
+     
+    
+   
+  });
 </script>

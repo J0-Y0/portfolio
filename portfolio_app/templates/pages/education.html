@@ -1,56 +1,211 @@
-<main id="education" class="page p-2 min-h-full flex flex-col pt-10 sm:pt-32 gap-6 text-quinary my-10">
-  <p class="font-bold text-4xl md:text-5xl mb-12 text-center bg-gradient-to-r from-white to-secondary bg-clip-text text-transparent" data-aos="fade-down" data-aos-duration="800">
-    Education <span class="text-secondary">And Certificate</span>
-  </p>
+<main id="education" class="page min-h-full flex flex-col pt-10 sm:pt-24 gap-6 text-quinary relative overflow-hidden">
+  <!-- Decorative background elements -->
+  <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-blue-900/20 blur-3xl -z-10"></div>
+  <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-secondary/10 blur-3xl -z-10"></div>
+  
+  <!-- Section Header -->
+  <div class="container mx-auto px-4 sm:px-8">
+    <p class="font-bold text-4xl md:text-6xl mb-12 text-center bg-gradient-to-r from-white via-blue-300 to-secondary bg-clip-text text-transparent" 
+       data-aos="fade-down" data-aos-duration="800">
+      My <span class="text-transparent bg-gradient-to-r from-secondary to-blue-400 bg-clip-text">Learning Journey</span>
+    </p>
 
-  <div class="flex flex-col md:flex-row border border-gray-700 rounded-3xl p-5 md:px-1 sm:pt-4">
-    <!-- Education Section -->
-    <div class="basis-2/3 sm:px-10">
-      <p class="font-bold font-serif text-3xl mb-6 text-center md:text-start text-text_light" data-aos="fade-right" data-aos-duration="1000">Education</p>
-
-      {% for education in educations %}
-        <div class="flex gap-4 mb-6 items-start group" data-aos="zoom-in-up" data-aos-duration="900" data-aos-delay="{{ forloop.counter|add:'1' }}00">
-          <!-- Timeline Dot and Line -->
-          <div class="flex flex-col items-center">
-            <span class="text-xl animate-ping text-secondary">🟡</span>
-            <div class="h-24 w-0.5 bg-secondary mt-1"></div>
-          </div>
-
-          <!-- Education Details -->
-          <div class="transition-all duration-500 transform group-hover:scale-[1.03]">
-            <h3 class="text-xl font-bold">
-              {{ education.degree|slice:':19' }}
-              <span class="text-secondary">{{ education.degree|slice:'20:' }}</span>
-            </h3>
-            <p class="text-lg text-quinary">{{ education.institution }}</p>
-            <p class="text-sm mt-1">
-              {{ education.address }}<br />
-              <span class="text-secondary">{{ education.start_date|date:'M Y' }} - {{ education.end_date }}</span>
-            </p>
-          </div>
+    <!-- Main Content Container -->
+    <div class="flex flex-col lg:flex-row gap-8 bg-gradient-to-br from-gray-900/80 to-gray-950/90 backdrop-blur-sm rounded-3xl p-6 border border-gray-800 shadow-2xl">
+      <!-- Education Section -->
+      <div class="lg:basis-2/3 px-4 sm:px-8 py-6">
+        <div class="flex items-center gap-3 mb-8" data-aos="fade-right" data-aos-duration="1000">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+          <h2 class="font-bold text-3xl md:text-4xl bg-gradient-to-r from-white to-secondary bg-clip-text text-transparent">Education</h2>
         </div>
-      {% endfor %}
-    </div>
 
-    <!-- Certifications Section -->
-    <div class="basis-1/3 px-3">
-      <p class="font-bold font-serif text-3xl text-center md:text-start mb-6 text-text_light" data-aos="fade-left" data-aos-duration="1000">Certifications</p>
+        <div class="relative pl-10">
+          <!-- Timeline line -->
+          <div class="absolute left-0 top-0 h-full w-0.5 bg-gradient-to-b from-gray-800 via-secondary/30 to-gray-800 ml-4"></div>
+          
+          {% for education in educations %}
+            <div class="relative mb-12 group" data-aos="zoom-in-up" data-aos-duration="900" data-aos-delay="{{ forloop.counter|add:'1' }}00">
+              <!-- Timeline dot -->
+              <div class="absolute -left-10 top-1 h-4 w-4 rounded-full bg-secondary border-2 border-gray-900 group-hover:animate-pulse z-10"></div>
+              
+              <!-- Education card -->
+              <div class="bg-gray-900/70 hover:bg-gray-900 border border-gray-800 rounded-xl p-6 transition-all duration-500 transform group-hover:scale-[1.02] group-hover:border-secondary shadow-lg hover:shadow-xl hover:shadow-secondary/10 backdrop-blur-sm">
+                <div class="flex flex-col md:flex-row md:items-center gap-4 mb-3">
+                  <div class="flex-shrink-0 w-14 h-14 rounded-lg bg-secondary/10 border border-secondary/30 flex items-center justify-center text-secondary text-2xl">
+                    {{ education.institution|first|upper }}
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-white">
+                      {{ education.degree }}
+                    </h3>
+                    <p class="text-lg text-gray-300">{{ education.institution }}</p>
+                  </div>
+                </div>
+                
+                <div class="flex flex-wrap gap-4 text-sm">
+                  <div class="flex items-center gap-2 text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    {{ education.address }}
+                  </div>
+                  
+                  <div class="flex items-center gap-2 text-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    {{ education.start_date|date:'M Y' }} - {{ education.end_date }}
+                  </div>
+                </div>
+                
+                {% if education.description %}
+                  <div class="mt-4 pt-4 border-t border-gray-800">
+                    <p class="text-gray-400">{{ education.description }}</p>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
 
-      <ul class="space-y-5 h-96 overflow-y-auto pr-1">
-        {% for certificate in certifications %}
-          <li data-aos="flip-up" data-aos-delay="{{ forloop.counter|add:'1' }}00" data-aos-duration="800" class="flex gap-3 items-center bg-white/5 hover:bg-white/10 backdrop-blur-sm p-4 rounded-xl transition-transform transform hover:scale-[1.03] shadow-md border border-white/10">
-            <!-- Certificate Icon -->
-            <div class="flex items-center justify-center text-2xl font-bold text-warning h-12 w-12 border-2 border-warning rounded-full">{{ certificate.title|first }}</div>
+      <!-- Certifications Section -->
+      <div class="lg:basis-1/3 px-4 sm:px-8 py-6">
+        <div class="flex items-center gap-3 mb-8" data-aos="fade-left" data-aos-duration="1000">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <h2 class="font-bold text-3xl md:text-4xl bg-gradient-to-r from-white to-warning bg-clip-text text-transparent">Certifications</h2>
+        </div>
 
-            <!-- Certificate Details -->
-            <a class="flex flex-col hover:text-warning transition-colors duration-300" href="{{ certificate.certificate_link }}" target="_blank">
-              <span class="font-semibold text-lg">{{ certificate.title }}</span>
-              <span class="text-sm text-quinary">Issued by: <span class="text-secondary">{{ certificate.issued_by }}</span></span>
-              <span class="text-sm text-quinary">Issued on: <span class="text-secondary">{{ certificate.issued_on }}</span></span>
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
+        <div class="space-y-5 h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+          {% for certificate in certifications %}
+            <div data-aos="flip-up" data-aos-delay="{{ forloop.counter|add:'1' }}00" data-aos-duration="800" 
+                 class="relative bg-gray-900/70 hover:bg-gray-900 border border-gray-800 rounded-xl p-5 transition-all duration-300 transform hover:scale-[1.02] hover:border-warning shadow-lg hover:shadow-xl hover:shadow-warning/10 group backdrop-blur-sm">
+              <!-- Ribbon effect -->
+              <div class="absolute -top-2 -right-2 w-24 h-24 overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-warning transform rotate-45 translate-x-8 -translate-y-8 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
+              </div>
+              
+              <a href="{{ certificate.certificate_link }}" target="_blank" class="flex gap-4 items-start">
+                <!-- Certificate Icon -->
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-warning/10 border border-warning/30 flex items-center justify-center text-warning text-xl font-bold transform group-hover:rotate-6 transition-transform duration-300">
+                  {{ certificate.title|first|upper }}
+                </div>
+
+                <!-- Certificate Details -->
+                <div class="flex-1">
+                  <h3 class="font-semibold text-lg text-white group-hover:text-warning transition-colors duration-300">{{ certificate.title }}</h3>
+                  <div class="flex flex-wrap gap-x-4 gap-y-2 mt-2 text-sm">
+                    <span class="flex items-center gap-1 text-gray-400">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                      {{ certificate.issued_by }}
+                    </span>
+                    <span class="flex items-center gap-1 text-gray-400">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      {{ certificate.issued_on }}
+                    </span>
+                  </div>
+                </div>
+              </a>
+              
+              <!-- View button appears on hover -->
+              <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="text-xs bg-warning/20 text-warning px-3 py-1 rounded-full border border-warning/30">View Credential</span>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
   </div>
 </main>
+
+<style>
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #f59e0b, #fbbf24);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #fbbf24, #f59e0b);
+  }
+  
+  /* Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  
+  /* Hover effects */
+  .group:hover .group-hover\:animate-float {
+    animation: float 2s ease-in-out infinite;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1023px) {
+    .lg\:basis-2\/3, .lg\:basis-1\/3 {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Add hover effect to education cards
+    const educationCards = document.querySelectorAll('#education .relative.group');
+    educationCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const dot = card.querySelector('.h-4.w-4');
+        dot.classList.add('animate-pulse');
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        const dot = card.querySelector('.h-4.w-4');
+        dot.classList.remove('animate-pulse');
+      });
+    });
+    
+    // Add click effect to certification cards
+    const certCards = document.querySelectorAll('#education [data-aos="flip-up"]');
+    certCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.tagName !== 'A') {
+          const link = card.querySelector('a');
+          if (link) {
+            window.open(link.href, '_blank');
+          }
+        }
+      });
+    });
+    
+    // Add periodic animation to elements
+    setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * educationCards.length);
+      educationCards[randomIndex].classList.add('animate-float');
+      
+      setTimeout(() => {
+        educationCards[randomIndex].classList.remove('animate-float');
+      }, 2000);
+    }, 5000);
+  });
+</script>

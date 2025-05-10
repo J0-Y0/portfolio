@@ -1,27 +1,41 @@
-<main id="experience" class="page  py-20 px-4 sm:px-12">
+<main id="experience" class="page py-20 px-4 sm:px-12 bg-gradient-to-br from-gray-950 to-gray-900">
   <div class="max-w-6xl mx-auto">
-      <p class="font-bold text-4xl md:text-5xl mb-12 text-center bg-gradient-to-r from-white to-secondary bg-clip-text text-transparent" 
-       data-aos="fade-down" data-aos-duration="800">
-      Professional <span class="text-secondary">Experience</span>
+    <p class="font-bold text-4xl md:text-5xl mb-16 text-center bg-gradient-to-r from-white via-blue-300 to-secondary bg-clip-text text-transparent" 
+     data-aos="fade-down" data-aos-duration="800">
+      My <span class="text-transparent bg-gradient-to-r from-secondary to-blue-400 bg-clip-text">Career Journey</span>
     </p>
 
-
-    <div class="flex flex-col lg:flex-row gap-8">
+    <div class="flex flex-col lg:flex-row gap-8 relative">
+      <!-- Floating decorative elements -->
+      <div class="absolute -top-20 -left-20 w-64 h-64 rounded-full bg-blue-900/20 blur-3xl -z-10"></div>
+      <div class="absolute bottom-0 -right-20 w-96 h-96 rounded-full bg-secondary/10 blur-3xl -z-10"></div>
+      
       <!-- Timeline / Left Column -->
-      <div class="lg:basis-1/3  ps-5 md:ps-0" data-aos="fade-right" data-aos-duration="1000">
+      <div class="lg:basis-1/3 ps-5 md:ps-0" data-aos="fade-right" data-aos-duration="1000">
         <div class="sticky top-28">
-          <div class="space-y-4">
+          <div class="space-y-4 relative">
+            <!-- Animated timeline connector -->
+            <div class="absolute left-0 top-0 h-full w-0.5 bg-gradient-to-b from-gray-800 via-secondary/30 to-gray-800 ml-[-17px]"></div>
+            
             {% for experience in experiences %}
               <div class="relative group" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'1' }}00">
                 <div class="absolute -left-8 top-1/2 transform -translate-y-1/2 h-3 w-3 rounded-full bg-secondary 
-                            group-hover:animate-ping transition-all duration-300"></div>
+                            group-hover:animate-pulse transition-all duration-300 z-10"></div>
                 <a href="#experience_{{ forloop.counter }}" 
                    class="experience-link text-gray-300 hover:text-white transition-all duration-500 
                           flex flex-col p-4 rounded-xl group-hover:bg-gradient-to-r from-gray-900/50 to-gray-800/30
-                          border-l-2 border-transparent group-hover:border-secondary relative overflow-hidden">
-                  <span class="text-lg font-semibold z-10">{{ experience.position }}</span>
+                          border-l-2 border-transparent group-hover:border-secondary relative overflow-hidden
+                          backdrop-blur-sm hover:shadow-lg hover:shadow-secondary/10">
+                  <span class="text-lg font-semibold z-10 flex items-center gap-2">
+                    <span class="group-hover:text-secondary transition-colors duration-300">{{ experience.position }}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
                   <span class="text-sm text-gray-400 group-hover:text-gray-300 z-10">{{ experience.start_date|date:'M, Y' }} - {{ experience.formatted_end_date }}</span>
+                  <span class="text-xs mt-1 text-gray-500 group-hover:text-gray-400 z-10">{{ experience.company }}</span>
                   <div class="absolute inset-0 bg-gradient-to-r from-secondary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div class="absolute inset-0 border border-secondary/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </a>
               </div>
             {% endfor %}
@@ -31,35 +45,71 @@
 
       <!-- Experience Details / Right Column -->
       <div class="lg:basis-2/3" data-aos="fade-left" data-aos-duration="1000">
-        <div class="space-y-6 h-[600px] overflow-y-auto pr-4 custom-scrollbar" id="experience-container">
-          {% for experience in experiences %}
-            <div id="experience_{{ forloop.counter }}" 
-                 class="experience-detail bg-gray-900/50 border border-gray-800 rounded-xl p-8 
-                        shadow-lg backdrop-blur-sm transition-all duration-500 hover:border-secondary
-                        transform hover:scale-[1.01] relative overflow-hidden">
-              <div class="absolute top-0 left-0 w-1 h-full bg-secondary opacity-0 transition-opacity duration-300"></div>
-              <div class="flex flex-col relative z-10">
-                <span class="font-bold text-2xl text-white mb-1">{{ experience.position }}</span>
-                <span class="text-sm text-secondary mb-4">{{ experience.start_date }} - {{ experience.formatted_end_date }}</span>
+        <div class="relative">
+          <div class="absolute -inset-4 bg-gradient-to-br from-secondary/10 to-blue-900/10 rounded-2xl blur-lg opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+          <div class="space-y-6 h-[600px] overflow-y-auto pr-4 custom-scrollbar group" id="experience-container">
+            {% for experience in experiences %}
+              <div id="experience_{{ forloop.counter }}" 
+                   class="experience-detail bg-gray-900/70 border border-gray-800 rounded-xl p-8 
+                          shadow-lg backdrop-blur-sm transition-all duration-500 hover:border-secondary
+                          transform hover:scale-[1.01] relative overflow-hidden
+                          hover:shadow-xl hover:shadow-secondary/10">
+                <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-secondary to-blue-400 opacity-0 transition-opacity duration-300"></div>
+                <!-- Floating company logo/initials -->
+                <div class="absolute top-4 right-4 w-12 h-12 rounded-full bg-gray-800/80 border border-gray-700 flex items-center justify-center text-gray-400 font-bold text-lg">
+                  {{ experience.company|slice:":2"|upper }}
+                </div>
                 
-                <div class="text-gray-300 space-y-4">
-                  <div class="flex items-start gap-3">
-                    <svg class="w-5 h-5 mt-1 text-secondary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    <span class="hover:text-white transition-colors duration-300">Worked as React and Django developer</span>
-                  </div>
+                <div class="flex flex-col relative z-10">
+                  <span class="font-bold text-2xl text-white mb-1 flex items-center gap-2">
+                    {{ experience.position }}
+                    <span class="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded-full">{{ experience.employment_type }}</span>
+                  </span>
+                  <span class="text-sm text-secondary mb-2">{{ experience.start_date }} - {{ experience.formatted_end_date }}</span>
+                  <span class="text-md text-gray-400 mb-4">{{ experience.company }} • {{ experience.location }}</span>
                   
-                  <div class="flex items-start gap-3">
-                    <svg class="w-5 h-5 mt-1 text-secondary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    <span class="hover:text-white transition-colors duration-300">{{ experience.description }}</span>
+                  <div class="text-gray-300 space-y-4">
+                    <div class="flex items-start gap-3">
+                      <svg class="w-5 h-5 mt-1 text-secondary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                      <span class="hover:text-white transition-colors duration-300">{{ experience.description }}</span>
+                    </div>
+                    
+                    {% if experience.responsibilities %}
+                      <div class="pt-2">
+                        <h4 class="text-sm font-semibold text-gray-400 mb-2">KEY RESPONSIBILITIES:</h4>
+                        <ul class="space-y-3">
+                          {% for responsibility in experience.responsibilities %}
+                            <li class="flex items-start gap-3">
+                              <svg class="w-4 h-4 mt-1 text-secondary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
+                              </svg>
+                              <span class="text-gray-300 hover:text-white transition-colors duration-300 text-sm">{{ responsibility }}</span>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      </div>
+                    {% endif %}
+                    
+                    {% if experience.technologies %}
+                      <div class="pt-2">
+                        <h4 class="text-sm font-semibold text-gray-400 mb-2">TECHNOLOGIES USED:</h4>
+                        <div class="flex flex-wrap gap-2">
+                          {% for tech in experience.technologies %}
+                            <span class="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full border border-gray-700 hover:bg-secondary/20 hover:border-secondary/50 hover:text-white transition-all duration-300">{{ tech }}</span>
+                          {% endfor %}
+                        </div>
+                      </div>
+                    {% endif %}
                   </div>
                 </div>
+                
+                <!-- Hover effect elements -->
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
               </div>
-            </div>
-          {% endfor %}
+            {% endfor %}
+          </div>
         </div>
       </div>
     </div>
@@ -67,49 +117,41 @@
 </main>
 
 <style>
+  /* Custom scrollbar */
   .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
+    height: 8px;
   }
   
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
     border-radius: 10px;
+    margin: 4px 0;
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb {
     background: linear-gradient(to bottom, #66d6ff, #0ea5e9);
     border-radius: 10px;
+    transition: all 0.3s ease;
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(to bottom, #0ea5e9, #66d6ff);
+    transform: scale(1.05);
   }
   
+  /* Active state styles */
   .experience-link.active {
     color: white;
     background: linear-gradient(to right, rgba(30, 58, 138, 0.5), rgba(30, 41, 59, 0.3));
     border-left-color: #66d6ff;
     transform: translateX(8px);
+    box-shadow: 0 4px 15px -3px rgba(102, 214, 255, 0.2);
   }
   
   .experience-link.active span:first-child {
     color: #66d6ff;
-  }
-  
-  .experience-detail.active {
-    border-color: #66d6ff;
-    background-color: rgba(30, 41, 59, 0.7);
-    box-shadow: 0 10px 25px -5px rgba(102, 214, 255, 0.2);
-  }
-  
-  .experience-detail.active .absolute {
-    opacity: 1;
-  }
-  
-  @keyframes pulse-glow {
-    0% { box-shadow: 0 0 0 0 rgba(102, 214, 255, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(102, 214, 255, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(102, 214, 255, 0); }
+    font-weight: 600;
   }
   
   .experience-link.active::before {
@@ -120,12 +162,45 @@
     right: 0;
     bottom: 0;
     background: linear-gradient(90deg, transparent, rgba(102, 214, 255, 0.1), transparent);
-    animation: shine 1.5s infinite;
+    animation: shine 2s infinite;
   }
   
+  .experience-detail.active {
+    border-color: #66d6ff;
+    background-color: rgba(30, 41, 59, 0.7);
+    box-shadow: 0 10px 25px -5px rgba(102, 214, 255, 0.2);
+    transform: scale(1.01);
+  }
+  
+  .experience-detail.active .absolute {
+    opacity: 1;
+  }
+  
+  /* Animations */
   @keyframes shine {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  
+  /* Hover effects */
+  .experience-link:hover {
+    transform: translateX(4px);
+  }
+  
+  .experience-detail:hover {
+    box-shadow: 0 20px 25px -5px rgba(102, 214, 255, 0.2), 0 10px 10px -5px rgba(102, 214, 255, 0.1);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1023px) {
+    .experience-link.active {
+      transform: none;
+    }
   }
 </style>
 
@@ -135,22 +210,33 @@
     const experienceDetails = document.querySelectorAll('.experience-detail');
     const experienceContainer = document.getElementById('experience-container');
     
-    // Function to activate experience
-    const activateExperience = (index,isInitialLoad=false) => {
-      // Remove active class from all links and details
-      experienceLinks.forEach(link => link.classList.remove('active'));
-      experienceDetails.forEach(detail => detail.classList.remove('active'));
+    // Function to activate experience with smooth transition
+    const activateExperience = (index, isInitialLoad = false) => {
+      // Remove active class from all links and details with transition
+      experienceLinks.forEach(link => {
+        link.style.transition = 'all 0.5s ease';
+        link.classList.remove('active');
+      });
+      
+      experienceDetails.forEach(detail => {
+        detail.style.transition = 'all 0.5s ease';
+        detail.classList.remove('active');
+      });
       
       // Add active class to clicked link and corresponding detail
-      experienceLinks[index].classList.add('active');
-      experienceDetails[index].classList.add('active');
-      
-      // Smooth scroll to the experience detail
-      !isInitialLoad && experienceDetails[index].scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'center',
-        inline: 'nearest'
-      });
+      setTimeout(() => {
+        experienceLinks[index].classList.add('active');
+        experienceDetails[index].classList.add('active');
+        
+        // Smooth scroll to the experience detail
+        if (!isInitialLoad) {
+          experienceDetails[index].scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center',
+            inline: 'nearest'
+          });
+        }
+      }, 10);
     };
     
     // Click event for experience links
@@ -158,35 +244,62 @@
       link.addEventListener('click', function(event) {
         event.preventDefault();
         activateExperience(index);
+        
+        // Add ripple effect
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple-effect');
+        this.appendChild(ripple);
+        
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = event.clientX - rect.left - size/2;
+        const y = event.clientY - rect.top - size/2;
+        
+        ripple.style.width = ripple.style.height = `${size}px`;
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        
+        setTimeout(() => ripple.remove(), 600);
       });
     });
     
-    // Intersection Observer to highlight current experience while scrolling
+    // Intersection Observer with improved detection
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
           const index = Array.from(experienceDetails).findIndex(detail => detail.id === id);
           if (index >= 0) {
-            experienceLinks.forEach(link => link.classList.remove('active'));
-            experienceLinks[index].classList.add('active');
+            activateExperience(index);
           }
         }
       });
     }, {
       root: experienceContainer,
-      threshold: 0.5,
-      rootMargin: '0px 0px -50% 0px'
+      threshold: 0.4,
+      rootMargin: '0px 0px -30% 0px'
     });
     
     experienceDetails.forEach(detail => {
       observer.observe(detail);
     });
     
-    console.log("experienceLinks.length=",experienceLinks.length)
-    // Activate first experience by default
+    // Activate first experience by default with delay for animation
     if (experienceLinks.length > 0) {
-      activateExperience(0,isInitialLoad=true);
+      setTimeout(() => {
+        activateExperience(0, true);
+      }, 300);
     }
+    
+    // Add floating animation to active element periodically
+    setInterval(() => {
+      const activeDetail = document.querySelector('.experience-detail.active');
+      if (activeDetail) {
+        activeDetail.style.animation = 'float 3s ease-in-out infinite';
+        setTimeout(() => {
+          activeDetail.style.animation = '';
+        }, 3000);
+      }
+    }, 10000);
   });
 </script>

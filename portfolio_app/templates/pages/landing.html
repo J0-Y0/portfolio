@@ -1,147 +1,102 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div id="landing" class="fixed inset-0 h-screen w-full pt-1 sm:pt-32 px-6 sm:px-10 text-center bg-gradient-to-br from-bg_dark to-[#0a0636b8] text-quinary">
+  <div id="landing" class="fixed inset-0 h-screen w-full pt-1 sm:pt-32 px-6 sm:px-10 text-center bg-gradient-to-br from-bg_dark to-[#0a0636b8] text-quinary overflow-hidden">
     <!-- Animated Background Elements -->
     <div class="absolute inset-0 overflow-hidden z-0 pointer-events-none">
       {% for i in xxxxxxxxxx %}
-        <div class="floating-particle absolute w-2 h-2 bg-secondary rounded-full opacity-20" style="top: {{ forloop.counter|add:5 }}%; left: {{ forloop.counter|add:10 }}%; 
-                    animation: float-particle {{ 10|add:forloop.counter }}s ease-in-out infinite;"></div>
+        <div class="floating-particle absolute w-1.5 h-1.5 bg-secondary rounded-full opacity-20" style="top: {{ forloop.counter|add:5 }}%; left: {{ forloop.counter|add:10 }}%; 
+                    animation: float-particle {{ 10|add:forloop.counter }}s ease-in-out infinite;
+                    filter: blur(0.5px);"></div>
       {% endfor %}
 
-      <!-- Animated gradient circles -->
-      <div class="absolute -bottom-1/4 -left-1/4 w-[150%] h-[150%] rounded-full bg-gradient-to-tr from-warning/5 to-secondary/5 animate-spin-slow opacity-30"></div>
-      <div class="absolute -top-1/4 -right-1/4 w-[120%] h-[120%] rounded-full bg-gradient-to-br from-warning/3 to-secondary/3 animate-spin-slower opacity-20"></div>
+      <!-- Subtle animated gradient circles -->
+      <div class="absolute -bottom-1/4 -left-1/4 w-[150%] h-[150%] rounded-full bg-gradient-to-tr from-warning/5 to-secondary/5 animate-spin-slow opacity-20 blur-xl"></div>
+      <div class="absolute -top-1/4 -right-1/4 w-[120%] h-[120%] rounded-full bg-gradient-to-br from-warning/3 to-secondary/3 animate-spin-slower opacity-15 blur-xl"></div>
+
+      <!-- Subtle grid overlay -->
+      <div class="absolute inset-0 opacity-5 bg-grid-pattern bg-[length:50px_50px]"></div>
     </div>
 
     <!-- Hero Section -->
-    <div class="flex gap-2 text-5xl sm:text-6xl md:text-8xl mt-52 sm:mt-1 font-extrabold justify-center">
-      <p data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="2000">{{ profile.first_name }}</p>
-      <p data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="2000">{{ profile.last_name }}</p>
-    </div>
-
-    <div id="hero-text" class="relative z-10 mb-16">
-      {% comment %} <div data-aos="zoom-out-down" data-aos-offset="200" data-aos-duration="1000" data-aos="fade-up" data-aos-duration="1500" class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl flex font-extrabold tracking-tight leading-tight text-text_light">
-        <p data-aos="zoom-out-down" data-aos-offset="200" data-aos-duration="1000" class="bg-clip-text text-transparent bg-gradient-to-r from-warning to-secondary animate-gradient-x">{{ profile.first_name }}</p>
-        <p class="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-warning animate-gradient-x-reverse">{{ profile.last_name }}</p>
-      </div> {% endcomment %}
-
-      <h2 data-aos="zoom-out-down" data-aos-duration="2000" data-aos-delay="500" class="text-xl sm:text-2xl md:text-3xl font-semibold text-quinary mt-8 max-w-3xl mx-auto animate-pulse-slow"><span>{{ profile.heading }}</span></h2>
-      <p data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000" class="text-lg sm:text-xl md:text-2xl text-quinary mt-4 max-w-3xl mx-auto animate-pulse-slow">
-        <span class="font-thin">Based on AA, Ethiopia</span>
-      </p>
-    </div>
-
-    <!-- Interactive Skills Section -->
-    <div id="skills-container" class="absolute inset-0 w-full my-2 mt-80 overflow-hidden">
-      {% for skill in skills %}
-        <div class="floating-skill absolute cursor-grab active:cursor-grabbing z-20 transition-opacity duration-300" data-skill-id="{{ forloop.counter }}" data-aos="zoom-in" data-aos-delay="{{ forloop.counter }}00">
-          <div class="relative group transform transition-all duration-500 hover:scale-125">
-            <div class="w-10 h-10 sm:w-16 sm:h-16 flex items-center justify-center p-3 rounded-full shadow-lg bg-white/5 backdrop-blur-lg border-2 border-secondary/30 group-hover:border-warning transition-all animate-float">
-              <img src="{{ skill.logo.url }}" alt="{{ skill.name }}" class="w-full h-full object-contain" />
-            </div>
-            <span class="skill-name absolute -bottom-8 left-1/2 -translate-x-1/2 text-sm font-medium text-quinary opacity-0 group-hover:opacity-100 transition-opacity duration-300">{{ skill.name }}</span>
-          </div>
-        </div>
-      {% endfor %}
-      <!-- Scroll indicator -->
-      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20">
-        <div class="animate-bounce flex flex-col items-center">
-          <span class="text-sm mb-2">Scroll to continue</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-quinary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </div>
+    <div class="relative z-20 h-full flex flex-col justify-center items-center">
+      <div class="flex gap-2 text-5xl sm:text-6xl md:text-8xl font-extrabold justify-center mb-6">
+        <p data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1200" class="text-transparent bg-clip-text bg-gradient-to-r from-warning to-secondary">{{ profile.first_name }}</p>
+        <p data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1200" class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-warning">{{ profile.last_name }}</p>
       </div>
-    </div>
 
-    <!-- Quote Section -->
-    {% comment %} <div id="quote-section" class="absolute bottom-10 left-0 right-0 z-10 max-w-4xl mx-auto px-6" data-aos="fade-up" data-aos-delay="500">
-      <div class="relative group">
-        <!-- Glow effect -->
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-blue-400/10 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-700"></div>
+      <div id="hero-text" class="relative z-10 mb-16 max-w-4xl mx-auto">
+        <h2 data-aos="zoom-out-down" data-aos-duration="1500" data-aos-delay="500" class="text-xl sm:text-2xl md:text-3xl font-medium text-quinary/90 mt-8 tracking-wide"><span class="inline-block bg-gradient-to-r from-warning/70 to-secondary/70 bg-clip-text text-transparent">{{ profile.heading }}</span></h2>
+        <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800" class="text-lg sm:text-xl text-quinary/80 mt-6 font-light tracking-wider">
+          <span class="inline-block px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10">Based in AA, Ethiopia</span>
+        </p>
+      </div>
 
-        <!-- Main card -->
-        <div class="relative bg-white/5 backdrop-blur-lg border border-blue-500/20 rounded-2xl p-6 sm:p-8 shadow-xl transform transition-all duration-500 group-hover:scale-[1.02]">
-          <!-- Animated decorative elements -->
-          <div class="absolute -top-10 -left-10 w-32 h-32 bg-warning/10 rounded-full filter blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-1000 animate-pulse"></div>
-          <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary/10 rounded-full filter blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-1000 delay-200 animate-pulse"></div>
-
-          <div class="relative z-10 text-center">
-            <i class="fas fa-quote-left text-3xl text-warning opacity-30 mb-4 transform transition-all duration-700 group-hover:rotate-12 group-hover:scale-110 group-hover:opacity-70"></i>
-
-            <blockquote class="text-lg sm:text-xl md:text-2xl font-medium italic text-text_light leading-relaxed mb-4 bg-clip-text text-transparent bg-gradient-to-r from-text_light to-text_light group-hover:from-warning group-hover:to-secondary transition-all duration-500">"Learn the rules like a pro, so you can break them like an artist."</blockquote>
-
-            <div class="text-md text-quinary mb-4 transform transition-all duration-500 group-hover:translate-y-1 group-hover:text-secondary">— Pablo Picasso</div>
-
-            <div class="border-t border-secondary/20 pt-4">
-              <div class="bg-white/5 backdrop-blur-xs border border-secondary/10 rounded-xl p-6 shadow-lg" data-aos="fade-up" data-aos-delay="500">
-                <p class="text-gray-500 text-sm mb-6">When I'm not coding, you can find me exploring new technologies, reading books, or mentoring.</p>
-                <div class="flex flex-wrap justify-center gap-4 text-xs">
-                  <span class="bg-warning/10 text-warning px-3 py-2 rounded-full flex items-center"><i class="fas fa-check-circle mr-2"></i> Available for freelance</span>
-                  <span class="bg-secondary/10 text-secondary px-3 py-2 rounded-full flex items-center"><i class="fas fa-handshake mr-2"></i> Open to collaborations</span>
-                  <span class="bg-white/10 text-quinary px-3 py-2 rounded-full flex items-center"><i class="fas fa-times-circle mr-2"></i> Not available for full-time</span>
-                </div>
+      <!-- Interactive Skills Section -->
+      <div id="skills-container" class="absolute inset-0 w-full h-full overflow-hidden pointer-events-auto">
+        {% for skill in skills %}
+          <div class="floating-skill absolute cursor-grab active:cursor-grabbing z-20 transition-all duration-500" data-skill-id="{{ forloop.counter }}" data-aos="zoom-in" data-aos-delay="{{ forloop.counter }}00">
+            <div class="relative group transform transition-all duration-500 hover:scale-125">
+              <div class="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center p-3 rounded-full shadow-lg bg-white/5 backdrop-blur-md border border-white/10 group-hover:border-warning/50 transition-all animate-float hover:shadow-warning/10">
+                <img src="{{ skill.logo.url }}" alt="{{ skill.name }}" class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110" />
               </div>
+              <span class="skill-name absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs font-medium text-quinary opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 px-2 py-1 rounded-full backdrop-blur-sm">{{ skill.name }}</span>
             </div>
           </div>
-        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30">
+        <button onclick="scrollToNextSection()" class="animate-bounce flex flex-col items-center group cursor-pointer focus:outline-none">
+          <span class="text-xs mb-2 text-quinary/70 group-hover:text-warning transition-colors">Explore more</span>
+          <div class="relative w-8 h-12 rounded-full border-2 border-quinary/50 group-hover:border-warning p-1 transition-colors">
+            <span class="absolute top-1 left-1/2 -translate-x-1/2 w-1 h-2 rounded-full bg-quinary/70 group-hover:bg-warning animate-scroll-dot transition-colors"></span>
+          </div>
+        </button>
       </div>
     </div>
-    <!-- CTA Button -->
-    <div class="mb-4 absolute transform bottom-6 right-3 transition-all duration-500 group-hover:-translate-y-2">
-      <a href="/about" class="cta-button inline-block px-6 py-3 bg-gradient-to-r from-primary to-info rounded-full text-gray-900 font-bold hover:shadow-xl hover:shadow-blue-600/30 transition-all duration-300 group relative overflow-hidden">
-        <span class="relative z-10 flex items-center">
-          <span></span>
-          <div class="ml-3 arrow-container">
-            <i class="fas fa-arrow-right text-lg transform transition-transform duration-300 group-hover:translate-x-1"></i>
-          </div>
-        </span>
-        <span class="absolute inset-0 bg-gradient-to-r from-danger to-warning opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-      </a>
-    </div> {% endcomment %}
 
     <style>
       /* Layout */
       #landing {
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        align-content: space-between;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-attachment: fixed;
+        overflow: hidden;
       }
       
-      /* Text sections that should trigger opacity change */
-      #hero-text,
-      #quote-section {
-        position: relative;
-        z-index: 15;
+      .bg-grid-pattern {
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
       }
       
       /* Skill icon when overlapping text */
       .floating-skill.overlapping-text {
-        opacity: 0.5 !important;
+        opacity: 0.3 !important;
       }
       .floating-skill.overlapping-text:hover {
-        opacity: 0.7 !important;
+        opacity: 0.6 !important;
       }
       
       /* Animations */
       @keyframes float-particle {
         0%,
         100% {
-          transform: translate(0, 0);
-          opacity: 0.2;
+          transform: translate(0, 0) rotate(0deg);
+          opacity: 0.1;
         }
         25% {
-          transform: translate(20px, -30px);
-          opacity: 0.4;
+          transform: translate(15px, -20px) rotate(5deg);
+          opacity: 0.3;
         }
         50% {
-          transform: translate(40px, 0);
-          opacity: 0.2;
+          transform: translate(30px, 0) rotate(0deg);
+          opacity: 0.1;
         }
         75% {
-          transform: translate(20px, 30px);
-          opacity: 0.4;
+          transform: translate(15px, 20px) rotate(-5deg);
+          opacity: 0.3;
         }
       }
       
@@ -154,34 +109,10 @@
         }
       }
       
-      @keyframes gradient-x {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-      
-      @keyframes gradient-x-reverse {
-        0% {
-          background-position: 100% 50%;
-        }
-        50% {
-          background-position: 0% 50%;
-        }
-        100% {
-          background-position: 100% 50%;
-        }
-      }
-      
       @keyframes pulse-slow {
         0%,
         100% {
-          opacity: 0.9;
+          opacity: 0.8;
         }
         50% {
           opacity: 1;
@@ -194,35 +125,46 @@
           transform: translateY(0);
         }
         50% {
-          transform: translateY(-10px);
+          transform: translateY(-8px);
+        }
+      }
+      
+      @keyframes scroll-dot {
+        0% {
+          top: 4px;
+          opacity: 0;
+        }
+        30% {
+          opacity: 1;
+        }
+        70% {
+          opacity: 1;
+        }
+        100% {
+          top: 24px;
+          opacity: 0;
         }
       }
       
       /* Utility classes */
       .animate-spin-slow {
-        animation: spin-slow 40s linear infinite;
+        animation: spin-slow 50s linear infinite;
       }
       
       .animate-spin-slower {
-        animation: spin-slow 60s linear infinite;
-      }
-      
-      .animate-gradient-x {
-        background-size: 200% 200%;
-        animation: gradient-x 8s ease infinite;
-      }
-      
-      .animate-gradient-x-reverse {
-        background-size: 200% 200%;
-        animation: gradient-x-reverse 8s ease infinite;
+        animation: spin-slow 80s linear infinite;
       }
       
       .animate-pulse-slow {
-        animation: pulse-slow 4s ease-in-out infinite;
+        animation: pulse-slow 5s ease-in-out infinite;
       }
       
       .animate-float {
-        animation: float 6s ease-in-out infinite;
+        animation: float 5s ease-in-out infinite;
+      }
+      
+      .animate-scroll-dot {
+        animation: scroll-dot 2s ease infinite;
       }
       
       /* Interactive elements */
@@ -230,42 +172,121 @@
         animation: float 3s ease-in-out infinite;
       }
       
-      .cta-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px -5px rgba(255, 193, 7, 0.4);
+      /* Smooth transitions */
+      .transition-slow {
+        transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
       }
-      #cover-transition {
-        transform: scaleY(0);
-        transform-origin: bottom;
-        transition: transform 0.6s ease-in-out;
+    </style>
+    <script>
+      function scrollToNextSection() {
+        // Get the current scroll position
+        const currentPosition = window.pageYOffset || document.documentElement.scrollTop
+      
+        // Calculate the next section position (current position + viewport height)
+        const nextPosition = currentPosition + window.innerHeight
+      
+        // Get the maximum scrollable height
+        const maxHeight = document.documentElement.scrollHeight - window.innerHeight
+      
+        // Determine the target position (don't scroll beyond max height)
+        const targetPosition = Math.min(nextPosition, maxHeight)
+      
+        // Smooth scroll to the target position
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        })
+      
+        // If we're already at the bottom, redirect to /home as fallback
+        if (currentPosition >= maxHeight - 10) {
+          window.location.href = '/home'
+        }
       }
       
-      #cover-transition.active {
-        opacity: 0.3;
-        pointer-events: auto;
-        transform: scaleY(1);
+      // Also make it work with wheel/touch events
+      let isScrolling = false
+      
+      window.addEventListener(
+        'wheel',
+        function (e) {
+          if (isScrolling) return
+      
+          // Only trigger on downward scroll near the bottom
+          if (e.deltaY > 0 && window.innerHeight + window.pageYOffset >= document.documentElement.offsetHeight - 100) {
+            isScrolling = true
+            window.location.href = '/home'
+          }
+        },
+        { passive: true }
+      )
+      
+      window.addEventListener(
+        'touchmove',
+        function (e) {
+          if (isScrolling) return
+      
+          // For touch devices, check if we're at the bottom
+          if (window.innerHeight + window.pageYOffset >= document.documentElement.offsetHeight - 10) {
+            isScrolling = true
+            window.location.href = '/home'
+          }
+        },
+        { passive: true }
+      )
+    </script>
+
+    <style>
+      @keyframes scroll-dot {
+        0% {
+          top: 4px;
+          opacity: 0;
+        }
+        30% {
+          opacity: 1;
+        }
+        70% {
+          opacity: 1;
+        }
+        100% {
+          top: 24px;
+          opacity: 0;
+        }
+      }
+      
+      .animate-scroll-dot {
+        animation: scroll-dot 2s ease infinite;
+      }
+      
+      /* Make sure the button is tappable on mobile */
+      @media (max-width: 640px) {
+        .scroll-indicator-button {
+          min-width: 44px;
+          min-height: 44px;
+        }
       }
     </style>
 
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        // Initialize AOS animations
+        // Initialize AOS animations with smoother settings
         AOS.init({
-          duration: 800,
-          easing: 'ease-out-quart',
+          duration: 1200,
+          easing: 'ease-out-back',
           once: false,
-          offset: 100
+          offset: 120,
+          delay: 100
         })
       
-        // Physics parameters
+        // Enhanced physics parameters
         const physics = {
-          friction: 0.96,
-          bounce: 0.85,
-          pushForce: 0.3
+          friction: 0.97,
+          bounce: 0.9,
+          pushForce: 0.25,
+          skillRepulsion: 0.5
         }
       
         // Text sections to check for overlap
-        const textSections = [document.getElementById('hero-text'), document.getElementById('quote-section')]
+        const textSections = [document.getElementById('hero-text')]
       
         // Skill objects storage
         const skills = {}
@@ -282,11 +303,12 @@
             element: skill,
             x: Math.random() * (containerRect.width - size.width),
             y: Math.random() * (containerRect.height - size.height),
-            vx: (Math.random() - 0.5) * 3,
-            vy: (Math.random() - 0.5) * 3,
+            vx: (Math.random() - 0.5) * 2,
+            vy: (Math.random() - 0.5) * 2,
             width: size.width,
             height: size.height,
-            isDragging: false
+            isDragging: false,
+            lastMouseDistance: Infinity
           }
       
           // Set initial position
@@ -297,7 +319,7 @@
         // Mouse interaction variables
         let mouseX = 0
         let mouseY = 0
-        let mouseRadius = 200 // Area of influence
+        let mouseRadius = 150 // Area of influence
         let isInteracting = false
       
         // Track mouse position
@@ -344,6 +366,8 @@
             offsetX = e.clientX - rect.left
             offsetY = e.clientY - rect.top
             skill.style.cursor = 'grabbing'
+            skill.style.transition = 'none'
+            skill.style.zIndex = '50'
           })
       
           document.addEventListener('mousemove', (e) => {
@@ -366,17 +390,56 @@
               const id = document.querySelector('.floating-skill:hover')?.dataset.skillId
               if (id) {
                 skills[id].isDragging = false
-                // Give it a push when released
-                skills[id].vx = (Math.random() - 0.5) * 8
-                skills[id].vy = (Math.random() - 0.5) * 8
+                // Give it a gentle push when released
+                skills[id].vx = (Math.random() - 0.5) * 5
+                skills[id].vy = (Math.random() - 0.5) * 5
               }
               isDragging = false
               document.querySelectorAll('.floating-skill').forEach((s) => {
                 s.style.cursor = 'grab'
+                s.style.transition = 'left 0.5s ease-out, top 0.5s ease-out'
+                s.style.zIndex = '20'
               })
             }
           })
         })
+      
+        // Check for skill-to-skill collisions
+        function checkSkillCollisions(skill, allSkills) {
+          const skillRect = {
+            x: skill.x,
+            y: skill.y,
+            width: skill.width,
+            height: skill.height
+          }
+      
+          Object.values(allSkills).forEach((otherSkill) => {
+            if (skill === otherSkill || otherSkill.isDragging) return
+      
+            const otherRect = {
+              x: otherSkill.x,
+              y: otherSkill.y,
+              width: otherSkill.width,
+              height: otherSkill.height
+            }
+      
+            // Simple collision detection
+            if (skillRect.x < otherRect.x + otherRect.width && skillRect.x + skillRect.width > otherRect.x && skillRect.y < otherRect.y + otherRect.height && skillRect.y + skillRect.height > otherRect.y) {
+              // Calculate repulsion force
+              const dx = skillRect.x + skillRect.width / 2 - (otherRect.x + otherRect.width / 2)
+              const dy = skillRect.y + skillRect.height / 2 - (otherRect.y + otherRect.height / 2)
+              const distance = Math.sqrt(dx * dx + dy * dy)
+      
+              if (distance > 0) {
+                const force = physics.skillRepulsion / distance
+                skill.vx += dx * force
+                skill.vy += dy * force
+                otherSkill.vx -= dx * force
+                otherSkill.vy -= dy * force
+              }
+            }
+          })
+        }
       
         // Check if element overlaps with any text section
         function checkTextOverlap(skill) {
@@ -407,20 +470,20 @@
             skill.x += skill.vx
             skill.y += skill.vy
       
-            // Mouse push effect
+            // Mouse push effect (more subtle)
             if (isInteracting) {
               const dx = mouseX - (skill.x + skill.width / 2)
               const dy = mouseY - (skill.y + skill.height / 2)
               const distance = Math.sqrt(dx * dx + dy * dy)
       
               if (distance < mouseRadius && distance > 0) {
-                const force = ((mouseRadius - distance) / mouseRadius) * physics.pushForce
-                skill.vx -= (dx / distance) * force
-                skill.vy -= (dy / distance) * force
+                const force = Math.pow((mouseRadius - distance) / mouseRadius, 2) * physics.pushForce
+                skill.vx += (dx / distance) * force
+                skill.vy += (dy / distance) * force
               }
             }
       
-            // Boundary collision
+            // Boundary collision with damping
             if (skill.x < 0) {
               skill.x = 0
               skill.vx = -skill.vx * physics.bounce
@@ -441,9 +504,14 @@
             skill.vx *= physics.friction
             skill.vy *= physics.friction
       
-            // Update position
-            skill.element.style.left = `${skill.x}px`
-            skill.element.style.top = `${skill.y}px`
+            // Check for skill collisions
+            checkSkillCollisions(skill, skills)
+      
+            // Update position with smooth transition when not being dragged
+            if (!skill.isDragging) {
+              skill.element.style.left = `${skill.x}px`
+              skill.element.style.top = `${skill.y}px`
+            }
       
             // Check for text overlap and adjust opacity
             if (checkTextOverlap(skill)) {
@@ -460,27 +528,22 @@
         animate()
       
         // Handle window resize
-        window.addEventListener('resize', () => {
+        function handleResize() {
           containerRect = container.getBoundingClientRect()
-        })
-      })
-    </script>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        let triggered = false
+        }
       
-        window.addEventListener('wheel', (event) => {
-          if (event.deltaY > 0 && !triggered) {
-            triggered = true
+        window.addEventListener('resize', handleResize)
       
-            const cover = document.getElementById('cover-transition')
-            cover.classList.add('active')
-      
-            setTimeout(() => {
-              window.location.href = '/home'
-            }, 700) // Match CSS transition duration
-          }
-        })
+        // Smooth scroll to next section
+        const scrollIndicator = document.querySelector('.animate-bounce')
+        if (scrollIndicator) {
+          scrollIndicator.addEventListener('click', () => {
+            window.scrollBy({
+              top: window.innerHeight,
+              behavior: 'smooth'
+            })
+          })
+        }
       })
     </script>
   </div>
