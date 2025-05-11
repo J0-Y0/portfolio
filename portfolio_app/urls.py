@@ -12,6 +12,7 @@ urlpatterns = [
     path("contact/", views.contact, name="contact"),
     path("project_detail/<str:slug>/", views.project_detail, name="project_detail"),
     path("home/", views.home, name="home"),
+    path("download-resume/", views.download_latest_resume, name="download_resume"),
 ]
 
 if settings.DEBUG:

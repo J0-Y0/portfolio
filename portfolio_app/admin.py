@@ -184,6 +184,10 @@ class BlogAdmin(ModelAdmin):
     filter_horizontal = ["tags"]
 
 
+class SkillInline(TabularInline):
+    model = Skill
+
+
 @admin.register(Tag)
 class TagAdmin(ModelAdmin):
     list_display = ["name"]
@@ -194,6 +198,11 @@ class TagAdmin(ModelAdmin):
 class CertificationsAdmin(ModelAdmin):
     list_display = ["title", "issued_on", "certificate_link"]
     search_fields = ["title"]
+
+
+@admin.register(Resume)
+class ResumeAdmin(ModelAdmin):
+    list_display = ["created_at", "note", "resume"]
 
 
 @admin.register(Inbox)

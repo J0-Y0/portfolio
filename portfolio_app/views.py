@@ -85,3 +85,51 @@ def contact(request):
     response = render(request, "partials/contact-form-content.html", context)
     response["HX-trigger"] = success_trigger
     return response
+
+
+# views.py
+from django.http import FileResponse, Http404
+from django.shortcuts import get_object_or_404
+from django.utils.text import slugify
+from .models import Resume
+import os
+
+
+def download_latest_resume(request):
+    try:
+        # Get the most recent resume
+        resume = get_object_or_404(Resume.objects.order_by("-created_at"))
+
+        # Verify file exists
+        if not resume.resume or not os.path.exists(resume.resume.path):
+            raise Http404("Resume file not found on server")
+
+        # Generate a clean filename
+        original_name = os.path.basename(resume.resume.name)
+        name, ext = os.path.splitext(original_name)
+        clean_name = slugify(name) + ext
+
+        # Create response
+        response = FileResponse(
+            resume.resume.open("rb"),
+            as_attachment=True,
+            filename=f"resume_{clean_name}",
+        )
+
+        # Set appropriate content type
+        content_types = {
+            ".pdf": "application/pdf",
+            ".doc": "application/msword",
+            ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            ".txt": "text/plain",
+        }
+        response["Content-Type"] = content_types.get(
+            ext.lower(), "application/octet-stream"
+        )
+
+        return response
+
+    except Exception as e:
+        # Log error to your error tracking system
+        # logger.error(f"Resume download failed: {str(e)}")
+        raise Http404("Could not process your download request")

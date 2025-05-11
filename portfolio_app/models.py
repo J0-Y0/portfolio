@@ -198,3 +198,11 @@ class Inbox(models.Model):
 
     class Meta:
         unique_together = ("sender_email", "message")
+
+
+class Resume(models.Model):
+    resume = models.FileField(
+        upload_to="resume/",
+    )
+    note = models.CharField(max_length=150)
+    created_at = models.DateTimeField(auto_now_add=True)

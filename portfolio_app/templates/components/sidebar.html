@@ -1,64 +1,35 @@
 {% load static %}
-<aside class="fixed top-0 left-0 h-screen w-[20rem] flex flex-col border-r border-gray-800 bg-gradient-to-b from-gray-900 to-gray-900/80 backdrop-blur-xl p-6 z-40 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20">
-  
-  <!-- Enhanced Profile Card -->
-  <div class="relative group h-56 rounded-2xl overflow-hidden mb-8 bg-gray-800/50 transition-all duration-700 hover:bg-gray-800/70">
-    <!-- Background Texture -->
-    <div class="absolute inset-0 opacity-20 bg-[url('{% static 'img/noise.png' %}')] mix-blend-overlay"></div>
-    
-    <!-- Floating Logo -->
-    <div class="absolute -right-3 -top-3 p-2 rounded-full bg-gradient-to-br from-primary to-secondary shadow-2xl z-10 transition-transform duration-500 group-hover:rotate-12">
-      <img class="h-7 w-7" src="{% static 'img/logo_2.png' %}" alt="Logo">
+<aside class="fixed top-0 left-0 h-screen w-[20rem] flex flex-col border-r border-gray-700/50 bg-gray-900/30 backdrop-blur-xl px-6 py-4 z-40 overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(102,214,255,0.3)]">
+  <!-- Profile Section -->
+  <div class="relative flex flex-col items-center px-7 pt-5 pb-3 mb-4 border border-gray-700/50 rounded-3xl bg-gradient-to-br from-gray-900/50 to-gray-800/30 group hover:bg-gray-800/40 transition-all duration-300">
+    <div class="absolute border p-2 -end-2 -top-2 rounded-full bg-gray-900 border-primary/80 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all">
+      <img class="h-8" src="../static/img/logo_2.png" alt="Logo">
     </div>
-    
-    <!-- Profile Content -->
-    <div class="relative h-full flex flex-col items-center justify-center px-4">
-      <!-- Avatar with Glow -->
-      <div class="relative mb-4 transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute -inset-3 bg-gradient-to-r from-primary to-secondary rounded-2xl opacity-50 blur-xl transition-opacity duration-500 group-hover:opacity-70"></div>
-        <img class="relative h-24 w-24 rounded-xl border-2 border-gray-700/50 object-cover z-10" 
-             src="{% static 'img/my_pic.png' %}" 
-             alt="Profile Picture">
-      </div>
-      
-      <!-- Name with Gradient -->
-      <h1 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 mb-1">
-        Yosef Emyayu
-      </h1>
-      
-      <!-- Title with Animation -->
-      <p class="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-secondary to-warning mb-4">
-        Senior Web Developer
-      </p>
-      
-      <!-- Status Badge -->
-      <div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-900/20 backdrop-blur-sm border border-green-500/30 text-xs text-green-400 transition-all duration-300 group-hover:bg-green-900/40">
-        <span class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
-        Available for work
-      </div>
+    <div class="flex justify-center">
+      <img class="transition ease-in-out duration-500 transform group-hover:scale-105 h-24 sm:h-28 rounded-lg border-2 border-gray-700/50 group-hover:border-primary/30" src="../static/img/my_pic.png" alt="Profile Picture">
+    </div>
+    <h6 class="text-center font-semibold text-lg mt-2 text-white">Yosef Emyayu</h6>
+    <p class="text-center text-gray-400 text-sm mb-2">Senior Web Developer</p>
+    <div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-900/20 backdrop-blur-sm border border-green-500/30 text-xs text-green-400 transition-all duration-300 group-hover:bg-green-900/40 group-hover:border-green-500/50">
+      <span class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+      Available for work
     </div>
   </div>
 
-  <!-- Skills Navigator -->
+  <!-- Skills Section -->
   <div class="flex-1 flex flex-col">
-    <!-- Section Header -->
-    <div class="flex items-center mb-6 pl-2">
-      <svg class="w-6 h-6 text-secondary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div class="flex items-center mb-4 pl-2">
+      <svg class="w-6 h-6 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
       </svg>
-      <h2 class="text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
-        Technical Skills
-      </h2>
+      <h2 class="text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Technical Skills</h2>
     </div>
 
-    <!-- Interactive Skill Matrix -->
-    <div class="relative flex-1">
-      <!-- Tab Navigation -->
-      <div class="relative z-10 mb-6">
-        <div class="flex gap-1 p-1 rounded-xl bg-gray-800/50 backdrop-blur-sm">
+    <div class="relative flex-1 border border-gray-700/50 rounded-3xl bg-gray-900/30 backdrop-blur-sm p-1 transition-all duration-300 hover:bg-gray-800/40">
+      <div class="relative z-10 mb-4">
+        <div class="flex gap-1 p-1 rounded-3xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50">
           {% for tag in tags %}
-          <button class="skill-tab flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-300" 
-                  data-tab="{{tag.name|slugify}}">
+          <button class="skill-tab flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-gray-700/60" data-tab="{{tag.name|slugify}}">
             <span class="tab-short">{{tag.name|slice:":1"}}</span>
             <span class="tab-full">{{tag.name}}</span>
           </button>
@@ -66,15 +37,14 @@
         </div>
       </div>
 
-      <!-- Skill Panels -->
-      <div class="relative h-[18rem] overflow-hidden">
+      <div class="relative h-[18rem] overflow-y-auto p-2">
         {% for tag in tags %}
-        <div class="skill-panel  flex absolute inset-0 flex-wrap   gap-2  p-1 opacity-0 invisible transition-all duration-300 transform translate-y-2" 
-             data-panel="{{tag.name|slugify}}">
+        <div class="skill-panel flex absolute inset-0 flex-wrap content-start gap-2 opacity-0 invisible transition-all duration-500 transform translate-y-2 w-full" data-panel="{{tag.name|slugify}}">
           {% for skill in tag.skills.all %}
-          <div class="skill-card flex" data-skill="{{skill.name|slugify}}">
-            <div class="skill-icon bg-gray-700/10 text-{{skill.color}}-400 hover:bg-gray-700/20">
-              {{skill.name}}
+          <div class="skill-card relative group flex-none" data-skill="{{skill.name|slugify}}">
+            <div class="random-bg flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5 min-w-[120px] backdrop-blur-sm">
+              <img src="{{skill.logo.url}}" alt="{{skill.name}} logo" class="w-5 h-5 object-contain">
+              <span class="text-sm font-medium text-white/90">{{skill.name}}</span>
             </div>
           </div>
           {% endfor %}
@@ -84,42 +54,67 @@
     </div>
   </div>
 
-  <!-- Floating CTA Button -->
-  <div class="absolute bottom-20 left-0 right-0 px-6 z-20">
-    <a href="#contact" class="block w-full transform transition-all duration-300 hover:-translate-y-1">
-      <button class="cta-button w-full py-3 px-6 rounded-xl font-medium flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-        </svg>
-        <span>Contact Me</span>
-      </button>
+  <!-- Contact Button -->
+  <div class="mt-4 mb-2">
+    <a href="#contact" class="button-content group relative flex items-center justify-center gap-2 w-full py-3 px-4 overflow-hidden border-2 border-primary/80 hover:border-primary bg-transparent hover:bg-primary/90 transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-primary/30 rounded-xl">
+      <span class="text tracking-wide font-semibold text-primary group-hover:text-gray-900 transition-colors duration-500 z-10">reach me</span>
+      <svg class="share-icon w-5 h-5 text-primary group-hover:text-gray-900 transition-all duration-500 group-hover:rotate-45 z-10" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6m4-3h6v6m-11 5L21 3"></path>
+      </svg>
+      <span class="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></span>
+      <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 group-active:opacity-20 transition-opacity duration-300"></span>
     </a>
-  </div>
-
-  <!-- Social Links -->
-  <div class="absolute bottom-6 left-0 right-0 px-6">
-    <div class="flex justify-center gap-4">
-      {% for social in socials %}
-      <a href="{{ social.url }}" target="_blank" class="social-link transform transition-all duration-300 hover:-translate-y-1">
-        <div class="p-2 rounded-full bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:bg-{{ social.color }}/20">
-          <svg class="w-5 h-5 text-gray-400 transition-colors duration-300 hover:text-{{ social.color }}" 
-               fill="currentColor" viewBox="0 0 24 24">
-            {{ social.icon|safe }}
-          </svg>
-        </div>
-      </a>
-      {% endfor %}
-    </div>
   </div>
 </aside>
 
 <style>
-  /* Tab Styles */
+  .random-bg {
+    background-color: rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .random-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--random-bg);
+    opacity: 0.3;
+    z-index: -1;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .random-bg:hover::before {
+    opacity: 0.5;
+  }
+
   .skill-tab {
     position: relative;
     overflow: hidden;
     color: #6b7280;
     min-width: 2.5rem;
+    background: transparent;
+    border: none;
+  }
+  
+  .skill-tab::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #66d6ff, #4f46e5);
+    transition: width 0.3s ease;
+  }
+  
+  .skill-tab:hover::before {
+    width: 60%;
   }
   
   .skill-tab .tab-full {
@@ -127,9 +122,12 @@
   }
   
   .skill-tab.active {
-    background: rgba(255, 255, 255, 0.05);
     color: white;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .skill-tab.active::before {
+    width: 100%;
   }
   
   .skill-tab.active .tab-short {
@@ -148,162 +146,90 @@
     display: inline;
   }
 
-  /* Skill Cards */
   .skill-card {
-    perspective: 1000px;
-  }
-  
-  .skill-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 3rem;
-    padding: 0 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: default;
-    font-size: 0.875rem;
-    font-weight: 500;
   }
   
-  .skill-card:hover .skill-icon {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    border-color: rgba(255, 255, 255, 0.1);
+  .skill-card:hover {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 4px 6px rgba(102, 214, 255, 0.2));
   }
 
-  /* CTA Button */
-  .cta-button {
-    background: linear-gradient(135deg, rgba(102, 214, 255, 0.8) 0%, rgba(102, 214, 255, 0.4) 100%);
-    color: white;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(102, 214, 255, 0.3);
+  .skill-panel {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
   }
   
-  .cta-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
-  }
-  
-  .cta-button:hover::before {
-    left: 100%;
-  }
-  
-  .cta-button:hover {
-    box-shadow: 0 10px 25px -5px rgba(102, 214, 255, 0.4);
-  }
-
-  /* Panel Transitions */
   .skill-panel.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
-
-  /* Scrollbar Styling */
-  .skill-panel {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(102, 214, 255, 0.3) transparent;
+  
+  .button-content:hover {
+    transform: translateY(-2px);
   }
-
-  .skill-panel::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .skill-panel::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .skill-panel::-webkit-scrollbar-thumb {
-    background-color: rgba(102, 214, 255, 0.3);
-    border-radius: 3px;
+  
+  .backdrop-blur-xl {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Tab functionality
-  const tabs = document.querySelectorAll('.skill-tab');
-  const panels = document.querySelectorAll('.skill-panel');
-  
-  // Activate first tab by default if none active
-  if (!document.querySelector('.skill-tab.active') && tabs.length > 0) {
-    activateTab(tabs[0]);
-  }
-  
-  tabs.forEach(tab => {
-    tab.addEventListener('click', function() {
-      activateTab(this);
-    });
-    
-    // Hover effect for non-active tabs
-    tab.addEventListener('mouseenter', function() {
-      if (!this.classList.contains('active')) {
-        this.style.color = '#e5e7eb';
+    document.addEventListener('DOMContentLoaded', function() {
+      // Tab functionality
+      const tabs = document.querySelectorAll('.skill-tab');
+      const panels = document.querySelectorAll('.skill-panel');
+      
+      if (tabs.length > 0) {
+        activateTab(tabs[0]);
       }
-    });
-    
-    tab.addEventListener('mouseleave', function() {
-      if (!this.classList.contains('active')) {
-        this.style.color = '';
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          activateTab(this);
+        });
+        
+        tab.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            activateTab(this);
+          }
+        });
+      });
+      
+      function activateTab(activeTab) {
+        tabs.forEach(tab => {
+          tab.classList.remove('active');
+          tab.setAttribute('aria-selected', 'false');
+        });
+        
+        panels.forEach(panel => panel.classList.remove('active'));
+        
+        activeTab.classList.add('active');
+        activeTab.setAttribute('aria-selected', 'true');
+        const panelId = activeTab.getAttribute('data-tab');
+        document.querySelector(`[data-panel="${panelId}"]`).classList.add('active');
       }
+
+      // Random background colors
+      const colorPalette = [
+        'linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3))',
+        'linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(244, 63, 94, 0.3))',
+        'linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(249, 115, 22, 0.3))',
+        'linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(5, 150, 105, 0.3))',
+        'linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(37, 99, 235, 0.3))',
+        'linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(126, 34, 206, 0.3))',
+        'linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(220, 38, 38, 0.3))',
+        'linear-gradient(135deg, rgba(20, 184, 166, 0.3), rgba(13, 148, 136, 0.3))'
+      ];
+
+      document.querySelectorAll('.random-bg').forEach((el, index) => {
+        const colorIndex = index % colorPalette.length;
+        el.style.setProperty('--random-bg', colorPalette[colorIndex]);
+      });
     });
-  });
-  
-  function activateTab(activeTab) {
-    // Deactivate all tabs
-    tabs.forEach(tab => {
-      tab.classList.remove('active');
-    });
-    
-    // Hide all panels
-    panels.forEach(panel => {
-      panel.classList.remove('active');
-    });
-    
-    // Activate selected tab
-    activeTab.classList.add('active');
-    
-    // Show corresponding panel
-    const panelId = activeTab.getAttribute('data-tab');
-    const targetPanel = document.querySelector(`[data-panel="${panelId}"]`);
-    if (targetPanel) {
-      targetPanel.classList.add('active');
-    }
-  }
-  
-  // Skill card hover effects
-  const skillCards = document.querySelectorAll('.skill-card');
-  skillCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-      this.style.zIndex = '10';
-    });
-    card.addEventListener('mouseleave', function() {
-      this.style.zIndex = '';
-    });
-  });
-  
-  // Parallax effect for profile card
-  const profileCard = document.querySelector('.group');
-  if (profileCard) {
-    profileCard.addEventListener('mousemove', (e) => {
-      const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-      const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-      profileCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-    });
-    
-    // Reset on mouse leave
-    profileCard.addEventListener('mouseleave', () => {
-      profileCard.style.transform = 'rotateY(0deg) rotateX(0deg)';
-    });
-  }
-});
 </script>

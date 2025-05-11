@@ -177,6 +177,18 @@ UNFOLD = {
                 ],
             },
             {
+                "title": _("Documents"),
+                "separator": True,
+                "collapsible": False,
+                "items": [
+                    {
+                        "title": _("Resume"),
+                        "icon": "work_history",
+                        "link": reverse_lazy("admin:portfolio_app_resume_changelist"),
+                    },
+                ],
+            },
+            {
                 "title": _("Profile"),
                 "separator": True,
                 "collapsible": True,
