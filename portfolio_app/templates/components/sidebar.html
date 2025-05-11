@@ -1,303 +1,309 @@
 {% load static %}
-<aside class=" fixed top-0 left-0 h-[110vh] w-full max-w-[16rem] border-r border-gray-800 bg-gray-900/50 backdrop-blur-sm p-4 overflow-y-auto custom-scrollbar z-40">
-  <!-- Profile Section -->
-  <div class="relative border border-gray-800 rounded-xl flex flex-col items-center px-6 pt-8 pb-4 mb-6 group">
-    <!-- Profile Icon -->
-    <div class="absolute -right-2 -top-2 p-2 rounded-full bg-gray-900 border border-secondary shadow-lg group-hover:rotate-[15deg] transition-transform duration-500">
-      <img class="h-8" 
-      src = "{% static 'img/logo_2.png' %}"
-     >
+<aside class="fixed top-0 left-0 h-screen w-[20rem] flex flex-col border-r border-gray-800 bg-gradient-to-b from-gray-900 to-gray-900/80 backdrop-blur-xl p-6 z-40 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20">
+  
+  <!-- Enhanced Profile Card -->
+  <div class="relative group h-56 rounded-2xl overflow-hidden mb-8 bg-gray-800/50 transition-all duration-700 hover:bg-gray-800/70">
+    <!-- Background Texture -->
+    <div class="absolute inset-0 opacity-20 bg-[url('{% static 'img/noise.png' %}')] mix-blend-overlay"></div>
+    
+    <!-- Floating Logo -->
+    <div class="absolute -right-3 -top-3 p-2 rounded-full bg-gradient-to-br from-primary to-secondary shadow-2xl z-10 transition-transform duration-500 group-hover:rotate-12">
+      <img class="h-7 w-7" src="{% static 'img/logo_2.png' %}" alt="Logo">
     </div>
     
-    <!-- Profile Image -->
-    <div class="relative mb-4 group-hover:scale-105 transition-transform duration-500">
-      <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-lg opacity-75 blur-md group-hover:opacity-100 transition-opacity duration-500"></div>
-      <img class="relative h-24 sm:h-28 rounded-lg border-2 border-gray-700" src="{% static 'img/my_pic.png' %}" alt="Profile Picture">
-    </div>
-    
-    <!-- Name and Title -->
-    <h6 class="text-center font-bold text-lg text-white">Yosef Emyayu</h6>
-    <p class="text-center text-secondary text-sm mb-2">Senior Web Developer</p>
-    
-    <!-- Decorative Line -->
-    <div class="w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent my-3"></div>
-    
-    <!-- Availability Badge -->
-    <div class="flex items-center gap-2 px-3 py-1 bg-green-900/30 rounded-full border border-green-500 text-xs text-green-400">
-      <span class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
-      Available for work
+    <!-- Profile Content -->
+    <div class="relative h-full flex flex-col items-center justify-center px-4">
+      <!-- Avatar with Glow -->
+      <div class="relative mb-4 transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute -inset-3 bg-gradient-to-r from-primary to-secondary rounded-2xl opacity-50 blur-xl transition-opacity duration-500 group-hover:opacity-70"></div>
+        <img class="relative h-24 w-24 rounded-xl border-2 border-gray-700/50 object-cover z-10" 
+             src="{% static 'img/my_pic.png' %}" 
+             alt="Profile Picture">
+      </div>
+      
+      <!-- Name with Gradient -->
+      <h1 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 mb-1">
+        Yosef Emyayu
+      </h1>
+      
+      <!-- Title with Animation -->
+      <p class="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-secondary to-warning mb-4">
+        Senior Web Developer
+      </p>
+      
+      <!-- Status Badge -->
+      <div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-900/20 backdrop-blur-sm border border-green-500/30 text-xs text-green-400 transition-all duration-300 group-hover:bg-green-900/40">
+        <span class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+        Available for work
+      </div>
     </div>
   </div>
 
-  <!-- Contact Section -->
-  <div class="border-t-2 border-b-2 border-gray-800 py-3 mb-4">
-    <div class="flex items-center gap-3 text-lg text-white">
-      <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-      </svg>
-      Contact Info
-    </div>
-  </div>
-
-  <div class="space-y-4 text-gray-300 text-sm mb-8">
-    <!-- Address -->
-    <div class="flex items-start gap-3">
-      <svg class="w-5 h-5 mt-0.5 text-secondary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-      </svg>
-      <span>Addis Ababa, Ethiopia</span>
-    </div>
-    
-    <!-- Phone -->
-    <div class="flex items-start gap-3">
-      <svg class="w-5 h-5 mt-0.5 text-secondary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-      </svg>
-      <a href="tel:+251969139694">(+251) 969-13-9694</a>
-    </div>
-    
-    <!-- Email -->
-    <div class="flex items-start gap-3">
-      <svg class="w-5 h-5 mt-0.5 text-secondary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-      </svg>
-      <a href="mailto:yosef.emyayu1@gmail.com">yosef.emyayu1@gmail.com</a>
-    </div>
-    
-    <!-- Website -->
-    <div class="flex items-start gap-3">
-      <svg class="w-5 h-5 mt-0.5 text-secondary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-      </svg>
-      <span>yosef.pythonanywhere.com</span>
-    </div>
-  </div>
-
-  <!-- Skills Section -->
-  <div class="border-t-2 border-b-2 border-gray-800 py-3 mb-4">
-    <div class="flex items-center gap-3 text-lg text-white">
-      <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <!-- Skills Navigator -->
+  <div class="flex-1 flex flex-col">
+    <!-- Section Header -->
+    <div class="flex items-center mb-6 pl-2">
+      <svg class="w-6 h-6 text-secondary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
       </svg>
-      Technical Skills
+      <h2 class="text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
+        Technical Skills
+      </h2>
+    </div>
+
+    <!-- Interactive Skill Matrix -->
+    <div class="relative flex-1">
+      <!-- Tab Navigation -->
+      <div class="relative z-10 mb-6">
+        <div class="flex gap-1 p-1 rounded-xl bg-gray-800/50 backdrop-blur-sm">
+          {% for tag in tags %}
+          <button class="skill-tab flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-300" 
+                  data-tab="{{tag.name|slugify}}">
+            <span class="tab-short">{{tag.name|slice:":1"}}</span>
+            <span class="tab-full">{{tag.name}}</span>
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Skill Panels -->
+      <div class="relative h-[18rem] overflow-hidden">
+        {% for tag in tags %}
+        <div class="skill-panel  flex absolute inset-0 flex-wrap   gap-2  p-1 opacity-0 invisible transition-all duration-300 transform translate-y-2" 
+             data-panel="{{tag.name|slugify}}">
+          {% for skill in tag.skills.all %}
+          <div class="skill-card flex" data-skill="{{skill.name|slugify}}">
+            <div class="skill-icon bg-gray-700/10 text-{{skill.color}}-400 hover:bg-gray-700/20">
+              {{skill.name}}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 
-  <div class="mb-8">
-    <!-- Tab Navigation -->
-    <div class="flex overflow-x-auto pb-2 gap-1">
-      <button class="tab-button px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-300 hover:bg-gray-800/50 hover:text-warning " id="tab1">
-        Front-end
+  <!-- Floating CTA Button -->
+  <div class="absolute bottom-20 left-0 right-0 px-6 z-20">
+    <a href="#contact" class="block w-full transform transition-all duration-300 hover:-translate-y-1">
+      <button class="cta-button w-full py-3 px-6 rounded-xl font-medium flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg>
+        <span>Contact Me</span>
       </button>
-      <button class="tab-button px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-300 hover:bg-gray-800/50 hover:text-warning" id="tab2">
-        Back-end
-      </button>
-      <button class="tab-button px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-300 hover:bg-gray-800/50 hover:text-warning" id="tab3">
-        Tools
-      </button>
-      <button class="tab-button px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-300 hover:bg-gray-800/50 hover:text-warning" id="tab4">
-        Database
-      </button>
-    </div>
-
-    <!-- Tab Content -->
-    <div class="mt-4">
-      <div class="tab-pane hidden space-y-3 text-sm text-gray-300" id="tab1-content">
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"></path>
-          </svg>
-          <span>HTML | CSS | SCSS</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"></path>
-          </svg>
-          <span>Tailwind | Figma</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"></path>
-          </svg>
-          <span>JavaScript | React</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"></path>
-          </svg>
-          <span>Bootstrap | Material UI</span>
-        </div>
-      </div>
-
-      <div class="tab-pane hidden space-y-3 text-sm text-gray-300" id="tab2-content">
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"></path>
-          </svg>
-          <span>Python | Django</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"></path>
-          </svg>
-          <span>REST API</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"></path>
-          </svg>
-          <span>Java | JavaFX</span>
-        </div>
-      </div>
-
-      <div class="tab-pane hidden space-y-3 text-sm text-gray-300" id="tab3-content">
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"></path>
-          </svg>
-          <span>Git | GitHub | GitLab</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"></path>
-          </svg>
-          <span>JIRA | Notion</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"></path>
-          </svg>
-          <span>Docker</span>
-        </div>
-      </div>
-
-      <div class="tab-pane hidden space-y-3 text-sm text-gray-300" id="tab4-content">
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"></path>
-          </svg>
-          <span>MySQL</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"></path>
-          </svg>
-          <span>PostgreSQL</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"></path>
-          </svg>
-          <span>Oracle DB</span>
-        </div>
-      </div>
-    </div>
+    </a>
   </div>
 
   <!-- Social Links -->
-  <div class="flex justify-center gap-4 pb-4">
-    <a href="#" target="_blank" class="social-link">
-      <svg class="w-6 h-6 text-gray-400 hover:text-[#0077b5] transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-      </svg>
-    </a>
-    <a href="#" target="_blank" class="social-link">
-      <svg class="w-6 h-6 text-gray-400 hover:text-[#333] transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-      </svg>
-    </a>
-    <a href="#" target="_blank" class="social-link ">
-      <svg class="w-6 h-6 text-gray-400 hover:text-[#0088cc] transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
-      </svg>
-    </a>
-    <a href="#" target="_blank" class="social-link">
-      <svg class="w-6 h-6 text-gray-400 hover:text-[#1da1f2] transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-      </svg>
-    </a>
+  <div class="absolute bottom-6 left-0 right-0 px-6">
+    <div class="flex justify-center gap-4">
+      {% for social in socials %}
+      <a href="{{ social.url }}" target="_blank" class="social-link transform transition-all duration-300 hover:-translate-y-1">
+        <div class="p-2 rounded-full bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:bg-{{ social.color }}/20">
+          <svg class="w-5 h-5 text-gray-400 transition-colors duration-300 hover:text-{{ social.color }}" 
+               fill="currentColor" viewBox="0 0 24 24">
+            {{ social.icon|safe }}
+          </svg>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
   </div>
 </aside>
 
 <style>
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(102, 214, 255, 0.3);
-    border-radius: 10px;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(102, 214, 255, 0.5);
-  }
-  
-  .tab-button {
+  /* Tab Styles */
+  .skill-tab {
     position: relative;
     overflow: hidden;
+    color: #6b7280;
+    min-width: 2.5rem;
   }
   
-  .tab-button::after {
+  .skill-tab .tab-full {
+    display: none;
+  }
+  
+  .skill-tab.active {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .skill-tab.active .tab-short {
+    display: none;
+  }
+  
+  .skill-tab.active .tab-full {
+    display: inline;
+  }
+  
+  .skill-tab:hover:not(.active) .tab-short {
+    display: none;
+  }
+  
+  .skill-tab:hover:not(.active) .tab-full {
+    display: inline;
+  }
+
+  /* Skill Cards */
+  .skill-card {
+    perspective: 1000px;
+  }
+  
+  .skill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .skill-card:hover .skill-icon {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* CTA Button */
+  .cta-button {
+    background: linear-gradient(135deg, rgba(102, 214, 255, 0.8) 0%, rgba(102, 214, 255, 0.4) 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(102, 214, 255, 0.3);
+  }
+  
+  .cta-button::before {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #ffc107;
-    transition: width 0.3s ease;
-  }
-  
-  .tab-button:hover::after {
+    top: 0;
+    left: -100%;
     width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
   }
   
-  .tab-button.text-warning {
-    color: #ffc107;
-    background: rgba(255, 193, 7, 0.1);
+  .cta-button:hover::before {
+    left: 100%;
   }
   
-  .tab-button.text-warning::after {
-    width: 100%;
+  .cta-button:hover {
+    box-shadow: 0 10px 25px -5px rgba(102, 214, 255, 0.4);
   }
-  
-  .social-link {
-    transition: transform 0.3s ease;
+
+  /* Panel Transitions */
+  .skill-panel.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
-  
-  .social-link:hover {
-    transform: translateY(-3px) scale(1.1);
+
+  /* Scrollbar Styling */
+  .skill-panel {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(102, 214, 255, 0.3) transparent;
+  }
+
+  .skill-panel::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .skill-panel::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .skill-panel::-webkit-scrollbar-thumb {
+    background-color: rgba(102, 214, 255, 0.3);
+    border-radius: 3px;
   }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.tab-button');
-    const tabContents = document.querySelectorAll('.tab-pane');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        // Remove active class from all tabs and hide all content
-        tabs.forEach(btn => {
-                  btn.classList.remove('text-warning', 'bg-gray-800/50',"min-w-20");
-
-        });
-        tabContents.forEach(content => content.classList.add('hidden'));
-
-        // Add active class to clicked tab and show corresponding content
-        tab.classList.add('text-warning', 'bg-gray-800/50',"min-w-20");
-        document.getElementById(`${tab.id}-content`).classList.remove('hidden');
-      });
+document.addEventListener('DOMContentLoaded', function() {
+  // Tab functionality
+  const tabs = document.querySelectorAll('.skill-tab');
+  const panels = document.querySelectorAll('.skill-panel');
+  
+  // Activate first tab by default if none active
+  if (!document.querySelector('.skill-tab.active') && tabs.length > 0) {
+    activateTab(tabs[0]);
+  }
+  
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      activateTab(this);
     });
-
-    // Set default tab to be active on page load
-    document.getElementById('tab1').click();
+    
+    // Hover effect for non-active tabs
+    tab.addEventListener('mouseenter', function() {
+      if (!this.classList.contains('active')) {
+        this.style.color = '#e5e7eb';
+      }
+    });
+    
+    tab.addEventListener('mouseleave', function() {
+      if (!this.classList.contains('active')) {
+        this.style.color = '';
+      }
+    });
   });
+  
+  function activateTab(activeTab) {
+    // Deactivate all tabs
+    tabs.forEach(tab => {
+      tab.classList.remove('active');
+    });
+    
+    // Hide all panels
+    panels.forEach(panel => {
+      panel.classList.remove('active');
+    });
+    
+    // Activate selected tab
+    activeTab.classList.add('active');
+    
+    // Show corresponding panel
+    const panelId = activeTab.getAttribute('data-tab');
+    const targetPanel = document.querySelector(`[data-panel="${panelId}"]`);
+    if (targetPanel) {
+      targetPanel.classList.add('active');
+    }
+  }
+  
+  // Skill card hover effects
+  const skillCards = document.querySelectorAll('.skill-card');
+  skillCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.zIndex = '10';
+    });
+    card.addEventListener('mouseleave', function() {
+      this.style.zIndex = '';
+    });
+  });
+  
+  // Parallax effect for profile card
+  const profileCard = document.querySelector('.group');
+  if (profileCard) {
+    profileCard.addEventListener('mousemove', (e) => {
+      const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+      const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+      profileCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    });
+    
+    // Reset on mouse leave
+    profileCard.addEventListener('mouseleave', () => {
+      profileCard.style.transform = 'rotateY(0deg) rotateX(0deg)';
+    });
+  }
+});
 </script>

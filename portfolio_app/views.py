@@ -11,6 +11,7 @@ def get_common_context():
     """
     A helper function to prepare the common context for all pages.
     """
+
     return {
         "profile": Profile.objects.first(),
         "skills": Skill.objects.all(),
@@ -18,6 +19,7 @@ def get_common_context():
         "educations": Education.objects.all(),
         "certifications": Certifications.objects.all(),
         "experiences": Experience.objects.order_by("-start_date"),
+        "tags": Tag.objects.exclude(skills__isnull=True),
     }
 
 
