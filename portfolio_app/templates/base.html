@@ -94,6 +94,53 @@
       #experience .experience {
         scroll-margin-top: 100px;
       }
+      :root {
+        --space-unit: 1rem;
+        --space-xxs: calc(0.25 * var(--space-unit));
+        --space-xs: calc(0.5 * var(--space-unit));
+        --space-sm: calc(0.75 * var(--space-unit));
+        --space-md: calc(1.25 * var(--space-unit));
+        --space-lg: calc(2 * var(--space-unit));
+        --space-xl: calc(3.25 * var(--space-unit));
+        --space-xxl: calc(5.25 * var(--space-unit));
+      }
+      
+      @media (min-width: 768px) {
+        :root {
+          --space-unit: 1.25rem;
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        :root {
+          --space-unit: 1.5rem;
+        }
+      }
+      /* Responsive images */
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      
+      .profile-image {
+        width: 120px;
+        height: 120px;
+      }
+      
+      @media (min-width: 768px) {
+        .profile-image {
+          width: 150px;
+          height: 150px;
+        }
+      }
+      
+      @media (min-width: 1024px) {
+        .profile-image {
+          width: 180px;
+          height: 180px;
+        }
+      }
     </style>
   </head>
   <div id="cover-transition" class="fixed inset-0 bg-black z-50 opacity-0 pointer-events-none transition-opacity duration-700 flex items-center justify-center">
