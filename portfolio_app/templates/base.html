@@ -8,45 +8,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Yosef Emyayu - Senior Web Developer Portfolio" />
 
-    <!-- Preconnect to external domains -->
+    <!-- Preload critical resources -->
+    <link rel="preload" href="{% static 'css/dist/styles.css' %}" as="style" />
+    <link rel="preload" href="{% static 'fontawesomefree/css/solid.css' %}" as="style" />
+    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" />
     <link rel="preconnect" href="https://unpkg.com" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}" />
-    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css" />
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{% static 'img/logo_2.png' %}" type="image/x-icon" />
-
-    <title>Yosef Emyayu | Senior Web Developer</title>
-    {% tailwind_css %}
-
-    <!-- Preload AOS CSS -->
-    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript>
-      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-    </noscript>
-
+    <!-- Critical CSS -->
     <style>
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 1px;
-        height: 1px;
-      }
-      
-      ::-webkit-scrollbar-track {
-        background: rgba(15, 23, 42, 0.5);
-      }
-      
-      ::-webkit-scrollbar-thumb {
-        background: rgba(102, 214, 255, 0.5);
-        border-radius: 4px;
-      }
-      
-      ::-webkit-scrollbar-thumb:hover {
-        background: rgba(102, 214, 255, 0.8);
+      /* Loading screen styles */
+      #loading {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #111827;
+        transition: opacity 500ms;
       }
       
       /* Smooth scrolling */
@@ -54,110 +34,38 @@
         scroll-behavior: smooth;
       }
       
-      /* Loading animation */
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-      
-      .animate-float {
-        animation: float 3s ease-in-out infinite;
-      }
-      
-      /* Gradient text animation */
-      @keyframes gradient-shift {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-      
-      .gradient-animate {
-        background-size: 200% 200%;
-        animation: gradient-shift 6s ease infinite;
-      }
-      
-      /* Experience section specific overrides */
-      #experience .icon-link {
-        pointer-events: auto !important;
-      }
-      #experience .experience {
-        scroll-margin-top: 100px;
-      }
-      :root {
-        --space-unit: 1rem;
-        --space-xxs: calc(0.25 * var(--space-unit));
-        --space-xs: calc(0.5 * var(--space-unit));
-        --space-sm: calc(0.75 * var(--space-unit));
-        --space-md: calc(1.25 * var(--space-unit));
-        --space-lg: calc(2 * var(--space-unit));
-        --space-xl: calc(3.25 * var(--space-unit));
-        --space-xxl: calc(5.25 * var(--space-unit));
-      }
-      
-      @media (min-width: 768px) {
-        :root {
-          --space-unit: 1.25rem;
-        }
-      }
-      
-      @media (min-width: 1200px) {
-        :root {
-          --space-unit: 1.5rem;
-        }
-      }
-      /* Responsive images */
-      img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-      }
-      
-      .profile-image {
-        width: 120px;
-        height: 120px;
-      }
-      
-      @media (min-width: 768px) {
-        .profile-image {
-          width: 150px;
-          height: 150px;
-        }
-      }
-      
-      @media (min-width: 1024px) {
-        .profile-image {
-          width: 180px;
-          height: 180px;
-        }
+      /* Animation performance boost */
+      [data-aos] {
+        will-change: transform, opacity;
+        backface-visibility: hidden;
       }
     </style>
+
+    <!-- Deferred CSS -->
+    <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}" />
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" />
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" />
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" media="print" onload="this.media='all'" />
+
+    <link rel="shortcut icon" href="{% static 'img/logo_2.png' %}" type="image/x-icon" />
+    <title>Yosef Emyayu | Senior Web Developer</title>
+    {% tailwind_css %}
+
+    <!-- AOS CSS for all screens -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   </head>
-  <div id="cover-transition" class="fixed inset-0 bg-black z-50 opacity-0 pointer-events-none transition-opacity duration-700 flex items-center justify-center">
-    <span class="text-white text-2xl font-bold animate-pulse">Loading...</span>
-  </div>
 
   <body class="bg-gray-900 text-gray-100 font-sans min-h-screen flex flex-col overflow-x-hidden">
     <!-- Loading Screen -->
-    <div id="loading" class="fixed inset-0 bg-gray-900 z-50 flex flex-col items-center justify-center transition-opacity duration-500">
+    <div id="loading" class="opacity-100">
       <div class="relative animate-float">
         <div class="absolute inset-0 rounded-full bg-secondary/20 animate-ping"></div>
         <div class="relative flex items-center justify-center">
-          <img src="{% static 'img/logo_2.png' %}" alt="Loading" class="h-16 w-16 animate-spin-slow" />
+          <img src="{% static 'img/logo_2.png' %}" alt="Loading" width="64" height="64" class="animate-spin-slow" loading="eager" />
         </div>
       </div>
       <p class="mt-6 text-secondary font-medium tracking-wider text-center">
-        <span class="gradient-text bg-gradient-to-r from-primary via-secondary to-warning bg-clip-text text-transparent gradient-animate">Loading . . .</span>
+        <span class="gradient-text">Loading . . .</span>
       </p>
     </div>
 
@@ -168,89 +76,36 @@
       {% endblock %}
     </div>
 
-    <!-- AOS Animation Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Deferred JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="https://unpkg.com/htmx.org@2.0.4" defer crossorigin="anonymous"></script>
 
-    <!-- Main Scripts -->
-    <script>
-      // Initialize AOS animations
+    <!-- Inline critical JS -->
+    <script defer>
+      // Optimized initialization
       document.addEventListener('DOMContentLoaded', function () {
+        // Initialize AOS for all screens
         AOS.init({
           duration: 800,
           easing: 'ease-out-quart',
           once: false,
-          offset: 100
-          //disable: window.innerWidth < 768
+          offset: 100,
+          // Only disable on extremely low-end devices
+          //disable: function () {
+          //  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && window.innerWidth < 480
+          //}
+          disable: function () {
+            return window.innerWidth < 100
+          }
         })
       
-        // Hide loading indicator
-        setTimeout(function () {
+        // Simplified loading screen hide
+        setTimeout(() => {
           const loading = document.getElementById('loading')
           loading.style.opacity = '0'
-          setTimeout(function () {
-            loading.style.display = 'none'
-          }, 100)
-        }, 150)
-      
-        // Modified smooth scrolling to exclude experience timeline links
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          // Skip experience timeline links
-          if (anchor.closest('#experience .icon-link')) return
-      
-          anchor.addEventListener('click', function (e) {
-            // Skip if target is in experience section
-            const targetId = this.getAttribute('href')
-            if (targetId.startsWith('#experience_')) return
-      
-            e.preventDefault()
-      
-            const targetElement = document.querySelector(targetId)
-      
-            if (targetElement) {
-              const headerHeight = document.querySelector('nav').offsetHeight
-              const targetPosition = targetElement.offsetTop - headerHeight
-      
-              window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-              })
-            }
-          })
-        })
-      
-        // Highlight active section in navigation (excluding experience sub-sections)
-        function highlightActiveSection() {
-          const mainSections = document.querySelectorAll('section[id], main[id]')
-          const scrollPosition = window.scrollY + 100
-      
-          mainSections.forEach((section) => {
-            const sectionTop = section.offsetTop
-            const sectionHeight = section.offsetHeight
-      
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-              const id = section.getAttribute('id')
-      
-              // Update nav links
-              document.querySelectorAll('nav a:not(#experience .icon-link)').forEach((link) => {
-                link.classList.remove('active')
-                if (link.getAttribute('href') === `#${id}`) {
-                  link.classList.add('active')
-                }
-              })
-            }
-          })
-        }
-      
-        // Run on initial load and scroll
-        highlightActiveSection()
-        window.addEventListener('scroll', highlightActiveSection)
-      
-        // Reload AOS when window is resized
-        window.addEventListener('resize', function () {
-          AOS.refresh()
-        })
+          setTimeout(() => loading.remove(), 500)
+        }, 300)
       })
     </script>
-    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
   </body>
 </html>
