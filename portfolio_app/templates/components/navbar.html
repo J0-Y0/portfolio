@@ -1,25 +1,24 @@
 {% load static %}
-<nav id="nav-parent" class="fixed top-0 w-full z-50 bg-teal-700/10 sm:bg-gray-800/20 backdrop-blur-md border-b lg:border-l lg:rounded-full border-gray-800 transition-all duration-300 max-lg:bg-gray-900/90">
-
-<div class="max-w-5xl xl:max-w-6xl  px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between  h-14">
-      <!-- Logo/Brand with 3D hover effect -->
+<nav id="nav-parent" class="fixed top-0 w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo/Brand with refined hover effect -->
       <div class="flex items-center">
         <a href="/" class="flex items-center gap-3 group">
-          <div class="relative transform transition-all duration-500 group-hover:-translate-y-1">
-            <div class="absolute inset-0 rounded-full bg-secondary/20 group-hover:opacity-100 opacity-0 transition-opacity duration-500"></div>
-            <img class="relative h-8 group-hover:rotate-[15deg] transition-transform duration-500" src="{% static 'img/logo_2.png' %}" alt="Logo" />
+          <div class="relative transform transition-all duration-500 group-hover:-translate-y-1 group-hover:rotate-6">
+            <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 group-hover:opacity-100 opacity-0 transition-opacity duration-500"></div>
+            <img class="relative h-8 transition-transform duration-500" src="{% static 'img/logo_2.png' %}" alt="Logo" />
           </div>
           <span class="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:bg-gradient-to-l transition-all duration-500">Yosef Emyayu</span>
         </a>
       </div>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation - More refined spacing -->
       <div class="hidden md:block">
-        <div class="flex items-center space-x-1 justify-between  gap-2 float-start ">
-          <!-- Navigation Links with floating effect -->
-          <a href="{{base_url}}#about" class="nav-link px-5  py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
-            <span class="relative z-10 flex items-center ">
+        <div class="flex items-center space-x-2">
+          <!-- Navigation Links with subtle floating effect -->
+          <a href="{{base_url}}#about" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
+            <span class="relative z-10 flex items-center">
               <span class="group-hover:-translate-y-0.5 transition-transform">About</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -29,7 +28,7 @@
             <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
           </a>
           
-          <a href="{{base_url}}#experience" class="nav-link py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
+          <a href="{{base_url}}#experience" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
             <span class="relative z-10 flex items-center">
               <span class="group-hover:-translate-y-0.5 transition-transform">Experience</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -40,7 +39,7 @@
             <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
           </a>
           
-          <a href="{{base_url}}#education" class="nav-link  py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
+          <a href="{{base_url}}#education" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
             <span class="relative z-10 flex items-center">
               <span class="group-hover:-translate-y-0.5 transition-transform">Education</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -51,7 +50,7 @@
             <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
           </a>
           
-          <a href="{{base_url}}#portfolio" class="nav-link  py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
+          <a href="{{base_url}}#portfolio" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
             <span class="relative z-10 flex items-center">
               <span class="group-hover:-translate-y-0.5 transition-transform">Portfolio</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -62,7 +61,7 @@
             <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
           </a>
           
-          <a href="{{base_url}}#contact" class="nav-link py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
+          <a href="{{base_url}}#contact" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
             <span class="relative z-10 flex items-center">
               <span class="group-hover:-translate-y-0.5 transition-transform">Contact</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -73,8 +72,8 @@
             <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
           </a>
 
-          <!-- Resume Button with floating effect -->
-          <a href="{% url 'download_resume' %}"  class=" resume-btn group relative overflow-hidden px-4 py-1.5 bg-gradient-to-r from-primary to-secondary text-gray-900 font-bold rounded-full hover:shadow-lg transition-all duration-500 flex items-center">
+          <!-- Resume Button with refined gradient and shadow -->
+          <a href="{% url 'download_resume' %}" class="resume-btn group relative overflow-hidden px-4 py-1.5 bg-gradient-to-r from-primary to-secondary text-gray-900 font-bold rounded-full hover:shadow-lg transition-all duration-500 flex items-center">
             <span class="relative z-10 flex items-center">
               <span class="group-hover:-translate-y-0.5 transition-transform">Resume</span>
               <svg class="w-4 h-4 ml-2 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
@@ -88,26 +87,32 @@
         </div>
       </div>
 
-      <!-- Mobile menu button with animated hamburger -->
+      <!-- Mobile menu button with animated hamburger - More refined design -->
       <div class="md:hidden flex items-center">
-        <button type="button" id="mobile-menu-button" class="relative w-8 h-8 focus:outline-none group" aria-controls="mobile-menu" aria-expanded="false">
+        <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary" aria-controls="mobile-menu" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H20M4 18H20" stroke="#00ccff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-   
+          <!-- Hamburger icon -->
+          <svg id = "Hamburger" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <!-- Close icon -->
+          <svg id = "closbtn" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Mobile menu - Off-canvas from right -->
+  <!-- Mobile menu - Slide in from right with refined design -->
   <div class="fixed inset-0 z-40 hidden" id="mobile-menu">
-    <!-- Overlay -->
-    <div class="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="mobile-menu-overlay"></div>
+    <!-- Overlay with smooth transition -->
+    <div class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="mobile-menu-overlay"></div>
     
-    <!-- Menu content sliding from right -->
+    <!-- Menu content sliding from right - More elegant design -->
     <div class="fixed top-0 right-0 bottom-0 w-80 bg-gray-900/95 backdrop-blur-lg shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out border-l border-gray-800 overflow-y-auto">
       <div class="flex justify-end p-4">
-        <button id="mobile-menu-close" class="p-2 rounded-full bg-gray-800/50 hover:bg-gray-700 transition-colors duration-200">
+        <button id="mobile-menu-close" class="p-2 rounded-full bg-gray-800/50 hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary">
           <svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
@@ -117,13 +122,13 @@
       <div class="px-6 pt-2 pb-8 space-y-6">
         <div class="flex items-center justify-center mb-8">
           <a href="#" class="flex items-center gap-3 group">
-            <img class="h-10 group-hover:rotate-[15deg] transition-transform duration-500" src="{% static 'img/logo_2.png' %}" alt="Logo" />
+            <img class="h-10 group-hover:rotate-6 transition-transform duration-500" src="{% static 'img/logo_2.png' %}" alt="Logo" />
             <span class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Yosef Emyayu</span>
           </a>
         </div>
         
-        <nav class="space-y-4">
-          <a href="{{base_url}}#about" class="mobile-nav-link block px-4 py-3 rounded-lg text-xl font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
+        <nav class="space-y-2">
+          <a href="{{base_url}}#about" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
             <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-800 rounded-full">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
@@ -132,7 +137,7 @@
             About
           </a>
           
-          <a href="{{base_url}}#experience" class="mobile-nav-link block px-4 py-3 rounded-lg text-xl font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
+          <a href="{{base_url}}#experience" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
             <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-800 rounded-full">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -141,7 +146,7 @@
             Experience
           </a>
           
-          <a href="{{base_url}}#education" class="mobile-nav-link block px-4 py-3 rounded-lg text-xl font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
+          <a href="{{base_url}}#education" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
             <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-800 rounded-full">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
@@ -150,7 +155,7 @@
             Education
           </a>
           
-          <a href="{{base_url}}#portfolio" class="mobile-nav-link block px-4 py-3 rounded-lg text-xl font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
+          <a href="{{base_url}}#portfolio" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
             <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-800 rounded-full">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
@@ -159,7 +164,7 @@
             Portfolio
           </a>
           
-          <a href="{{base_url}}#contact" class="mobile-nav-link block px-4 py-3 rounded-lg text-xl font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
+          <a href="{{base_url}}#contact" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
             <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-800 rounded-full">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -169,7 +174,8 @@
           </a>
         </nav>
         
-        <div class="mt-12 px-4">
+        <!-- Resume button in mobile menu - Centered and full width -->
+        <div class="mt-8 px-4">
           <a href="{% url 'download_resume' %}" class="w-full text-center px-6 py-3 bg-gradient-to-r from-primary to-secondary text-gray-900 font-bold rounded-full hover:shadow-lg transition-all duration-500 flex items-center justify-center hover:from-primary/90 hover:to-secondary/90">
             <span>Download Resume</span>
             <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
@@ -178,6 +184,7 @@
           </a>
         </div>
         
+        <!-- Social links - More refined spacing -->
         <div class="mt-8 px-4">
           <div class="flex justify-center space-x-4">
             <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary/20 transition-colors duration-300">
@@ -203,24 +210,22 @@
 </nav>
 
 <style>
-  /* Navigation link styles */
+  /* Navigation link styles - More refined */
   .nav-link {
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-
     position: relative;
     font-weight: 500;
     transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
   }
   
   .nav-link:hover {
-    color: #ffc107;
+    color: #ffffff;
+    transform: translateY(-1px);
   }
   
   .nav-link.active {
-    color: #ffc107;
+    color: #ffffff;
     font-weight: 600;
   }
   
@@ -228,20 +233,30 @@
     width: 75%;
   }
   
-  /* Resume button hover effect */
-  .resume-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px -5px rgba(102, 214, 255, 0.3);
+  /* Resume button hover effect - More subtle */
+  .resume-btn {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
   
-  /* Mobile menu animations */
-  @keyframes slideIn {
-    from { transform: translateX(20px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+  .resume-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(102, 214, 255, 0.3), 0 4px 6px -2px rgba(102, 214, 255, 0.15);
+  }
+  
+  /* Mobile menu animations - Smoother */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   .mobile-nav-link {
-    animation: slideIn 0.4s ease forwards;
+    animation: fadeInUp 0.4s ease forwards;
     opacity: 0;
   }
   
@@ -251,7 +266,7 @@
   .mobile-nav-link:nth-child(4) { animation-delay: 0.4s; }
   .mobile-nav-link:nth-child(5) { animation-delay: 0.5s; }
   
-  /* Off-canvas menu transitions */
+  /* Off-canvas menu transitions - Smoother */
   #mobile-menu.show {
     display: block;
   }
@@ -263,24 +278,46 @@
   #mobile-menu.show > div:last-child {
     transform: translateX(0);
   }
+  
+  /* Responsive adjustments */
+  @media (max-width: 767px) {
+    #nav-parent {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  
+  /* Sidebar-aware adjustments */
+  @media (min-width: 1024px) {
+    #nav-parent {
+      width: calc(100% - 280px); /* Adjust based on your sidebar width */
+      left: 280px; /* Same as sidebar width */
+    }
+  }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-      const navParent = document.getElementById('nav-parent');
-
+    const navParent = document.getElementById('nav-parent');
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
     const mobileMenuClose = document.getElementById('mobile-menu-close');
     
+    // Toggle mobile menu function
     function toggleMobileMenu() {
       const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
       mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-      mobileMenuButton.classList.toggle('open');
+     
+      
+      
+      const hamburger = document.getElementById('Hamburger');
+      const close = document.getElementById('closbtn');
+      hamburger.classList.toggle('hidden');
+      close.classList.toggle('hidden');
       
       if (!isExpanded) {
-        navParent.classList.add("min-h-full")
+        navParent.classList.add("min-h-full");
         mobileMenu.classList.add('show');
         setTimeout(() => {
           mobileMenuOverlay.style.opacity = '1';
@@ -288,8 +325,7 @@
         }, 10);
         document.body.style.overflow = 'hidden';
       } else {
-                navParent.classList.remove("min-h-full")
-
+        navParent.classList.remove("min-h-full");
         mobileMenuOverlay.style.opacity = '0';
         mobileMenu.querySelector('div:last-child').style.transform = 'translateX(100%)';
         setTimeout(() => {
@@ -299,6 +335,7 @@
       }
     }
     
+    // Event listeners
     mobileMenuButton.addEventListener('click', toggleMobileMenu);
     mobileMenuClose.addEventListener('click', toggleMobileMenu);
     mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
@@ -331,6 +368,21 @@
     
     window.addEventListener('scroll', setActiveLink);
     setActiveLink();
+    
+    // Handle sidebar-aware positioning
+    function adjustForSidebar() {
+      const sidebar = document.querySelector('aside.fixed'); // Adjust selector to match your sidebar
+      if (window.innerWidth >= 1024 && sidebar) {
+        const sidebarWidth = sidebar.offsetWidth;
+        navParent.style.width = `calc(100% - ${sidebarWidth}px)`;
+        navParent.style.left = `${sidebarWidth}px`;
+      } else {
+        navParent.style.width = '100%';
+        navParent.style.left = '0';
+      }
+    }
+    
+    window.addEventListener('resize', adjustForSidebar);
+    adjustForSidebar();
   });
-  
 </script>
