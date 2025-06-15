@@ -17,7 +17,7 @@ SECRET_KEY = "django-insecure-9pc_3$=hb&*^k&z7di)rgprn6mbtc1)(dl6q!a=#3xn($cav3u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS")]
+ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS"), "127.0.0.1", "192.168.100.181"]
 
 
 # Application definitions
@@ -117,7 +117,10 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    BASE_DIR / "theme/static_src/node_modules",
 ]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 # Add these lines to your settings.py
 MEDIA_URL = "/media/"
 MEDIA_ROOT = (
@@ -168,6 +171,18 @@ UNFOLD = {
                         "title": _("Inbox"),
                         "icon": "message",
                         "link": reverse_lazy("admin:portfolio_app_inbox_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Documents"),
+                "separator": True,
+                "collapsible": False,
+                "items": [
+                    {
+                        "title": _("Resume"),
+                        "icon": "work_history",
+                        "link": reverse_lazy("admin:portfolio_app_resume_changelist"),
                     },
                 ],
             },
@@ -319,4 +334,4 @@ TAILWIND_APP_NAME = "theme"
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
-NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+NPM_BIN_PATH = r"C:\Program Files (x86)\nodejs\npm.cmd"

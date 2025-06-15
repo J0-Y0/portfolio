@@ -1,0 +1,25 @@
+{% if error %}
+  <div class="mb-6 animate-shake-x" role="alert">
+    <div class="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-900/30 backdrop-blur-sm border border-red-700/50">
+      <svg class="w-5 h-5 flex-shrink-0 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <p class="text-red-300 font-medium">{{ error }}</p>
+    </div>
+  </div>
+{% endif %}
+
+<label for="email" class="font-semibold">Leave me your email</label>
+<input id="email" name="email" type="email" placeholder="youremail@domain.com" value="{{ form_data.email|default:'' }}" required class="w-full rounded-xl p-4 bg-gray-800/50 text-white border border-gray-700 focus:ring-2 focus:ring-info focus:outline-none transition-all duration-300 hover:border-secondary focus:border-secondary" />
+
+<label for="message" class="font-semibold">Your message</label>
+<textarea id="message" name="message" rows="5" required class="w-full rounded-xl p-4 bg-gray-800/50 text-white border border-gray-700 focus:ring-2 focus:ring-info focus:outline-none transition-all duration-300 hover:border-secondary focus:border-secondary">{{ form_data.message|default:'' }}</textarea>
+
+<button type="submit" class="mt-4 relative overflow-hidden group px-8 py-3 font-bold rounded-full border-2 border-secondary text-secondary hover:text-gray-900 transition-all duration-500 w-full md:max-w-fit">
+  <span class="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+  <span class="relative flex items-center gap-2 justify-center">
+    Send Message<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+    </svg>
+  </span>
+</button>

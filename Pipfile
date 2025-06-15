@@ -11,6 +11,7 @@ fontawesomefree = "*"
 fontawesome-free = "*"
 django-browser-reload = "*"
 django-tailwind = {extras = ["reload"], version = "*"}
+django-unfold = "==0.43.0"
 
 [dev-packages]
 

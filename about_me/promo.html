@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yosef Emyayu | Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ms-blue: #0078D4;
+            --ms-dark: #201F1E;
+            --ms-light: #F3F2F1;
+            --ms-gray: #E6E6E6;
+            --ms-accent: #FFB900;
+            --ms-border: 1px solid rgba(0, 0, 0, 0.1);
+            --ms-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.13), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.11);
+            --ms-radius: 4px;
+
+            /* New color palette - Oceanic theme */
+            --ocean-teal: #00B4A0;
+            --deep-blue: #0077B6;
+            --seafoam: #90E0EF;
+            --wave-crest: #CAF0F8;
+            --gradient-blue-green: linear-gradient(135deg, var(--deep-blue) 0%, var(--ocean-teal) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--ms-light);
+            color: var(--ms-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: var(--ms-border);
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--deep-blue);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--ocean-teal);
+        }
+
+        .logo i {
+            margin-right: 8px;
+            font-size: 24px;
+        }
+
+        .network-status {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #605E5C;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #D2D0CE;
+            margin-right: 8px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: var(--deep-blue);
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--ocean-teal) 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #323130;
+            margin-bottom: 32px;
+            max-width: 90%;
+        }
+
+        .highlight-text {
+            color: var(--ocean-teal);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight-text::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--seafoam);
+            border-radius: 2px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: var(--ms-radius);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            height: 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gradient-blue-green);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 180, 160, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 180, 160, 0.4);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--deep-blue);
+            border: 1px solid var(--deep-blue);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(0, 119, 182, 0.1);
+            color: var(--ocean-teal);
+            border-color: var(--ocean-teal);
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: var(--ms-radius);
+            box-shadow: var(--ms-shadow);
+            padding: 40px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: var(--ms-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-blue-green);
+        }
+
+        .profile-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 119, 182, 0.15);
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 24px;
+            border: 4px solid var(--wave-crest);
+            box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover .profile-img {
+            transform: scale(1.05);
+        }
+
+        .profile-card h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--deep-blue);
+        }
+
+        .profile-card p {
+            color: #605E5C;
+            margin-bottom: 24px;
+        }
+
+        .network-notice {
+            background-color: #fde7e7;
+            padding: 12px 16px;
+            border-radius: var(--ms-radius);
+            margin-bottom: 24px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid var(--ocean-teal);
+            color: var(--deep-blue);
+            font-weight: bold;
+        }
+
+        .network-notice i {
+            color: rgb(143, 127, 6);
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        .qr-container {
+            background: white;
+            padding: 16px;
+            border-radius: var(--ms-radius);
+            box-shadow: var(--ms-shadow);
+            margin-bottom: 16px;
+            border: var(--ms-border);
+            border-top: 3px solid var(--deep-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .qr-container:hover {
+            transform: scale(1.02);
+        }
+
+        .qr-code {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto;
+        }
+
+        .qr-text {
+            font-size: 14px;
+            color: #605E5C;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .contact-section {
+            padding: 80px 0;
+            background: white;
+            border-radius: var(--ms-radius);
+            box-shadow: var(--ms-shadow);
+            margin-bottom: 40px;
+            border: var(--ms-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-blue-green);
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--deep-blue);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+            padding-left: 80px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--ocean-teal);
+            border-radius: 3px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-radius: var(--ms-radius);
+            transition: all 0.3s ease;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 119, 182, 0.1);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 119, 182, 0.1);
+            border-color: rgba(0, 180, 160, 0.3);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-blue-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .contact-info h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--deep-blue);
+        }
+
+        .contact-info p {
+            font-size: 14px;
+            color: #605E5C;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px 0;
+            color: #605E5C;
+            font-size: 14px;
+            border-top: var(--ms-border);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content p {
+                max-width: 100%;
+            }
+
+            .button-group {
+                justify-content: center;
+            }
+
+            .profile-card {
+                padding: 24px;
+            }
+        }
+
+        /* Animation for network status */
+        @keyframes pulse {
+            0% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.6;
+            }
+        }
+
+        .checking {
+            animation: pulse 1.5s infinite;
+        }
+
+        /* New wave animation for buttons */
+        @keyframes wave {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="#" class="logo">
+                <img src="logo_2.png" alt="logo" height="40">
+                <span style="padding:0 8px"><b>Yosef Emyayu</b></span>
+            </a>
+            <div class="network-status" id="networkStatus">
+                <span class="status-dot checking"></span>
+                <span>Checking network...</span>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Building <span class="highlight-text">Scalable Solutions</span> with Modern Technology</h1>
+                <p>Full-stack developer specializing in Python, Django, and cloud-native applications. I create robust
+                    systems that balance performance with elegant user experiences.</p>
+                <div class="button-group">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>
+                        Contact Me
+                    </a>
+                    <a href="#profile" class="btn btn-secondary">
+                        <i class="fas fa-user" style="margin-right: 8px;"></i>
+                        View Profile
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-image" id="profile">
+                <div class="profile-card">
+                    <img src="my_pic.png" alt="Yosef Emyayu" class="profile-img">
+                    <h2>Yosef Emyayu</h2>
+                    <p>Full Stack Engineer | Web developer</p>
+
+                    <div class="network-notice">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span><b>Oops,</b> your network restricts external access</span>
+                    </div>
+
+                    <div class="qr-container">
+                        <div class="qr-code">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://yosefemyayu.pythonanywhere.com/home"
+                                alt="QR Code">
+                        </div>
+                    </div>
+                    <p class="qr-text">Scan this QR code to view my full portfolio</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Email</h3>
+                        <p>yosefemyayu1@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Phone</h3>
+                        <p>+251 969 13 9694</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Location</h3>
+                        <p>Addis Ababa, Ethiopia</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2023 Yosef Emyayu. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Network status check
+        function checkNetwork() {
+            const statusElement = document.getElementById('networkStatus');
+            const statusDot = statusElement.querySelector('.status-dot');
+
+            // Remove checking animation
+            statusDot.classList.remove('checking');
+
+            fetch('https://www.google.com/favicon.ico', {
+                method: 'HEAD',
+                mode: 'no-cors',
+                cache: 'no-store'
+            })
+                .then(() => {
+                    // Online state
+                    statusDot.style.backgroundColor = '#00B4A0';
+                    statusElement.innerHTML = `
+                    <span class="status-dot"></span>
+                    <span>Online - <a href="https://yosefemyayu.pythonanywhere.com/home" style="color: var(--deep-blue); text-decoration: none;">View full portfolio</a></span>
+                `;
+                })
+                .catch(() => {
+                    // Offline state
+                    statusDot.style.backgroundColor = '#D83B01';
+                    statusElement.innerHTML = `
+                    <span class="status-dot"></span>
+                    <span>Offline - Viewing local profile</span>
+                `;
+                });
+        }
+
+        // Initialize network check
+        window.addEventListener('load', () => {
+            setTimeout(checkNetwork, 1500);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

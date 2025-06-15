@@ -1,0 +1,422 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <!-- Side Menu - Hidden on mobile, shown on desktop -->
+  <div id="project-detail" class="flex flex-col lg:flex-row min-h-screen w-full">
+    <!-- Side Menu - Hidden on mobile, shown on desktop -->
+    <div class="hidden lg:block lg:w-1/6 xl:w-1/5 2xl:w-1/4">
+      {% include 'components/sidebar.html' %}
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="w-full lg:w-5/6 xl:w-4/5 2xl:w-3/4 px-4 sm:px-6 md:px-8 lg:px-10">
+      {% include 'components/navbar.html' with base_url='/home/' %}
+
+      <!-- Project Header -->
+      <div class="pt-20 pb-5 md:ms-12" data-aos="fade-up">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-warning mb-4">{{ project.title }}</h1>
+        <p class="text-lg text-gray-300 mb-6">{{ project.short_description }}</p>
+        <div class="flex flex-wrap gap-3">
+          {% for skill in project.skills_used.all %}
+            <span class="px-3 py-1.5 bg-warning/10 rounded-full text-sm text-warning border border-warning/20">{{ skill.name }}</span>
+          {% endfor %}
+          {% for tag in project.tags.all %}
+            <span class="px-3 py-1.5 bg-purple-500/10 rounded-full text-sm text-purple-400 border border-purple-500/20">{{ tag.name }}</span>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Project Media Section -->
+      <div class="pt-20 pb-5 md:ms-12">
+        {% if project.video_link %}
+          <div class="rounded-2xl overflow-hidden shadow-2xl mb-8" data-aos="fade-up">
+            <div class="aspect-w-16 aspect-h-9 bg-black">
+              <iframe class="w-full h-[300px] sm:h-[400px] md:h-[500px]" src="{{ project.video_link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- Project Gallery Carousel -->
+        <div class="relative group rounded-2xl overflow-hidden shadow-2xl h-[400px] sm:h-[500px] md:h-[600px]" data-aos="fade-up" data-aos-delay="100">
+          <!-- Carousel Items -->
+          <div class="relative h-full w-full carousel-container">
+            {% for img in project.images.all %}
+              <div class="carousel-item absolute inset-0 w-full h-full transition-opacity duration-500 {% if forloop.first %}
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  opacity-100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                {% else %}
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  opacity-0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                {% endif %}"
+                data-index="{{ forloop.counter0 }}">
+                <img src="{{ img.image_list.url }}" alt="{{ project.title }} screenshot {{ forloop.counter }}" class="w-full h-full object-cover" />
+              </div>
+            {% empty %}
+              <div class="absolute inset-0 w-full h-full bg-gray-800 flex items-center justify-center">
+                <p class="text-gray-400">No images available</p>
+              </div>
+            {% endfor %}
+
+            <!-- Navigation Arrows -->
+            {% if project.images.all %}
+              <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            {% endif %}
+
+            <!-- Indicators -->
+            {% if project.images.all %}
+              <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+                {% for img in project.images.all %}
+                  <div class="indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white/80 transition-colors cursor-pointer {% if forloop.first %}bg-white/80{% endif %}" data-index="{{ forloop.counter0 }}"></div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Details -->
+      <div class="pt-20 pb-5 md:ms-12 grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
+        <div class="md:col-span-2 space-y-8">
+          <div>
+            <h2 class="text-2xl font-bold text-warning mb-4">Project Overview</h2>
+            <div class="prose prose-invert max-w-none">
+              <p class="mb-4">{{ project.short_description }}</p>
+            </div>
+          </div>
+          {% if project.problem_of_statement %}
+            <div>
+              <h2 class="text-2xl font-bold text-warning mb-4">Problem Statement</h2>
+              <div class="prose prose-invert max-w-none">
+                <p class="mb-4">{{ project.problem_of_statement }}</p>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if project.solution_detail %}
+            <div>
+              <h2 class="text-2xl font-bold text-warning mb-4">Solution</h2>
+              <div class="prose prose-invert max-w-none">
+                <p class="mb-4">{{ project.solution_detail }}</p>
+              </div>
+            </div>
+          {% endif %}
+
+          <div>
+            <div class="prose prose-invert max-w-none">
+              <h3 class="text-xl font-semibold text-warning mt-6 mb-3">Key Features</h3>
+              <ul class="list-disc pl-5 space-y-2">{{ project.feature|safe|escape }}</ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700/50">
+            <h3 class="text-xl font-semibold text-warning mb-4">Project Details</h3>
+            <div class="space-y-4">
+              <div>
+                <p class="text-sm text-gray-400">Client</p>
+                <p class="text-gray-200">Bank Of Abyssinia</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-400">Category</p>
+                <p class="text-gray-200">Banking System</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-400">Completion Date</p>
+                <p class="text-gray-200">January 2023</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-400">Status</p>
+                <p class="text-gray-200">In Production</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700/50">
+            <h3 class="text-xl font-semibold text-warning mb-4">Technologies Used</h3>
+            <div class="flex flex-wrap gap-2">
+              {% for skill in project.skills_used.all %}
+                <span class="px-3 py-1.5 bg-gray-700/50 rounded-full text-sm text-gray-200 border border-gray-600">{{ skill.name }}</span>
+              {% endfor %}
+            </div>
+          </div>
+
+          {% if project.video_link %}
+            <div class="mt-6">
+              <a href="{{ project.video_link }}" target="_blank" class="inline-flex items-center px-6 py-3 bg-warning text-gray-900 rounded-lg font-medium hover:bg-warning/90 transition-all">
+                Watch Demo<svg xmlns="http://www.w3.org/2000/svg" class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* Carousel Styles */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .carousel-item {
+      transition: opacity 0.5s ease-in-out;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize AOS animations
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 800,
+          easing: 'ease-out-quart',
+          once: true,
+          offset: 100
+        })
+      }
+    
+      // Carousel functionality
+      const carousels = document.querySelectorAll('.carousel-container')
+    
+      carousels.forEach((carousel) => {
+        const items = carousel.querySelectorAll('.carousel-item')
+        const indicators = carousel.querySelectorAll('.indicator')
+        const prevBtn = carousel.querySelector('.carousel-prev')
+        const nextBtn = carousel.querySelector('.carousel-next')
+    
+        if (items.length > 0) {
+          let currentIndex = 0
+          let rotateInterval
+    
+          function showSlide(index) {
+            // Handle wrap-around
+            if (index >= items.length) {
+              index = 0
+            } else if (index < 0) {
+              index = items.length - 1
+            }
+    
+            // Update visibility
+            items.forEach((item, i) => {
+              item.style.opacity = i === index ? '1' : '0'
+            })
+    
+            // Update indicators
+            if (indicators.length > 0) {
+              indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('bg-white/80', i === index)
+                indicator.classList.toggle('bg-white/50', i !== index)
+              })
+            }
+    
+            currentIndex = index
+          }
+    
+          // Navigation buttons
+          if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+              e.stopPropagation()
+              showSlide(currentIndex + 1)
+              resetAutoRotate()
+            })
+          }
+    
+          if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+              e.stopPropagation()
+              showSlide(currentIndex - 1)
+              resetAutoRotate()
+            })
+          }
+    
+          // Indicator clicks
+          indicators.forEach((indicator) => {
+            indicator.addEventListener('click', (e) => {
+              e.stopPropagation()
+              const index = parseInt(e.target.getAttribute('data-index'))
+              showSlide(index)
+              resetAutoRotate()
+            })
+          })
+    
+          // Auto-rotate function
+          function startAutoRotate() {
+            rotateInterval = setInterval(() => {
+              showSlide((currentIndex + 1) % items.length)
+            }, 5000)
+          }
+    
+          function resetAutoRotate() {
+            clearInterval(rotateInterval)
+            startAutoRotate()
+          }
+    
+          // Start auto-rotation
+          startAutoRotate()
+    
+          // Pause on hover
+          carousel.addEventListener('mouseenter', () => {
+            clearInterval(rotateInterval)
+          })
+    
+          carousel.addEventListener('mouseleave', () => {
+            startAutoRotate()
+          })
+        }
+      })
+    
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault()
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          })
+        })
+      })
+    })
+  </script>
+{% endblock %}

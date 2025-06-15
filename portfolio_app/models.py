@@ -46,7 +46,7 @@ class Address(models.Model):
     country = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.street}, {self.city}"
+        return f"{self.city},{self.region},{self.country}"
 
 
 class SocialLink(models.Model):
@@ -82,19 +82,41 @@ class Certifications(models.Model):
 
 
 class Project(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=150)
     slug = models.SlugField(unique=True, null=False)
-    problem_statement = models.TextField(null=True, blank=True)  # optional
-    description = models.TextField()
-    tags = models.ManyToManyField("Tag", related_name="projects")
+    short_description = models.TextField(max_length=400)
+    problem_of_statement = models.TextField(null=True, blank=True)  # optional
+    solution_detail = models.TextField(null=True, blank=True)  # optional
+    feature = models.TextField(
+        null=True,
+        blank=True,
+        help_text="For better readability Put each feature in a new line ",
+    )  # optional
+    video_link = models.URLField(null=True, blank=True)
+    tags = models.ManyToManyField("Tag", related_name="projects", blank=True)
     skills_used = models.ManyToManyField("Skill", related_name="projects")
+
+    def save(self, *args, **kwargs):
+        if self.feature:
+            self.feature = self.feature.replace("<li>", "")
+            self.feature = self.feature.replace("</li>", "")
+            feature_list = self.feature.split("\n")
+
+            formatted_feature = ""
+            for feature in feature_list:
+                formatted_feature += "<li>" + feature + "</li>"
+
+        self.feature = formatted_feature
+        return super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title
 
 
 class ProjectImage(models.Model):
-    project = models.ForeignKey(Project, on_delete=models.PROTECT, null=True)
+    project = models.ForeignKey(
+        Project, on_delete=models.CASCADE, null=True, related_name="images"
+    )
 
     image_list = models.ImageField(
         upload_to="ProjectImage/",
@@ -106,18 +128,23 @@ class ProjectImage(models.Model):
 
 class Skill(models.Model):
     name = models.CharField(max_length=100, unique=True)
-    tags = models.ManyToManyField("Tag", related_name="skills")
+    tags = models.ManyToManyField("Tag", related_name="skills", blank=True)
     logo = models.FileField(
         upload_to="skill_logos/",
         validators=[validate_image_file],
-        null=True,
         blank=True,
+        default="skill_default.svg",
     )  # Ensure you have Pillow installed
 
     description = models.TextField(null=True, blank=True)  # "What I have done with it"
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.logo:
+            self.logo.name = "skill_logos/skill_default.svg"
+        return super().save(*args, **kwargs)
 
 
 class Experience(models.Model):
@@ -168,3 +195,14 @@ class Inbox(models.Model):
     message = models.TextField(max_length=500)
     delivered_time = models.DateTimeField(auto_now_add=True)
     seen = models.BooleanField(default=False)
+
+    class Meta:
+        unique_together = ("sender_email", "message")
+
+
+class Resume(models.Model):
+    resume = models.FileField(
+        upload_to="resume/",
+    )
+    note = models.CharField(max_length=150)
+    created_at = models.DateTimeField(auto_now_add=True)

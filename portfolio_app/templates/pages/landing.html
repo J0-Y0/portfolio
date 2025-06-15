@@ -1,0 +1,319 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div id="landing" class="fixed inset-0 h-screen w-full flex flex-col justify-center items-center px-6 sm:px-10 text-center bg-gradient-to-br from-gray-900 to-gray-950 overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 overflow-hidden -z-10 pointer-events-none">
+      <!-- Floating particles -->
+      {% for i in xxxxxxxxxx %}
+        <div class="floating-particle absolute w-1.5 h-1.5 bg-blue-400 rounded-full opacity-10" style="top: {{ forloop.counter|add:5 }}%; left: {{ forloop.counter|add:10 }}%;
+                animation: float-particle {{ 10|add:forloop.counter }}s ease-in-out infinite;
+                filter: blur(0.5px);"></div>
+      {% endfor %}
+
+      <!-- Gradient circles -->
+      <div class="absolute -bottom-1/4 -left-1/4 w-[150%] h-[150%] rounded-full bg-gradient-to-tr from-blue-500/5 to-purple-500/5 animate-spin-slow opacity-10 blur-xl"></div>
+      <div class="absolute -top-1/4 -right-1/4 w-[120%] h-[120%] rounded-full bg-gradient-to-br from-blue-500/3 to-purple-500/3 animate-spin-slower opacity-10 blur-xl"></div>
+
+      <!-- Grid overlay -->
+      <div class="absolute inset-0 opacity-5 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="relative z-20 w-full max-w-6xl mx-auto flex flex-col items-center">
+      <!-- Name -->
+      <div class="flex flex-wrap justify-center gap-2 mb-6">
+        <h1 data-aos="fade-right" data-aos-duration="1000" class="text-5xl sm:text-6xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">{{ profile.first_name }}</h1>
+        <h1 data-aos="fade-left" data-aos-duration="1000" class="text-5xl sm:text-6xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-400">{{ profile.last_name }}</h1>
+      </div>
+
+      <!-- Title -->
+      <h2 data-aos="fade-up" data-aos-delay="300" data-aos-duration="800" class="text-xl sm:text-2xl md:text-3xl font-medium text-gray-300 mb-8 max-w-3xl">{{ profile.heading }}</h2>
+
+      <!-- Location -->
+      <div data-aos="fade-up" data-aos-delay="500" class="px-4 py-2 rounded-full bg-gray-800/50 backdrop-blur border border-gray-700 text-gray-300 mb-12">Based in Addis Ababa, Ethiopia</div>
+
+      <!-- Interactive Skills Section -->
+      <div id="skills-container" class="relative w-full h-64 sm:h-80 mb-16">
+        {% for skill in skills %}
+          {% if skill.logo %}
+            <div class="floating-skill absolute cursor-grab active:cursor-grabbing z-20 transition-all duration-300" data-skill-id="{{ forloop.counter }}" data-aos="zoom-in" data-aos-delay="{{ forloop.counter }}00">
+              <div class="relative group">
+                <div class="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center p-3 rounded-full bg-gray-800/80 backdrop-blur border border-gray-700 group-hover:border-blue-400 transition-all shadow-lg hover:shadow-blue-400/20">
+                  <img src="{{ skill.logo.url }}" alt="{{ skill.name }}" class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110" loading="lazy" />
+                </div>
+                <span class="skill-name absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-900/80 px-2 py-1 rounded-full backdrop-blur-sm">{{ skill.name }}</span>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div data-aos="fade-up" data-aos-delay="800" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+        <button onclick="scrollToNextSection()" class="flex flex-col items-center group cursor-pointer focus:outline-none" aria-label="Scroll to next section">
+          <span class="text-xs text-gray-400 group-hover:text-blue-400 transition-colors mb-1">Explore more</span>
+          <div class="w-6 h-10 rounded-full border border-gray-600 group-hover:border-blue-400 flex justify-center p-1 transition-colors">
+            <span class="w-1 h-2 rounded-full bg-gray-500 group-hover:bg-blue-400 animate-scroll-dot transition-colors"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <style>
+      /* Animations */
+      @keyframes float-particle {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+          opacity: 0.1;
+        }
+        25% {
+          transform: translate(15px, -20px) rotate(5deg);
+          opacity: 0.3;
+        }
+        50% {
+          transform: translate(30px, 0) rotate(0deg);
+          opacity: 0.1;
+        }
+        75% {
+          transform: translate(15px, 20px) rotate(-5deg);
+          opacity: 0.3;
+        }
+      }
+      
+      @keyframes spin-slow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      
+      @keyframes scroll-dot {
+        0% {
+          transform: translateY(0);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(8px);
+          opacity: 0;
+        }
+      }
+      
+      /* Utility classes */
+      .animate-spin-slow {
+        animation: spin-slow 50s linear infinite;
+      }
+      .animate-spin-slower {
+        animation: spin-slow 80s linear infinite;
+      }
+      .animate-scroll-dot {
+        animation: scroll-dot 2s ease infinite;
+      }
+      
+      /* Skill overlap state */
+      .floating-skill.overlapping-text {
+        opacity: 0.3 !important;
+      }
+      .floating-skill.overlapping-text:hover {
+        opacity: 0.6 !important;
+      }
+    </style>
+
+    <script>
+      function scrollToNextSection() {
+        window.scrollBy({
+          top: window.innerHeight,
+          behavior: 'smooth'
+        })
+      
+        // Redirect to home if at bottom
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+          setTimeout(() => (window.location.href = '/home'), 1000)
+        }
+      }
+      
+      document.addEventListener('DOMContentLoaded', function () {
+        // Initialize AOS animations
+        AOS.init({
+          duration: 800,
+          easing: 'ease-out-quad',
+          once: false,
+          offset: 100
+        })
+      
+        // Physics-based skill movement
+        const physics = {
+          friction: 0.97,
+          bounce: 0.9,
+          pushForce: 0.25,
+          skillRepulsion: 0.5
+        }
+      
+        const skills = {}
+        const skillElements = document.querySelectorAll('.floating-skill')
+        const container = document.getElementById('skills-container')
+        let containerRect = container.getBoundingClientRect()
+        let mouseX = 0,
+          mouseY = 0,
+          isInteracting = false
+      
+        // Initialize skills
+        skillElements.forEach((skill, index) => {
+          const id = skill.dataset.skillId
+          const size = skill.getBoundingClientRect()
+      
+          skills[id] = {
+            element: skill,
+            x: Math.random() * (containerRect.width - size.width),
+            y: Math.random() * (containerRect.height - size.height),
+            vx: (Math.random() - 0.5) * 2,
+            vy: (Math.random() - 0.5) * 2,
+            width: size.width,
+            height: size.height,
+            isDragging: false
+          }
+      
+          skill.style.left = `${skills[id].x}px`
+          skill.style.top = `${skills[id].y}px`
+        })
+      
+        // Mouse interactions
+        container.addEventListener('mousemove', (e) => {
+          const rect = container.getBoundingClientRect()
+          mouseX = e.clientX - rect.left
+          mouseY = e.clientY - rect.top
+          isInteracting = true
+        })
+      
+        container.addEventListener('mouseleave', () => (isInteracting = false))
+      
+        // Touch support
+        container.addEventListener(
+          'touchmove',
+          (e) => {
+            e.preventDefault()
+            const touch = e.touches[0]
+            const rect = container.getBoundingClientRect()
+            mouseX = touch.clientX - rect.left
+            mouseY = touch.clientY - rect.top
+            isInteracting = true
+          },
+          { passive: false }
+        )
+      
+        container.addEventListener('touchend', () => (isInteracting = false))
+      
+        // Drag functionality
+        skillElements.forEach((skill) => {
+          let isDragging = false
+          let offsetX, offsetY
+      
+          skill.addEventListener('mousedown', (e) => {
+            isDragging = true
+            const id = skill.dataset.skillId
+            skills[id].isDragging = true
+      
+            const rect = skill.getBoundingClientRect()
+            offsetX = e.clientX - rect.left
+            offsetY = e.clientY - rect.top
+            skill.style.cursor = 'grabbing'
+            skill.style.transition = 'none'
+            skill.style.zIndex = '50'
+          })
+      
+          document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return
+      
+            const id = skill.dataset.skillId
+            const skillObj = skills[id]
+            skillObj.x = e.clientX - containerRect.left - offsetX
+            skillObj.y = e.clientY - containerRect.top - offsetY
+      
+            skill.style.left = `${skillObj.x}px`
+            skill.style.top = `${skillObj.y}px`
+          })
+      
+          document.addEventListener('mouseup', () => {
+            if (isDragging) {
+              const id = skill.dataset.skillId
+              if (id) {
+                skills[id].isDragging = false
+                skills[id].vx = (Math.random() - 0.5) * 5
+                skills[id].vy = (Math.random() - 0.5) * 5
+              }
+              isDragging = false
+              skill.style.cursor = 'grab'
+              skill.style.transition = 'left 0.5s ease-out, top 0.5s ease-out'
+              skill.style.zIndex = '20'
+            }
+          })
+        })
+      
+        // Animation loop
+        function animate() {
+          Object.values(skills).forEach((skill) => {
+            if (skill.isDragging) return
+      
+            // Apply velocity
+            skill.x += skill.vx
+            skill.y += skill.vy
+      
+            // Mouse interaction
+            if (isInteracting) {
+              const dx = mouseX - (skill.x + skill.width / 2)
+              const dy = mouseY - (skill.y + skill.height / 2)
+              const distance = Math.sqrt(dx * dx + dy * dy)
+      
+              if (distance < 150 && distance > 0) {
+                const force = Math.pow((150 - distance) / 150, 2) * physics.pushForce
+                skill.vx += (dx / distance) * force
+                skill.vy += (dy / distance) * force
+              }
+            }
+      
+            // Boundary collision
+            if (skill.x < 0) {
+              skill.x = 0
+              skill.vx = -skill.vx * physics.bounce
+            } else if (skill.x + skill.width > containerRect.width) {
+              skill.x = containerRect.width - skill.width
+              skill.vx = -skill.vx * physics.bounce
+            }
+      
+            if (skill.y < 0) {
+              skill.y = 0
+              skill.vy = -skill.vy * physics.bounce
+            } else if (skill.y + skill.height > containerRect.height) {
+              skill.y = containerRect.height - skill.height
+              skill.vy = -skill.vy * physics.bounce
+            }
+      
+            // Apply friction
+            skill.vx *= physics.friction
+            skill.vy *= physics.friction
+      
+            // Update position
+            skill.element.style.left = `${skill.x}px`
+            skill.element.style.top = `${skill.y}px`
+          })
+      
+          requestAnimationFrame(animate)
+        }
+      
+        // Handle resize
+        function handleResize() {
+          containerRect = container.getBoundingClientRect()
+        }
+      
+        window.addEventListener('resize', handleResize)
+        animate()
+      })
+    </script>
+  </div>
+{% endblock %}
