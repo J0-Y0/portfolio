@@ -1,7 +1,7 @@
+<!DOCTYPE html>
 {% load static %}
 {% load static tailwind_tags %}
 
-<!DOCTYPE html>
 <html lang="en" class="h-full">
   <head>
     <meta charset="utf-8" />
@@ -53,13 +53,35 @@
 
     <!-- AOS CSS for all screens -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <style>
+      .light {
+        background-color: #f8f9fa;
+        color: #202124;
+      }
+      .light .bg-gray-900 {
+        background-color: #ffffff;
+      }
+      .light .text-gray-300 {
+        color: #5f6368;
+      }
+      .light .border-gray-800 {
+        border-color: #dadce0;
+      }
+      .light .bg-gray-800 {
+        background-color: #f1f3f4;
+      }
+    </style>
   </head>
 
   <body style="font-size: smaller;" class="bg-gray-900 text-gray-100 font-sans min-h-screen flex flex-col overflow-x-hidden">
-    <!-- Loading Screen -->
-    <div id="loading" class="opacity-100">
+    <!-- Add theme toggle button -->
+    <button id="themeToggle" class="fixed bottom-4 right-4 z-50 py-3 px-4 rounded-full bg-gray-800/80 backdrop-blur-sm border border-gray-700 text-gray-300 hover:bg-primary/10 hover:text-white transition-colors"><i class="fas fa-moon" id="themeIcon"></i></button>
+
+    <!-- Loading Screen (updated for light mode) -->
+    <div id="loading" class="opacity-100 dark:bg-gray-900 bg-light-bg">
       <div class="relative animate-float">
-        <div class="absolute inset-0 rounded-full bg-secondary/20 animate-ping"></div>
+        <div class="absolute inset-0 rounded-full bg-secondary/20 dark:bg-secondary/20 animate-ping"></div>
         <div class="relative flex items-center justify-center">
           <img src="{% static 'img/logo_2.png' %}" alt="Loading" width="64" height="64" class="animate-spin-slow" loading="eager" />
         </div>
@@ -75,6 +97,35 @@
 
       {% endblock %}
     </div>
+
+    <!-- Add theme toggle script -->
+    <script defer>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle')
+        const themeIcon = document.getElementById('themeIcon')
+        const html = document.documentElement
+      
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      
+        if (savedTheme === 'light') {
+          html.classList.add('light')
+          themeIcon.classList.replace('fa-moon', 'fa-sun')
+        }
+      
+        themeToggle.addEventListener('click', () => {
+          html.classList.toggle('light')
+          if (html.classList.contains('light')) {
+            themeIcon.classList.replace('fa-moon', 'fa-sun')
+            localStorage.setItem('theme', 'light')
+          } else {
+            themeIcon.classList.replace('fa-sun', 'fa-moon')
+            localStorage.setItem('theme', 'dark')
+          }
+        })
+      })
+    </script>
 
     <!-- Deferred JavaScript -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>

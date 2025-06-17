@@ -1,75 +1,37 @@
-/**
- * This is a minimal config.
- *
- * If you need the full config, get it from here:
- * https://unpkg.com/browse/tailwindcss@latest/stubs/defaultConfig.stub.js
- */
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: [
-    /**
-     * HTML. Paths to Django template files that will contain Tailwind CSS classes.
-     */
-
-    /*  Templates within theme app (<tailwind_app_name>/templates), e.g. base.html. */
-    "../temnode_modulesplates/**/*.html",
+    "../templates/**/*.html",
     ".//flowbite/**/*.js",
-
-    /*
-     * Main templates directory of the project (BASE_DIR/templates).
-     * Adjust the following line to match your project structure.
-     */
     "../../templates/**/*.html",
-
-    /*
-     * Templates in other django apps (BASE_DIR/<any_app_name>/templates).
-     * Adjust the following line to match your project structure.
-     */
     "../../**/templates/**/*.html",
-
-    /**
-     * JS: If you use Tailwind CSS in JavaScript, uncomment the following lines and make sure
-     * patterns match your project structure.
-     */
-    /* JS 1: Ignore any JavaScript in node_modules folder. */
-    // '!../../**/node_modules',
-    /* JS 2: Process all JavaScript files in the project. */
-    // '../../**/*.js',
-
-    /**
-     * Python: If you use Tailwind CSS classes in Python, uncomment the following line
-     * and make sure the pattern below matches your project structure.
-     */
-    // '../../**/*.py'
+    "../../**/templates/*.html",
   ],
   theme: {
-    extend: {},
-    colors: {
-      primary: "#147294",
-      secondary: "#F4C236",
-      tertiary: "#E6E6E6",
-      quaternary: "#1A202C",
-      quinary: "#F4F4F4",
-      success: "#2ECC71",
-      info: "#3498DB",
-      warning: "#FFC107",
-      danger: "#E74C3C",
-      // light: "#F8F9FA",
-      // dark: "#343A40",
-      input_dark: "#2c4558",
-      transparent_bg: "#0d1f2dcc",
+    extend: {
+      colors: {
+        // Base colors (available in both modes)
+        primary: "#147294",
+        secondary: "#F4C236",
+        tertiary: "#E6E6E6",
+        quaternary: "#1A202C",
 
-      bg_dark: "#0D1F2D",
-      text_light: "#66d6ff",
-      text_light: "#66d6ff",
+        // Light mode colors
+        light: "#f8f9fa", // This replaces your light.bg
+        lightcard: "#ffffff",
+        lighttext: "#202124",
+
+        // Dark mode colors
+        dark: {
+          bg: "#1A202C",
+          card: "#0D1F2D",
+          text: "#E6E6E6",
+        },
+      },
     },
   },
   plugins: [
-    /**
-     * '@tailwindcss/forms' is the forms plugin that provides a minimal styling
-     * for forms. If you don't like it or have own styling for forms,
-     * comment the line below to disable '@tailwindcss/forms'.
-     */
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
     require("@tailwindcss/aspect-ratio"),
