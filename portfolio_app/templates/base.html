@@ -53,10 +53,19 @@
 
     <!-- AOS CSS for all screens -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script>
+      // Check for saved theme preference or use system preference
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
   </head>
 
-  <body style="font-size: smaller;" class="bg-gray-900 text-gray-100 font-sans min-h-screen flex flex-col overflow-x-hidden">
+  <body class="bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text font-sans min-h-screen flex flex-col overflow-x-hidden transition-colors duration-300">
     <!-- Loading Screen -->
+
     <div id="loading" class="opacity-100">
       <div class="relative animate-float">
         <div class="absolute inset-0 rounded-full bg-secondary/20 animate-ping"></div>

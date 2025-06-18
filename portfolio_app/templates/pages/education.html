@@ -1,17 +1,17 @@
-<main id="education" class="page min-h-screen bg-gray-950 px-4 py-16 sm:px-6 lg:px-8">
+<main id="education" class="page min-h-screen bg-light-background dark:bg-dark-background px-4 py-16 sm:px-6 lg:px-8">
   <!-- Fluent Design background elements -->
   <div class="fixed inset-0 overflow-hidden -z-10">
-    <div class="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-blue-900/10 blur-3xl"></div>
-    <div class="absolute bottom-1/3 -right-20 w-96 h-96 rounded-full bg-secondary/10 blur-3xl"></div>
+    <div class="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-blue-900/10 dark:bg-blue-900/10 blur-3xl"></div>
+    <div class="absolute bottom-1/3 -right-20 w-96 h-96 rounded-full bg-secondary/10 dark:bg-secondary/10 blur-3xl"></div>
   </div>
 
   <div class="container mx-auto max-w-7xl">
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-light text-white mb-4" data-aos="fade-down">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-light text-light-text dark:text-dark-text mb-4" data-aos="fade-down">
         My <span class="font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Education</span>
       </h1>
-      <p class="text-gray-400 max-w-2xl mx-auto text-lg" data-aos="fade-up" data-aos-delay="200">
+      <p class="text-light-text/70 dark:text-dark-text/70 max-w-2xl mx-auto text-lg" data-aos="fade-up" data-aos-delay="200">
         Academic background and professional certifications
       </p>
     </div>
@@ -20,37 +20,37 @@
     <div class="flex flex-col lg:flex-row gap-8">
       <!-- Education Timeline -->
       <div class="lg:w-2/3" data-aos="fade-right">
-        <div class="bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-xl p-6 shadow-lg">
+        <div class="bg-light-card/80 dark:bg-dark-card/80 backdrop-blur-sm border border-light-border dark:border-dark-border rounded-xl p-6 shadow-lg">
           <div class="flex items-center gap-4 mb-8">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
             </svg>
-            <h2 class="text-2xl font-semibold text-white">Academic Journey</h2>
+            <h2 class="text-2xl font-semibold text-light-text dark:text-dark-text">Academic Journey</h2>
           </div>
 
           <div class="relative pl-10">
             <!-- Timeline line -->
-            <div class="absolute left-0 top-0 h-full w-0.5 bg-gradient-to-b from-gray-800 via-primary/30 to-gray-800 ml-4"></div>
+            <div class="absolute left-0 top-0 h-full w-0.5 bg-gradient-to-b from-gray-300 dark:from-gray-800 via-primary/30 to-gray-300 dark:to-gray-800 ml-4"></div>
             
             {% for education in educations %}
               <div class="relative mb-8 group" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'1' }}00">
                 <!-- Timeline dot -->
-                <div class="absolute -left-10 top-1 h-3 w-3 rounded-full bg-primary border-2 border-gray-900 group-hover:animate-pulse z-10"></div>
+                <div class="absolute -left-10 top-1 h-3 w-3 rounded-full bg-primary border-2 border-light-background dark:border-dark-background group-hover:animate-pulse z-10"></div>
                 
                 <!-- Education card -->
-                <div class="bg-gray-900/70 hover:bg-gray-800/50 border border-gray-800 rounded-xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-md hover:shadow-primary/10 backdrop-blur-sm">
+                <div class="bg-light-card/70 dark:bg-dark-card/70 hover:bg-light-card/90 dark:hover:bg-dark-card/90 border border-light-border dark:border-dark-border rounded-xl p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-md hover:shadow-primary/10 backdrop-blur-sm">
                   <div class="flex flex-col md:flex-row md:items-center gap-4 mb-3">
                     <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary text-xl font-bold">
                       {{ education.institution|first|upper }}
                     </div>
                     <div>
-                      <h3 class="text-xl font-semibold text-white">{{ education.degree }}</h3>
-                      <p class="text-gray-300">{{ education.institution }}</p>
+                      <h3 class="text-xl font-semibold text-light-text dark:text-dark-text">{{ education.degree }}</h3>
+                      <p class="text-light-text/80 dark:text-dark-text/80">{{ education.institution }}</p>
                     </div>
                   </div>
                   
                   <div class="flex flex-wrap gap-4 text-sm mb-3">
-                    <div class="flex items-center gap-2 text-gray-400">
+                    <div class="flex items-center gap-2 text-light-text/70 dark:text-dark-text/70">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -67,8 +67,8 @@
                   </div>
                   
                   {% if education.description %}
-                    <div class="mt-3 pt-3 border-t border-gray-800">
-                      <p class="text-gray-400">{{ education.description }}</p>
+                    <div class="mt-3 pt-3 border-t border-light-border dark:border-dark-border">
+                      <p class="text-light-text/70 dark:text-dark-text/70">{{ education.description }}</p>
                     </div>
                   {% endif %}
                 </div>
@@ -81,31 +81,31 @@
 
       <!-- Certifications Panel -->
       <div class="lg:w-1/3" data-aos="fade-left" data-aos-delay="300">
-        <div class="bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-xl p-6 shadow-lg h-full">
+        <div class="bg-light-card/80 dark:bg-dark-card/80 backdrop-blur-sm border border-light-border dark:border-dark-border rounded-xl p-6 shadow-lg h-full">
           <div class="flex items-center gap-4 mb-8">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
-            <h2 class="text-2xl font-semibold text-white">Certifications</h2>
+            <h2 class="text-2xl font-semibold text-light-text dark:text-dark-text">Certifications</h2>
           </div>
 
           <div class="space-y-4 h-[350px] overflow-y-auto pr-2 custom-scrollbar">
             {% for certificate in certifications %}
-              <div class="bg-gray-900/70 hover:bg-gray-800/50 border border-gray-800 rounded-lg p-4 transition-all duration-300 hover:border-secondary/50 hover:shadow-md hover:shadow-secondary/10 group backdrop-blur-sm">
+              <div class="bg-light-card/70 dark:bg-dark-card/70 hover:bg-light-card/90 dark:hover:bg-dark-card/90 border border-light-border dark:border-dark-border rounded-lg p-4 transition-all duration-300 hover:border-secondary/50 hover:shadow-md hover:shadow-secondary/10 group backdrop-blur-sm">
                 <a href="{{ certificate.certificate_link }}" target="_blank" class="flex gap-3 items-start">
                   <div class="flex-shrink-0 w-10 h-10 rounded-full bg-secondary/10 border border-secondary/30 flex items-center justify-center text-secondary text-lg font-bold transition-transform duration-300 group-hover:rotate-6">
                     {{ certificate.title|first|upper }}
                   </div>
                   <div class="flex-1">
-                    <h3 class="font-semibold text-white group-hover:text-secondary transition-colors duration-300">{{ certificate.title }}</h3>
+                    <h3 class="font-semibold text-light-text dark:text-dark-text group-hover:text-secondary transition-colors duration-300">{{ certificate.title }}</h3>
                     <div class="flex flex-wrap gap-x-3 gap-y-1 mt-1 text-xs">
-                      <span class="flex items-center gap-1 text-gray-400">
+                      <span class="flex items-center gap-1 text-light-text/70 dark:text-dark-text/70">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
                         {{ certificate.issued_by }}
                       </span>
-                      <span class="flex items-center gap-1 text-gray-400">
+                      <span class="flex items-center gap-1 text-light-text/70 dark:text-dark-text/70">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
@@ -133,18 +133,18 @@
   }
   
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(0, 0, 0, 0.05);
     border-radius: 10px;
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #66d6ff, #0ea5e9);
+    background: linear-gradient(to bottom, #147294, #0ea5e9);
     border-radius: 10px;
     transition: all 0.3s ease;
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, #0ea5e9, #66d6ff);
+    background: linear-gradient(to bottom, #0ea5e9, #147294);
   }
 
   /* Timeline dot animation */

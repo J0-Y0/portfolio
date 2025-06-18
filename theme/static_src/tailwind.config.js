@@ -6,6 +6,8 @@
  */
 
 module.exports = {
+  darkMode: "class", // Add this line to enable class-based dark mode
+
   content: [
     /**
      * HTML. Paths to Django template files that will contain Tailwind CSS classes.
@@ -43,25 +45,27 @@ module.exports = {
     // '../../**/*.py'
   ],
   theme: {
-    extend: {},
-    colors: {
-      primary: "#147294",
-      secondary: "#F4C236",
-      tertiary: "#E6E6E6",
-      quaternary: "#1A202C",
-      quinary: "#F4F4F4",
-      success: "#2ECC71",
-      info: "#3498DB",
-      warning: "#FFC107",
-      danger: "#E74C3C",
-      // light: "#F8F9FA",
-      // dark: "#343A40",
-      input_dark: "#2c4558",
-      transparent_bg: "#0d1f2dcc",
-
-      bg_dark: "#0D1F2D",
-      text_light: "#66d6ff",
-      text_light: "#66d6ff",
+    extend: {
+      colors: {
+        // Add light mode colors
+        light: {
+          primary: "#1a73e8",
+          secondary: "#fbbc05",
+          background: "#ffffff",
+          text: "#202124",
+          card: "#f8f9fa",
+          border: "#dadce0",
+        },
+        // Your existing dark colors (renamed for clarity)
+        dark: {
+          primary: "#147294",
+          secondary: "#F4C236",
+          background: "#0D1F2D",
+          text: "#E6E6E6",
+          card: "#1A202C",
+          border: "#2c4558",
+        },
+      },
     },
   },
   plugins: [
