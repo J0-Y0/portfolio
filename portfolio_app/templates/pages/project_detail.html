@@ -39,11 +39,24 @@
         {% endif %}
 
         <!-- Project Gallery Carousel -->
-        <div class="relative group rounded-2xl overflow-hidden shadow-2xl h-[400px] sm:h-[500px] md:h-[600px]" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative group rounded-2xl overflow-hidden shadow-2xl h-[450px] min-h-fit bg-transparent" data-aos="fade-up" data-aos-delay="100">
           <!-- Carousel Items -->
           <div class="relative h-full w-full carousel-container">
             {% for img in project.images.all %}
               <div class="carousel-item absolute inset-0 w-full h-full transition-opacity duration-500 {% if forloop.first %}
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                   
                   
                   
@@ -109,7 +122,33 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
                 {% else %}
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                   
                   
                   
@@ -175,9 +214,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
                 {% endif %}"
                 data-index="{{ forloop.counter0 }}">
-                <img src="{{ img.image_list.url }}" alt="{{ project.title }} screenshot {{ forloop.counter }}" class="w-full h-full object-cover" />
+                <img src="{{ img.image_list.url }}" alt="{{ project.title }} screensshot {{ forloop.counter }}" class="w-full" />
               </div>
             {% empty %}
               <div class="absolute inset-0 w-full h-full bg-gray-800 flex items-center justify-center">
