@@ -1,17 +1,17 @@
 {% load static %}
-<aside class="fixed top-0 left-0 h-screen w-[19rem] flex flex-col border-r border-gray-700/50 bg-gray-900/30 backdrop-blur-xl px-4 py-4 z-40 overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(102,214,255,0.3)] max-lg:w-[19rem] max-lg:transform max-lg:-translate-x-full max-lg:group-[.sidebar-open]:translate-x-0 max-lg:transition-transform max-lg:duration-300">
+<aside class="fixed top-0 left-0 h-screen w-[19rem] flex flex-col border-r border-gray-200 dark:border-gray-700/50 bg-white/80 dark:bg-gray-900/30 backdrop-blur-xl px-4 py-4 z-40 overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_-10px_rgba(102,214,255,0.3)] max-lg:w-[19rem] max-lg:transform max-lg:-translate-x-full max-lg:group-[.sidebar-open]:translate-x-0 max-lg:transition-transform max-lg:duration-300">
 
   <!-- Profile Section -->
-  <div class="relative flex flex-col items-center px-7 pt-3 pb-3 mb-2 border border-gray-700/50 rounded-3xl bg-gradient-to-br from-gray-900/50 to-gray-800/30 group hover:bg-gray-800/40 transition-all duration-300">
-    <div class="absolute border p-2 -end-2 -top-2 rounded-full bg-gray-900 border-primary/80 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all">
+  <div class="relative flex flex-col items-center px-7 pt-3 pb-3 mb-2 border border-gray-200 dark:border-gray-700/50 rounded-3xl bg-gradient-to-br from-white/50 to-gray-100/30 dark:from-gray-900/50 dark:to-gray-800/30 group hover:bg-gray-100/40 dark:hover:bg-gray-800/40 transition-all duration-300">
+    <div class="absolute border p-2 -end-2 -top-2 rounded-full bg-white dark:bg-gray-900 border-primary/80 dark:border-dark-primary/80 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all">
       <img class="h-8" src="../static/img/logo_2.png" alt="Logo">
     </div>
     <div class="flex justify-center">
-      <img class="transition ease-in-out duration-500 transform group-hover:scale-105 h-24 sm:h-28 rounded-lg border-2 border-gray-700/50 group-hover:border-primary/30" src="../static/img/my_pic.png" alt="Profile Picture">
+      <img class="transition ease-in-out duration-500 transform group-hover:scale-105 h-24 sm:h-28 rounded-lg border-2 border-gray-200 dark:border-gray-700/50 group-hover:border-primary/30 dark:group-hover:border-dark-primary/30" src="../static/img/my_pic.png" alt="Profile Picture">
     </div>
-    <h6 class="text-center font-semibold text-lg mt-2 text-white">Yosef Emyayu</h6>
-    <p class="text-center text-gray-400 text-sm mb-2">Senior Web Developer</p>
-    <div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-900/20 backdrop-blur-sm border border-green-500/30 text-xs text-green-400 transition-all duration-300 group-hover:bg-green-900/40 group-hover:border-green-500/50">
+    <h6 class="text-center font-semibold text-lg mt-2 text-gray-900 dark:text-white">Yosef Emyayu</h6>
+    <p class="text-center text-gray-600 dark:text-gray-400 text-sm mb-2">Senior Web Developer</p>
+    <div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-900/20 backdrop-blur-sm border border-green-500/30 text-xs text-green-600 dark:text-green-400 transition-all duration-300 group-hover:bg-green-900/40 group-hover:border-green-500/50">
       <span class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
       Available for work
     </div>
@@ -20,17 +20,17 @@
   <!-- Skills Section -->
   <div class="flex-1 flex flex-col">
     <div class="flex items-center mb-2 pl-2">
-      <svg class="w-6 h-6 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-6 h-6 text-primary dark:text-dark-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
       </svg>
-      <h2 class="text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Technical Skills</h2>
+      <h2 class="text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary dark:from-dark-primary dark:to-dark-secondary">Technical Skills</h2>
     </div>
 
-    <div class="relative flex-1 border border-gray-700/50 rounded-3xl bg-gray-900/30 backdrop-blur-sm p-1 transition-all duration-300 hover:bg-gray-800/40">
+    <div class="relative flex-1 border border-gray-200 dark:border-gray-700/50 rounded-3xl bg-white/50 dark:bg-gray-900/30 backdrop-blur-sm p-1 transition-all duration-300 hover:bg-gray-100/40 dark:hover:bg-gray-800/40">
       <div class="relative z-10 mb-4">
-        <div class="flex gap-1 p-1 rounded-3xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50">
+        <div class="flex gap-1 p-1 rounded-3xl bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50">
           {% for tag in tags %}
-          <button class="skill-tab flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-gray-700/60" data-tab="{{tag.name|slugify}}">
+          <button class="skill-tab flex-1 py-2 px-3 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-gray-200/60 dark:hover:bg-gray-700/60" data-tab="{{tag.name|slugify}}">
             <span class="tab-short">{{tag.name|slice:":1"}}</span>
             <span class="tab-full">{{tag.name}}</span>
           </button>
@@ -43,9 +43,9 @@
         <div class="skill-panel flex absolute inset-0 flex-wrap content-start gap-2 opacity-0 invisible transition-all duration-500 transform translate-y-2 w-full" data-panel="{{tag.name|slugify}}">
           {% for skill in tag.skills.all %}
           <div class="skill-card relative group flex-none" data-skill="{{skill.name|slugify}}">
-            <div class="random-bg flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5 min-w-[120px] backdrop-blur-sm">
+            <div class="random-bg flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 hover:border-primary/30 dark:hover:border-dark-primary/30 transition-all duration-300 hover:-translate-y-0.5 min-w-[120px] backdrop-blur-sm">
               <img src="{{skill.logo.url}}" alt="{{skill.name}} logo" class="w-5 h-5 object-contain">
-              <span class="text-xs font-medium  text-white/90">{{skill.name}}</span>
+              <span class="text-xs font-medium text-gray-900/90 dark:text-white/90">{{skill.name}}</span>
             </div>
           </div>
           {% endfor %}
@@ -57,13 +57,13 @@
 
   <!-- Contact Button -->
   <div class="mt-4 mb-2">
-    <a href="#contact" class="rounded-full bg-primary/10 group relative flex items-center justify-center gap-2 w-full py-3 px-4 overflow-hidden border-2 border-primary/80 hover:border-primary  hover:bg-primary/90 transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-primary/30 ">
-      <span class="text tracking-wide font-semibold text-primary group-hover:text-gray-900 transition-colors duration-500 z-10">reach me</span>
-      <svg class="share-icon w-5 h-5 text-primary group-hover:text-gray-900 transition-all duration-500 group-hover:rotate-45 z-10" fill="currentColor" viewBox="0 0 24 24">
+    <a href="#contact" class="rounded-full bg-primary/10 dark:bg-dark-primary/10 group relative flex items-center justify-center gap-2 w-full py-3 px-4 overflow-hidden border-2 border-primary/80 hover:border-primary hover:bg-primary/90 dark:hover:border-dark-primary dark:hover:bg-dark-primary/90 transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-primary/30 dark:hover:shadow-dark-primary/30">
+      <span class="text tracking-wide font-semibold text-primary dark:text-dark-primary group-hover:text-gray-900 dark:group-hover:text-dark-text transition-colors duration-500 z-10">reach me</span>
+      <svg class="share-icon w-5 h-5 text-primary dark:text-dark-primary group-hover:text-gray-900 dark:group-hover:text-dark-text transition-all duration-500 group-hover:rotate-45 z-10" fill="currentColor" viewBox="0 0 24 24">
         <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6m4-3h6v6m-11 5L21 3"></path>
       </svg>
-      <span class="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></span>
-      <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 group-active:opacity-20 transition-opacity duration-300"></span>
+      <span class="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-dark-primary/10 dark:to-dark-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></span>
+      <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 group-active:opacity-20 transition-opacity duration-300 dark:bg-dark-text"></span>
     </a>
   </div>
 </aside>

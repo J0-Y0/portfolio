@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
+  darkMode: "class", // Add this line to enable class-based dark mode
+
   content: [
     "../templates/**/*.html",
     ".//flowbite/**/*.js",
@@ -11,22 +12,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Base colors (available in both modes)
-        primary: "#147294",
-        secondary: "#F4C236",
-        tertiary: "#E6E6E6",
-        quaternary: "#1A202C",
-
-        // Light mode colors
-        light: "#f8f9fa", // This replaces your light.bg
-        lightcard: "#ffffff",
-        lighttext: "#202124",
-
-        // Dark mode colors
+        // Add light mode colors
+        light: {
+          primary: "#1a73e8",
+          secondary: "#fbbc05",
+          background: "#ffffff",
+          text: "#202124",
+          card: "#f8f9fa",
+          border: "#dadce0",
+        },
+        // Your existing dark colors (renamed for clarity)
         dark: {
-          bg: "#1A202C",
-          card: "#0D1F2D",
+          primary: "#147294",
+          secondary: "#F4C236",
+          background: "#0D1F2D",
           text: "#E6E6E6",
+          card: "#1A202C",
+          border: "#2c4558",
         },
       },
     },

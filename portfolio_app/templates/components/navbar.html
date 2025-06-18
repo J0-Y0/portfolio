@@ -1,5 +1,5 @@
 {% load static %}
-<nav id="nav-parent" class="fixed top-0 w-full z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800 transition-all duration-300">
+<nav id="nav-parent" class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo/Brand with refined hover effect -->
@@ -17,7 +17,7 @@
       <div class="hidden md:block">
         <div class="flex items-center space-x-2">
           <!-- Navigation Links with subtle floating effect -->
-          <a href="{{base_url}}#about" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
+          <a href="{{base_url}}#about" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
             <span class="relative z-10 flex items-center">
               <span class="group-hover:-translate-y-0.5 transition-transform">About</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -28,7 +28,7 @@
             <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
           </a>
           
-          <a href="{{base_url}}#experience" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
+          <a href="{{base_url}}#experience" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
             <span class="relative z-10 flex items-center">
               <span class="group-hover:-translate-y-0.5 transition-transform">Experience</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -39,7 +39,7 @@
             <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
           </a>
           
-          <a href="{{base_url}}#education" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
+          <a href="{{base_url}}#education" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
             <span class="relative z-10 flex items-center">
               <span class="group-hover:-translate-y-0.5 transition-transform">Education</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -50,7 +50,7 @@
             <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
           </a>
           
-          <a href="{{base_url}}#portfolio" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
+          <a href="{{base_url}}#portfolio" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
             <span class="relative z-10 flex items-center">
               <span class="group-hover:-translate-y-0.5 transition-transform">Portfolio</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -61,7 +61,7 @@
             <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary transform -translate-x-1/2 transition-all duration-300 group-hover:w-3/4"></span>
           </a>
           
-          <a href="{{base_url}}#contact" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-300 hover:text-white">
+          <a href="{{base_url}}#contact" class="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative group text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
             <span class="relative z-10 flex items-center">
               <span class="group-hover:-translate-y-0.5 transition-transform">Contact</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -89,7 +89,7 @@
 
       <!-- Mobile menu button with animated hamburger - More refined design -->
       <div class="md:hidden flex items-center">
-        <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary" aria-controls="mobile-menu" aria-expanded="false">
+        <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary" aria-controls="mobile-menu" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <!-- Hamburger icon -->
           <svg id = "Hamburger" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -110,10 +110,10 @@
     <div class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="mobile-menu-overlay"></div>
     
     <!-- Menu content sliding from right - More elegant design -->
-    <div class="fixed top-0 right-0 bottom-0 w-80 bg-gray-900/95 backdrop-blur-lg shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out border-l border-gray-800 overflow-y-auto">
+    <div class="fixed top-0 right-0 bottom-0 w-80 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out border-l border-gray-200 dark:border-gray-800 overflow-y-auto">
       <div class="flex justify-end p-4">
-        <button id="mobile-menu-close" class="p-2 rounded-full bg-gray-800/50 hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary">
-          <svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button id="mobile-menu-close" class="p-2 rounded-full bg-gray-200/50 dark:bg-gray-800/50 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary">
+          <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
@@ -128,8 +128,8 @@
         </div>
         
         <nav class="space-y-2">
-          <a href="{{base_url}}#about" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
-            <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-800 rounded-full">
+          <a href="{{base_url}}#about" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200/50 dark:hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
+            <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-100 dark:bg-gray-800 rounded-full">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
               </svg>
@@ -137,8 +137,8 @@
             About
           </a>
           
-          <a href="{{base_url}}#experience" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
-            <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-800 rounded-full">
+          <a href="{{base_url}}#experience" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200/50 dark:hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
+            <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-100 dark:bg-gray-800 rounded-full">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
               </svg>
@@ -146,8 +146,8 @@
             Experience
           </a>
           
-          <a href="{{base_url}}#education" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
-            <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-800 rounded-full">
+          <a href="{{base_url}}#education" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200/50 dark:hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
+            <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-100 dark:bg-gray-800 rounded-full">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
               </svg>
@@ -155,8 +155,8 @@
             Education
           </a>
           
-          <a href="{{base_url}}#portfolio" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
-            <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-800 rounded-full">
+          <a href="{{base_url}}#portfolio" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200/50 dark:hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
+            <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-100 dark:bg-gray-800 rounded-full">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
               </svg>
@@ -164,8 +164,8 @@
             Portfolio
           </a>
           
-          <a href="{{base_url}}#contact" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-300 hover:text-white hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
-            <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-800 rounded-full">
+          <a href="{{base_url}}#contact" class="mobile-nav-link block px-4 py-3 rounded-lg text-lg font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200/50 dark:hover:bg-gray-800/50 transition duration-300 ease-in-out flex items-center">
+            <span class="w-8 h-8 flex items-center justify-center mr-3 bg-gray-100 dark:bg-gray-800 rounded-full">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
               </svg>
@@ -189,14 +189,11 @@
           <div class="flex justify-center space-x-4">
             {% for social in social_links %}
             {% if social.social_media_name in "LinkedIn,GitHub,Telegram,Phone" %}
-                <a href="{{ social.your_address }}" target="_blank" title="{{ social.social_media_name }}" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-secondary/20 flex items-center justify-center border border-gray-700 hover:border-secondary transition-all duration-300">
+                <a href="{{ social.your_address }}" target="_blank" title="{{ social.social_media_name }}" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-secondary/20 flex items-center justify-center border border-gray-200 dark:border-gray-700 hover:border-secondary transition-all duration-300">
                     <img class="w-6 h-6 text-gray-400 hover:text-secondary" src="{{ social.logo.url }}" alt="">
                 </a>
             {% endif %}
         {% endfor %}
-        
-            
-
           </div>
         </div>
       </div>
@@ -215,17 +212,26 @@
   }
   
   .nav-link:hover {
-    color: #ffffff;
+    color: #1a73e8;
     transform: translateY(-1px);
   }
   
   .nav-link.active {
-    color: #ffffff;
+    color: #1a73e8;
     font-weight: 600;
   }
   
   .nav-link.active::after {
     width: 75%;
+  }
+  
+  /* Dark mode styles */
+  .dark .nav-link:hover {
+    color: #ffffff;
+  }
+  
+  .dark .nav-link.active {
+    color: #ffffff;
   }
   
   /* Resume button hover effect - More subtle */

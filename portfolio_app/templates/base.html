@@ -53,33 +53,20 @@
 
     <!-- AOS CSS for all screens -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-
-    <style>
-      .light {
-        background-color: #f8f9fa;
-        color: #202124;
+    <script>
+      // Check for saved theme preference or use system preference
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
       }
-      .light .bg-gray-900 {
-        background-color: #ffffff;
-      }
-      .light .text-gray-300 {
-        color: #5f6368;
-      }
-      .light .border-gray-800 {
-        border-color: #dadce0;
-      }
-      .light .bg-gray-800 {
-        background-color: #f1f3f4;
-      }
-    </style>
+    </script>
   </head>
 
-  <body style="font-size: smaller;" class="bg-gray-900 text-gray-100 font-sans min-h-screen flex flex-col overflow-x-hidden">
-    <!-- Add theme toggle button -->
-    <button id="themeToggle" class="fixed bottom-4 right-4 z-50 py-3 px-4 rounded-full bg-gray-800/80 backdrop-blur-sm border border-gray-700 text-gray-300 hover:bg-primary/10 hover:text-white transition-colors"><i class="fas fa-moon" id="themeIcon"></i></button>
+  <body class="bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text font-sans min-h-screen flex flex-col overflow-x-hidden transition-colors duration-300">
+    <!-- Loading Screen -->
 
-    <!-- Loading Screen (updated for light mode) -->
-    <div id="loading" class="opacity-100 dark:bg-gray-900 bg-light-bg">
+    <div id="loading" class="opacity-100">
       <div class="relative animate-float">
         <div class="absolute inset-0 rounded-full bg-secondary/20 dark:bg-secondary/20 animate-ping"></div>
         <div class="relative flex items-center justify-center">
