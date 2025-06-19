@@ -3,29 +3,89 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom scrollbar for both light and dark modes */
-* {
-  &::-webkit-scrollbar {
+@layer utilities {
+  /* Custom scrollbar */
+  .scrollbar-custom {
+    scrollbar-width: thin;
+    scrollbar-color: theme("colors.primary.600") theme("colors.light.card");
+  }
+
+  .scrollbar-custom::-webkit-scrollbar {
     width: 6px;
   }
 
-  &::-webkit-scrollbar-track {
-    @apply bg-light-card dark:bg-dark-card;
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background-color: theme("colors.light.card");
   }
 
-  &::-webkit-scrollbar-thumb {
-    @apply bg-light-primary dark:bg-dark-primary rounded-full;
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background-color: theme("colors.primary.600");
+    border-radius: 9999px;
   }
 
-  &::-webkit-scrollbar-thumb:hover {
-    @apply bg-opacity-80 dark:bg-opacity-80;
+  .dark .scrollbar-custom::-webkit-scrollbar-track {
+    background-color: theme("colors.dark.card");
+  }
+
+  .dark .scrollbar-custom::-webkit-scrollbar-thumb {
+    background-color: theme("colors.primary.400");
   }
 }
 
-/* Smooth transitions for theme changes */
-html,
-body {
-  @apply transition-colors duration-300;
+/* Smooth theme transitions */
+@layer base {
+  html,
+  body {
+    @apply transition-colors duration-300;
+  }
 }
 
-/* Add any other theme-specific styles here */
+/* Glass card effect */
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-lg bg-light-glass dark:bg-dark-glass
+           border border-light-border/20 dark:border-dark-border/20
+           shadow-lg hover:shadow-xl transition-all;
+  }
+}
+
+/* Gradient border effect */
+@layer components {
+  .gradient-border {
+    position: relative;
+    z-index: 1;
+  }
+
+  .gradient-border::before {
+    content: "";
+    @apply absolute -inset-0.5 rounded-xl
+           bg-gradient-to-r from-primary-600 to-primary-400
+           opacity-20 blur-sm transition-all duration-300;
+    z-index: -1;
+  }
+}
+
+/* Floating hover effect */
+@layer utilities {
+  .float-hover {
+    @apply transition-transform duration-500 hover:-translate-y-2;
+  }
+}
+
+/* Kinetic typography */
+@layer utilities {
+  @keyframes text-wave {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .text-wave:hover {
+    display: inline-block;
+    animation: text-wave 1.5s ease infinite;
+  }
+}
