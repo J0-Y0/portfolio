@@ -1,28 +1,28 @@
 {% load static %}
 <main id="contact" class="page pt-10 sm:pt-28 relative overflow-hidden">
   <!-- Decorative background elements -->
-  {% comment %} <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-blue-900/20 dark:bg-blue-900/20 blur-3xl -z-10"></div>
-  <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-secondary/10 dark:bg-dark-secondary/10 blur-3xl -z-10"></div>
-   {% endcomment %}
+  <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-primary-900/20 blur-3xl -z-10"></div>
+  <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-primary-500/10 blur-3xl -z-10"></div>
+  
   {% include 'components/modal.html' %}
 
   <div class="container mx-auto">
     <!-- Section Header -->
-    <div class="text-center mb-12" data-aos="fade-down">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-light text-gray-900 dark:text-white mb-4">
-        Let's  <span class="font-semibold bg-gradient-to-r from-primary to-secondary dark:from-dark-primary dark:to-dark-secondary bg-clip-text text-transparent">Connect</span>
+    <div class="text-center mb-12">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-light text-text-100 dark:text-dark-text mb-4">
+        Let's <span class="font-semibold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent">Connect</span>
       </h1>
-      <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+      <p class="text-text-300 dark:text-dark-text/70 max-w-2xl mx-auto text-lg">
         Have a project in mind or want to discuss opportunities? Send me a message and I'll respond faster than you can say "Hello World!"
       </p>
     </div>
     
 
     <!-- Main Content Container -->
-    <div class="bg-gradient-to-br from-white/80 to-gray-100/90 dark:from-gray-900/80 dark:to-gray-950/90 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 dark:border-gray-800 shadow-2xl overflow-hidden">
+    <div class="bg-bg-100/80 dark:bg-dark-card/80 backdrop-blur-sm rounded-3xl p-8 border border-bg-400 dark:border-dark-border shadow-lg overflow-hidden">
       <div class="flex lg:flex-row gap-10 flex-col-reverse">
         <!-- Contact Form -->
-        <div id="form" class="lg:basis-1/2 w-full" data-aos="fade-right" data-aos-duration="1200">
+        <div id="form" class="lg:basis-1/2 w-full">
           <form hx-post="{% url 'contact' %}" hx-trigger="submit" hx-target="#form-content" id="contact-form" method="post" class="space-y-6">
             {% csrf_token %}
             <div id="form-content" class="flex flex-col gap-6">
@@ -31,28 +31,28 @@
           </form>
           
           <!-- Alternative Contact Methods -->
-          <div class="mt-10 pt-8 border-t border-gray-200 dark:border-gray-800">
-            <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">Or reach me directly</h3>
+          <div class="mt-10 pt-8 border-t border-bg-400 dark:border-dark-border">
+            <h3 class="text-xl font-semibold text-text-100 dark:text-dark-text mb-4">Or reach me directly</h3>
             <div class="flex flex-wrap gap-4">
-              <a href="mailto:your@email.com" class="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 rounded-lg transition-all duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary dark:text-dark-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <a href="mailto:yosef.emyayu1@gmail.com" class="flex items-center gap-2 px-4 py-2 bg-bg-200 dark:bg-dark-card hover:bg-bg-300 dark:hover:bg-dark-card/70 rounded-lg transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span class="text-gray-700 dark:text-gray-300">yosef.emyayu1@gmail.com</span>
+                <span class="text-text-100 dark:text-dark-text">yosef.emyayu1@gmail.com</span>
               </a>
-              <a href="tel:+1234567890" class="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 rounded-lg transition-all duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary dark:text-dark-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <a href="tel:+251969139694" class="flex items-center gap-2 px-4 py-2 bg-bg-200 dark:bg-dark-card hover:bg-bg-300 dark:hover:bg-dark-card/70 rounded-lg transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <span class="text-gray-700 dark:text-gray-300">+251 969139694</span>
+                <span class="text-text-100 dark:text-dark-text">+251 969139694</span>
               </a>
             </div>
             
             <!-- Social Links -->
             <div class="flex gap-4 mt-6">
-              {% for social in social_links  %}
-              <a href="{{social.your_address}}" target="_blank" title="{{social.social_media_name}}" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-secondary/20 dark:bg-gray-800 dark:hover:bg-dark-secondary/20 flex items-center justify-center border border-gray-200 hover:border-secondary dark:border-gray-700 dark:hover:border-dark-secondary transition-all duration-300">
-                <img class="w-6 h-6 text-gray-600 hover:text-secondary dark:text-gray-400 dark:hover:text-dark-secondary" src="{{social.logo.url}}" alt="">
+              {% for social in social_links %}
+              <a href="{{social.your_address}}" target="_blank" title="{{social.social_media_name}}" class="w-10 h-10 rounded-full bg-bg-200 dark:bg-dark-card hover:bg-primary-500/20 flex items-center justify-center border border-bg-400 dark:border-dark-border hover:border-primary-500/50 transition-all duration-300">
+                <img class="w-6 h-6" src="{{social.logo.url}}" alt="{{social.social_media_name}}">
               </a>
               {% endfor %}
             </div>
@@ -60,38 +60,38 @@
         </div>
 
         <!-- Image Section -->
-        <div class="lg:basis-1/2 flex flex-col justify-center items-center relative" data-aos="fade-left" data-aos-duration="1200">
+        <div class="lg:basis-1/2 flex flex-col justify-center items-center relative">
           <div class="relative w-full max-w-md">
             <img src="{% static 'img/Get in touch.svg' %}" alt="Contact Illustration" 
-                 class="rounded-2xl border border-gray-200 dark:border-gray-700 p-1 w-full hover:scale-105 transition-transform duration-700 ease-in-out" />
+                 class="rounded-2xl border border-bg-400 dark:border-dark-border p-1 w-full hover:scale-105 transition-transform duration-700 ease-in-out" />
             
             <!-- Floating elements around the image -->
-            <div class="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-secondary/10 dark:bg-dark-secondary/10 blur-xl -z-10 animate-float-slow"></div>
-            <div class="absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-warning/10 dark:bg-dark-secondary/10 blur-xl -z-10 animate-float"></div>
+            <div class="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-primary-500/10 blur-xl -z-10 animate-float-slow"></div>
+            <div class="absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-primary-600/10 blur-xl -z-10 animate-float"></div>
             
             <!-- Contact Info Card -->
-            <div class="absolute -bottom-8 left-0 right-0 mx-auto bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl p-4 shadow-lg max-w-xs transform hover:scale-105 transition-transform duration-300">
+            <div class="absolute -bottom-8 left-0 right-0 mx-auto bg-bg-100/90 dark:bg-dark-card/90 backdrop-blur-sm border border-bg-400 dark:border-dark-border rounded-xl p-4 shadow-lg max-w-xs transform hover:scale-105 transition-transform duration-300">
               <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-secondary/10 dark:bg-dark-secondary/10 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary dark:text-dark-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="w-10 h-10 rounded-full bg-primary-500/10 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">Preferred contact method</p>
-                  <p class="font-medium text-gray-900 dark:text-white">Email</p>
+                  <p class="text-sm text-text-300 dark:text-dark-text/70">Preferred contact method</p>
+                  <p class="font-medium text-text-100 dark:text-dark-text">Email</p>
                 </div>
               </div>
             </div>
           </div>
           
           <!-- Availability Status -->
-          <div class="mt-10 flex items-center gap-2 bg-white/50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-full px-4 py-2">
+          <div class="mt-10 flex items-center gap-2 bg-bg-200/50 dark:bg-dark-card/50 border border-bg-400 dark:border-dark-border rounded-full px-4 py-2">
             <span class="relative flex h-3 w-3">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
             </span>
-            <span class="text-sm text-gray-700 dark:text-gray-300">Currently available for new opportunities</span>
+            <span class="text-sm text-text-100 dark:text-dark-text">Currently available for new opportunities</span>
           </div>
         </div>
       </div>
@@ -99,47 +99,6 @@
   </div>
 </main>
 
-<style>
-  /* Form input styling */
-  input, textarea {
-    outline: none;
-    background: rgba(241, 245, 249, 0.7) dark:rgba(30, 41, 59, 0.5);
-    border: 1px solid rgba(203, 213, 225, 0.5) dark:rgba(71, 85, 105, 0.5);
-    border-radius: 0.5rem;
-    padding: 0.75rem 1rem;
-    width: 100%;
-    color: rgb(15, 23, 42) dark:white;
-    transition: all 0.3s ease;
-  }
-  
-  input:focus, textarea:focus {
-    border-color: rgb(14, 165, 233) dark:#66d6ff;
-    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2) dark:rgba(102, 214, 255, 0.2);
-  }
-  
-  input::placeholder, textarea::placeholder {
-    color: rgba(100, 116, 139, 0.7) dark:rgba(156, 163, 175, 0.7);
-  }
-  
-  /* Animations */
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-  
-  @keyframes float-slow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-  }
-  
-  .animate-float {
-    animation: float 4s ease-in-out infinite;
-  }
-  
-  .animate-float-slow {
-    animation: float-slow 6s ease-in-out infinite;
-  }
-</style>
 
 <script>
   document.body.addEventListener('success', function () {

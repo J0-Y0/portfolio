@@ -9,17 +9,157 @@
   </div>
 {% endif %}
 
-<label for="email" class="font-semibold">Leave me your email</label>
-<input id="email" name="email" type="email" placeholder="youremail@domain.com" value="{{ form_data.email|default:'' }}" required class="w-full rounded-xl p-4 bg-gray-800/50 text-white border border-gray-700 focus:ring-2 focus:ring-info focus:outline-none transition-all duration-300 hover:border-secondary focus:border-secondary" />
+<div class="space-y-4 animate-fade-in">
+  <div class="relative">
+    <label for="email" class="block text-sm font-medium text-text-300 dark:text-dark-text/70 mb-2 transition-colors duration-300">Your email</label>
+    <input id="email" name="email" type="email" placeholder="youremail@domain.com" value="{{ form_data.email|default:'' }}" required 
+           class="w-full px-4 py-3 rounded-lg bg-bg-100/50 dark:bg-dark-card/50 backdrop-blur-sm text-text-100 dark:text-dark-text border border-bg-400 dark:border-dark-border focus:ring-2 focus:ring-primary-500 focus:outline-none transition-all duration-300 hover:border-primary-500 focus:border-primary-500 placeholder-text-300/50 dark:placeholder-dark-text/50" />
+    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none opacity-0 transition-opacity duration-300">
+      <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+      </svg>
+    </div>
+  </div>
 
-<label for="message" class="font-semibold">Your message</label>
-<textarea id="message" name="message" rows="5" required class="w-full rounded-xl p-4 bg-gray-800/50 text-white border border-gray-700 focus:ring-2 focus:ring-info focus:outline-none transition-all duration-300 hover:border-secondary focus:border-secondary">{{ form_data.message|default:'' }}</textarea>
+  <div class="relative">
+    <label for="message" class="block text-sm font-medium text-text-300 dark:text-dark-text/70 mb-2 transition-colors duration-300">Your message</label>
+    <textarea id="message" name="message" rows="5" required 
+              class="w-full px-4 py-3 rounded-lg bg-bg-100/50 dark:bg-dark-card/50 backdrop-blur-sm text-text-100 dark:text-dark-text border border-bg-400 dark:border-dark-border focus:ring-2 focus:ring-primary-500 focus:outline-none transition-all duration-300 hover:border-primary-500 focus:border-primary-500 placeholder-text-300/50 dark:placeholder-dark-text/50">{{ form_data.message|default:'' }}</textarea>
+  </div>
 
-<button type="submit" class="mt-4 relative overflow-hidden group px-8 py-3 font-bold rounded-full border-2 border-secondary text-secondary hover:text-gray-900 transition-all duration-500 w-full md:max-w-fit">
-  <span class="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-  <span class="relative flex items-center gap-2 justify-center">
-    Send Message<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
-      <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-    </svg>
-  </span>
-</button>
+  <button type="submit" 
+          class="mt-6 relative overflow-hidden group px-6 py-3 font-medium rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 text-white hover:from-primary-600 hover:to-primary-700 transition-all duration-500 w-full focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-bg-100 dark:focus:ring-offset-dark-card">
+    <span class="relative flex items-center justify-center gap-2 z-10">
+      Send Message
+      <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+      </svg>
+    </span>
+    <span class="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></span>
+    <span class="absolute inset-0 rounded-lg shadow-lg shadow-primary-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-20"></span>
+  </button>
+</div>
+
+<style>
+  /* Form input styling */
+  input, textarea {
+    outline: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  input:focus, textarea:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Validation states */
+  input:valid:not(:placeholder-shown) {
+    border-color: var(--primary-500);
+  }
+
+  input:valid:not(:placeholder-shown) + div {
+    opacity: 1;
+  }
+
+  input:invalid:not(:placeholder-shown) {
+    border-color: #ef4444;
+  }
+
+  /* Animations */
+  @keyframes shake-x {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .animate-shake-x {
+    animation: shake-x 0.5s ease-in-out;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+  
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .animate-float-slow {
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  /* Button hover effect */
+  button[type="submit"]:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Custom focus styles */
+  input:focus, textarea:focus, button:focus {
+    outline: none;
+    ring: 2px solid var(--primary-500);
+  }
+
+  /* Dark mode transitions */
+  .dark input, .dark textarea {
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add input validation indicators
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    
+    if (emailInput) {
+      emailInput.addEventListener('input', function() {
+        this.classList.toggle('is-valid', this.checkValidity());
+        this.classList.toggle('is-invalid', !this.checkValidity() && this.value.length > 0);
+      });
+    }
+    
+    if (messageInput) {
+      messageInput.addEventListener('input', function() {
+        this.classList.toggle('is-valid', this.checkValidity());
+        this.classList.toggle('is-invalid', !this.checkValidity() && this.value.length > 0);
+      });
+    }
+    
+    // Form submission animation
+    const form = document.querySelector('form');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        const submitBtn = this.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = `
+            <span class="flex items-center justify-center gap-2">
+              <svg class="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Sending...
+            </span>
+          `;
+        }
+      });
+    }
+  });
+</script>
