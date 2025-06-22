@@ -24,6 +24,11 @@ module.exports = {
           DEFAULT: "#ff9800", // Material Design standard orange
         },
 
+        scrollbar: {
+          bg: "#fac89600",
+          color: "#ff960061",
+        },
+
         // Secondary color - complementary teal for balance
         secondary: {
           50: "#e0f7fa",
@@ -78,6 +83,7 @@ module.exports = {
           overlay: "rgba(255, 255, 255, 0.08)",
         },
       },
+
       // Additional theme enhancements
       boxShadow: {
         glass: "0 4px 30px rgba(0, 0, 0, 0.1)",

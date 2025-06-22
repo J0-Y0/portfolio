@@ -5,29 +5,30 @@
 
 @layer utilities {
   /* Custom scrollbar */
-  .scrollbar-custom {
+  .custom-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: theme("colors.primary.600") theme("colors.light.card");
+    scrollbar-color: theme("colors.scrollbar.color")
+      theme("colors.scrollbar.bg") !important;
   }
-
-  .scrollbar-custom::-webkit-scrollbar {
+  /* custom-scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
   }
 
-  .scrollbar-custom::-webkit-scrollbar-track {
+  .custom-scrollbar::-webkit-scrollbar-track {
     background-color: theme("colors.light.card");
   }
 
-  .scrollbar-custom::-webkit-scrollbar-thumb {
+  .custom-scrollbar::-webkit-scrollbar-thumb {
     background-color: theme("colors.primary.600");
     border-radius: 9999px;
   }
 
-  .dark .scrollbar-custom::-webkit-scrollbar-track {
+  .dark .custom-scrollbar::-webkit-scrollbar-track {
     background-color: theme("colors.dark.card");
   }
 
-  .dark .scrollbar-custom::-webkit-scrollbar-thumb {
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb {
     background-color: theme("colors.primary.400");
   }
 }

@@ -18,7 +18,7 @@
   </div>
 
   <!-- Skills Section -->
-  <div class="flex-1 flex flex-col">
+  <div class="flex-1 flex flex-col custom-scrollbar">
     <div class="flex items-center mb-2 pl-2">
       <svg class="w-6 h-6 text-primary-500 dark:text-primary-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
@@ -42,8 +42,8 @@
         {% for tag in tags %}
         <div class="skill-panel flex absolute inset-0 flex-wrap content-start gap-2 opacity-0 invisible transition-all duration-500 transform translate-y-2 w-full" data-panel="{{tag.name|slugify}}">
           {% for skill in tag.skills.all %}
-          <div class="skill-card relative group flex-none" data-skill="{{skill.name|slugify}}">
-            <div class="random-bg flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 hover:border-primary-500/30 dark:hover:border-primary-600/30 transition-all duration-300 hover:-translate-y-0.5 min-w-[120px] backdrop-blur-sm">
+          <div class="skill-card relative max-w-28 group flex-none" data-skill="{{skill.name|slugify}}">
+            <div class="random-bg flex items-center gap-2 px-2   py-2 rounded-lg border border-white/10 hover:border-primary-500/30 dark:hover:border-primary-600/30 transition-all duration-300 hover:-translate-y-0.5 min-w-[120px] backdrop-blur-sm">
               <img src="{{skill.logo.url}}" alt="{{skill.name}} logo" class="w-5 h-5 object-contain">
               <span class="text-xs font-medium text-text-100/90 dark:text-white/90">{{skill.name}}</span>
             </div>
