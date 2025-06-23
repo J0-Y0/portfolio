@@ -6,24 +6,18 @@
   </div>
 
   <div class="w-full max-w-7xl">
-    <!-- Section Header -->
-    <div class="text-center mb-12" data-aos="fade-down">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-light text-white mb-4">Portfolio <span class="font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Showcase</span></h1>
-      <p class="text-gray-400 max-w-2xl mx-auto text-lg">A curated collection of my professional work, crafted with innovation and attention to detail</p>
-    </div>
+   
+ <!-- Section Header -->
+ <div class="text-center mb-16">
+  <h1 class="text-4xl sm:text-5xl lg:text-6xl font-light text-text-100 dark:text-dark-text mb-4">Sample <span class="font-semibold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent">Portfolio</span></h1>
+  <p class="text-text-300 dark:text-dark-text/70 max-w-2xl mx-auto text-lg">A curated collection of my professional work, crafted with innovation and attention to detail</p>
+</div>
 
-    <!-- Filter Controls -->
-    <div class="flex flex-wrap gap-3 justify-center mb-8" data-aos="fade-up" data-aos-delay="200">
-      <button class="filter-btn active px-4 py-2 rounded-full bg-primary text-white text-sm font-medium transition-all hover:bg-primary-dark shadow-md" data-filter="all">All Projects</button>
-      <button class="filter-btn px-4 py-2 rounded-full bg-gray-800 text-gray-300 text-sm font-medium transition-all hover:bg-gray-700 shadow-md" data-filter="web">Web Development</button>
-      <button class="filter-btn px-4 py-2 rounded-full bg-gray-800 text-gray-300 text-sm font-medium transition-all hover:bg-gray-700 shadow-md" data-filter="mobile">Mobile Apps</button>
-      <button class="filter-btn px-4 py-2 rounded-full bg-gray-800 text-gray-300 text-sm font-medium transition-all hover:bg-gray-700 shadow-md" data-filter="design">UI/UX Design</button>
-    </div>
 
     <!-- Project Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
       {% for project in projects %}
-        <div class="project-card group relative rounded-xl overflow-hidden h-80 border border-gray-800 hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/10" data-category="{{ project.category }}" data-aos="zoom-in-up" data-aos-delay="{% widthratio forloop.counter 1 100 %}">
+        <div class="project-card group relative rounded-xl overflow-hidden h-80 border-bg-400 dark:border-dark-border  border border-primary/50 hover:border-primary/400 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/10" data-category="{{ project.category }}" data-aos="zoom-in-up" data-aos-delay="{% widthratio forloop.counter 1 100 %}">
           <!-- Image Carousel -->
           <div class="carousel-container relative h-full w-full">
             {% for img in project.images.all %}
@@ -45,7 +39,7 @@
                 {% endif %}
               </div>
             {% empty %}
-              <div class="absolute inset-0 w-full h-full bg-gray-800 flex items-center justify-center">
+              <div class="absolute inset-0 w-full h-full bg-bg-100/80 dark:bg-dark-card/80 flex items-center justify-center">
                 <p class="text-gray-400">No images available</p>
               </div>
             {% endfor %}
