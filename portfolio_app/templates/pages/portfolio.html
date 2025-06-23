@@ -1,3 +1,4 @@
+{% load static %}
 <main id="portfolio" class="min-h-screen w-full flex items-center justify-center px-4 py-16 sm:px-6 lg:px-8">
   <!-- Fluent Design background elements -->
   <div class="fixed inset-0 overflow-hidden -z-10">
@@ -39,8 +40,10 @@
                 {% endif %}
               </div>
             {% empty %}
-              <div class="absolute inset-0 w-full h-full bg-bg-100/80 dark:bg-dark-card/80 flex items-center justify-center">
-                <p class="text-gray-400">No images available</p>
+              <div class="absolute flex flex-col inset-0 w-full h-full bg-bg-100/80 dark:bg-dark-card/80 flex items-center justify-center">
+                <img src="{%static 'img/project_default.svg' %}" alt="">
+
+                <p class="text-gray-400 font-bold">{{project.title}}</p>
               </div>
             {% endfor %}
 
@@ -91,8 +94,8 @@
 
     <!-- Call to Action -->
     <div class="text-center py-6" data-aos="fade-up" data-aos-delay="300">
-      <p class="text-lg text-gray-300 mb-4">Like what you see? Let's build something amazing together.</p>
-      <a href="#contact" class="inline-flex items-center px-6 py-3 bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 hover:border-primary/50 rounded-lg transition-all duration-300">
+      <p class="text-lg text-gray-400 mb-4">Like what you see? Let's build something amazing together.</p>
+      <a href="#contact" class="inline-flex items-center px-6 py-3 bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 hover:border-primary/50 rounded-3xl transition-all duration-300">
         Get In Touch<svg class="rotate-90 w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
         </svg>
@@ -100,7 +103,7 @@
     </div>
   </div>
 </main>
-
+s
 <style>
   /* Fluent Design scrollbar */
   .custom-scrollbar::-webkit-scrollbar {

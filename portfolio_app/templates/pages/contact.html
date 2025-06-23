@@ -49,13 +49,20 @@
             </div>
             
             <!-- Social Links -->
-            <div class="flex gap-4 mt-6">
-              {% for social in social_links %}
-              <a href="{{social.your_address}}" target="_blank" title="{{social.social_media_name}}" class="w-10 h-10 rounded-full bg-bg-200 dark:bg-dark-card hover:bg-primary-500/20 flex items-center justify-center border border-bg-400 dark:border-dark-border hover:border-primary-500/50 transition-all duration-300">
-                <img class="w-6 h-6" src="{{social.logo.url}}" alt="{{social.social_media_name}}">
-              </a>
-              {% endfor %}
-            </div>
+            <!-- Social Links -->
+<!-- Social Links -->
+<div class="flex gap-4 mt-6">
+  {% for social in social_links %}
+  <a href="{{social.your_address}}" target="_blank" title="{{social.social_media_name}}" 
+     class="w-10 h-10 rounded-full bg-bg-200 dark:bg-dark-card hover:bg-primary-500/20 flex items-center justify-center 
+            border border-bg-400 dark:border-dark-border hover:border-primary-500/50 transition-all duration-300
+            group hover:shadow-[0_0_12px_-2px_rgba(255,152,0,0.3)]">
+    <img class="w-6 h-6 group-hover:scale-110 transition-transform duration-300 
+               dark:invert dark:brightness-0 dark:hover:invert-0 dark:hover:brightness-100" 
+         src="{{social.logo.url}}" alt="{{social.social_media_name}}">
+  </a>
+  {% endfor %}
+</div>
           </div>
         </div>
 
