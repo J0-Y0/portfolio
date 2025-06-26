@@ -5,15 +5,14 @@
 {% block content %}
   <div id="project-detail" class="flex flex-col lg:flex-row min-h-screen w-full bg-bg-100 dark:bg-dark-background">
     <!-- Side Menu -->
-    <div class="z-50 hidden lg:block lg:w-1/6 xl:w-1/5 2xl:w-1/4">
+    <div class="lg:block lg:w-1/5 xl:w-1/5 2xl:w-1/4">
       {% include 'components/sidebar.html' %}
     </div>
 
     <!-- Main Content Area -->
     <div class="w-full lg:w-5/6 xl:w-4/5 2xl:w-3/4 px-4 sm:px-6 md:px-8 lg:px-10">
-      <div class="ms-52 ps-52">
-        {% include 'components/navbar.html' with base_url='/home/' %}
-      </div>
+      {% include 'components/navbar.html' with base_url='/home/' %}
+
       <!-- Project Header -->
       <div class="pt-20 pb-10 md:ms-12" data-aos="fade-up">
         <div class="flex items-center gap-2 mb-4">
@@ -39,7 +38,7 @@
       <!-- Project Media Section -->
       <div class="py-10 md:ms-12">
         {% if project.video_link %}
-          <div class="rounded-2xl overflow-hidden shadow-xl mb-12 border border-bg-300 dark:border-dark-border" data-aos="fade-up">
+          <div class="rounded-2xl overflow-hidden shadow-xl mb-12 border border-bg-500 dark:border-dark-border" data-aos="fade-up">
             <div class="relative aspect-w-16 aspect-h-9 bg-black">
               <iframe class="w-full h-[300px] sm:h-[400px] md:h-[500px]" src="{{ project.video_link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -55,10 +54,21 @@
         {% endif %}
 
         <!-- Project Gallery Carousel -->
-        <div class="relative group rounded-2xl overflow-hidden shadow-xl h-[400px] sm:h-[500px] md:h-[600px] border border-bg-300 dark:border-dark-border" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative group rounded-2xl overflow-hidden shadow-xl h-[400px] sm:h-[500px] md:h-[600px] border border-bg-500 dark:border-dark-border" data-aos="fade-up" data-aos-delay="100">
           <div class="relative h-full w-full carousel-container">
             {% for img in project.images.all %}
               <div class="carousel-item absolute inset-0 w-full h-full transition-opacity duration-500 {% if forloop.first %}
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                   
                   
                   
@@ -86,6 +96,17 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
                 {% else %}
                   
                   
@@ -100,7 +121,29 @@
                   
                   
                   
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                   opacity-0
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -156,7 +199,7 @@
       <!-- Project Details -->
       <div class="py-10 md:ms-12 grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
         <div class="md:col-span-2 space-y-10">
-          <div class="bg-bg-100/80 dark:bg-dark-card/80 backdrop-blur-sm border border-bg-300 dark:border-dark-border rounded-2xl p-8 transition-all hover:border-primary-500/50 dark:hover:border-primary-500/50">
+          <div class="bg-bg-100/80 dark:bg-dark-card/80 backdrop-blur-sm border border-bg-500 dark:border-dark-border rounded-2xl p-8 transition-all hover:border-primary-500/50 dark:hover:border-primary-500/50">
             <h2 class="text-3xl font-bold text-text-100 dark:text-dark-text mb-6 flex items-center gap-3">
               <span class="w-2 h-8 bg-primary-500 rounded-full"></span>
               Project Overview
@@ -167,7 +210,7 @@
           </div>
 
           {% if project.problem_of_statement %}
-            <div class="bg-bg-100/80 dark:bg-dark-card/80 backdrop-blur-sm border border-bg-300 dark:border-dark-border rounded-2xl p-8 transition-all hover:border-primary-500/50 dark:hover:border-primary-500/50">
+            <div class="bg-bg-100/80 dark:bg-dark-card/80 backdrop-blur-sm border border-bg-500 dark:border-dark-border rounded-2xl p-8 transition-all hover:border-primary-500/50 dark:hover:border-primary-500/50">
               <h2 class="text-3xl font-bold text-text-100 dark:text-dark-text mb-6 flex items-center gap-3">
                 <span class="w-2 h-8 bg-primary-500 rounded-full"></span>
                 Problem Statement
@@ -179,7 +222,7 @@
           {% endif %}
 
           {% if project.solution_detail %}
-            <div class="bg-bg-100/80 dark:bg-dark-card/80 backdrop-blur-sm border border-bg-300 dark:border-dark-border rounded-2xl p-8 transition-all hover:border-primary-500/50 dark:hover:border-primary-500/50">
+            <div class="bg-bg-100/80 dark:bg-dark-card/80 backdrop-blur-sm border border-bg-500 dark:border-dark-border rounded-2xl p-8 transition-all hover:border-primary-500/50 dark:hover:border-primary-500/50">
               <h2 class="text-3xl font-bold text-text-100 dark:text-dark-text mb-6 flex items-center gap-3">
                 <span class="w-2 h-8 bg-primary-500 rounded-full"></span>
                 Solution
@@ -190,7 +233,7 @@
             </div>
           {% endif %}
 
-          <div class="bg-bg-100/80 dark:bg-dark-card/80 backdrop-blur-sm border border-bg-300 dark:border-dark-border rounded-2xl p-8 transition-all hover:border-primary-500/50 dark:hover:border-primary-500/50">
+          <div class="bg-bg-100/80 dark:bg-dark-card/80 backdrop-blur-sm border border-bg-500 dark:border-dark-border rounded-2xl p-8 transition-all hover:border-primary-500/50 dark:hover:border-primary-500/50">
             <h3 class="text-2xl font-semibold text-text-100 dark:text-dark-text mb-6 flex items-center gap-3">
               <span class="w-2 h-6 bg-primary-500 rounded-full"></span>
               Key Features
@@ -202,7 +245,7 @@
         </div>
 
         <div class="space-y-6">
-          <div class="bg-bg-100/80 dark:bg-dark-card/80 backdrop-blur-sm rounded-2xl p-6 border border-bg-300 dark:border-dark-border transition-all hover:border-primary-500/50 dark:hover:border-primary-500/50">
+          <div class="bg-bg-100/80 dark:bg-dark-card/80 backdrop-blur-sm rounded-2xl p-6 border border-bg-500 dark:border-dark-border transition-all hover:border-primary-500/50 dark:hover:border-primary-500/50">
             <h3 class="text-2xl font-semibold text-text-100 dark:text-dark-text mb-6 flex items-center gap-3">
               <span class="w-2 h-6 bg-primary-500 rounded-full"></span>
               Project Details
@@ -230,7 +273,7 @@
             </div>
           </div>
 
-          <div class="bg-bg-100/80 dark:bg-dark-card/80 backdrop-blur-sm rounded-2xl p-6 border border-bg-300 dark:border-dark-border transition-all hover:border-primary-500/50 dark:hover:border-primary-500/50">
+          <div class="bg-bg-100/80 dark:bg-dark-card/80 backdrop-blur-sm rounded-2xl p-6 border border-bg-500 dark:border-dark-border transition-all hover:border-primary-500/50 dark:hover:border-primary-500/50">
             <h3 class="text-2xl font-semibold text-text-100 dark:text-dark-text mb-6 flex items-center gap-3">
               <span class="w-2 h-6 bg-primary-500 rounded-full"></span>
               Technologies Used
@@ -254,7 +297,7 @@
 
           {% if project.project_link %}
             <div>
-              <a href="{{ project.project_link }}" target="_blank" class="inline-flex items-center justify-center w-full px-6 py-3 bg-bg-200 dark:bg-dark-card text-text-100 dark:text-dark-text rounded-xl font-medium hover:bg-bg-300 dark:hover:bg-dark-border transition-all border border-bg-300 dark:border-dark-border">
+              <a href="{{ project.project_link }}" target="_blank" class="inline-flex items-center justify-center w-full px-6 py-3 bg-bg-200 dark:bg-dark-card text-text-100 dark:text-dark-text rounded-xl font-medium hover:bg-bg-300 dark:hover:bg-dark-border transition-all border border-bg-500 dark:border-dark-border">
                 Visit Project<svg xmlns="http://www.w3.org/2000/svg" class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>

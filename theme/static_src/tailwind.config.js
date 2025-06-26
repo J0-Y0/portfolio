@@ -57,6 +57,7 @@ module.exports = {
           200: "#faf5f0", // Warm white
           300: "#f5f5f5", // Neutral white
           400: "#eeeeee", // Light gray
+          500: "lightgray", // Light gray
         },
 
         // Semantic colors
