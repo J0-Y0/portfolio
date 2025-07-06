@@ -53,7 +53,7 @@ ROOT_URLCONF = "core.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "portfolio_app" / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -262,70 +262,71 @@ UNFOLD = {
     },
     "COLORS": {
         "base": {
-            "50": "249 250 251",
-            "100": "243 244 246",
-            "200": "229 231 235",
-            "300": "209 213 219",
-            "400": "156 163 175",
-            "500": "107 114 128",
-            "600": "75 85 99",
-            "700": "55 65 81",
-            "800": "31 41 55",
-            "900": "17 24 39",
-            "950": "3 7 18",
+            "50": "248 250 252",  # slate-50 (lighter for modern feel)
+            "100": "241 245 249",  # slate-100
+            "200": "226 232 240",  # slate-200
+            "300": "203 213 225",  # slate-300
+            "400": "148 163 184",  # slate-400
+            "500": "100 116 139",  # slate-500
+            "600": "71 85 105",  # slate-600
+            "700": "51 65 85",  # slate-700
+            "800": "30 41 59",  # slate-800
+            "900": "15 23 42",  # slate-900
+            "950": "2 6 23",  # slate-950 (darker)
         },
         "primary": {
-            "50": "#FFFBEA",
-            "100": "#FFF3C4",
-            "200": "#FCE588",
-            "300": "#FADB5F",
-            "400": "#F7C948",
-            "500": "#FFC107",  # Yellow theme
-            "600": "#E1A200",
-            "700": "#C58C00",
-            "800": "#A87900",
-            "900": "#855D00",
-            "950": "#634300",
+            "50": "#fff7ed",  # orange-50
+            "100": "#ffedd5",  # orange-100
+            "200": "#fed7aa",  # orange-200
+            "300": "#fdba74",  # orange-300
+            "400": "#fb923c",  # orange-400
+            "500": "#f97316",  # orange-500 (primary brand color)
+            "600": "#ea580c",  # orange-600
+            "700": "#c2410c",  # orange-700
+            "800": "#9a3412",  # orange-800
+            "900": "#7c2d12",  # orange-900
+            "950": "#431407",  # extra dark orange
         },
         "secondary": {
-            "50": "#F4F4F4",
-            "100": "#E6E6E6",
-            "200": "#CFCFCF",
-            "300": "#B8B8B8",
-            "400": "#A1A1A1",
-            "500": "#8A8A8A",
-            "600": "#737373",
-            "700": "#5C5C5C",
-            "800": "#454545",
-            "900": "#2E2E2E",
+            "50": "#f0f9ff",  # blue-50
+            "100": "#e0f2fe",  # blue-100
+            "200": "#bae6fd",  # blue-200
+            "300": "#7dd3fc",  # blue-300
+            "400": "#38bdf8",  # blue-400
+            "500": "#0ea5e9",  # blue-500 (secondary accent)
+            "600": "#0284c7",  # blue-600
+            "700": "#0369a1",  # blue-700
+            "800": "#075985",  # blue-800
+            "900": "#0c4a6e",  # blue-900
+            "950": "#082f49",  # extra dark blue
         },
         "tertiary": {
-            "50": "#F5F8FA",
-            "100": "#E1E8ED",
-            "200": "#CFD9E3",
-            "300": "#B3C6D8",
-            "400": "#94AFCA",
-            "500": "#7395B0",
-            "600": "#537090",
-            "700": "#3D5470",
-            "800": "#263750",
-            "900": "#101A30",
+            "50": "#f8fafc",  # cool gray-50
+            "100": "#f1f5f9",  # cool gray-100
+            "200": "#e2e8f0",  # cool gray-200
+            "300": "#cbd5e1",  # cool gray-300
+            "400": "#94a3b8",  # cool gray-400
+            "500": "#64748b",  # cool gray-500
+            "600": "#475569",  # cool gray-600
+            "700": "#334155",  # cool gray-700
+            "800": "#1e293b",  # cool gray-800
+            "900": "#0f172a",  # cool gray-900
+            "950": "#020617",  # near-black
         },
         "font": {
-            "subtle-light": "var(--color-base-500)",
-            "subtle-dark": "var(--color-base-400)",
-            "default-light": "var(--color-base-600)",
-            "default-dark": "var(--color-base-300)",
-            "important-light": "var(--color-base-900)",
-            "important-dark": "var(--color-base-100)",
+            "subtle-light": "var(--color-base-500)",  # slate-500
+            "subtle-dark": "var(--color-base-400)",  # slate-400
+            "default-light": "var(--color-base-700)",  # slate-700
+            "default-dark": "var(--color-base-200)",  # slate-200
+            "important-light": "var(--color-base-900)",  # slate-900
+            "important-dark": "var(--color-base-50)",  # slate-50
         },
-        # "sidebar-selected": "#FFC107",  # Yellow for the selected link
+        # "sidebar-selected": "#f97316",  # orange-500 for selected states
     },
     "STYLES": [
         # lambda request: static("css/style.css"),
         lambda request: static("css/admin.css"),
     ],
-    "THEME": "dark",
 }
 
 

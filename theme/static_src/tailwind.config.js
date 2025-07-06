@@ -9,89 +9,90 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Primary color scale - refined orange palette with better accessibility
+        // PRIMARY: Modern, professional orange (vibrant yet accessible)
         primary: {
-          50: "#fff8f0", // Lightest warm white
-          100: "#ffedd5", // Soft peach
-          200: "#ffe0b5", // Light orange
-          300: "#ffcc80", // Muted orange
-          400: "#ffb347", // Vibrant orange (secondary accent)
-          500: "#ff9800", // Balanced primary orange (WCAG compliant)
-          600: "#f57c00", // Deep orange (buttons/hover)
-          700: "#e65100", // Rich orange (important elements)
-          800: "#bf360c", // Dark orange
-          900: "#8d2b0b", // Deep sophisticated orange
-          DEFAULT: "#ff9800", // Material Design standard orange
+          50: "#fff7ed", // Soft cream-orange
+          100: "#ffedd5", // Light peach
+          200: "#fed7aa", // Warm apricot
+          300: "#fdba74", // Muted orange
+          400: "#fb923c", // Vibrant orange (accent)
+          500: "#f97316", // Primary brand orange (WCAG compliant)
+          600: "#ea580c", // Deep orange (buttons/hover)
+          700: "#c2410c", // Rich burnt orange
+          800: "#9a3412", // Dark terracotta
+          900: "#7c2d12", // Deep sophisticated orange
+          DEFAULT: "#f97316", // Tailwind's default orange-500
         },
 
-        scrollbar: {
-          bg: "#fac89600",
-          color: "#ff960061",
-        },
-
-        // Secondary color - complementary teal for balance
+        // SECONDARY: Complementary blue (cool contrast)
         secondary: {
-          50: "#e0f7fa",
-          100: "#b2ebf2",
-          200: "#80deea",
-          300: "#4dd0e1",
-          400: "#26c6da",
-          500: "#00bcd4",
-          600: "#00acc1",
-          700: "#0097a7",
-          800: "#00838f",
-          900: "#006064",
+          50: "#f0f9ff", // Lightest sky blue
+          100: "#e0f2fe", // Pale blue
+          200: "#bae6fd", // Soft azure
+          300: "#7dd3fc", // Light cerulean
+          400: "#38bdf8", // Bright blue
+          500: "#0ea5e9", // Balanced primary blue
+          600: "#0284c7", // Strong cobalt
+          700: "#0369a1", // Deep navy
+          800: "#075985", // Dark navy
+          900: "#0c4a6e", // Near-black blue
         },
 
-        // Text colors - optimized for readability
+        // Scrollbar (orange-tinged)
+        scrollbar: {
+          bg: "#fed7aa00", // Light orange transparent
+          color: "#f9731661", // Primary orange with transparency
+        },
+
+        // Text colors (optimized contrast)
         text: {
-          100: "#212121", // High contrast (WCAG AAA)
-          200: "#424242", // Secondary text
-          300: "#757575", // Tertiary text
-          400: "#bdbdbd", // Disabled text
+          100: "#1e293b", // High-contrast slate (WCAG AAA)
+          200: "#334155", // Secondary text
+          300: "#64748b", // Tertiary text
+          400: "#94a3b8", // Disabled text
         },
 
-        // Background colors - subtle warmth
+        // Backgrounds (warm neutrals)
         bg: {
           100: "#ffffff", // Pure white
-          200: "#faf5f0", // Warm white
-          300: "#f5f5f5", // Neutral white
-          400: "#eeeeee", // Light gray
-          500: "lightgray", // Light gray
+          200: "#fef6e6", // Warm off-white
+          300: "#f5f5f4", // Stone-50 (neutral)
+          400: "#e7e5e4", // Light gray
+          500: "#d6d3d1", // Medium gray
         },
 
-        // Semantic colors
-        success: "#4caf50",
-        warning: "#ffc107",
-        error: "#f44336",
-        info: "#2196f3",
+        // Semantic colors (harmonized with palette)
+        success: "#16a34a", // Emerald green
+        warning: "#d97706", // Amber-600
+        error: "#dc2626", // Red-600
+        info: "#2563eb", // Blue-600
 
-        // Theme-specific colors
+        // Light/dark theme variants
         light: {
           card: "#ffffff",
-          background: "#faf5f0", // Warm subtle background
-          text: "#212121",
-          border: "#e0e0e0", // Softer border
-          glass: "rgba(255, 255, 255, 0.85)", // More opaque for readability
-          overlay: "rgba(0, 0, 0, 0.08)", // Subtle overlay
+          background: "#fef6e6", // Warm white
+          text: "#1e293b",
+          border: "#e7e5e4", // Light gray
+          glass: "rgba(255, 247, 237, 0.9)", // Warm glass
+          overlay: "rgba(249, 115, 22, 0.08)", // Orange tint
         },
         dark: {
-          card: "#1e1e1e", // True dark instead of blue-ish
-          background: "#121212", // Deep dark
-          text: "#f5f5f5",
-          border: "#424242",
-          glass: "rgba(30, 30, 30, 0.85)",
-          overlay: "rgba(255, 255, 255, 0.08)",
+          card: "#1e293b", // Slate-800
+          background: "#0f172a", // Slate-900 (deep navy)
+          text: "#f8fafc",
+          border: "#334155",
+          glass: "rgba(30, 41, 59, 0.9)",
+          overlay: "rgba(14, 165, 233, 0.08)", // Blue tint
         },
       },
 
-      // Additional theme enhancements
+      // Enhanced effects
       boxShadow: {
-        glass: "0 4px 30px rgba(0, 0, 0, 0.1)",
-        "glass-dark": "0 4px 30px rgba(0, 0, 0, 0.3)",
+        glass: "0 4px 20px rgba(249, 115, 22, 0.1)", // Orange tint
+        "glass-dark": "0 4px 20px rgba(14, 165, 233, 0.15)", // Blue tint
       },
       backdropBlur: {
-        glass: "8px",
+        glass: "10px", // Modern blur strength
       },
     },
   },
