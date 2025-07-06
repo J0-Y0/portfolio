@@ -67,9 +67,11 @@ def contact(request):
         else:
             try:
                 validate_email(email)
-                Inbox.objects.create(sender_email=email, message=message)
+                inbox = Inbox.objects.create(sender_email=email, message=message)
                 success_trigger = "success"
+
                 context["form_data"] = {}
+                context["delivery_time"] = inbox.delivered_time
             except ValidationError:
                 context["error"] = "Invalid email format."
             except IntegrityError as e:

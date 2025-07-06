@@ -134,24 +134,3 @@
     animation: none;
   }
 }
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-  .tooltip-content {
-    background: rgba(30, 41, 59, 0.95);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .tooltip-content::before {
-    background: rgba(30, 41, 59, 0.95);
-  }
-
-  .social-icon {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  .social-icon svg {
-    color: white;
-  }
-}

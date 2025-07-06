@@ -1,22 +1,19 @@
+<!DOCTYPE html>
 {% load static %}
 {% load static tailwind_tags %}
 
-<!DOCTYPE html>
 <html lang="en" class="h-full">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Yosef Emyayu - Senior Web Developer Portfolio" />
 
     <!-- Preload critical resources -->
     <link rel="preload" href="{% static 'css/dist/styles.css' %}" as="style" />
     <link rel="preload" href="{% static 'fontawesomefree/css/solid.css' %}" as="style" />
-    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" />
-    <link rel="preconnect" href="https://unpkg.com" />
 
     <!-- Critical CSS -->
     <style>
-      /* Loading screen styles */
       #loading {
         position: fixed;
         inset: 0;
@@ -25,19 +22,12 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #111827;
+        background-color: rgb(18 18 18);
         transition: opacity 500ms;
       }
       
-      /* Smooth scrolling */
       html {
         scroll-behavior: smooth;
-      }
-      
-      /* Animation performance boost */
-      [data-aos] {
-        will-change: transform, opacity;
-        backface-visibility: hidden;
       }
     </style>
 
@@ -51,23 +41,26 @@
     <title>Yosef Emyayu | Senior Web Developer</title>
     {% tailwind_css %}
 
-    <!-- AOS CSS for all screens -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
   </head>
 
-  <body style="font-size: smaller;" class="bg-gray-900 text-gray-100 font-sans min-h-screen flex flex-col overflow-x-hidden">
+  <body class="bg-bg-100 dark:bg-dark-background text-text-100 dark:text-dark-text font-sans min-h-screen flex flex-col overflow-x-hidden transition-colors duration-300">
     <!-- Loading Screen -->
     {% comment %} <div id="loading" class="opacity-100">
       <div class="relative animate-float">
-        <div class="absolute inset-0 rounded-full bg-secondary/20 animate-ping"></div>
+        <div class="absolute inset-0 rounded-full bg-primary-500/20 animate-ping"></div>
         <div class="relative flex items-center justify-center">
           <img src="{% static 'img/logo_2.png' %}" alt="Loading" width="64" height="64" class="animate-spin-slow" loading="eager" />
         </div>
       </div>
-      <p class="mt-6 text-secondary font-medium tracking-wider text-center">
-        <span class="gradient-text">Loading . . .</span>
-      </p>
-    </div> {% endcomment %}
+      <p class="mt-6 text-primary-500 font-medium tracking-wider">Loading . . .</p>
+    </div>
 
     <!-- Main Content -->
     <div class="flex flex-col lg:flex-row flex-1">
@@ -76,30 +69,41 @@
       {% endblock %}
     </div>
 
-    <!-- Deferred JavaScript -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-    <script src="https://unpkg.com/htmx.org@2.0.4" defer crossorigin="anonymous"></script>
+    <!-- Add theme toggle script -->
+    <script defer>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle')
+        const themeIcon = document.getElementById('themeIcon')
+        const html = document.documentElement
+      
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      
+        if (savedTheme === 'light') {
+          html.classList.add('light')
+          themeIcon.classList.replace('fa-moon', 'fa-sun')
+        }
+      
+        themeToggle.addEventListener('click', () => {
+          html.classList.toggle('light')
+          if (html.classList.contains('light')) {
+            themeIcon.classList.replace('fa-moon', 'fa-sun')
+            localStorage.setItem('theme', 'light')
+          } else {
+            themeIcon.classList.replace('fa-sun', 'fa-moon')
+            localStorage.setItem('theme', 'dark')
+          }
+        })
+      })
+    </script>
+    <div class="bg-primary/40 rounded-full fixed bottom-10 right-4 z-50">
+      {% include 'components/theme_toggle.html' %}
+    </div>
 
     <!-- Inline critical JS -->
     <script defer>
-      // Optimized initialization
       document.addEventListener('DOMContentLoaded', function () {
-        // Initialize AOS for all screens
-        AOS.init({
-          duration: 800,
-          easing: 'ease-out-quart',
-          once: false,
-          offset: 100,
-          // Only disable on extremely low-end devices
-          //disable: function () {
-          //  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && window.innerWidth < 480
-          //}
-          disable: function () {
-            return window.innerWidth < 100
-          }
-        })
-      
-        // Simplified loading screen hide
         setTimeout(() => {
           const loading = document.getElementById('loading')
           loading.style.opacity = '0'
@@ -107,5 +111,6 @@
         }, 300)
       })
     </script>
+    <script src=" {% static 'js/htmx.min.js' %}"></script>
   </body>
 </html>

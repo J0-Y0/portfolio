@@ -1,75 +1,101 @@
-/**
- * This is a minimal config.
- *
- * If you need the full config, get it from here:
- * https://unpkg.com/browse/tailwindcss@latest/stubs/defaultConfig.stub.js
- */
-
 module.exports = {
+  darkMode: "class",
   content: [
-    /**
-     * HTML. Paths to Django template files that will contain Tailwind CSS classes.
-     */
-
-    /*  Templates within theme app (<tailwind_app_name>/templates), e.g. base.html. */
-    "../temnode_modulesplates/**/*.html",
-    ".//flowbite/**/*.js",
-
-    /*
-     * Main templates directory of the project (BASE_DIR/templates).
-     * Adjust the following line to match your project structure.
-     */
+    "../templates/**/*.html",
+    "./flowbite/**/*.js",
     "../../templates/**/*.html",
-
-    /*
-     * Templates in other django apps (BASE_DIR/<any_app_name>/templates).
-     * Adjust the following line to match your project structure.
-     */
     "../../**/templates/**/*.html",
-
-    /**
-     * JS: If you use Tailwind CSS in JavaScript, uncomment the following lines and make sure
-     * patterns match your project structure.
-     */
-    /* JS 1: Ignore any JavaScript in node_modules folder. */
-    // '!../../**/node_modules',
-    /* JS 2: Process all JavaScript files in the project. */
-    // '../../**/*.js',
-
-    /**
-     * Python: If you use Tailwind CSS classes in Python, uncomment the following line
-     * and make sure the pattern below matches your project structure.
-     */
-    // '../../**/*.py'
   ],
   theme: {
-    extend: {},
-    colors: {
-      primary: "#147294",
-      secondary: "#F4C236",
-      tertiary: "#E6E6E6",
-      quaternary: "#1A202C",
-      quinary: "#F4F4F4",
-      success: "#2ECC71",
-      info: "#3498DB",
-      warning: "#FFC107",
-      danger: "#E74C3C",
-      // light: "#F8F9FA",
-      // dark: "#343A40",
-      input_dark: "#2c4558",
-      transparent_bg: "#0d1f2dcc",
+    extend: {
+      colors: {
+        // Primary color scale - refined orange palette with better accessibility
+        primary: {
+          50: "#fff8f0", // Lightest warm white
+          100: "#ffedd5", // Soft peach
+          200: "#ffe0b5", // Light orange
+          300: "#ffcc80", // Muted orange
+          400: "#ffb347", // Vibrant orange (secondary accent)
+          500: "#ff9800", // Balanced primary orange (WCAG compliant)
+          600: "#f57c00", // Deep orange (buttons/hover)
+          700: "#e65100", // Rich orange (important elements)
+          800: "#bf360c", // Dark orange
+          900: "#8d2b0b", // Deep sophisticated orange
+          DEFAULT: "#ff9800", // Material Design standard orange
+        },
 
-      bg_dark: "#0D1F2D",
-      text_light: "#66d6ff",
-      text_light: "#66d6ff",
+        scrollbar: {
+          bg: "#fac89600",
+          color: "#ff960061",
+        },
+
+        // Secondary color - complementary teal for balance
+        secondary: {
+          50: "#e0f7fa",
+          100: "#b2ebf2",
+          200: "#80deea",
+          300: "#4dd0e1",
+          400: "#26c6da",
+          500: "#00bcd4",
+          600: "#00acc1",
+          700: "#0097a7",
+          800: "#00838f",
+          900: "#006064",
+        },
+
+        // Text colors - optimized for readability
+        text: {
+          100: "#212121", // High contrast (WCAG AAA)
+          200: "#424242", // Secondary text
+          300: "#757575", // Tertiary text
+          400: "#bdbdbd", // Disabled text
+        },
+
+        // Background colors - subtle warmth
+        bg: {
+          100: "#ffffff", // Pure white
+          200: "#faf5f0", // Warm white
+          300: "#f5f5f5", // Neutral white
+          400: "#eeeeee", // Light gray
+          500: "lightgray", // Light gray
+        },
+
+        // Semantic colors
+        success: "#4caf50",
+        warning: "#ffc107",
+        error: "#f44336",
+        info: "#2196f3",
+
+        // Theme-specific colors
+        light: {
+          card: "#ffffff",
+          background: "#faf5f0", // Warm subtle background
+          text: "#212121",
+          border: "#e0e0e0", // Softer border
+          glass: "rgba(255, 255, 255, 0.85)", // More opaque for readability
+          overlay: "rgba(0, 0, 0, 0.08)", // Subtle overlay
+        },
+        dark: {
+          card: "#1e1e1e", // True dark instead of blue-ish
+          background: "#121212", // Deep dark
+          text: "#f5f5f5",
+          border: "#424242",
+          glass: "rgba(30, 30, 30, 0.85)",
+          overlay: "rgba(255, 255, 255, 0.08)",
+        },
+      },
+
+      // Additional theme enhancements
+      boxShadow: {
+        glass: "0 4px 30px rgba(0, 0, 0, 0.1)",
+        "glass-dark": "0 4px 30px rgba(0, 0, 0, 0.3)",
+      },
+      backdropBlur: {
+        glass: "8px",
+      },
     },
   },
   plugins: [
-    /**
-     * '@tailwindcss/forms' is the forms plugin that provides a minimal styling
-     * for forms. If you don't like it or have own styling for forms,
-     * comment the line below to disable '@tailwindcss/forms'.
-     */
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
     require("@tailwindcss/aspect-ratio"),

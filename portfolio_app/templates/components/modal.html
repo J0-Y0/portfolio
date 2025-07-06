@@ -1,30 +1,36 @@
-<div class="relative hidden z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="generic-modal">
+{% load static %}
+<div class="relative hidden z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="generic-modal">
   <!-- Background overlay -->
-  <div class="fixed inset-0 bg-transparent_bg transition-opacity"></div>
+  <div class="fixed inset-0 bg-black/50 dark:bg-black/70 backdrop-blur-sm transition-opacity"></div>
 
   <!-- Modal container -->
-  <div class="fixed inset-0 z-10 overflow-y-auto">
+  <div class="fixed inset-0 z-50 overflow-y-auto">
     <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-      <div class="relative transform overflow-hidden rounded-lg text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+      <div class="relative transform overflow-hidden rounded-xl bg-bg-100 dark:bg-dark-card text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg border border-bg-400 dark:border-dark-border">
         <!-- Modal body -->
-        <div class="modal-body bg-input_dark px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-          <div class="flex flex-col sm:flex-row items-center">
-            <div class="border p-3 rounded-full border-primary max-w-16">
-              <img class="h-12" src="../static/img/logo_2.png" alt="Logo" />
+        <div class="px-6 pt-6 pb-4 sm:p-6 sm:pb-4">
+          <div class="flex flex-col sm:flex-row items-center  gap-4">
+            <div class="border-2 p-2 rounded-full border-primary-500/30 bg-primary-500/10">
+              <img class="h-12 w-12" src="{% static 'img/logo_2.png' %}" alt="Logo" />
             </div>
 
-            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-              <h3 class="leading-6 modal-title font-extrabold text-2xl">Modal Title</h3>
+            <div class="mt-0 text-center sm:mt-0 sm:text-left">
+              <h3 class="text-2xl font-bold text-text-100 dark:text-dark-text modal-title">Modal Title</h3>
               <div class="mt-2">
-                <p class="text-xl text-quinary modal-content">This is a sample modal content. You can customize this message as needed.</p>
+                <p class="text-lg text-text-300 dark:text-dark-text/70 modal-content">This is a sample modal content. You can customize this message as needed.</p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Modal footer -->
-        <div class="bg-input_dark py-5 flex justify-end px-2">
-          <button type="button" class="p-1 rounded-xl confirm-modal transition ease-in-out duration-700 ms-2 border text-li px-4 py-1 hover:bg-text_light hover:text-bg_dark">Close</button>
+        <div class="px-6 py-4 bg-bg-200/50 dark:bg-dark-card/80 border-t border-bg-400/50 dark:border-dark-border/50 flex justify-end gap-3">
+          <button type="button" class="close-modal px-4 py-2 rounded-lg border border-bg-400 dark:border-dark-border text-text-300 dark:text-dark-text/70 hover:bg-bg-400/50 dark:hover:bg-dark-border/50 transition-colors duration-300">
+            Cancel
+          </button>
+          <button type="button" class="confirm-modal px-6 py-2 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 text-white hover:from-primary-600 hover:to-primary-700 transition-all duration-300">
+            Confirm
+          </button>
         </div>
       </div>
     </div>
@@ -33,30 +39,62 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('generic-modal')
-    const closeModalButtons = modal.querySelectorAll('.close-modal')
-    const modalTitle = modal.querySelector('.modal-title')
-    const modalContent = modal.querySelector('.modal-content')
-    const confirmButton = modal.querySelector('.confirm-modal')
+    const modal = document.getElementById('generic-modal');
+    const closeModalButtons = document.querySelectorAll('.close-modal');
+    const modalTitle = modal.querySelector('.modal-title');
+    const modalContent = modal.querySelector('.modal-content');
+    const confirmButton = modal.querySelector('.confirm-modal');
   
-    window.openModal = ({ title = '', content = '', onConfirm = null }) => {
-      modalTitle.textContent = title
-      modalContent.textContent = content
+    window.openModal = ({ 
+      title = '', 
+      content = '', 
+      confirmText = 'Confirm',
+      cancelText = 'Cancel',
+      onConfirm = null,
+      onCancel = null
+    }) => {
+      modalTitle.textContent = title;
+      modalContent.textContent = content;
+      confirmButton.textContent = confirmText;
+      
+      const cancelBtn = modal.querySelector('.close-modal');
+      if (cancelBtn) cancelBtn.textContent = cancelText;
   
       confirmButton.onclick = () => {
         if (typeof onConfirm === 'function') {
-          onConfirm()
+          onConfirm();
         }
-        closeModal()
-      }
+        closeModal();
+      };
   
-      modal.classList.remove('hidden')
-    }
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    };
   
     const closeModal = () => {
-      modal.classList.add('hidden')
-    }
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    };
   
-    closeModalButtons.forEach((btn) => btn.addEventListener('click', closeModal))
-  })
+    closeModalButtons.forEach((btn) => btn.addEventListener('click', () => {
+      if (typeof onCancel === 'function') {
+        onCancel();
+      }
+      closeModal();
+    }));
+    
+    // Close modal when clicking on backdrop
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+  });
 </script>
