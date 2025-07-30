@@ -66,6 +66,19 @@
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                   
                   
                   
@@ -180,7 +193,33 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
                   {% else %}
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     
                     
@@ -243,6 +282,19 @@
                   
                   
                   opacity-0
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -401,21 +453,21 @@
             <div class="space-y-5">
               <div>
                 <p class="text-sm text-text-300 dark:text-dark-text/60 mb-1">Client</p>
-                <p class="text-text-100 dark:text-dark-text font-medium">Bank Of Abyssinia</p>
+                <p class="text-text-100 dark:text-dark-text font-medium">{{ project.client }}</p>
               </div>
               <div>
                 <p class="text-sm text-text-300 dark:text-dark-text/60 mb-1">Category</p>
-                <p class="text-text-100 dark:text-dark-text font-medium">Banking System</p>
+                <p class="text-text-100 dark:text-dark-text font-medium">{{ project.category }}</p>
               </div>
               <div>
                 <p class="text-sm text-text-300 dark:text-dark-text/60 mb-1">Completion Date</p>
-                <p class="text-text-100 dark:text-dark-text font-medium">January 2023</p>
+                <p class="text-text-100 dark:text-dark-text font-medium">{{ project.completed_date }}</p>
               </div>
               <div>
                 <p class="text-sm text-text-300 dark:text-dark-text/60 mb-1">Status</p>
                 <p class="text-text-100 dark:text-dark-text font-medium flex items-center gap-2">
                   <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                  In Production
+                  {{ project.status}}
                 </p>
               </div>
             </div>

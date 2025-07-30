@@ -135,6 +135,18 @@ class ProjectAdmin(ModelAdmin):
                 ),
             },
         ),
+        (
+            "Additional",
+            {
+                "classes": ["tab"],
+                "fields": (
+                   "client",
+                     "category",
+                     "status",
+                     "completed_date"
+                ),
+            },
+        ),
          (
             "Recourse",
             

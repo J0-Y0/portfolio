@@ -107,7 +107,16 @@ class Project(models.Model):
         blank=True,
         help_text="optional, if a github link is available for this project",
     )
-    
+    # project detail
+    client = models.CharField(max_length=150,null=True, blank=True)
+    category = models.CharField(max_length=150,null=True, blank=True)
+    status = models.CharField(
+        max_length=150,
+        choices=(("in_development", "In Development"), ("in_production", "In Production")),
+        default="in_development",
+    )
+    completed_date = models.DateField(null=True, blank=True)
+    # project related fields
     tags = models.ManyToManyField("Tag", related_name="projects", blank=True)
     skills_used = models.ManyToManyField("Skill", related_name="projects")
 
