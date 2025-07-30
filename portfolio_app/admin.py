@@ -18,7 +18,9 @@ class SocialLinkInline(TabularInline):
 
 class ProjectImageInline(TabularInline):
     model = ProjectImage
-    extra = 1  # Allows one empty form for new entries
+    extra = 1 
+    tab = True
+    # Allows one empty form for new entries
     # readonly_fields = ["thumbnail"]
 
     # def thumbnail(self, instance):
@@ -104,7 +106,9 @@ class ProjectAdmin(ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     inlines = [
         ProjectImageInline,
+        
     ]
+# make inline field on tab 
 
     fieldsets = [
         (
@@ -128,7 +132,18 @@ class ProjectAdmin(ModelAdmin):
                     "problem_of_statement",
                     "solution_detail",
                     "feature",
+                ),
+            },
+        ),
+         (
+            "Recourse",
+            
+            {
+                "classes": ["tab"],
+                "fields": (
+                    "github_link",
                     "video_link",
+                    "link",
                 ),
             },
         ),
