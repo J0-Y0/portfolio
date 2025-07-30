@@ -79,6 +79,10 @@
                     
                     
                     
+                    
+                    
+                    
+                    
                   
                   
                   
@@ -206,7 +210,15 @@
 
 
 
+
+
+
+
                   {% else %}
+                    
+                    
+                    
+                    
                     
                     
                     
@@ -282,6 +294,10 @@
                   
                   
                   opacity-0
+
+
+
+
 
 
 
@@ -467,7 +483,9 @@
                 <p class="text-sm text-text-300 dark:text-dark-text/60 mb-1">Status</p>
                 <p class="text-text-100 dark:text-dark-text font-medium flex items-center gap-2">
                   <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                  {{ project.status}}
+
+                  {{ project.get_status_display }}
+                  <span class="text-sm text-text-300 dark:text-dark-text/60">{{ project.get_status_description }}</span>
                 </p>
               </div>
             </div>
