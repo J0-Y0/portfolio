@@ -91,8 +91,23 @@ class Project(models.Model):
         null=True,
         blank=True,
         help_text="For better readability Put each feature in a new line ",
-    )  # optional
-    video_link = models.URLField(null=True, blank=True)
+    ) 
+    # optional
+    video_link = models.URLField(
+        null=True, blank=True,
+        help_text="optional, if a video is available for this project",
+    )
+    link = models.URLField(
+        null=True,
+        blank=True,
+        help_text="optional, if a link is available for this project"
+    )
+    github_link = models.URLField(
+        null=True,
+        blank=True,
+        help_text="optional, if a github link is available for this project",
+    )
+    
     tags = models.ManyToManyField("Tag", related_name="projects", blank=True)
     skills_used = models.ManyToManyField("Skill", related_name="projects")
 
@@ -105,8 +120,10 @@ class Project(models.Model):
             formatted_feature = ""
             for feature in feature_list:
                 formatted_feature += "<li>" + feature + "</li>"
+            
+            self.feature = formatted_feature
 
-        self.feature = formatted_feature
+        super().save(*args, **kwargs)
         return super().save(*args, **kwargs)
 
     def __str__(self):
