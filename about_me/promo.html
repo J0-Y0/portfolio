@@ -4,26 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yosef Emyayu | Professional Portfolio</title>
+    <title>Yosef Emyayu | Full-Stack Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --ms-blue: #0078D4;
-            --ms-dark: #201F1E;
-            --ms-light: #F3F2F1;
-            --ms-gray: #E6E6E6;
-            --ms-accent: #FFB900;
-            --ms-border: 1px solid rgba(0, 0, 0, 0.1);
-            --ms-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.13), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.11);
-            --ms-radius: 4px;
+            /* Sophisticated Color Palette */
+            --deep-navy: #0a192f;
+            --teal-accent: #64ffda;
+            --light-slate: #ccd6f6;
+            --slate: #8892b0;
+            --navy-shadow: rgba(2, 12, 27, 0.7);
 
-            /* New color palette - Oceanic theme */
-            --ocean-teal: #00B4A0;
-            --deep-blue: #0077B6;
-            --seafoam: #90E0EF;
-            --wave-crest: #CAF0F8;
-            --gradient-blue-green: linear-gradient(135deg, var(--deep-blue) 0%, var(--ocean-teal) 100%);
+            /* Gradients */
+            --hero-gradient: linear-gradient(135deg, rgba(10, 25, 47, 0.9) 0%, rgba(21, 101, 192, 0.6) 100%);
+            --card-gradient: linear-gradient(135deg, #112240 0%, #0a192f 100%);
+
+            /* Effects */
+            --soft-shadow: 0 10px 30px -15px var(--navy-shadow);
+            --elegant-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
 
         * {
@@ -33,181 +34,232 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--ms-light);
-            color: var(--ms-dark);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--deep-navy);
+            color: var(--light-slate);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--deep-navy);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--teal-accent);
+            border-radius: 4px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 40px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
+        /* Header - Elegant and Minimal */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 0;
-            border-bottom: var(--ms-border);
-            margin-bottom: 40px;
+            padding: 30px 0;
+            position: relative;
+            z-index: 10;
         }
 
         .logo {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--deep-blue);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--teal-accent);
+            text-decoration: none;
             display: flex;
             align-items: center;
-            text-decoration: none;
-            transition: color 0.3s ease;
+            transition: var(--elegant-transition);
         }
 
         .logo:hover {
-            color: var(--ocean-teal);
+            transform: translateY(-3px);
         }
 
-        .logo i {
-            margin-right: 8px;
-            font-size: 24px;
+        .logo img {
+            height: 40px;
+            margin-right: 12px;
+            filter: drop-shadow(0 0 5px rgba(100, 255, 218, 0.4));
         }
 
+        /* Network Status - Modern Indicator */
         .network-status {
             display: flex;
             align-items: center;
             font-size: 14px;
-            color: #605E5C;
+            color: var(--slate);
+            background: rgba(100, 255, 218, 0.1);
+            padding: 8px 16px;
+            border-radius: 50px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: var(--elegant-transition);
+        }
+
+        .network-status:hover {
+            background: rgba(100, 255, 218, 0.2);
+            transform: translateY(-2px);
         }
 
         .status-dot {
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            background: #D2D0CE;
             margin-right: 8px;
+            background: var(--slate);
+            box-shadow: 0 0 10px 2px rgba(100, 255, 218, 0.3);
         }
 
+        /* Hero Section - Modern Layout */
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 50px;
             align-items: center;
-            margin-bottom: 80px;
+            flex-grow: 1;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.1) 0%, rgba(100, 255, 218, 0) 70%);
+            z-index: -1;
         }
 
         .hero-content h1 {
-            font-size: 42px;
-            font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 16px;
-            color: var(--deep-blue);
-            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--ocean-teal) 70%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: clamp(36px, 5vw, 60px);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--light-slate);
+        }
+
+        .hero-content h1 span {
+            color: var(--teal-accent);
+            display: inline-block;
+            position: relative;
+        }
+
+        .hero-content h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--teal-accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-content:hover h1 span::after {
+            transform: scaleX(1);
+            transform-origin: left;
         }
 
         .hero-content p {
             font-size: 18px;
-            color: #323130;
-            margin-bottom: 32px;
+            color: var(--slate);
+            margin-bottom: 40px;
             max-width: 90%;
         }
 
-        .highlight-text {
-            color: var(--ocean-teal);
-            font-weight: 600;
-            position: relative;
-            display: inline-block;
-        }
-
-        .highlight-text::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--seafoam);
-            border-radius: 2px;
-        }
-
+        /* Button Group - Elegant Interaction */
         .button-group {
             display: flex;
-            gap: 12px;
+            gap: 20px;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 20px;
-            font-size: 15px;
+            padding: 12px 28px;
+            font-size: 16px;
             font-weight: 600;
-            border-radius: var(--ms-radius);
+            border-radius: 4px;
             text-decoration: none;
-            transition: all 0.3s ease;
-            height: 36px;
+            transition: var(--elegant-transition);
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
 
         .btn-primary {
-            background: var(--gradient-blue-green);
-            color: white;
-            border: none;
-            box-shadow: 0 4px 15px rgba(0, 180, 160, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 180, 160, 0.4);
+            background: transparent;
+            color: var(--teal-accent);
+            border: 2px solid var(--teal-accent);
         }
 
         .btn-primary::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
+            left: 0;
+            width: 0;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
+            background: rgba(100, 255, 218, 0.1);
+            transition: width 0.3s ease;
+            z-index: -1;
         }
 
         .btn-primary:hover::before {
-            left: 100%;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -10px rgba(100, 255, 218, 0.3);
         }
 
         .btn-secondary {
-            background-color: transparent;
-            color: var(--deep-blue);
-            border: 1px solid var(--deep-blue);
+            background: transparent;
+            color: var(--light-slate);
+            border: 2px solid var(--slate);
         }
 
         .btn-secondary:hover {
-            background-color: rgba(0, 119, 182, 0.1);
-            color: var(--ocean-teal);
-            border-color: var(--ocean-teal);
+            border-color: var(--teal-accent);
+            color: var(--teal-accent);
+            transform: translateY(-3px);
         }
 
+        /* Profile Card - Glass Morphism */
         .profile-card {
-            background: white;
-            border-radius: var(--ms-radius);
-            box-shadow: var(--ms-shadow);
+            background: rgba(17, 34, 64, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
             padding: 40px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            border: var(--ms-border);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--soft-shadow);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: var(--elegant-transition);
             position: relative;
             overflow: hidden;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px -15px var(--navy-shadow);
+            border-color: rgba(100, 255, 218, 0.3);
         }
 
         .profile-card::before {
@@ -216,98 +268,120 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: var(--gradient-blue-green);
-        }
-
-        .profile-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 119, 182, 0.15);
+            height: 4px;
+            background: var(--teal-accent);
         }
 
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 24px;
-            border: 4px solid var(--wave-crest);
-            box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
-            transition: transform 0.3s ease;
+            margin: 0 auto 25px;
+            border: 3px solid var(--teal-accent);
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+            transition: var(--elegant-transition);
+            display: block;
         }
 
         .profile-card:hover .profile-img {
-            transform: scale(1.05);
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.5);
         }
 
         .profile-card h2 {
-            font-size: 24px;
-            font-weight: 600;
+            font-size: 26px;
+            font-weight: 700;
             margin-bottom: 8px;
-            color: var(--deep-blue);
+            color: var(--light-slate);
+            text-align: center;
         }
 
         .profile-card p {
-            color: #605E5C;
-            margin-bottom: 24px;
-        }
-
-        .network-notice {
-            background-color: #fde7e7;
-            padding: 12px 16px;
-            border-radius: var(--ms-radius);
-            margin-bottom: 24px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            border-left: 4px solid var(--ocean-teal);
-            color: var(--deep-blue);
-            font-weight: bold;
-        }
-
-        .network-notice i {
-            color: rgb(143, 127, 6);
-            margin-right: 8px;
+            color: var(--slate);
+            margin-bottom: 30px;
+            text-align: center;
             font-size: 16px;
         }
 
+        /* Network Notice - Elegant Alert */
+        .network-notice {
+            background: rgba(214, 40, 40, 0.1);
+            padding: 14px 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            border-left: 3px solid #d62828;
+            color: var(--light-slate);
+            transition: var(--elegant-transition);
+        }
+
+        .network-notice:hover {
+            transform: translateX(5px);
+        }
+
+        .network-notice i {
+            margin-right: 12px;
+            color: #d62828;
+            font-size: 18px;
+        }
+
+        /* QR Container - Modern Design */
         .qr-container {
-            background: white;
-            padding: 16px;
-            border-radius: var(--ms-radius);
-            box-shadow: var(--ms-shadow);
-            margin-bottom: 16px;
-            border: var(--ms-border);
-            border-top: 3px solid var(--deep-blue);
-            transition: transform 0.3s ease;
+            background: rgba(17, 34, 64, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: var(--elegant-transition);
+            position: relative;
+            overflow: hidden;
         }
 
         .qr-container:hover {
-            transform: scale(1.02);
+            transform: translateY(-5px);
+            border-color: var(--teal-accent);
+            box-shadow: 0 15px 25px -10px rgba(2, 12, 27, 0.7);
+        }
+
+        .qr-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--teal-accent);
         }
 
         .qr-code {
-            width: 160px;
-            height: 160px;
+            width: 100%;
+            max-width: 200px;
+            height: auto;
             margin: 0 auto;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
 
         .qr-text {
             font-size: 14px;
-            color: #605E5C;
-            max-width: 200px;
-            margin: 0 auto;
+            color: var(--slate);
+            text-align: center;
+            margin-top: 15px;
         }
 
+        /* Contact Section - Elegant Grid */
         .contact-section {
-            padding: 80px 0;
-            background: white;
-            border-radius: var(--ms-radius);
-            box-shadow: var(--ms-shadow);
-            margin-bottom: 40px;
-            border: var(--ms-border);
+            padding: 60px 0;
             position: relative;
-            overflow: hidden;
         }
 
         .contact-section::before {
@@ -316,38 +390,35 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: var(--gradient-blue-green);
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--teal-accent), transparent);
         }
 
         .section-title {
-            font-size: 28px;
-            font-weight: 600;
+            font-size: clamp(28px, 4vw, 36px);
+            font-weight: 700;
             text-align: center;
-            margin-bottom: 40px;
-            color: var(--deep-blue);
+            margin-bottom: 50px;
+            color: var(--light-slate);
             position: relative;
             display: inline-block;
-            padding-bottom: 8px;
-            padding-left: 80px;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
-            background: var(--ocean-teal);
-            border-radius: 3px;
+            height: 2px;
+            background: var(--teal-accent);
         }
 
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
+            gap: 30px;
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -355,83 +426,94 @@
         .contact-item {
             display: flex;
             align-items: center;
-            padding: 16px;
-            border-radius: var(--ms-radius);
-            transition: all 0.3s ease;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 119, 182, 0.1);
+            padding: 25px;
+            border-radius: 8px;
+            transition: var(--elegant-transition);
+            background: rgba(17, 34, 64, 0.5);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
         }
 
         .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 119, 182, 0.1);
-            border-color: rgba(0, 180, 160, 0.3);
+            transform: translateY(-8px);
+            background: rgba(17, 34, 64, 0.7);
+            border-color: var(--teal-accent);
+            box-shadow: 0 10px 25px -10px var(--navy-shadow);
         }
 
         .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-blue-green);
+            width: 60px;
+            height: 60px;
+            background: rgba(100, 255, 218, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 16px;
-            color: white;
-            font-size: 16px;
+            margin-right: 20px;
+            color: var(--teal-accent);
+            font-size: 22px;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            transition: var(--elegant-transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            background: rgba(100, 255, 218, 0.2);
+            transform: rotate(15deg) scale(1.1);
         }
 
         .contact-info h3 {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 4px;
-            color: var(--deep-blue);
+            margin-bottom: 6px;
+            color: var(--light-slate);
         }
 
         .contact-info p {
-            font-size: 14px;
-            color: #605E5C;
+            font-size: 15px;
+            color: var(--slate);
         }
 
+        /* Footer - Minimal Design */
         footer {
             text-align: center;
-            padding: 24px 0;
-            color: #605E5C;
+            padding: 30px 0;
+            color: var(--slate);
             font-size: 14px;
-            border-top: var(--ms-border);
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            margin-top: auto;
         }
 
-        @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content p {
-                max-width: 100%;
-            }
-
-            .button-group {
-                justify-content: center;
-            }
-
-            .profile-card {
-                padding: 24px;
-            }
+        footer p {
+            opacity: 0.8;
+            transition: var(--elegant-transition);
         }
 
-        /* Animation for network status */
-        @keyframes pulse {
-            0% {
-                opacity: 0.6;
+        footer:hover p {
+            opacity: 1;
+            color: var(--teal-accent);
+        }
+
+        /* Animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
             }
 
             50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
                 opacity: 1;
             }
 
-            100% {
+            50% {
                 opacity: 0.6;
             }
         }
@@ -440,15 +522,55 @@
             animation: pulse 1.5s infinite;
         }
 
-        /* New wave animation for buttons */
-        @keyframes wave {
-            0% {
-                transform: translateX(-100%);
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+                height: auto;
+                min-height: 100vh;
             }
 
-            100% {
-                transform: translateX(100%);
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+                padding: 60px 0;
             }
+
+            .hero-content p {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .button-group {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .profile-card {
+                padding: 30px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Special Effects */
+        .teal-glow {
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--elegant-transition);
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -457,8 +579,8 @@
     <div class="container">
         <header>
             <a href="#" class="logo">
-                <img src="logo_2.png" alt="logo" height="40">
-                <span style="padding:0 8px"><b>Yosef Emyayu</b></span>
+                <img src="logo_2.png" alt="logo">
+                <span>Yosef Emyayu</span>
             </a>
             <div class="network-status" id="networkStatus">
                 <span class="status-dot checking"></span>
@@ -468,47 +590,47 @@
 
         <section class="hero">
             <div class="hero-content">
-                <h1>Building <span class="highlight-text">Scalable Solutions</span> with Modern Technology</h1>
-                <p>Full-stack developer specializing in Python, Django, and cloud-native applications. I create robust
-                    systems that balance performance with elegant user experiences.</p>
+                <h1 class="hidden">Building <span class="teal-glow">Scalable Solutions</span> with Modern Technology
+                </h1>
+                <p class="hidden">Full-stack developer specializing in Python, Django, and cloud-native applications. I
+                    create robust systems that balance performance with elegant user experiences.</p>
                 <div class="button-group">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>
+                    <a href="#contact" class="btn btn-primary hidden">
+                        <i class="fas fa-paper-plane" style="margin-right: 10px;"></i>
                         Contact Me
                     </a>
-                    <a href="#profile" class="btn btn-secondary">
-                        <i class="fas fa-user" style="margin-right: 8px;"></i>
+                    <a href="#profile" class="btn btn-secondary hidden">
+                        <i class="fas fa-user" style="margin-right: 10px;"></i>
                         View Profile
                     </a>
                 </div>
             </div>
 
-            <div class="hero-image" id="profile">
+            <div class="hero-image hidden" id="profile">
                 <div class="profile-card">
                     <img src="my_pic.png" alt="Yosef Emyayu" class="profile-img">
                     <h2>Yosef Emyayu</h2>
-                    <p>Full Stack Engineer | Web developer</p>
+                    <p>Full Stack Engineer | Web Developer</p>
 
                     <div class="network-notice">
                         <i class="fas fa-exclamation-circle"></i>
-                        <span><b>Oops,</b> your network restricts external access</span>
+                        <span><b>Network Restricted:</b> Viewing local profile</span>
                     </div>
 
                     <div class="qr-container">
                         <div class="qr-code">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://yosefemyayu.pythonanywhere.com/home"
-                                alt="QR Code">
+                            <img src="qr.png" alt="QR Code">
                         </div>
                     </div>
-                    <p class="qr-text">Scan this QR code to view my full portfolio</p>
+                    <p class="qr-text">Scan to view full portfolio</p>
                 </div>
             </div>
         </section>
 
         <section class="contact-section" id="contact">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title hidden">Get In Touch</h2>
             <div class="contact-grid">
-                <div class="contact-item">
+                <div class="contact-item hidden">
                     <div class="contact-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
@@ -517,7 +639,7 @@
                         <p>yosefemyayu1@gmail.com</p>
                     </div>
                 </div>
-                <div class="contact-item">
+                <div class="contact-item hidden">
                     <div class="contact-icon">
                         <i class="fas fa-phone-alt"></i>
                     </div>
@@ -526,7 +648,7 @@
                         <p>+251 969 13 9694</p>
                     </div>
                 </div>
-                <div class="contact-item">
+                <div class="contact-item hidden">
                     <div class="contact-icon">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
@@ -538,12 +660,12 @@
             </div>
         </section>
 
-        <footer>
+        <footer class="hidden">
             <p>&copy; 2023 Yosef Emyayu. All rights reserved.</p>
         </footer>
     </div>
 
-    <!-- <script>
+    <script>
         // Network status check
         function checkNetwork() {
             const statusElement = document.getElementById('networkStatus');
@@ -559,15 +681,15 @@
             })
                 .then(() => {
                     // Online state
-                    statusDot.style.backgroundColor = '#00B4A0';
+                    statusDot.style.backgroundColor = '#64ffda';
                     statusElement.innerHTML = `
                     <span class="status-dot"></span>
-                    <span>Online - <a href="https://yosefemyayu.pythonanywhere.com/home" style="color: var(--deep-blue); text-decoration: none;">View full portfolio</a></span>
+                    <span>Online - <a href="https://yosefemyayu.pythonanywhere.com/home" style="color: var(--teal-accent); text-decoration: none;">View full portfolio →</a></span>
                 `;
                 })
                 .catch(() => {
                     // Offline state
-                    statusDot.style.backgroundColor = '#D83B01';
+                    statusDot.style.backgroundColor = '#d62828';
                     statusElement.innerHTML = `
                     <span class="status-dot"></span>
                     <span>Offline - Viewing local profile</span>
@@ -578,6 +700,19 @@
         // Initialize network check
         window.addEventListener('load', () => {
             setTimeout(checkNetwork, 1500);
+
+            // Animate elements on scroll
+            const hiddenElements = document.querySelectorAll('.hidden');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            hiddenElements.forEach(el => observer.observe(el));
         });
 
         // Smooth scrolling for anchor links
@@ -589,7 +724,7 @@
                 });
             });
         });
-    </script> -->
+    </script>
 </body>
 
 </html>
