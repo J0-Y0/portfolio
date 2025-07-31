@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yosef Emyayu | Full-Stack Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
         rel="stylesheet">
@@ -40,7 +40,9 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+
         }
+
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
@@ -63,6 +65,7 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
+
         }
 
         /* Header - Elegant and Minimal */
@@ -131,6 +134,8 @@
             flex-grow: 1;
             padding: 40px 0;
             position: relative;
+
+
         }
 
         .hero::before {
@@ -577,7 +582,7 @@
 
 <body>
     <div class="container">
-        <header>
+        <!-- <header>
             <a href="#" class="logo">
                 <img src="logo_2.png" alt="logo">
                 <span>Yosef Emyayu</span>
@@ -586,7 +591,7 @@
                 <span class="status-dot checking"></span>
                 <span>Checking network...</span>
             </div>
-        </header>
+        </header> -->
 
         <section class="hero">
             <div class="hero-content">
@@ -608,7 +613,6 @@
 
             <div class="hero-image hidden" id="profile">
                 <div class="profile-card">
-                    <img src="my_pic.png" alt="Yosef Emyayu" class="profile-img">
                     <h2>Yosef Emyayu</h2>
                     <p>Full Stack Engineer | Web Developer</p>
 
@@ -636,7 +640,7 @@
                     </div>
                     <div class="contact-info">
                         <h3>Email</h3>
-                        <p>yosefemyayu1@gmail.com</p>
+                        <p>yosef.emyayu1@gmail.com</p>
                     </div>
                 </div>
                 <div class="contact-item hidden">
@@ -669,10 +673,8 @@
         // Network status check
         function checkNetwork() {
             const statusElement = document.getElementById('networkStatus');
-            const statusDot = statusElement.querySelector('.status-dot');
 
-            // Remove checking animation
-            statusDot.classList.remove('checking');
+
 
             fetch('https://www.google.com/favicon.ico', {
                 method: 'HEAD',
@@ -681,6 +683,8 @@
             })
                 .then(() => {
                     // Online state
+                    window.location.href = 'https://yosefemyayu.pythonanywhere.com/home';
+
                     statusDot.style.backgroundColor = '#64ffda';
                     statusElement.innerHTML = `
                     <span class="status-dot"></span>
@@ -726,5 +730,7 @@
         });
     </script>
 </body>
+
+
 
 </html>
