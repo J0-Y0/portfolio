@@ -165,7 +165,7 @@ class Skill(models.Model):
         upload_to="skill_logos/",
         validators=[validate_image_file],
         blank=True,
-        default="skill_default.svg",
+        default="skill_logos/skill_default.svg",
     )  # Ensure you have Pillow installed
 
     description = models.TextField(null=True, blank=True)  # "What I have done with it"
