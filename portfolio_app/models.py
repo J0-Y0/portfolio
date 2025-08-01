@@ -115,6 +115,11 @@ class Project(models.Model):
         choices=(("in_development", "In Development"), ("in_production", "In Production")),
         default="in_development",
     )
+    # you can use this to sort projects in the list
+    order = models.IntegerField(
+        default=1000,
+        help_text="Use this to sort projects in the list, lower number means  top of the list",
+    )
     completed_date = models.DateField(null=True, blank=True)
     # project related fields
     tags = models.ManyToManyField("Tag", related_name="projects", blank=True)
@@ -137,8 +142,9 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
-
-
+    class Meta:
+        ordering = ["order" ]
+      
 class ProjectImage(models.Model):
     project = models.ForeignKey(
         Project, on_delete=models.CASCADE, null=True, related_name="images"

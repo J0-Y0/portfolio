@@ -99,7 +99,7 @@ class EducationAdmin(ModelAdmin):
 @admin.register(Project)
 class ProjectAdmin(ModelAdmin):
     list_display = [
-        "title",
+        "title","order"
     ]
     search_fields = ["title"]
     filter_horizontal = ["skills_used", "tags"]
@@ -108,8 +108,9 @@ class ProjectAdmin(ModelAdmin):
         ProjectImageInline,
         
     ]
-# make inline field on tab 
-
+    # make inline field editable on list page row 
+    list_editable = ["order"]  # make inline field editable on list page row
+    
     fieldsets = [
         (
             "Basic description",
