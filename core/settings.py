@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "portfolio_app",
     "tailwind",
     "theme",
+    "job_scrap"
     # "django_browser_reload",
 ]
 
