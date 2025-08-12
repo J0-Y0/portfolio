@@ -23,7 +23,13 @@ ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS"), "127.0.0.1", "192.168.22.76"]
 # Application definitions
 
 INSTALLED_APPS = [
+    # unfold admin apps
     "unfold",
+    "unfold.contrib.import_export",
+    "import_export",
+    "unfold.contrib.filters",
+    
+    
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -138,6 +144,7 @@ from django.templatetags.static import static
 
 
 UNFOLD = {
+    "SHOW_BACK_BUTTON": False,
     "SITE_ICON": {
         "light": lambda request: static("img/logo_2.png"),
         "dark": lambda request: static("img/logo_2.png"),
@@ -146,6 +153,23 @@ UNFOLD = {
         "show_search": True,
         "show_all_applications": True,
         "navigation": [
+              {
+                "title": _("Job Hunting"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Local Jobs"),
+                        "icon": "work",
+                        "link": reverse_lazy("admin:job_scrap_local_changelist"),
+                    },
+                    {
+                        "title": _("International Jobs"),
+                        "icon": "enterprise",
+                        "link": reverse_lazy("admin:job_scrap_international_changelist"),
+                    },
+                ],
+            },
             {
                 "title": _("Authentication"),
                 "separator": True,
@@ -163,6 +187,7 @@ UNFOLD = {
                     },
                 ],
             },
+          
             {
                 "title": _("Visitor's Message"),
                 "separator": True,
